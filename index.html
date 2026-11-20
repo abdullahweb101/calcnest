@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CalcNest brings practical online calculators and clear guides together. Explore finance, math, health, business, education and everyday tools.">
+  <meta name="theme-color" content="#ffffff">
+  <title>CalcNest — Free Online Calculators & Practical Guides</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23315eea'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='42' font-family='Arial' font-weight='bold' fill='white'%3EC%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family:Inter,Arial,Helvetica,sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.65;
+    }
+    a { color:inherit; text-decoration:none; }
+    button,input { font:inherit; }
+    button:focus-visible,a:focus-visible,input:focus-visible {
+      outline:3px solid #9bb2ff;
+      outline-offset:3px;
+    }
+    .container { width:min(1160px,calc(100% - 40px)); margin:auto; }
+    .header {
+      height:76px;
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner {
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:23px;
+      font-weight:850;
+      letter-spacing:-1px;
+    }
+    .brand-icon {
+      width:39px;
+      height:39px;
+      display:grid;
+      place-items:center;
+      color:white;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      font-size:22px;
+    }
+    .brand span:last-child span { color:var(--blue); }
+    .nav { display:flex; align-items:center; gap:29px; }
+    .nav a { font-size:14px; font-weight:650; color:#536078; }
+    .nav a:hover { color:var(--blue); }
+    .nav .contact-link {
+      padding:10px 17px;
+      color:white;
+      background:var(--blue);
+      border-radius:10px;
+    }
+    .menu-button {
+      display:none;
+      border:1px solid var(--line);
+      background:white;
+      border-radius:10px;
+      width:43px;
+      height:42px;
+      font-size:22px;
+      cursor:pointer;
+    }
+    .hero {
+      padding:88px 0 76px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 85% 20%,rgba(118,89,232,.12),transparent 28%),
+        radial-gradient(circle at 10% 80%,rgba(49,94,234,.10),transparent 30%),
+        #f8faff;
+      border-bottom:1px solid var(--line);
+    }
+    .eyebrow {
+      display:inline-block;
+      padding:7px 13px;
+      border-radius:30px;
+      color:#3156c8;
+      background:#edf2ff;
+      border:1px solid #dce5ff;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+    h1 {
+      margin:23px 0 17px;
+      font-size:clamp(39px,6.5vw,68px);
+      line-height:1.08;
+      letter-spacing:-3px;
+    }
+    .gradient {
+      background:linear-gradient(100deg,#315eea,#805be8);
+      color:transparent;
+      background-clip:text;
+      -webkit-background-clip:text;
+    }
+    .hero-description {
+      max-width:660px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:17px;
+    }
+    .search-box {
+      max-width:650px;
+      display:flex;
+      gap:8px;
+      margin:31px auto 0;
+      padding:7px;
+      border:1px solid #e1e7f1;
+      border-radius:15px;
+      background:white;
+      box-shadow:var(--shadow);
+    }
+    .search-box input {
+      flex:1;
+      min-width:0;
+      padding:12px 14px;
+      border:0;
+      outline:none;
+      background:transparent;
+      color:var(--ink);
+    }
+    .search-box button,.primary-button {
+      border:0;
+      border-radius:10px;
+      padding:12px 20px;
+      color:white;
+      background:var(--blue);
+      font-weight:750;
+      cursor:pointer;
+    }
+    .search-box button:hover,.primary-button:hover { background:#244ac4; }
+    .hero-note { margin:15px 0 0; color:#8591a5; font-size:12px; }
+    .section { padding:76px 0; }
+    .soft-section { background:var(--soft); }
+    .section-heading { max-width:700px; margin-bottom:30px; }
+    .section-heading.center { text-align:center; margin-left:auto; margin-right:auto; }
+    .section-heading h2 {
+      margin:13px 0 9px;
+      font-size:clamp(27px,4vw,38px);
+      letter-spacing:-1.3px;
+      line-height:1.2;
+    }
+    .section-heading p { color:var(--muted); margin:0; }
+    .category-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .category-card {
+      padding:23px;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:18px;
+      transition:.2s ease;
+    }
+    .category-card:hover {
+      transform:translateY(-4px);
+      border-color:#cbd8ff;
+      box-shadow:var(--shadow);
+    }
+    .category-icon {
+      width:47px;
+      height:47px;
+      display:grid;
+      place-items:center;
+      margin-bottom:16px;
+      color:var(--blue);
+      background:#edf2ff;
+      border-radius:13px;
+      font-size:24px;
+      font-weight:800;
+    }
+    .category-card h3 { margin:0 0 7px; font-size:17px; }
+    .category-card p { min-height:65px; margin:0 0 15px; color:var(--muted); font-size:13px; }
+    .card-bottom {
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      color:var(--blue);
+      font-size:12px;
+      font-weight:750;
+    }
+    .coming { color:#8792a6; }
+    .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:19px; }
+    .feature-card {
+      padding:25px;
+      border:1px solid var(--line);
+      border-radius:17px;
+      background:white;
+    }
+    .feature-card h3 { margin:0 0 8px; font-size:17px; }
+    .feature-card p { margin:0; color:var(--muted); font-size:14px; }
+    .guide-panel {
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      align-items:center;
+      gap:25px;
+      padding:35px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:white;
+    }
+    .guide-panel h2 { margin:0 0 9px; font-size:28px; line-height:1.2; }
+    .guide-panel p { margin:0; color:var(--muted); }
+    .guide-note {
+      padding:22px;
+      border-radius:14px;
+      background:#f1f4ff;
+      color:#3b55a4;
+      font-size:14px;
+    }
+    .about-section { max-width:820px; margin:auto; text-align:center; }
+    .about-section p { color:var(--muted); }
+    .cta {
+      padding:34px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      color:white;
+      border-radius:21px;
+      background:linear-gradient(120deg,#1e3f9e,#654acb);
+    }
+    .cta h2 { margin:0 0 6px; font-size:27px; }
+    .cta p { margin:0; color:#e1e8ff; }
+    .cta a {
+      flex-shrink:0;
+      padding:12px 18px;
+      border-radius:10px;
+      background:white;
+      color:#263d91;
+      font-weight:750;
+    }
+    .footer { padding:52px 0 20px; background:#111c32; color:white; }
+    .footer-grid {
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1.2fr;
+      gap:30px;
+      padding-bottom:35px;
+    }
+    .footer p,.footer a { color:#aab7cf; font-size:13px; }
+    .footer h3 { margin:0 0 13px; font-size:14px; }
+    .footer a { display:block; margin:8px 0; }
+    .footer a:hover { color:white; }
+    .footer-brand p { max-width:330px; }
+    .footer-bottom {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      padding-top:18px;
+      border-top:1px solid #2b3851;
+      color:#9aa9c3;
+      font-size:11px;
+    }
+    .no-results {
+      display:none;
+      text-align:center;
+      padding:25px;
+      color:var(--muted);
+      border:1px dashed #cbd5e1;
+      border-radius:14px;
+    }
+    @media(max-width:850px) {
+      .category-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .footer-grid { grid-template-columns:repeat(2,1fr); }
+      .feature-grid { grid-template-columns:1fr; }
+    }
+    @media(max-width:650px) {
+      .container { width:calc(100% - 30px); }
+      .header { height:67px; }
+      .nav {
+        display:none;
+        position:absolute;
+        top:66px;
+        left:0;
+        right:0;
+        padding:13px 20px 18px;
+        background:white;
+        border-bottom:1px solid var(--line);
+        box-shadow:var(--shadow);
+      }
+      .nav.open { display:flex; flex-direction:column; align-items:stretch; gap:0; }
+      .nav a { padding:11px 5px; }
+      .nav .contact-link { text-align:center; margin-top:7px; }
+      .menu-button { display:block; }
+      .hero { padding:64px 0 55px; }
+      h1 { letter-spacing:-1.8px; }
+      .hero-description { font-size:15px; }
+      .search-box { gap:3px; }
+      .search-box input { padding:11px 8px; font-size:13px; }
+      .search-box button { padding:11px 13px; font-size:12px; }
+      .section { padding:55px 0; }
+      .category-grid { grid-template-columns:1fr; }
+      .category-card p { min-height:0; }
+      .guide-panel { grid-template-columns:1fr; padding:23px; }
+      .cta { align-items:flex-start; flex-direction:column; padding:25px; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:23px 15px; }
+      .footer-brand { grid-column:1/-1; }
+      .footer-bottom { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="#home" aria-label="CalcNest home">
+      <span class="brand-icon">C</span>
+      <span>Calc<span>Nest</span></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#categories">Calculators</a>
+      <a href="#guides">Guides</a>
+      <a href="#about">About</a>
+      <a class="contact-link" href="mailto:hello@calcnest.com">Contact</a>
+    </nav>
+    <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">A smarter way to calculate</span>
+      <h1>Calculate smarter.<br><span class="gradient">Make better decisions.</span></h1>
+      <p class="hero-description">
+        Discover practical calculators and clear, easy-to-understand guides
+        for the numbers that matter in everyday life.
+      </p>
+      <form class="search-box" id="searchForm">
+        <input id="searchInput" type="search" placeholder="Search calculator categories..." aria-label="Search calculator categories">
+        <button type="submit">Explore</button>
+      </form>
+      <p class="hero-note">Finance · Mathematics · Business · Health · Education · Everyday life</p>
+    </div>
+  </section>
+
+  <section class="section" id="categories">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Explore our tools</span>
+        <h2>Calculators for every part of life</h2>
+        <p>Explore our planned calculator collections. New tools will be added in carefully tested stages.</p>
+      </div>
+
+      <div class="category-grid" id="categoryGrid">
+        <article class="category-card" data-search="financial finance loan mortgage savings interest investment">
+          <div class="category-icon">◈</div>
+          <h3>Financial Calculators</h3>
+          <p>Explore loans, mortgages, savings, compound interest, investments and personal finance calculations.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="math mathematics percentage fraction ratio average">
+          <div class="category-icon">∑</div>
+          <h3>Math & Percentage</h3>
+          <p>Work with percentages, fractions, ratios, averages, scientific notation and everyday mathematics.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="health fitness bmi calorie body weight activity">
+          <div class="category-icon">✳</div>
+          <h3>Health & Fitness</h3>
+          <p>Explore general fitness, body measurement, calorie and activity estimation tools.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="date time age calendar days duration">
+          <div class="category-icon">◷</div>
+          <h3>Date & Time</h3>
+          <p>Calculate age, date differences, working days, time durations and countdowns.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="unit conversion converter length weight temperature area volume speed">
+          <div class="category-icon">⇄</div>
+          <h3>Unit Converters</h3>
+          <p>Convert length, weight, temperature, area, volume, speed and other measurements.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="business marketing profit margin roi advertising commission">
+          <div class="category-icon">▥</div>
+          <h3>Business & Marketing</h3>
+          <p>Calculate profit, margins, return on investment, advertising metrics and business costs.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="home construction paint flooring tiles concrete roofing renovation">
+          <div class="category-icon">⌂</div>
+          <h3>Home & Construction</h3>
+          <p>Estimate paint, flooring, tiles, concrete, roofing and renovation material quantities.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="automotive car vehicle fuel mileage electric vehicle ev">
+          <div class="category-icon">↗</div>
+          <h3>Automotive</h3>
+          <p>Calculate fuel costs, mileage, vehicle expenses, tire measurements and EV charging estimates.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="education school student grade gpa statistics probability">
+          <div class="category-icon">⌘</div>
+          <h3>Education & Statistics</h3>
+          <p>Explore GPA, grades, probability, statistics and academic calculation tools.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+
+        <article class="category-card" data-search="technology data binary internet speed screen digital">
+          <div class="category-icon">⌬</div>
+          <h3>Technology & Everyday</h3>
+          <p>Calculate digital storage, binary numbers, internet speed, screen sizes and more.</p>
+          <div class="card-bottom"><span>Planned collection</span><span class="coming">Coming soon</span></div>
+        </article>
+      </div>
+      <p class="no-results" id="noResults">No matching categories found. Try another search.</p>
+    </div>
+  </section>
+
+  <section class="section soft-section">
+    <div class="container">
+      <div class="section-heading center">
+        <span class="eyebrow">Made for clarity</span>
+        <h2>More than just a number</h2>
+        <p>Our goal is to make calculations easier to understand, not just provide a result.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="category-icon">✓</div>
+          <h3>Practical tools</h3>
+          <p>Calculators designed around real tasks, clear inputs and useful results.</p>
+        </article>
+        <article class="feature-card">
+          <div class="category-icon">∑</div>
+          <h3>Understand the method</h3>
+          <p>Helpful explanations, formulas and examples will show how calculations work.</p>
+        </article>
+        <article class="feature-card">
+          <div class="category-icon">◎</div>
+          <h3>Easy to use anywhere</h3>
+          <p>A clean, responsive experience designed for phones, tablets and desktop screens.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="guides">
+    <div class="container">
+      <div class="guide-panel">
+        <div>
+          <span class="eyebrow">Learn with confidence</span>
+          <h2>Understand how calculations work</h2>
+          <p>Our guides will explain formulas, show worked examples and help you understand what your results mean.</p>
+        </div>
+        <div class="guide-note">
+          <strong>Coming with each calculator</strong>
+          <p>Every calculator will have its own dedicated educational article, with calculation methods, examples, assumptions and useful related links.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft-section" id="about">
+    <div class="container about-section">
+      <span class="eyebrow">About CalcNest</span>
+      <h2>Useful calculations. Clear explanations.</h2>
+      <p>CalcNest is being built as a practical destination for online calculators and educational guides. Our aim is to make everyday, financial, mathematical, business and other calculations easier to understand and use.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Find a simpler way to calculate.</h2>
+          <p>Explore our growing collection of practical tools and guides.</p>
+        </div>
+        <a href="#categories">Explore categories →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#home">
+          <span class="brand-icon">C</span>
+          <span>Calc<span>Nest</span></span>
+        </a>
+        <p>Practical calculators and clear guides to help you make informed everyday, financial, educational and business decisions.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="#categories">Calculator Categories</a>
+        <a href="#guides">Guides</a>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <a href="#about">About Us</a>
+        <a href="mailto:hello@calcnest.com">Contact</a>
+      </div>
+      <div>
+        <h3>Information</h3>
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms & Conditions</a>
+        <a href="#disclaimer">Disclaimer</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> CalcNest. All rights reserved.</span>
+      <span>Built for clarity. Designed for everyone.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuButton = document.getElementById("menuButton");
+  const nav = document.getElementById("mainNav");
+
+  menuButton.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "✕" : "☰";
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    });
+  });
+
+  const form = document.getElementById("searchForm");
+  const searchInput = document.getElementById("searchInput");
+  const cards = [...document.querySelectorAll(".category-card")];
+  const noResults = document.getElementById("noResults");
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const query = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const text = (card.innerText + " " + card.dataset.search).toLowerCase();
+      const match = !query || text.includes(query);
+      card.hidden = !match;
+      if (match) visible++;
+    });
+
+    noResults.style.display = visible ? "none" : "block";
+    document.getElementById("categories").scrollIntoView({ behavior: "smooth" });
+  });
+
+  searchInput.addEventListener("input", () => {
+    if (!searchInput.value.trim()) {
+      cards.forEach(card => card.hidden = false);
+      noResults.style.display = "none";
+    }
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
