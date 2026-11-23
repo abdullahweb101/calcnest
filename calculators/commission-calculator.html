@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commission Calculator - Calculate Sales Commission | CalcNest</title>
+<meta name="description" content="Calculate sales commission, commission percentage, total earnings and base salary plus commission with this free commission calculator.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/commission-calculator.html">
+<meta property="og:title" content="Commission Calculator | CalcNest">
+<meta property="og:description" content="Estimate your sales commission and total earnings quickly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/commission-calculator.html">
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd}
+*{box-sizing:border-box}body{margin:0;background:#f8faff;color:var(--ink);font:16px/1.65 Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}.nav,main{max-width:1100px;margin:auto;padding:20px}.nav{display:flex;justify-content:space-between;align-items:center}.logo{font-size:23px;font-weight:800;color:var(--ink)}
+.hero{text-align:center;margin:28px auto}.hero h1{font-size:clamp(30px,5vw,44px);margin:0 0 10px}.hero p{max-width:760px;color:var(--muted);margin:auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel,.article{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;box-shadow:0 12px 35px rgba(25,45,85,.07)}
+h2{margin-top:0;font-size:23px}.field{margin:15px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:9px;font-size:16px}
+.btn{width:100%;border:0;border-radius:10px;padding:14px;background:linear-gradient(110deg,var(--blue),var(--purple));color:white;font-size:16px;font-weight:700;cursor:pointer;margin-top:10px}
+.result{background:var(--soft);padding:18px;border-radius:12px}.big{font-size:32px;font-weight:800;color:var(--blue);overflow-wrap:anywhere}.stat{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}
+.error{color:#bd2636;font-weight:700}.note{color:var(--muted);font-size:13px}.article{margin-top:24px}.article h2{margin-top:25px}.article h2:first-child{margin-top:0}.article p,.article li{color:#526078}.faq{padding:13px 0;border-bottom:1px solid var(--line)}
+footer{text-align:center;color:var(--muted);padding:28px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.panel{padding:19px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Commission Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://calcnest-7s6.pages.dev/calculators/commission-calculator.html"}
+</script>
+</head>
+<body>
+<header><nav class="nav"><a class="logo" href="/">CalcNest</a><a href="/calculators/">All Calculators</a></nav></header>
+<main>
+<section class="hero"><h1>Commission Calculator</h1><p>Calculate sales commission, total commission earnings and combined income from base salary and commission.</p></section>
+<div class="grid">
+<section class="panel">
+<h2>Enter Commission Details</h2>
+<div class="field"><label for="sales">Total sales amount</label><input id="sales" type="number" min="0" step=".01" value="25000"></div>
+<div class="field"><label for="rate">Commission rate (%)</label><input id="rate" type="number" min="0" max="100" step=".01" value="5"></div>
+<div class="field"><label for="bonus">Additional fixed commission or bonus</label><input id="bonus" type="number" min="0" step=".01" value="0"></div>
+<div class="field"><label for="salary">Base salary for the same period</label><input id="salary" type="number" min="0" step=".01" value="3000"></div>
+<div class="field"><label for="target">Sales target (optional)</label><input id="target" type="number" min="0" step=".01" value="20000"></div>
+<div class="field"><label for="currency">Currency</label><select id="currency"><option value="$">USD ($)</option><option value="£">GBP (£)</option><option value="€">EUR (€)</option><option value="₨">PKR (₨)</option><option value="C$">CAD (C$)</option><option value="A$">AUD (A$)</option><option value="₹">INR (₹)</option></select></div>
+<button class="btn" onclick="calculate()">Calculate Commission</button>
+<p class="error" id="error" role="alert"></p>
+</section>
+<section class="panel">
+<h2>Your Commission Results</h2>
+<div class="result" aria-live="polite">
+<div>Commission earned</div><div class="big" id="commission">—</div>
+<div class="stat"><span>Total sales</span><strong id="salesOut">—</strong></div>
+<div class="stat"><span>Commission rate</span><strong id="rateOut">—</strong></div>
+<div class="stat"><span>Additional bonus</span><strong id="bonusOut">—</strong></div>
+<div class="stat"><span>Base salary</span><strong id="salaryOut">—</strong></div>
+<div class="stat"><span>Total earnings</span><strong id="earnings">—</strong></div>
+<div class="stat"><span>Sales target achievement</span><strong id="achievement">—</strong></div>
+<div class="stat"><span>Above / below target</span><strong id="difference">—</strong></div>
+</div>
+<p class="note">All amounts refer to the same earning period. This estimate does not deduct tax or payroll charges.</p>
+</section>
+</div>
+<article class="article">
+<h2>What Is Sales Commission?</h2>
+<p>Sales commission is compensation based on sales made by an employee, salesperson, agent or business partner. It is often calculated as a percentage of eligible sales, although some agreements use fixed amounts or tiered rates.</p>
+<h2>How to Use This Commission Calculator</h2>
+<ol>
+<li>Enter the total sales amount that qualifies for commission.</li>
+<li>Enter the commission percentage agreed with your employer or client.</li>
+<li>Add any fixed commission or bonus if applicable.</li>
+<li>Enter base salary for the same period if you want to estimate combined earnings.</li>
+<li>Optionally enter a sales target to calculate target achievement.</li>
+</ol>
+<h2>Commission Calculation</h2>
+<p>For a simple percentage-based plan, commission is calculated by multiplying eligible sales by the commission rate. Any additional fixed commission or bonus is added separately to calculate total variable commission.</p>
+<p>Total earnings in this calculator equal base salary plus calculated commission and the additional bonus. The result is a gross estimate before taxes, deductions or other payroll adjustments.</p>
+<h2>Types of Commission Structures</h2>
+<p><strong>Flat-rate commission:</strong> A fixed percentage is applied to all eligible sales.</p>
+<p><strong>Fixed commission:</strong> A set amount is paid for each sale or completed transaction.</p>
+<p><strong>Base salary plus commission:</strong> An employee receives a regular salary in addition to variable sales compensation.</p>
+<p><strong>Tiered commission:</strong> Different rates apply to different sales levels. This calculator models a single flat rate, not a tiered plan.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><strong>How do I calculate a 5% commission?</strong><p>Multiply eligible sales by 0.05. For example, a 5% commission on $10,000 in eligible sales equals $500.</p></div>
+<div class="faq"><strong>Is commission calculated before or after tax?</strong><p>This calculator estimates gross commission before tax. Actual payroll treatment depends on local tax laws and the employment arrangement.</p></div>
+<div class="faq"><strong>Can I calculate commission with a base salary?</strong><p>Yes. Enter the base salary for the same period to estimate total gross earnings.</p></div>
+<div class="faq"><strong>Does this support tiered commission?</strong><p>No. It uses one flat commission rate. A tiered plan needs each sales band and its applicable rate to be calculated separately.</p></div>
+<div class="faq"><strong>What if I do not have a sales target?</strong><p>Leave the target field at zero. Commission and total earnings will still be calculated.</p></div>
+<h2>Related Finance Calculators</h2>
+<p><a href="/calculators/salary-calculator.html">Salary Calculator</a> · <a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator</a> · <a href="/calculators/break-even-calculator.html">Break-Even Calculator</a></p>
+</article>
+</main>
+<footer>© 2026 CalcNest · <a href="/">Home</a> · <a href="/calculators/">All Calculators</a></footer>
+<script>
+function money(n){return currency.value+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function calculate(){
+const error=document.getElementById('error');error.textContent='';
+const s=Number(sales.value),r=Number(rate.value),b=Number(bonus.value),sal=Number(salary.value),t=Number(target.value);
+if(![s,r,b,sal,t].every(Number.isFinite)||s<0||r<0||r>100||b<0||sal<0||t<0){error.textContent='Please enter valid non-negative values. Commission rate must be between 0 and 100%.';return}
+const commissionAmount=s*r/100;
+const totalCommission=commissionAmount+b;
+const totalEarnings=totalCommission+sal;
+const achievement=t>0?s/t*100:null;
+document.getElementById('commission').textContent=money(totalCommission);
+document.getElementById('salesOut').textContent=money(s);
+document.getElementById('rateOut').textContent=r.toFixed(2)+'%';
+document.getElementById('bonusOut').textContent=money(b);
+document.getElementById('salaryOut').textContent=money(sal);
+document.getElementById('earnings').textContent=money(totalEarnings);
+document.getElementById('achievement').textContent=achievement===null?'Not entered':achievement.toFixed(2)+'%';
+document.getElementById('difference').textContent=t>0?(s>=t?'+':'-')+money(Math.abs(s-t)):'Not entered';
+}
+calculate();
+</script>
+</body>
+</html>
