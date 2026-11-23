@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Break-Even Calculator - Find Your Break-Even Point | CalcNest</title>
+<meta name="description" content="Calculate the break-even point for your business using fixed costs, variable cost per unit and selling price. Estimate required sales and profit.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/break-even-calculator.html">
+<meta property="og:title" content="Break-Even Calculator | CalcNest">
+<meta property="og:description" content="Find how many units you need to sell to cover your business costs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/break-even-calculator.html">
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd}
+*{box-sizing:border-box}body{margin:0;background:#f8faff;color:var(--ink);font:16px/1.65 Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}.nav,main{max-width:1100px;margin:auto;padding:20px}.nav{display:flex;justify-content:space-between;align-items:center}.logo{font-size:23px;font-weight:800;color:var(--ink)}
+.hero{text-align:center;margin:28px auto}.hero h1{font-size:clamp(30px,5vw,44px);margin:0 0 10px}.hero p{max-width:760px;color:var(--muted);margin:auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel,.article{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;box-shadow:0 12px 35px rgba(25,45,85,.07)}
+h2{margin-top:0;font-size:23px}.field{margin:15px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:9px;font-size:16px}
+.btn{width:100%;border:0;border-radius:10px;padding:14px;background:linear-gradient(110deg,var(--blue),var(--purple));color:white;font-size:16px;font-weight:700;cursor:pointer;margin-top:10px}
+.result{background:var(--soft);padding:18px;border-radius:12px}.big{font-size:32px;font-weight:800;color:var(--blue)}.stat{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}
+.error{color:#bd2636;font-weight:700}.note{color:var(--muted);font-size:13px}.article{margin-top:24px}.article h2{margin-top:25px}.article h2:first-child{margin-top:0}.article p,.article li{color:#526078}.faq{padding:13px 0;border-bottom:1px solid var(--line)}
+footer{text-align:center;color:var(--muted);padding:28px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.panel{padding:19px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Break-Even Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://calcnest-7s6.pages.dev/calculators/break-even-calculator.html"}
+</script>
+</head>
+<body>
+<header><nav class="nav"><a class="logo" href="/">CalcNest</a><a href="/calculators/">All Calculators</a></nav></header>
+<main>
+<section class="hero"><h1>Break-Even Calculator</h1><p>Find the number of units your business needs to sell to cover its costs, reach the break-even point and estimate profit at your planned sales volume.</p></section>
+<div class="grid">
+<section class="panel">
+<h2>Enter Your Business Costs</h2>
+<div class="field"><label for="fixed">Total fixed costs</label><input id="fixed" type="number" min="0" step=".01" value="10000"></div>
+<div class="field"><label for="variable">Variable cost per unit</label><input id="variable" type="number" min="0" step=".01" value="20"></div>
+<div class="field"><label for="price">Selling price per unit</label><input id="price" type="number" min=".01" step=".01" value="50"></div>
+<div class="field"><label for="quantity">Expected units to sell</label><input id="quantity" type="number" min="0" step="1" value="500"></div>
+<div class="field"><label for="currency">Currency</label><select id="currency"><option value="$">USD ($)</option><option value="£">GBP (£)</option><option value="€">EUR (€)</option><option value="₨">PKR (₨)</option><option value="C$">CAD (C$)</option><option value="A$">AUD (A$)</option><option value="₹">INR (₹)</option></select></div>
+<button class="btn" onclick="calculate()">Calculate Break-Even Point</button>
+<p class="error" id="error" role="alert"></p>
+</section>
+<section class="panel">
+<h2>Your Break-Even Analysis</h2>
+<div class="result" aria-live="polite">
+<div>Break-even sales volume</div>
+<div class="big" id="units">—</div>
+<div class="stat"><span>Break-even revenue</span><strong id="revenue">—</strong></div>
+<div class="stat"><span>Contribution per unit</span><strong id="contribution">—</strong></div>
+<div class="stat"><span>Contribution margin</span><strong id="margin">—</strong></div>
+<div class="stat"><span>Expected sales revenue</span><strong id="sales">—</strong></div>
+<div class="stat"><span>Expected total costs</span><strong id="costs">—</strong></div>
+<div class="stat"><span>Expected profit / loss</span><strong id="profit">—</strong></div>
+<div class="stat"><span>Sales position</span><strong id="position">—</strong></div>
+</div>
+<p class="note">Break-even units are rounded up to the next whole unit because partial units may not be sellable.</p>
+</section>
+</div>
+<article class="article">
+<h2>What Is the Break-Even Point?</h2>
+<p>The break-even point is the sales level at which total revenue equals total costs. At this point, a business has covered its fixed and variable costs but has not made a profit or loss.</p>
+<h2>Understanding Fixed and Variable Costs</h2>
+<p>Fixed costs generally do not change directly with the number of units sold during the relevant period. Examples may include rent, certain salaries, insurance and software subscriptions.</p>
+<p>Variable costs change with production or sales volume. Examples may include raw materials, packaging and per-unit manufacturing costs.</p>
+<h2>How to Use This Calculator</h2>
+<ol>
+<li>Enter total fixed costs for the period you are analysing.</li>
+<li>Enter the variable cost of producing or delivering one unit.</li>
+<li>Enter the selling price for one unit.</li>
+<li>Enter your expected sales volume to estimate the resulting profit or loss.</li>
+<li>Select your currency and calculate the break-even point.</li>
+</ol>
+<h2>How the Calculation Works</h2>
+<p>The contribution per unit is the selling price minus the variable cost per unit. The calculator divides total fixed costs by contribution per unit to estimate the break-even quantity, then rounds that quantity up to a whole unit.</p>
+<p>Break-even revenue is the break-even quantity multiplied by the selling price. Estimated profit or loss at your planned sales volume is revenue minus fixed costs and variable costs for those units.</p>
+<h2>Important Assumptions</h2>
+<p>This is a simplified break-even model. It assumes a constant selling price, constant variable cost per unit and fixed costs that remain unchanged within the period. It does not automatically include taxes, discounts, multiple products, capacity limits, financing costs or changes in costs at different production levels.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><strong>What happens below the break-even point?</strong><p>If sales are below the break-even quantity, the business generally has not generated enough contribution to cover its fixed costs and may record an operating loss under this model.</p></div>
+<div class="faq"><strong>What happens above the break-even point?</strong><p>Once fixed costs are covered, additional units can contribute to profit, assuming the selling price and variable cost remain unchanged.</p></div>
+<div class="faq"><strong>Can the break-even point be zero?</strong><p>If fixed costs are zero and each unit has a positive contribution, the model calculates zero units as the break-even point.</p></div>
+<div class="faq"><strong>What if the variable cost is higher than the selling price?</strong><p>Each unit creates a negative contribution before fixed costs. Selling more units will increase the loss under these assumptions, so there is no break-even sales quantity.</p></div>
+<div class="faq"><strong>Can I use this for services?</strong><p>Yes. Treat one service delivery, booking or project as a unit, provided you can estimate its variable cost and selling price.</p></div>
+<h2>Related Finance Calculators</h2>
+<p><a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator</a> · <a href="/calculators/cash-flow-calculator.html">Cash Flow Calculator</a> · <a href="/calculators/commission-calculator.html">Commission Calculator</a></p>
+</article>
+</main>
+<footer>© 2026 CalcNest · <a href="/">Home</a> · <a href="/calculators/">All Calculators</a></footer>
+<script>
+function money(n){return currency.value+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function calculate(){
+const error=document.getElementById('error');error.textContent='';
+const f=Number(fixed.value),v=Number(variable.value),p=Number(price.value),q=Number(quantity.value);
+if(![f,v,p,q].every(Number.isFinite)||f<0||v<0||p<=0||q<0){error.textContent='Enter valid amounts. Fixed costs, variable cost and quantity cannot be negative; selling price must be greater than zero.';return}
+const contribution=p-v;
+if(contribution<=0){error.textContent='Selling price must be higher than variable cost per unit to reach a break-even point.';document.getElementById('units').textContent='Not achievable';return}
+const exact=f/contribution;
+const units=Math.ceil(exact);
+const breakRevenue=units*p;
+const sales=q*p;
+const totalCosts=f+q*v;
+const result=sales-totalCosts;
+document.getElementById('units').textContent=units.toLocaleString()+' units';
+document.getElementById('revenue').textContent=money(breakRevenue);
+document.getElementById('contribution').textContent=money(contribution);
+document.getElementById('margin').textContent=(contribution/p*100).toFixed(2)+'%';
+document.getElementById('sales').textContent=money(sales);
+document.getElementById('costs').textContent=money(totalCosts);
+document.getElementById('profit').textContent=(result<0?'-':'')+money(Math.abs(result));
+document.getElementById('position').textContent=Math.abs(result)<0.005?'At break-even':result>0?'Profit':'Loss';
+}
+calculate();
+</script>
+</body>
+</html>
