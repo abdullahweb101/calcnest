@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Tax Calculator – Estimate Tax and Take-Home Income | CalcNest</title>
+<meta name="description" content="Estimate your income tax, effective tax rate and after-tax income with this free online tax calculator.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/tax-calculator.html">
+<meta property="og:title" content="Free Tax Calculator | CalcNest">
+<meta property="og:description" content="Calculate estimated income tax and take-home income using your income, deductions and tax rate.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/tax-calculator.html">
+
+<style>
+:root{
+ --ink:#17243a;--muted:#65738b;--blue:#315eea;
+ --purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;
+ --white:#fff;--shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f7f9fd;color:var(--ink);line-height:1.65}
+a{color:var(--blue);text-decoration:none}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:23px;font-weight:850;color:var(--ink)}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:650}
+.container{max-width:1050px;margin:auto;padding:35px 20px 65px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero{text-align:center;margin:20px auto 32px;max-width:760px}
+.eyebrow{display:inline-block;padding:6px 13px;background:#eaf0ff;color:var(--blue);border-radius:30px;font-size:12px;font-weight:750}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:15px 0}
+.hero p{color:var(--muted);font-size:17px}
+.calculator,.content-section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.calculator h2,.content-section h2{margin-top:0;font-size:23px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 14px;border:1px solid #dce3ef;border-radius:10px;font-size:16px;color:var(--ink);background:#fff;outline:none}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.12)}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
+button{border:0;padding:13px 22px;border-radius:10px;font-size:15px;font-weight:750;cursor:pointer}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#edf1f8;color:var(--ink)}
+button:hover{filter:brightness(.96)}
+.error{display:none;margin-top:17px;padding:12px;background:#fff0f0;color:#b42318;border-radius:9px;font-size:14px}
+.results{display:none;margin-top:25px;padding-top:24px;border-top:1px solid var(--line)}
+.results h3{margin:0 0 16px;font-size:21px}
+.result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.result-card{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:17px}
+.result-card span{display:block;color:var(--muted);font-size:13px}
+.result-card strong{display:block;font-size:21px;margin-top:6px;overflow-wrap:anywhere}
+.result-card.highlight{background:#edf2ff;border-color:#d8e2ff}
+.result-card.highlight strong{color:var(--blue)}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.notice{background:#fff8e8;border:1px solid #f3dfad;padding:14px;border-radius:11px;color:#72551b;font-size:13px;margin-top:18px}
+.content-section{margin-top:28px;box-shadow:none}
+.content-section h3{font-size:18px;margin-bottom:7px}
+.content-section p,.content-section li{color:#53627a}
+.formula{padding:15px;border-radius:10px;background:var(--soft);overflow-wrap:anywhere;font-weight:700}
+.faq{padding:15px 0;border-bottom:1px solid var(--line)}
+.faq:last-child{border:0}
+.faq h3{margin:0 0 5px}
+.faq p{margin:0}
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related a{padding:13px;border:1px solid var(--line);border-radius:10px;font-weight:650}
+footer{background:#17243a;color:#dce5f5;text-align:center;padding:28px 18px;font-size:13px}
+footer a{color:#fff}
+@media(max-width:650px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .nav-links{gap:13px}
+ .container{padding:25px 14px 45px}
+ .calculator,.content-section{padding:20px}
+ .form-grid,.result-grid,.related{grid-template-columns:1fr}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"CalcNest Tax Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/tax-calculator.html",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "description":"A free tax estimator for calculating estimated tax, effective tax rate and after-tax income."
+}
+</script>
+</head>
+
+<body>
+<header>
+ <nav class="nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <div class="nav-links">
+   <a href="/">Home</a>
+   <a href="/calculators/">All Calculators</a>
+   <a href="/#categories">Categories</a>
+   <a href="/#about">About</a>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+ <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/calculators/">Calculators</a> /
+  Tax Calculator
+ </div>
+
+ <section class="hero">
+  <span class="eyebrow">FINANCE & MONEY</span>
+  <h1>Free Tax Calculator</h1>
+  <p>Estimate your income tax, effective tax rate and take-home income with a simple calculation.</p>
+ </section>
+
+ <section class="calculator">
+  <h2>Calculate Your Estimated Tax</h2>
+
+  <div class="form-grid">
+   <div class="field">
+    <label for="income">Annual Income</label>
+    <input id="income" type="number" min="0" step="any" value="60000">
+    <div class="hint">Enter your total annual income before tax.</div>
+   </div>
+
+   <div class="field">
+    <label for="deductions">Annual Deductions</label>
+    <input id="deductions" type="number" min="0" step="any" value="5000">
+    <div class="hint">Enter eligible deductions to subtract from income.</div>
+   </div>
+
+   <div class="field">
+    <label for="rate">Estimated Tax Rate (%)</label>
+    <input id="rate" type="number" min="0" max="100" step="any" value="20">
+    <div class="hint">Enter the tax rate you want to estimate.</div>
+   </div>
+
+   <div class="field">
+    <label for="currency">Currency</label>
+    <select id="currency">
+     <option value="USD">USD ($)</option>
+     <option value="EUR">EUR (€)</option>
+     <option value="GBP">GBP (£)</option>
+     <option value="PKR">PKR (Rs)</option>
+     <option value="INR">INR (₹)</option>
+     <option value="CAD">CAD ($)</option>
+     <option value="AUD">AUD ($)</option>
+     <option value="AED">AED (د.إ)</option>
+    </select>
+   </div>
+  </div>
+
+  <div class="actions">
+   <button class="primary" id="calculate" type="button">Calculate Tax</button>
+   <button class="secondary" id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div class="results" id="results" aria-live="polite">
+   <h3>Your Estimated Tax Results</h3>
+   <div class="result-grid">
+    <div class="result-card highlight">
+     <span>Estimated Tax</span>
+     <strong id="tax">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Income After Tax</span>
+     <strong id="afterTax">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Taxable Income</span>
+     <strong id="taxable">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Annual Income</span>
+     <strong id="gross">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Annual Deductions</span>
+     <strong id="deduct">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Effective Tax Rate</span>
+     <strong id="effective">—</strong>
+    </div>
+   </div>
+   <p class="result-note" id="monthly"></p>
+  </div>
+
+  <div class="notice">
+   This is a basic flat-rate tax estimate, not an official tax assessment.
+   Actual tax may depend on tax brackets, allowances, credits, residency,
+   income type and local tax laws.
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>What Is a Tax Calculator?</h2>
+  <p>
+   A tax calculator estimates how much tax may be payable on income.
+   It can help individuals understand the difference between gross income,
+   taxable income, estimated tax and take-home income.
+  </p>
+
+  <h3>Taxable Income Formula</h3>
+  <div class="formula">
+   Taxable Income = Annual Income − Eligible Deductions
+  </div>
+
+  <h3>Estimated Tax Formula</h3>
+  <div class="formula">
+   Estimated Tax = Taxable Income × Tax Rate ÷ 100
+  </div>
+
+  <h3>After-Tax Income Formula</h3>
+  <div class="formula">
+   After-Tax Income = Annual Income − Estimated Tax
+  </div>
+
+  <h3>Example Calculation</h3>
+  <p>
+   Suppose your annual income is $60,000, eligible deductions are $5,000
+   and your estimated flat tax rate is 20%.
+   Your taxable income is $55,000, estimated tax is $11,000
+   and income after estimated tax is $49,000.
+  </p>
+
+  <h3>Flat Tax Rate vs. Progressive Tax</h3>
+  <p>
+   This calculator uses one flat percentage on the taxable income entered.
+   Many countries use progressive tax systems, where different portions
+   of income are taxed at different rates. A flat-rate estimate will not
+   reproduce those tax brackets.
+  </p>
+
+  <h3>Why Use a Tax Calculator?</h3>
+  <ul>
+   <li>Estimate annual tax based on an assumed rate.</li>
+   <li>Understand how deductions affect taxable income.</li>
+   <li>Estimate income remaining after tax.</li>
+   <li>Compare different tax-rate scenarios.</li>
+  </ul>
+ </section>
+
+ <section class="content-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+   <h3>1. How is income tax estimated?</h3>
+   <p>This calculator subtracts deductions from annual income and applies the selected flat tax rate to the resulting taxable income.</p>
+  </div>
+
+  <div class="faq">
+   <h3>2. What is taxable income?</h3>
+   <p>Taxable income is the portion of income subject to tax after applicable deductions and adjustments.</p>
+  </div>
+
+  <div class="faq">
+   <h3>3. What is an effective tax rate?</h3>
+   <p>It is the estimated tax divided by gross annual income, expressed as a percentage.</p>
+  </div>
+
+  <div class="faq">
+   <h3>4. Does this calculator use tax brackets?</h3>
+   <p>No. It applies one flat rate. Progressive tax systems require separate tax-bracket calculations.</p>
+  </div>
+
+  <div class="faq">
+   <h3>5. Is this an official tax calculation?</h3>
+   <p>No. It is an educational estimate. Check your local tax authority or a qualified tax professional for your actual tax obligations.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Explore More Calculators</h2>
+  <div class="related">
+   <a href="/calculators/loan-calculator.html">Loan Calculator →</a>
+   <a href="/calculators/mortgage-calculator.html">Mortgage Calculator →</a>
+   <a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator →</a>
+   <a href="/calculators/savings-calculator.html">Savings Calculator →</a>
+   <a href="/calculators/investment-return-calculator.html">Investment Return Calculator →</a>
+   <a href="/calculators/discount-calculator.html">Discount Calculator →</a>
+   <a href="/calculators/percentage-calculator.html">Percentage Calculator →</a>
+   <a href="/calculators/">Browse All Calculators →</a>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <p>© <span id="year"></span> CalcNest. Free online calculators for smarter decisions.</p>
+ <p><a href="/">Home</a> · <a href="/calculators/">All Calculators</a></p>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function money(value,currency){
+ try{
+  return new Intl.NumberFormat("en-US",{
+   style:"currency",
+   currency:currency,
+   minimumFractionDigits:2,
+   maximumFractionDigits:2
+  }).format(value);
+ }catch(e){
+  return currency+" "+value.toFixed(2);
+ }
+}
+
+function calculateTax(){
+ const income=Number($("income").value);
+ const deductions=Number($("deductions").value);
+ const rate=Number($("rate").value);
+ const currency=$("currency").value;
+
+ const error=$("error");
+ const results=$("results");
+ error.style.display="none";
+ results.style.display="none";
+
+ if(!Number.isFinite(income)||!Number.isFinite(deductions)||!Number.isFinite(rate)){
+  error.textContent="Please enter valid numbers in all fields.";
+  error.style.display="block";
+  return;
+ }
+
+ if(income<0){
+  error.textContent="Annual income cannot be negative.";
+  error.style.display="block";
+  return;
+ }
+
+ if(deductions<0){
+  error.textContent="Deductions cannot be negative.";
+  error.style.display="block";
+  return;
+ }
+
+ if(deductions>income){
+  error.textContent="Deductions cannot be greater than annual income.";
+  error.style.display="block";
+  return;
+ }
+
+ if(rate<0||rate>100){
+  error.textContent="Tax rate must be between 0% and 100%.";
+  error.style.display="block";
+  return;
+ }
+
+ const taxableIncome=income-deductions;
+ const estimatedTax=taxableIncome*(rate/100);
+ const afterTax=income-estimatedTax;
+ const effectiveRate=income>0?(estimatedTax/income)*100:0;
+ const monthlyAfterTax=afterTax/12;
+
+ if(!Number.isFinite(afterTax)){
+  error.textContent="The result is too large to calculate.";
+  error.style.display="block";
+  return;
+ }
+
+ $("tax").textContent=money(estimatedTax,currency);
+ $("afterTax").textContent=money(afterTax,currency);
+ $("taxable").textContent=money(taxableIncome,currency);
+ $("gross").textContent=money(income,currency);
+ $("deduct").textContent=money(deductions,currency);
+ $("effective").textContent=effectiveRate.toFixed(2)+"%";
+ $("monthly").textContent="Estimated monthly income after tax: "+money(monthlyAfterTax,currency);
+
+ results.style.display="block";
+}
+
+$("calculate").addEventListener("click",calculateTax);
+
+$("reset").addEventListener("click",()=>{
+ $("income").value="60000";
+ $("deductions").value="5000";
+ $("rate").value="20";
+ $("currency").value="USD";
+ $("error").style.display="none";
+ $("results").style.display="none";
+});
+
+$("year").textContent=new Date().getFullYear();
+calculateTax();
+</script>
+</body>
+</html>
