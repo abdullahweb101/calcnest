@@ -1,0 +1,1169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Body Fat Calculator - Estimate Body Fat Percentage | CalcNest</title>
+  <meta name="description" content="Estimate your body fat percentage using the US Navy circumference method. Calculate estimated fat mass and lean body mass with metric or imperial measurements.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/body-fat-calculator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Body Fat Calculator - CalcNest">
+  <meta property="og:description" content="Estimate body fat percentage, fat mass, and lean body mass using the US Navy circumference method.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/body-fat-calculator.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85">
+
+  <meta name="theme-color" content="#315eea">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CalcNest Body Fat Calculator",
+    "url": "https://calcnest-7s6.pages.dev/calculators/body-fat-calculator.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "description": "A free educational calculator that estimates body fat percentage using the US Navy circumference method.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is body fat percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Body fat percentage is the proportion of total body weight made up of fat mass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the US Navy body fat method work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The US Navy circumference method estimates body fat using height and selected body circumference measurements. It is an estimate rather than a direct measurement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a body fat calculator accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A circumference-based calculator provides an estimate. Measurement technique, body shape, and individual differences can affect the result."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+    }
+
+    * { box-sizing:border-box; }
+
+    body {
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,sans-serif;
+      line-height:1.7;
+    }
+
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    .container {
+      width:min(1120px,calc(100% - 36px));
+      margin:auto;
+    }
+
+    header {
+      border-bottom:1px solid var(--line);
+      background:#fff;
+    }
+
+    .nav {
+      min-height:72px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand {
+      font-size:25px;
+      font-weight:800;
+      color:var(--ink);
+      letter-spacing:-1px;
+    }
+
+    .brand span { color:var(--blue); }
+
+    .nav-links {
+      display:flex;
+      gap:23px;
+      flex-wrap:wrap;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .nav-links a { color:var(--ink); }
+
+    .breadcrumb {
+      padding:22px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .breadcrumb a { color:var(--muted); }
+
+    .hero {
+      padding:35px 0 30px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      gap:35px;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      padding:7px 12px;
+      background:#eef2ff;
+      color:var(--blue);
+      border-radius:30px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+
+    h1 {
+      font-size:clamp(34px,5vw,51px);
+      line-height:1.12;
+      letter-spacing:-1.8px;
+      margin:17px 0;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:17px;
+      max-width:620px;
+    }
+
+    .hero img {
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .calculator-section { padding:25px 0 55px; }
+
+    .calculator-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:30px;
+    }
+
+    .section-heading { margin-bottom:23px; }
+
+    .section-heading h2 {
+      margin:0 0 7px;
+      font-size:27px;
+      letter-spacing:-.7px;
+    }
+
+    .section-heading p {
+      margin:0;
+      color:var(--muted);
+    }
+
+    .unit-switch {
+      display:flex;
+      gap:9px;
+      margin:20px 0 25px;
+    }
+
+    .unit-switch button {
+      padding:10px 19px;
+      border:1px solid var(--line);
+      border-radius:10px;
+      background:#fff;
+      color:var(--ink);
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .unit-switch button.active {
+      background:var(--blue);
+      border-color:var(--blue);
+      color:#fff;
+    }
+
+    .form-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:19px;
+    }
+
+    .field label {
+      display:block;
+      margin-bottom:7px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .field input,
+    .field select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #dce3ef;
+      border-radius:10px;
+      font-size:15px;
+      color:var(--ink);
+      background:#fff;
+      outline:none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.1);
+    }
+
+    .field small {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .full { grid-column:1/-1; }
+
+    .calculate-btn {
+      width:100%;
+      border:0;
+      padding:15px 20px;
+      margin-top:25px;
+      border-radius:11px;
+      color:#fff;
+      background:linear-gradient(110deg,var(--blue),var(--purple));
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .calculate-btn:hover { opacity:.93; }
+
+    .error {
+      color:#c62828;
+      font-size:14px;
+      margin-top:13px;
+      font-weight:600;
+    }
+
+    .results {
+      display:none;
+      margin-top:28px;
+      padding:25px;
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:16px;
+    }
+
+    .results h3 {
+      margin:0 0 17px;
+      font-size:22px;
+    }
+
+    .result-grid {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:13px;
+    }
+
+    .result-box {
+      background:#fff;
+      border:1px solid var(--line);
+      padding:18px;
+      border-radius:13px;
+    }
+
+    .result-box span {
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .result-box strong {
+      display:block;
+      margin-top:7px;
+      color:var(--blue);
+      font-size:27px;
+      line-height:1.2;
+    }
+
+    .result-box small {
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .percentage-bar {
+      height:13px;
+      background:#e5eaf5;
+      border-radius:20px;
+      overflow:hidden;
+      margin-top:20px;
+    }
+
+    .percentage-fill {
+      height:100%;
+      width:0;
+      background:linear-gradient(90deg,var(--blue),var(--purple));
+      border-radius:20px;
+      transition:width .5s;
+    }
+
+    .result-note {
+      margin-top:16px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .content-section {
+      padding:35px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .content-section h2 {
+      font-size:27px;
+      letter-spacing:-.7px;
+      margin:0 0 15px;
+    }
+
+    .content-section h3 {
+      font-size:19px;
+      margin:25px 0 8px;
+    }
+
+    .content-section p,
+    .content-section li { color:#53627a; }
+
+    .info-box {
+      background:#f4f6ff;
+      border-left:4px solid var(--blue);
+      padding:17px 20px;
+      border-radius:9px;
+      margin:20px 0;
+      color:#53627a;
+    }
+
+    .formula-box {
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:17px;
+      margin:15px 0;
+      overflow-wrap:anywhere;
+    }
+
+    .related-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:13px;
+      margin-top:20px;
+    }
+
+    .related-card {
+      padding:17px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      font-weight:700;
+      background:#fff;
+      transition:.2s;
+    }
+
+    .related-card:hover {
+      border-color:var(--blue);
+      transform:translateY(-2px);
+      text-decoration:none;
+    }
+
+    .related-card span {
+      display:block;
+      margin-top:5px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:400;
+    }
+
+    .faq-item {
+      border-bottom:1px solid var(--line);
+      padding:17px 0;
+    }
+
+    .faq-item h3 { margin:0 0 7px; }
+    .faq-item p { margin:0; }
+
+    .disclaimer {
+      padding:18px;
+      background:#fff8eb;
+      border:1px solid #f4e5c8;
+      color:#795c28;
+      border-radius:12px;
+      font-size:13px;
+    }
+
+    footer {
+      margin-top:30px;
+      background:#f7f9fd;
+      border-top:1px solid var(--line);
+      padding:28px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    @media(max-width:760px) {
+      .hero { grid-template-columns:1fr; }
+      .hero img { height:230px; }
+      .nav {
+        align-items:flex-start;
+        flex-direction:column;
+        padding:15px 0;
+      }
+      .nav-links { gap:13px; }
+      .calculator-card { padding:20px; }
+    }
+
+    @media(max-width:520px) {
+      .form-grid { grid-template-columns:1fr; }
+      .full { grid-column:auto; }
+      .result-grid { grid-template-columns:1fr; }
+      .related-grid { grid-template-columns:1fr; }
+      h1 { font-size:35px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a> /
+    <a href="/calculators/health-calculators.html">Health Calculators</a> /
+    Body Fat Calculator
+  </div>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">FREE HEALTH CALCULATOR</span>
+      <h1>Body Fat Calculator</h1>
+      <p>
+        Estimate your body fat percentage using the US Navy circumference
+        method. Calculate estimated fat mass and lean body mass with
+        simple body measurements.
+      </p>
+    </div>
+
+    <img
+      src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1100&q=85"
+      alt="Modern fitness gym with exercise equipment"
+      fetchpriority="high"
+      width="1100"
+      height="700">
+  </section>
+
+  <section class="calculator-section">
+    <div class="calculator-card">
+
+      <div class="section-heading">
+        <h2>Calculate Your Body Fat Percentage</h2>
+        <p>Enter your measurements carefully for a more consistent estimate.</p>
+      </div>
+
+      <div class="unit-switch">
+        <button type="button" id="metricBtn" class="active" onclick="setUnit('metric')">Metric (cm, kg)</button>
+        <button type="button" id="imperialBtn" onclick="setUnit('imperial')">Imperial (in, lb)</button>
+      </div>
+
+      <form id="bodyFatForm">
+
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="sex">Sex used by formula</label>
+            <select id="sex">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="age">Age (years)</label>
+            <input type="number" id="age" min="18" max="100" placeholder="e.g. 30" required>
+            <small>For adults aged 18 and over.</small>
+          </div>
+
+          <div class="field" id="heightMetric">
+            <label for="heightCm">Height (cm)</label>
+            <input type="number" id="heightCm" min="120" max="230" step="0.1" placeholder="e.g. 175">
+          </div>
+
+          <div class="field" id="heightImperial" style="display:none">
+            <label for="heightIn">Height (inches)</label>
+            <input type="number" id="heightIn" min="47" max="91" step="0.1" placeholder="e.g. 69">
+          </div>
+
+          <div class="field" id="weightMetric">
+            <label for="weightKg">Weight (kg)</label>
+            <input type="number" id="weightKg" min="25" max="350" step="0.1" placeholder="e.g. 75">
+          </div>
+
+          <div class="field" id="weightImperial" style="display:none">
+            <label for="weightLb">Weight (lb)</label>
+            <input type="number" id="weightLb" min="55" max="770" step="0.1" placeholder="e.g. 165">
+          </div>
+
+          <div class="field full">
+            <label for="neck">Neck circumference (<span class="unit-label">cm</span>)</label>
+            <input type="number" id="neck" min="20" max="80" step="0.1" placeholder="e.g. 38" required>
+            <small>Measure just below the larynx, with the tape gently touching the skin.</small>
+          </div>
+
+          <div class="field" id="waistField">
+            <label for="waist">Waist circumference (<span class="unit-label">cm</span>)</label>
+            <input type="number" id="waist" min="40" max="200" step="0.1" placeholder="e.g. 85" required>
+            <small>For men, measure around the abdomen at the level specified by the method.</small>
+          </div>
+
+          <div class="field" id="hipField" style="display:none">
+            <label for="hip">Hip circumference (<span class="unit-label">cm</span>)</label>
+            <input type="number" id="hip" min="50" max="220" step="0.1" placeholder="e.g. 100">
+            <small>For women, measure around the widest part of the hips.</small>
+          </div>
+
+        </div>
+
+        <button type="submit" class="calculate-btn">Calculate Body Fat</button>
+        <div class="error" id="error" role="alert"></div>
+
+      </form>
+
+      <div class="results" id="results" aria-live="polite">
+        <h3>Your Estimated Body Composition</h3>
+
+        <div class="result-grid">
+
+          <div class="result-box">
+            <span>Estimated Body Fat</span>
+            <strong id="bodyFatResult">—</strong>
+            <small>Percentage of total body weight</small>
+          </div>
+
+          <div class="result-box">
+            <span>Estimated Fat Mass</span>
+            <strong id="fatMassResult">—</strong>
+            <small>Estimated weight of body fat</small>
+          </div>
+
+          <div class="result-box">
+            <span>Estimated Lean Body Mass</span>
+            <strong id="leanMassResult">—</strong>
+            <small>Body weight excluding estimated fat mass</small>
+          </div>
+
+          <div class="result-box">
+            <span>Estimated Fat-Free Percentage</span>
+            <strong id="leanPercentResult">—</strong>
+            <small>Percentage excluding estimated fat mass</small>
+          </div>
+
+        </div>
+
+        <div class="percentage-bar">
+          <div class="percentage-fill" id="percentageFill"></div>
+        </div>
+
+        <p class="result-note" id="resultNote">
+          Results are estimates and should not be interpreted as a medical assessment.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>What Is Body Fat Percentage?</h2>
+    <p>
+      Body fat percentage represents the proportion of your total
+      body weight that consists of fat mass. For example, a person
+      weighing 80 kg with an estimated body fat percentage of 20%
+      would have approximately 16 kg of fat mass.
+    </p>
+    <p>
+      The remaining body weight is commonly described as fat-free
+      mass or lean body mass. It includes muscle, bones, organs,
+      water, and other non-fat tissues.
+    </p>
+
+    <div class="info-box">
+      <strong>Important:</strong> Body fat percentage is only one
+      measure of body composition. A single estimate cannot
+      determine overall health, fitness, or medical risk.
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>How to Use This Body Fat Calculator</h2>
+    <ol>
+      <li>Select Metric or Imperial measurement units.</li>
+      <li>Select the sex category used by the equation.</li>
+      <li>Enter your age, height, and current weight.</li>
+      <li>Measure and enter your neck circumference.</li>
+      <li>Enter your waist circumference.</li>
+      <li>If using the female equation, also enter hip circumference.</li>
+      <li>Click Calculate Body Fat to view the estimates.</li>
+    </ol>
+    <p>
+      Use a flexible measuring tape. Keep it level, avoid pulling it
+      tightly into the skin, and repeat measurements if necessary.
+      Consistent measurement technique is important when comparing
+      results over time.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>How Does the US Navy Body Fat Method Work?</h2>
+    <p>
+      The US Navy circumference method estimates body fat using
+      height and selected body circumference measurements. It uses
+      different equations for men and women.
+    </p>
+
+    <h3>Male Equation</h3>
+    <div class="formula-box">
+      Body Fat % = 86.010 × log10(waist − neck)
+      − 70.041 × log10(height) + 36.76
+    </div>
+
+    <h3>Female Equation</h3>
+    <div class="formula-box">
+      Body Fat % = 163.205 × log10(waist + hip − neck)
+      − 97.684 × log10(height) − 78.387
+    </div>
+
+    <p>
+      The formulas above use inches for all measurements. The
+      calculator automatically converts metric measurements
+      into inches before applying the equations.
+    </p>
+
+    <h3>Estimated Fat Mass</h3>
+    <div class="formula-box">
+      Fat Mass = Body Weight × (Body Fat Percentage ÷ 100)
+    </div>
+
+    <h3>Estimated Lean Body Mass</h3>
+    <div class="formula-box">
+      Lean Body Mass = Total Body Weight − Fat Mass
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>How to Measure Your Body Correctly</h2>
+
+    <h3>Neck Measurement</h3>
+    <p>
+      Place the measuring tape around the neck below the larynx.
+      Keep the tape level and avoid compressing the skin.
+    </p>
+
+    <h3>Waist Measurement</h3>
+    <p>
+      Follow the measurement location used by the chosen method.
+      For the Navy circumference approach, the male measurement
+      is taken around the abdomen. Keep the tape horizontal and
+      measure without pulling it tightly.
+    </p>
+
+    <h3>Hip Measurement</h3>
+    <p>
+      For the female equation, measure around the widest part
+      of the hips and buttocks. Keep the tape level.
+    </p>
+
+    <h3>Height and Weight</h3>
+    <p>
+      Measure height without shoes and use a reliable scale for
+      body weight. Enter measurements in the units selected
+      in the calculator.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Example Body Fat Calculation</h2>
+    <p>
+      Consider a hypothetical male adult with these measurements:
+    </p>
+    <ul>
+      <li>Height: 175 cm (68.9 inches)</li>
+      <li>Waist: 85 cm (33.5 inches)</li>
+      <li>Neck: 38 cm (15 inches)</li>
+      <li>Weight: 75 kg</li>
+    </ul>
+    <p>
+      The male Navy equation uses the difference between waist
+      and neck circumference, together with height, to estimate
+      body fat percentage.
+    </p>
+    <p>
+      If the resulting estimate were 20%, estimated fat mass
+      would be 75 × 0.20 = 15 kg. Estimated lean body mass
+      would be 75 − 15 = 60 kg.
+    </p>
+    <p>
+      The 20% figure is an illustration of the mass calculations,
+      not a claimed result for every person with these measurements.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>What Can Affect Body Fat Estimates?</h2>
+
+    <h3>Measurement Technique</h3>
+    <p>
+      Small differences in tape position, posture, and tension
+      can change circumference readings and therefore the result.
+    </p>
+
+    <h3>Body Shape</h3>
+    <p>
+      People with different body shapes may not fit the assumptions
+      behind a circumference-based equation equally well.
+    </p>
+
+    <h3>Hydration and Weight Changes</h3>
+    <p>
+      Changes in hydration can affect body weight. Since fat mass
+      and lean mass are calculated using body weight, the estimates
+      can change as well.
+    </p>
+
+    <h3>Individual Differences</h3>
+    <p>
+      Age, muscle distribution, health, and other personal
+      characteristics can influence how well a general equation
+      represents an individual.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Body Fat Calculator FAQs</h2>
+
+    <div class="faq-item">
+      <h3>1. What is body fat percentage?</h3>
+      <p>
+        It is the proportion of total body weight made up of
+        fat mass, expressed as a percentage.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>2. How accurate is the US Navy method?</h3>
+      <p>
+        It provides an estimate based on circumference measurements.
+        Accuracy varies with measurement technique and individual
+        body shape. It is not a direct measurement of body fat.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>3. Why does the calculator ask for neck measurement?</h3>
+      <p>
+        Neck circumference is one of the inputs in the Navy
+        equations and helps produce the estimated result.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>4. Why do women need a hip measurement?</h3>
+      <p>
+        The female version of the equation uses waist, hip,
+        neck, and height measurements.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>5. What is lean body mass?</h3>
+      <p>
+        Lean body mass is estimated total body weight minus
+        estimated fat mass. It includes muscle, bone, organs,
+        water, and other non-fat tissues.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>6. Is body fat percentage the same as BMI?</h3>
+      <p>
+        No. BMI compares weight with height. Body fat percentage
+        estimates the proportion of weight made up of fat.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>7. Can I use this calculator to track progress?</h3>
+      <p>
+        You can use it to observe changes in estimates over time.
+        For more consistent comparisons, measure at similar times
+        and use the same measurement technique.
+      </p>
+    </div>
+
+    <div class="faq-item">
+      <h3>8. Is this calculator suitable for everyone?</h3>
+      <p>
+        It is designed as a general adult educational tool.
+        It may not be suitable for children, teenagers, pregnancy,
+        or people whose body measurements fall outside the
+        assumptions of the equations.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Explore Related Health Calculators</h2>
+    <p>
+      Explore more tools for body measurements, metabolism,
+      nutrition, and fitness.
+    </p>
+
+    <div class="related-grid">
+
+      <a class="related-card" href="/calculators/bmi-calculator.html">
+        BMI Calculator
+        <span>Calculate body mass index.</span>
+      </a>
+
+      <a class="related-card" href="/calculators/ideal-weight-calculator.html">
+        Ideal Weight Calculator
+        <span>Compare traditional reference weight formulas.</span>
+      </a>
+
+      <a class="related-card" href="/calculators/lean-body-mass-calculator.html">
+        Lean Body Mass Calculator
+        <span>Estimate lean body mass.</span>
+      </a>
+
+      <a class="related-card" href="/calculators/bmr-calculator.html">
+        BMR Calculator
+        <span>Estimate resting energy requirements.</span>
+      </a>
+
+      <a class="related-card" href="/calculators/tdee-calculator.html">
+        TDEE Calculator
+        <span>Estimate total daily energy expenditure.</span>
+      </a>
+
+      <a class="related-card" href="/calculators/calorie-calculator.html">
+        Calorie Calculator
+        <span>Estimate daily calorie needs.</span>
+      </a>
+
+      <a class="related-card" href="/calculators/health-calculators.html">
+        All Health Calculators
+        <span>Browse the complete health category.</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="disclaimer">
+      <strong>Health Disclaimer:</strong> This calculator provides
+      general educational estimates only. It is not a medical
+      assessment, diagnosis, or substitute for professional advice.
+      Circumference-based equations may not suit every body type.
+      Consult a qualified healthcare professional for personalized
+      body-composition assessment.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 CalcNest. All rights reserved.</div>
+    <div>
+      <a href="/">Home</a> ·
+      <a href="/calculators/">Calculators</a> ·
+      <a href="/about.html">About</a> ·
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentUnit = "metric";
+
+  const sexSelect = document.getElementById("sex");
+
+  function setUnit(unit) {
+    currentUnit = unit;
+
+    document.getElementById("metricBtn").classList.toggle("active", unit === "metric");
+    document.getElementById("imperialBtn").classList.toggle("active", unit === "imperial");
+
+    document.getElementById("heightMetric").style.display =
+      unit === "metric" ? "block" : "none";
+
+    document.getElementById("heightImperial").style.display =
+      unit === "imperial" ? "block" : "none";
+
+    document.getElementById("weightMetric").style.display =
+      unit === "metric" ? "block" : "none";
+
+    document.getElementById("weightImperial").style.display =
+      unit === "imperial" ? "block" : "none";
+
+    document.querySelectorAll(".unit-label").forEach(function(label) {
+      label.textContent = unit === "metric" ? "cm" : "inches";
+    });
+
+    document.getElementById("error").textContent = "";
+    document.getElementById("results").style.display = "none";
+  }
+
+  function updateSexFields() {
+    const isFemale = sexSelect.value === "female";
+
+    document.getElementById("hipField").style.display =
+      isFemale ? "block" : "none";
+
+    document.getElementById("hip").required = isFemale;
+  }
+
+  sexSelect.addEventListener("change", function() {
+    updateSexFields();
+    document.getElementById("results").style.display = "none";
+    document.getElementById("error").textContent = "";
+  });
+
+  updateSexFields();
+
+  function formatMass(kg) {
+    if (currentUnit === "imperial") {
+      return (kg * 2.2046226218).toFixed(1) + " lb";
+    }
+
+    return kg.toFixed(1) + " kg";
+  }
+
+  function isValidNumber(value) {
+    return Number.isFinite(value) && value > 0;
+  }
+
+  document.getElementById("bodyFatForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const error = document.getElementById("error");
+    const results = document.getElementById("results");
+
+    error.textContent = "";
+    results.style.display = "none";
+
+    const sex = sexSelect.value;
+    const age = Number(document.getElementById("age").value);
+
+    if (!Number.isFinite(age) || age < 18 || age > 100) {
+      error.textContent = "Please enter an age between 18 and 100 years.";
+      return;
+    }
+
+    let heightInches;
+    let weightKg;
+    let neckInches;
+    let waistInches;
+    let hipInches = 0;
+
+    const neckInput = Number(document.getElementById("neck").value);
+    const waistInput = Number(document.getElementById("waist").value);
+
+    if (!isValidNumber(neckInput) || !isValidNumber(waistInput)) {
+      error.textContent = "Please enter valid neck and waist measurements.";
+      return;
+    }
+
+    if (currentUnit === "metric") {
+      const heightCm = Number(document.getElementById("heightCm").value);
+      weightKg = Number(document.getElementById("weightKg").value);
+
+      if (!Number.isFinite(heightCm) || heightCm < 120 || heightCm > 230) {
+        error.textContent = "Please enter a valid height between 120 and 230 cm.";
+        return;
+      }
+
+      if (!Number.isFinite(weightKg) || weightKg < 25 || weightKg > 350) {
+        error.textContent = "Please enter a valid weight between 25 and 350 kg.";
+        return;
+      }
+
+      if (neckInput < 20 || neckInput > 80 ||
+          waistInput < 40 || waistInput > 200) {
+        error.textContent = "Please check your neck and waist measurements.";
+        return;
+      }
+
+      heightInches = heightCm / 2.54;
+      neckInches = neckInput / 2.54;
+      waistInches = waistInput / 2.54;
+
+      if (sex === "female") {
+        const hipInput = Number(document.getElementById("hip").value);
+
+        if (!Number.isFinite(hipInput) || hipInput < 50 || hipInput > 220) {
+          error.textContent = "Please enter a valid hip measurement between 50 and 220 cm.";
+          return;
+        }
+
+        hipInches = hipInput / 2.54;
+      }
+
+    } else {
+      const heightInput = Number(document.getElementById("heightIn").value);
+      const weightInput = Number(document.getElementById("weightLb").value);
+
+      if (!Number.isFinite(heightInput) || heightInput < 47 || heightInput > 91) {
+        error.textContent = "Please enter a valid height between 47 and 91 inches.";
+        return;
+      }
+
+      if (!Number.isFinite(weightInput) || weightInput < 55 || weightInput > 770) {
+        error.textContent = "Please enter a valid weight between 55 and 770 lb.";
+        return;
+      }
+
+      if (neckInput < 8 || neckInput > 32 ||
+          waistInput < 16 || waistInput > 79) {
+        error.textContent = "Please check your neck and waist measurements in inches.";
+        return;
+      }
+
+      heightInches = heightInput;
+      weightKg = weightInput / 2.2046226218;
+      neckInches = neckInput;
+      waistInches = waistInput;
+
+      if (sex === "female") {
+        const hipInput = Number(document.getElementById("hip").value);
+
+        if (!Number.isFinite(hipInput) || hipInput < 20 || hipInput > 87) {
+          error.textContent = "Please enter a valid hip measurement between 20 and 87 inches.";
+          return;
+        }
+
+        hipInches = hipInput;
+      }
+    }
+
+    const difference = sex === "male"
+      ? waistInches - neckInches
+      : waistInches + hipInches - neckInches;
+
+    if (difference <= 0) {
+      error.textContent = "Your entered circumference measurements are not valid for this formula. Please check them.";
+      return;
+    }
+
+    let bodyFat;
+
+    if (sex === "male") {
+      bodyFat =
+        86.010 * Math.log10(waistInches - neckInches) -
+        70.041 * Math.log10(heightInches) +
+        36.76;
+    } else {
+      bodyFat =
+        163.205 * Math.log10(waistInches + hipInches - neckInches) -
+        97.684 * Math.log10(heightInches) -
+        78.387;
+    }
+
+    if (!Number.isFinite(bodyFat) || bodyFat <= 0 || bodyFat >= 75) {
+      error.textContent = "The measurements produced an out-of-range estimate. Please check your measurements and try again.";
+      return;
+    }
+
+    const fatMass = weightKg * (bodyFat / 100);
+    const leanMass = weightKg - fatMass;
+    const leanPercentage = 100 - bodyFat;
+
+    document.getElementById("bodyFatResult").textContent =
+      bodyFat.toFixed(1) + "%";
+
+    document.getElementById("fatMassResult").textContent =
+      formatMass(fatMass);
+
+    document.getElementById("leanMassResult").textContent =
+      formatMass(leanMass);
+
+    document.getElementById("leanPercentResult").textContent =
+      leanPercentage.toFixed(1) + "%";
+
+    document.getElementById("percentageFill").style.width =
+      Math.min(Math.max(bodyFat, 0), 100) + "%";
+
+    document.getElementById("resultNote").textContent =
+      "Estimated using the US Navy circumference method. Repeat measurements consistently for comparisons; this is not a direct body-fat measurement.";
+
+    results.style.display = "block";
+    results.scrollIntoView({ behavior:"smooth", block:"nearest" });
+  });
+</script>
+
+</body>
+</html>
