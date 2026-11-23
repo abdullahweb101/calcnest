@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash Flow Calculator - Business Cash Flow Analysis | CalcNest</title>
+<meta name="description" content="Calculate operating, investing and financing cash flow, total cash inflows, outflows and ending cash balance for your business.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/cash-flow-calculator.html">
+<meta property="og:title" content="Cash Flow Calculator | CalcNest">
+<meta property="og:description" content="Analyse business cash inflows, outflows and net cash movement.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/cash-flow-calculator.html">
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd}
+*{box-sizing:border-box}body{margin:0;background:#f8faff;color:var(--ink);font:16px/1.65 Arial,sans-serif}
+a{color:var(--blue);text-decoration:none}.nav,main{max-width:1100px;margin:auto;padding:20px}.nav{display:flex;justify-content:space-between;align-items:center}.logo{font-size:23px;font-weight:800;color:var(--ink)}
+.hero{text-align:center;margin:28px auto}.hero h1{font-size:clamp(30px,5vw,44px);margin:0 0 10px}.hero p{max-width:760px;color:var(--muted);margin:auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel,.article{background:white;border:1px solid var(--line);border-radius:17px;padding:24px;box-shadow:0 12px 35px rgba(25,45,85,.07)}
+h2{margin-top:0;font-size:23px}.group-title{font-size:17px;margin:22px 0 8px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+.field{margin:13px 0}.field label{display:block;font-weight:700;margin-bottom:6px}.field input,.field select{width:100%;padding:12px;border:1px solid #dce3ef;border-radius:9px;font-size:16px}
+.btn{width:100%;border:0;border-radius:10px;padding:14px;background:linear-gradient(110deg,var(--blue),var(--purple));color:white;font-size:16px;font-weight:700;cursor:pointer;margin-top:10px}
+.result{background:var(--soft);padding:18px;border-radius:12px}.big{font-size:32px;font-weight:800;color:var(--blue);overflow-wrap:anywhere}.stat{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}
+.error{color:#bd2636;font-weight:700}.note{color:var(--muted);font-size:13px}.article{margin-top:24px}.article h2{margin-top:25px}.article h2:first-child{margin-top:0}.article p,.article li{color:#526078}.faq{padding:13px 0;border-bottom:1px solid var(--line)}
+footer{text-align:center;color:var(--muted);padding:28px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.panel{padding:19px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Cash Flow Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://calcnest-7s6.pages.dev/calculators/cash-flow-calculator.html"}
+</script>
+</head>
+<body>
+<header><nav class="nav"><a class="logo" href="/">CalcNest</a><a href="/calculators/">All Calculators</a></nav></header>
+<main>
+<section class="hero"><h1>Cash Flow Calculator</h1><p>Calculate business cash inflows and outflows across operating, investing and financing activities to estimate your net cash flow and ending cash balance.</p></section>
+<div class="grid">
+<section class="panel">
+<h2>Enter Cash Flow Details</h2>
+<div class="field"><label for="opening">Opening cash balance</label><input id="opening" type="number" step=".01" value="10000"></div>
+<h3 class="group-title">Operating Activities</h3>
+<div class="field"><label for="customer">Cash received from customers</label><input id="customer" type="number" min="0" step=".01" value="30000"></div>
+<div class="field"><label for="otherOperatingIn">Other operating cash received</label><input id="otherOperatingIn" type="number" min="0" step=".01" value="1000"></div>
+<div class="field"><label for="suppliers">Payments to suppliers</label><input id="suppliers" type="number" min="0" step=".01" value="8000"></div>
+<div class="field"><label for="payroll">Employee salaries and payroll</label><input id="payroll" type="number" min="0" step=".01" value="7000"></div>
+<div class="field"><label for="rent">Rent, utilities and operating bills</label><input id="rent" type="number" min="0" step=".01" value="3000"></div>
+<div class="field"><label for="tax">Taxes and other operating payments</label><input id="tax" type="number" min="0" step=".01" value="1500"></div>
+<h3 class="group-title">Investing Activities</h3>
+<div class="field"><label for="assetSale">Cash received from asset sales</label><input id="assetSale" type="number" min="0" step=".01" value="0"></div>
+<div class="field"><label for="investmentReturn">Investment proceeds received</label><input id="investmentReturn" type="number" min="0" step=".01" value="0"></div>
+<div class="field"><label for="assetPurchase">Equipment and asset purchases</label><input id="assetPurchase" type="number" min="0" step=".01" value="4000"></div>
+<div class="field"><label for="investmentPurchase">Investments purchased</label><input id="investmentPurchase" type="number" min="0" step=".01" value="1000"></div>
+<h3 class="group-title">Financing Activities</h3>
+<div class="field"><label for="loanReceived">Loans and financing received</label><input id="loanReceived" type="number" min="0" step=".01" value="5000"></div>
+<div class="field"><label for="ownerCapital">Owner contributions or capital received</label><input id="ownerCapital" type="number" min="0" step=".01" value="2000"></div>
+<div class="field"><label for="loanPaid">Loan principal repayments</label><input id="loanPaid" type="number" min="0" step=".01" value="1500"></div>
+<div class="field"><label for="dividends">Dividends or owner withdrawals</label><input id="dividends" type="number" min="0" step=".01" value="500"></div>
+<div class="field"><label for="currency">Currency</label><select id="currency"><option value="$">USD ($)</option><option value="£">GBP (£)</option><option value="€">EUR (€)</option><option value="₨">PKR (₨)</option><option value="C$">CAD (C$)</option><option value="A$">AUD (A$)</option><option value="₹">INR (₹)</option></select></div>
+<button class="btn" onclick="calculate()">Calculate Cash Flow</button>
+<p class="error" id="error" role="alert"></p>
+</section>
+<section class="panel">
+<h2>Your Cash Flow Summary</h2>
+<div class="result" aria-live="polite">
+<div>Net cash flow</div><div class="big" id="net">—</div>
+<div class="stat"><span>Operating cash flow</span><strong id="operating">—</strong></div>
+<div class="stat"><span>Investing cash flow</span><strong id="investing">—</strong></div>
+<div class="stat"><span>Financing cash flow</span><strong id="financing">—</strong></div>
+<div class="stat"><span>Total cash inflows</span><strong id="inflows">—</strong></div>
+<div class="stat"><span>Total cash outflows</span><strong id="outflows">—</strong></div>
+<div class="stat"><span>Opening cash balance</span><strong id="openingOut">—</strong></div>
+<div class="stat"><span>Closing cash balance</span><strong id="closing">—</strong></div>
+<div class="stat"><span>Cash position</span><strong id="position">—</strong></div>
+</div>
+<p class="note">Enter cash movements for one consistent reporting period, such as one month, quarter or year.</p>
+</section>
+</div>
+<article class="article">
+<h2>What Is Cash Flow?</h2>
+<p>Cash flow describes the movement of money into and out of a business during a particular period. Cash inflows increase available cash, while cash outflows reduce it.</p>
+<h2>Three Main Types of Cash Flow</h2>
+<p><strong>Operating cash flow:</strong> Cash generated or used by the core business activities, such as collecting customer payments and paying suppliers, employees and operating bills.</p>
+<p><strong>Investing cash flow:</strong> Cash movements related to buying or selling long-term assets and investments. Buying equipment is generally an outflow, while selling an asset may create an inflow.</p>
+<p><strong>Financing cash flow:</strong> Cash movements related to borrowing, repaying loans, owner contributions, share issues, dividends and withdrawals.</p>
+<h2>How to Use This Calculator</h2>
+<ol>
+<li>Enter the cash balance at the beginning of the period.</li>
+<li>Enter money received from customers and other operating sources.</li>
+<li>Enter operating payments such as suppliers, payroll, rent and taxes.</li>
+<li>Enter investing cash receipts and purchases.</li>
+<li>Enter financing receipts and repayments.</li>
+<li>Select your currency and calculate the cash flow summary.</li>
+</ol>
+<h2>How Cash Flow Is Calculated</h2>
+<p>For each activity category, the calculator subtracts the listed cash outflows from the listed cash inflows. Net cash flow is the sum of operating, investing and financing cash flows.</p>
+<p>Closing cash balance is calculated by adding net cash flow to the opening cash balance. The calculation is a simplified summary based on the cash movements you enter.</p>
+<h2>Cash Flow vs. Profit</h2>
+<p>Cash flow and accounting profit are not the same. A business may record revenue before receiving the cash, or record expenses that are not paid immediately. Loan principal repayments and asset purchases can also affect cash without being treated as ordinary operating expenses in the same way as other costs.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><strong>Can a profitable business have negative cash flow?</strong><p>Yes. Timing differences, investment purchases, debt repayments or delayed customer payments can create negative cash flow even when a business reports accounting profit.</p></div>
+<div class="faq"><strong>What does negative net cash flow mean?</strong><p>It means the entered cash outflows exceed the entered cash inflows for the period. The business may use existing cash reserves or need additional funding.</p></div>
+<div class="faq"><strong>Should loan repayments be included?</strong><p>Loan principal repayments are included under financing activities in this simplified calculator. Interest classification can depend on the applicable accounting framework.</p></div>
+<div class="faq"><strong>Can I use this for monthly cash flow?</strong><p>Yes. Enter all values for the same month. You can also use it for a quarter or year, as long as the reporting period is consistent.</p></div>
+<div class="faq"><strong>Is this a formal cash flow statement?</strong><p>No. It is a planning calculator and simplified summary, not a complete financial statement prepared under an accounting standard.</p></div>
+<h2>Related Finance Calculators</h2>
+<p><a href="/calculators/budget-calculator.html">Budget Calculator</a> · <a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator</a> · <a href="/calculators/break-even-calculator.html">Break-Even Calculator</a> · <a href="/calculators/net-worth-calculator.html">Net Worth Calculator</a></p>
+</article>
+</main>
+<footer>© 2026 CalcNest · <a href="/">Home</a> · <a href="/calculators/">All Calculators</a></footer>
+<script>
+const ids=['customer','otherOperatingIn','suppliers','payroll','rent','tax','assetSale','investmentReturn','assetPurchase','investmentPurchase','loanReceived','ownerCapital','loanPaid','dividends'];
+function money(n){return currency.value+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function calculate(){
+const error=document.getElementById('error');error.textContent='';
+const openingValue=Number(opening.value);
+const values=ids.map(id=>Number(document.getElementById(id).value));
+if(!Number.isFinite(openingValue)||values.some(v=>!Number.isFinite(v)||v<0)){error.textContent='Please enter valid non-negative amounts in all fields.';return}
+const [customerIn,otherIn,suppliersOut,payrollOut,rentOut,taxOut,assetSaleIn,investmentIn,assetPurchaseOut,investmentPurchaseOut,loanIn,capitalIn,loanOut,dividendOut]=values;
+const operatingIn=customerIn+otherIn;
+const operatingOut=suppliersOut+payrollOut+rentOut+taxOut;
+const investingIn=assetSaleIn+investmentIn;
+const investingOut=assetPurchaseOut+investmentPurchaseOut;
+const financingIn=loanIn+capitalIn;
+const financingOut=loanOut+dividendOut;
+const op=operatingIn-operatingOut;
+const inv=investingIn-investingOut;
+const fin=financingIn-financingOut;
+const inflows=operatingIn+investingIn+financingIn;
+const outflows=operatingOut+investingOut+financingOut;
+const net=op+inv+fin;
+const closingValue=openingValue+net;
+document.getElementById('net').textContent=(net<0?'-':'')+money(Math.abs(net));
+document.getElementById('operating').textContent=(op<0?'-':'')+money(Math.abs(op));
+document.getElementById('investing').textContent=(inv<0?'-':'')+money(Math.abs(inv));
+document.getElementById('financing').textContent=(fin<0?'-':'')+money(Math.abs(fin));
+document.getElementById('inflows').textContent=money(inflows);
+document.getElementById('outflows').textContent=money(outflows);
+document.getElementById('openingOut').textContent=money(openingValue);
+document.getElementById('closing').textContent=(closingValue<0?'-':'')+money(Math.abs(closingValue));
+document.getElementById('position').textContent=closingValue<0?'Negative closing cash balance':closingValue===0?'Zero closing cash balance':'Positive closing cash balance';
+}
+calculate();
+</script>
+</body>
+</html>
