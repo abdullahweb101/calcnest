@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Salary Calculator – Monthly, Annual & Hourly Pay | CalcNest</title>
+<meta name="description" content="Convert salary between annual, monthly, weekly, daily and hourly pay. Include bonuses and deductions with this free salary calculator.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/salary-calculator.html">
+<meta property="og:title" content="Free Salary Calculator | CalcNest">
+<meta property="og:description" content="Calculate annual, monthly, weekly, daily and hourly salary with bonuses and deductions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/salary-calculator.html">
+
+<style>
+:root{
+ --ink:#17243a;--muted:#65738b;--blue:#315eea;
+ --purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;
+ --white:#fff;--shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f7f9fd;color:var(--ink);line-height:1.65}
+a{color:var(--blue);text-decoration:none}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:23px;font-weight:850;color:var(--ink)}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:650}
+.container{max-width:1050px;margin:auto;padding:35px 20px 65px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero{text-align:center;margin:20px auto 32px;max-width:760px}
+.eyebrow{display:inline-block;padding:6px 13px;background:#eaf0ff;color:var(--blue);border-radius:30px;font-size:12px;font-weight:750}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:15px 0}
+.hero p{color:var(--muted);font-size:17px}
+.calculator,.content-section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.calculator h2,.content-section h2{margin-top:0;font-size:23px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 14px;border:1px solid #dce3ef;border-radius:10px;font-size:16px;color:var(--ink);background:#fff;outline:none}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.12)}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
+button{border:0;padding:13px 22px;border-radius:10px;font-size:15px;font-weight:750;cursor:pointer}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#edf1f8;color:var(--ink)}
+button:hover{filter:brightness(.96)}
+.error{display:none;margin-top:17px;padding:12px;background:#fff0f0;color:#b42318;border-radius:9px;font-size:14px}
+.results{display:none;margin-top:25px;padding-top:24px;border-top:1px solid var(--line)}
+.results h3{margin:0 0 16px;font-size:21px}
+.result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.result-card{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:17px}
+.result-card span{display:block;color:var(--muted);font-size:13px}
+.result-card strong{display:block;font-size:21px;margin-top:6px;overflow-wrap:anywhere}
+.result-card.highlight{background:#edf2ff;border-color:#d8e2ff}
+.result-card.highlight strong{color:var(--blue)}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.notice{background:#fff8e8;border:1px solid #f3dfad;padding:14px;border-radius:11px;color:#72551b;font-size:13px;margin-top:18px}
+.content-section{margin-top:28px;box-shadow:none}
+.content-section h3{font-size:18px;margin-bottom:7px}
+.content-section p,.content-section li{color:#53627a}
+.formula{padding:15px;border-radius:10px;background:var(--soft);overflow-wrap:anywhere;font-weight:700;margin:10px 0}
+.faq{padding:15px 0;border-bottom:1px solid var(--line)}
+.faq:last-child{border:0}
+.faq h3{margin:0 0 5px}
+.faq p{margin:0}
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related a{padding:13px;border:1px solid var(--line);border-radius:10px;font-weight:650}
+footer{background:#17243a;color:#dce5f5;text-align:center;padding:28px 18px;font-size:13px}
+footer a{color:#fff}
+@media(max-width:650px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .nav-links{gap:13px}
+ .container{padding:25px 14px 45px}
+ .calculator,.content-section{padding:20px}
+ .form-grid,.result-grid,.related{grid-template-columns:1fr}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"CalcNest Salary Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/salary-calculator.html",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "description":"Free salary calculator for annual, monthly, weekly, daily and hourly pay."
+}
+</script>
+</head>
+
+<body>
+<header>
+ <nav class="nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <div class="nav-links">
+   <a href="/">Home</a>
+   <a href="/calculators/">All Calculators</a>
+   <a href="/#categories">Categories</a>
+   <a href="/#about">About</a>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+ <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/calculators/">Calculators</a> /
+  Salary Calculator
+ </div>
+
+ <section class="hero">
+  <span class="eyebrow">SALARY & FINANCE</span>
+  <h1>Free Salary Calculator</h1>
+  <p>Convert your salary into annual, monthly, weekly, daily and hourly earnings, with optional bonuses and deductions.</p>
+ </section>
+
+ <section class="calculator">
+  <h2>Calculate Your Salary</h2>
+
+  <div class="form-grid">
+   <div class="field">
+    <label for="salary">Salary Amount</label>
+    <input id="salary" type="number" min="0" step="any" value="5000">
+    <div class="hint">Enter your salary for the selected pay period.</div>
+   </div>
+
+   <div class="field">
+    <label for="period">Salary Period</label>
+    <select id="period">
+     <option value="hourly">Hourly</option>
+     <option value="daily">Daily</option>
+     <option value="weekly">Weekly</option>
+     <option value="biweekly">Every 2 Weeks</option>
+     <option value="monthly" selected>Monthly</option>
+     <option value="annual">Annually</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="bonus">Annual Bonus</label>
+    <input id="bonus" type="number" min="0" step="any" value="0">
+    <div class="hint">Optional additional yearly bonus.</div>
+   </div>
+
+   <div class="field">
+    <label for="deductions">Annual Deductions</label>
+    <input id="deductions" type="number" min="0" step="any" value="0">
+    <div class="hint">Optional yearly deductions, such as estimated tax or other withholdings.</div>
+   </div>
+
+   <div class="field">
+    <label for="hours">Working Hours Per Day</label>
+    <input id="hours" type="number" min="0.01" max="24" step="any" value="8">
+   </div>
+
+   <div class="field">
+    <label for="days">Working Days Per Week</label>
+    <input id="days" type="number" min="0.01" max="7" step="any" value="5">
+   </div>
+
+   <div class="field">
+    <label for="weeks">Working Weeks Per Year</label>
+    <input id="weeks" type="number" min="1" max="52" step="any" value="52">
+    <div class="hint">Adjust for unpaid leave or non-working weeks.</div>
+   </div>
+
+   <div class="field">
+    <label for="currency">Currency</label>
+    <select id="currency">
+     <option value="USD">USD ($)</option>
+     <option value="EUR">EUR (€)</option>
+     <option value="GBP">GBP (£)</option>
+     <option value="PKR">PKR (Rs)</option>
+     <option value="INR">INR (₹)</option>
+     <option value="CAD">CAD ($)</option>
+     <option value="AUD">AUD ($)</option>
+     <option value="AED">AED (د.إ)</option>
+    </select>
+   </div>
+  </div>
+
+  <div class="actions">
+   <button class="primary" id="calculate" type="button">Calculate Salary</button>
+   <button class="secondary" id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div class="results" id="results" aria-live="polite">
+   <h3>Your Salary Breakdown</h3>
+   <div class="result-grid">
+    <div class="result-card highlight">
+     <span>Annual Gross Pay</span>
+     <strong id="annual">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Monthly Gross Pay</span>
+     <strong id="monthly">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Weekly Gross Pay</span>
+     <strong id="weekly">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Daily Gross Pay</span>
+     <strong id="daily">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Hourly Gross Pay</span>
+     <strong id="hourly">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Annual Bonus</span>
+     <strong id="bonusResult">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Annual Deductions</span>
+     <strong id="deductionResult">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Annual Pay After Deductions</span>
+     <strong id="net">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Total Annual Earnings Including Bonus</span>
+     <strong id="total">—</strong>
+    </div>
+   </div>
+   <p class="result-note" id="note"></p>
+  </div>
+
+  <div class="notice">
+   This calculator estimates salary conversions using your working schedule.
+   It does not calculate statutory payroll tax, overtime, pension contributions
+   or country-specific employment benefits.
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>What Is a Salary Calculator?</h2>
+  <p>
+   A salary calculator converts pay from one period into equivalent earnings
+   over other periods. It can help employees, freelancers and job seekers
+   compare hourly, daily, weekly, monthly and annual compensation.
+  </p>
+
+  <h3>Annual Salary Formula</h3>
+  <div class="formula">
+   Annual Salary = Pay Per Period × Number of Periods Per Year
+  </div>
+
+  <h3>Hourly Salary Formula</h3>
+  <div class="formula">
+   Hourly Pay = Annual Gross Salary ÷ Annual Working Hours
+  </div>
+
+  <h3>Monthly Salary Formula</h3>
+  <div class="formula">
+   Monthly Pay = Annual Gross Salary ÷ 12
+  </div>
+
+  <h3>Example</h3>
+  <p>
+   If your monthly salary is $5,000, your annual base salary is $60,000.
+   If you receive a $2,000 annual bonus, your total annual earnings become
+   $62,000 before deductions.
+  </p>
+
+  <h3>Why Use a Salary Calculator?</h3>
+  <ul>
+   <li>Compare job offers with different pay periods.</li>
+   <li>Convert hourly wages into annual earnings.</li>
+   <li>Estimate monthly and weekly income.</li>
+   <li>Include annual bonuses and deductions.</li>
+   <li>Understand how working hours affect hourly pay.</li>
+  </ul>
+
+  <h3>Gross Salary vs. Net Salary</h3>
+  <p>
+   Gross salary is pay before deductions. Net salary is the amount remaining
+   after applicable deductions. This calculator subtracts the annual
+   deductions you enter, but it does not automatically determine your
+   country's payroll taxes.
+  </p>
+ </section>
+
+ <section class="content-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+   <h3>1. How do I convert monthly salary to annual salary?</h3>
+   <p>Multiply your monthly salary by 12 to estimate annual base pay.</p>
+  </div>
+
+  <div class="faq">
+   <h3>2. How is hourly pay calculated?</h3>
+   <p>Divide annual gross pay by the number of working hours in a year.</p>
+  </div>
+
+  <div class="faq">
+   <h3>3. Does this calculator include bonuses?</h3>
+   <p>Yes. Enter an annual bonus to include it in the total annual earnings calculation.</p>
+  </div>
+
+  <div class="faq">
+   <h3>4. What is the difference between gross and net salary?</h3>
+   <p>Gross salary is before deductions, while net salary is what remains after deductions.</p>
+  </div>
+
+  <div class="faq">
+   <h3>5. Can I calculate salary for part-time work?</h3>
+   <p>Yes. Adjust working days per week, hours per day and working weeks per year to match your schedule.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Explore More Calculators</h2>
+  <div class="related">
+   <a href="/calculators/loan-calculator.html">Loan Calculator →</a>
+   <a href="/calculators/mortgage-calculator.html">Mortgage Calculator →</a>
+   <a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator →</a>
+   <a href="/calculators/savings-calculator.html">Savings Calculator →</a>
+   <a href="/calculators/investment-return-calculator.html">Investment Return Calculator →</a>
+   <a href="/calculators/discount-calculator.html">Discount Calculator →</a>
+   <a href="/calculators/tax-calculator.html">Tax Calculator →</a>
+   <a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator →</a>
+   <a href="/calculators/">Browse All Calculators →</a>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <p>© <span id="year"></span> CalcNest. Free online calculators for smarter decisions.</p>
+ <p><a href="/">Home</a> · <a href="/calculators/">All Calculators</a></p>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function money(value,currency){
+ try{
+  return new Intl.NumberFormat("en-US",{
+   style:"currency",
+   currency:currency,
+   minimumFractionDigits:2,
+   maximumFractionDigits:2
+  }).format(value);
+ }catch(e){
+  return currency+" "+value.toFixed(2);
+ }
+}
+
+function calculateSalary(){
+ const salary=Number($("salary").value);
+ const period=$("period").value;
+ const bonus=Number($("bonus").value);
+ const deductions=Number($("deductions").value);
+ const hours=Number($("hours").value);
+ const days=Number($("days").value);
+ const weeks=Number($("weeks").value);
+ const currency=$("currency").value;
+
+ const error=$("error");
+ const results=$("results");
+ error.style.display="none";
+ results.style.display="none";
+
+ const values=[salary,bonus,deductions,hours,days,weeks];
+ if(!values.every(Number.isFinite)){
+  error.textContent="Please enter valid numbers in all fields.";
+  error.style.display="block";
+  return;
+ }
+
+ if(salary<0||bonus<0||deductions<0){
+  error.textContent="Salary, bonus and deductions cannot be negative.";
+  error.style.display="block";
+  return;
+ }
+
+ if(hours<=0||hours>24){
+  error.textContent="Working hours per day must be greater than 0 and no more than 24.";
+  error.style.display="block";
+  return;
+ }
+
+ if(days<=0||days>7){
+  error.textContent="Working days per week must be greater than 0 and no more than 7.";
+  error.style.display="block";
+  return;
+ }
+
+ if(weeks<=0||weeks>52){
+  error.textContent="Working weeks per year must be between 1 and 52.";
+  error.style.display="block";
+  return;
+ }
+
+ let annualBase;
+
+ switch(period){
+  case "hourly":
+   annualBase=salary*hours*days*weeks;
+   break;
+  case "daily":
+   annualBase=salary*days*weeks;
+   break;
+  case "weekly":
+   annualBase=salary*weeks;
+   break;
+  case "biweekly":
+   annualBase=salary*weeks/2;
+   break;
+  case "monthly":
+   annualBase=salary*12;
+   break;
+  case "annual":
+   annualBase=salary;
+   break;
+  default:
+   error.textContent="Please select a valid salary period.";
+   error.style.display="block";
+   return;
+ }
+
+ const annualTotal=annualBase+bonus;
+ const afterDeductions=annualTotal-deductions;
+ const annualHours=hours*days*weeks;
+
+ const monthly=annualBase/12;
+ const weekly=annualBase/weeks;
+ const daily=annualBase/(days*weeks);
+ const hourly=annualBase/annualHours;
+
+ const allResults=[annualBase,annualTotal,afterDeductions,monthly,weekly,daily,hourly];
+ if(!allResults.every(Number.isFinite)){
+  error.textContent="The entered values are too large to calculate.";
+  error.style.display="block";
+  return;
+ }
+
+ $("annual").textContent=money(annualBase,currency);
+ $("monthly").textContent=money(monthly,currency);
+ $("weekly").textContent=money(weekly,currency);
+ $("daily").textContent=money(daily,currency);
+ $("hourly").textContent=money(hourly,currency);
+ $("bonusResult").textContent=money(bonus,currency);
+ $("deductionResult").textContent=money(deductions,currency);
+ $("net").textContent=money(afterDeductions,currency);
+ $("total").textContent=money(annualTotal,currency);
+
+ $("note").textContent=
+  "Estimated annual working hours: "+annualHours.toLocaleString("en-US",{
+   maximumFractionDigits:2
+  })+". Annual gross pay includes base salary only; total annual earnings also include your bonus.";
+
+ results.style.display="block";
+}
+
+$("calculate").addEventListener("click",calculateSalary);
+
+$("reset").addEventListener("click",()=>{
+ $("salary").value="5000";
+ $("period").value="monthly";
+ $("bonus").value="0";
+ $("deductions").value="0";
+ $("hours").value="8";
+ $("days").value="5";
+ $("weeks").value="52";
+ $("currency").value="USD";
+ $("error").style.display="none";
+ $("results").style.display="none";
+});
+
+$("year").textContent=new Date().getFullYear();
+calculateSalary();
+</script>
+</body>
+</html>
