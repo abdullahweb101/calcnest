@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Mortgage Calculator – Monthly Home Payment | CalcNest</title>
+<meta name="description" content="Calculate your estimated monthly mortgage payment, principal, interest, property tax, home insurance and total housing costs with CalcNest.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/mortgage-calculator.html">
+<meta property="og:title" content="Free Mortgage Calculator | CalcNest">
+<meta property="og:description" content="Estimate monthly mortgage payments and total home financing costs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/mortgage-calculator.html">
+
+<style>
+:root{
+ --ink:#17243a;--muted:#65738b;--blue:#315eea;
+ --purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;
+ --white:#fff;--shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f7f9fd;color:var(--ink);line-height:1.65}
+a{color:var(--blue);text-decoration:none}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:23px;font-weight:850;color:var(--ink)}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:650}
+.container{max-width:1050px;margin:auto;padding:35px 20px 65px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero{text-align:center;margin:20px auto 32px;max-width:760px}
+.eyebrow{display:inline-block;padding:6px 13px;background:#eaf0ff;color:var(--blue);border-radius:30px;font-size:12px;font-weight:750}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:15px 0}
+.hero p{color:var(--muted);font-size:17px}
+.calculator,.content-section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.calculator h2,.content-section h2{margin-top:0;font-size:23px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 14px;border:1px solid #dce3ef;border-radius:10px;font-size:16px;color:var(--ink);background:#fff;outline:none}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.12)}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.group-title{grid-column:1/-1;font-weight:800;font-size:15px;padding-top:8px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
+button{border:0;padding:13px 22px;border-radius:10px;font-size:15px;font-weight:750;cursor:pointer}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#edf1f8;color:var(--ink)}
+button:hover{filter:brightness(.96)}
+.error{display:none;margin-top:17px;padding:12px;background:#fff0f0;color:#b42318;border-radius:9px;font-size:14px}
+.results{display:none;margin-top:25px;padding-top:24px;border-top:1px solid var(--line)}
+.results h3{margin:0 0 16px;font-size:21px}
+.result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.result-card{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:17px}
+.result-card span{display:block;color:var(--muted);font-size:13px}
+.result-card strong{display:block;font-size:21px;margin-top:6px;overflow-wrap:anywhere}
+.result-card.highlight{background:#edf2ff;border-color:#d8e2ff}
+.result-card.highlight strong{color:var(--blue)}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.content-section{margin-top:28px;box-shadow:none}
+.content-section h3{font-size:18px;margin-bottom:7px}
+.content-section p,.content-section li{color:#53627a}
+.formula{padding:15px;border-radius:10px;background:var(--soft);overflow-wrap:anywhere;font-weight:700}
+.faq{padding:15px 0;border-bottom:1px solid var(--line)}
+.faq:last-child{border:0}
+.faq h3{margin:0 0 5px}
+.faq p{margin:0}
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related a{padding:13px;border:1px solid var(--line);border-radius:10px;font-weight:650}
+footer{background:#17243a;color:#dce5f5;text-align:center;padding:28px 18px;font-size:13px}
+footer a{color:#fff}
+@media(max-width:650px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .nav-links{gap:13px}
+ .container{padding:25px 14px 45px}
+ .calculator,.content-section{padding:20px}
+ .form-grid,.result-grid,.related{grid-template-columns:1fr}
+ .group-title{grid-column:1}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"CalcNest Mortgage Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/mortgage-calculator.html",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "description":"Free mortgage calculator for estimating monthly home loan payments and housing costs."
+}
+</script>
+</head>
+
+<body>
+<header>
+ <nav class="nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <div class="nav-links">
+   <a href="/">Home</a>
+   <a href="/calculators/">All Calculators</a>
+   <a href="/#categories">Categories</a>
+   <a href="/#about">About</a>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+ <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/calculators/">Calculators</a> /
+  Mortgage Calculator
+ </div>
+
+ <section class="hero">
+  <span class="eyebrow">FINANCE & MONEY</span>
+  <h1>Free Mortgage Calculator</h1>
+  <p>Estimate your monthly home payment, mortgage interest, property tax and other housing costs.</p>
+ </section>
+
+ <section class="calculator">
+  <h2>Calculate Your Mortgage</h2>
+
+  <div class="form-grid">
+   <div class="group-title">Home & Loan Details</div>
+
+   <div class="field">
+    <label for="price">Home Purchase Price</label>
+    <input id="price" type="number" min="0.01" step="any" value="300000">
+   </div>
+
+   <div class="field">
+    <label for="down">Down Payment</label>
+    <input id="down" type="number" min="0" step="any" value="60000">
+    <div class="hint">Amount paid upfront.</div>
+   </div>
+
+   <div class="field">
+    <label for="rate">Annual Interest Rate (%)</label>
+    <input id="rate" type="number" min="0" max="1000" step="any" value="6.5">
+   </div>
+
+   <div class="field">
+    <label for="years">Mortgage Term (Years)</label>
+    <select id="years">
+     <option value="10">10 years</option>
+     <option value="15">15 years</option>
+     <option value="20">20 years</option>
+     <option value="25">25 years</option>
+     <option value="30" selected>30 years</option>
+     <option value="40">40 years</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="currency">Currency</label>
+    <select id="currency">
+     <option value="USD">USD ($)</option>
+     <option value="EUR">EUR (€)</option>
+     <option value="GBP">GBP (£)</option>
+     <option value="PKR">PKR (Rs)</option>
+     <option value="INR">INR (₹)</option>
+     <option value="CAD">CAD ($)</option>
+     <option value="AUD">AUD ($)</option>
+     <option value="AED">AED (د.إ)</option>
+    </select>
+   </div>
+
+   <div class="group-title">Additional Monthly Housing Costs (Optional)</div>
+
+   <div class="field">
+    <label for="tax">Monthly Property Tax</label>
+    <input id="tax" type="number" min="0" step="any" value="250">
+   </div>
+
+   <div class="field">
+    <label for="insurance">Monthly Home Insurance</label>
+    <input id="insurance" type="number" min="0" step="any" value="100">
+   </div>
+
+   <div class="field">
+    <label for="hoa">Monthly HOA / Maintenance Fees</label>
+    <input id="hoa" type="number" min="0" step="any" value="50">
+   </div>
+
+   <div class="field">
+    <label for="extra">Other Monthly Costs</label>
+    <input id="extra" type="number" min="0" step="any" value="0">
+   </div>
+  </div>
+
+  <div class="actions">
+   <button class="primary" id="calculate" type="button">Calculate Mortgage</button>
+   <button class="secondary" id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div class="results" id="results" aria-live="polite">
+   <h3>Your Mortgage Results</h3>
+   <div class="result-grid">
+    <div class="result-card highlight">
+     <span>Estimated Monthly Housing Cost</span>
+     <strong id="monthlyTotal">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Principal & Interest / Month</span>
+     <strong id="monthlyPI">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Loan Amount</span>
+     <strong id="loanAmount">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Total Mortgage Interest</span>
+     <strong id="totalInterest">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Total Mortgage Payments</span>
+     <strong id="totalPayments">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Down Payment Percentage</span>
+     <strong id="downPercent">—</strong>
+    </div>
+   </div>
+   <p class="result-note">
+    Estimates assume a fixed interest rate and equal monthly payments.
+    Taxes, insurance, HOA and other costs are added as entered and are
+    not included in the mortgage interest calculation.
+   </p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>What Is a Mortgage Calculator?</h2>
+  <p>
+   A mortgage calculator estimates the cost of financing a home. It helps
+   homebuyers understand the monthly principal and interest payment and
+   account for additional housing expenses such as property taxes and insurance.
+  </p>
+
+  <h3>Mortgage Payment Formula</h3>
+  <div class="formula">
+   M = P × [r(1 + r)<sup>n</sup>] ÷ [(1 + r)<sup>n</sup> − 1]
+  </div>
+  <ul>
+   <li><strong>M:</strong> Monthly principal and interest payment</li>
+   <li><strong>P:</strong> Mortgage loan principal</li>
+   <li><strong>r:</strong> Monthly interest rate</li>
+   <li><strong>n:</strong> Total number of monthly payments</li>
+  </ul>
+  <p>
+   The estimated monthly housing cost is the principal and interest payment
+   plus any monthly property tax, home insurance, HOA fees and other costs entered.
+  </p>
+
+  <h3>Example Mortgage Calculation</h3>
+  <p>
+   Suppose a home costs $300,000 and you make a $60,000 down payment.
+   Your mortgage principal is $240,000. At a fixed annual interest rate
+   of 6.5% over 30 years, principal and interest are approximately
+   $1,517 per month, before additional housing costs.
+  </p>
+
+  <h3>What Is a Down Payment?</h3>
+  <p>
+   A down payment is the amount you pay upfront when purchasing a property.
+   A larger down payment reduces the amount you need to borrow and may
+   affect your interest rate or mortgage insurance requirements.
+  </p>
+
+  <h3>What Costs Are Not Included?</h3>
+  <p>
+   Closing costs, lender fees, private mortgage insurance, maintenance
+   surprises and variable-rate changes are not automatically included.
+   Add applicable recurring expenses in the optional fields where appropriate.
+  </p>
+ </section>
+
+ <section class="content-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+   <h3>1. What does a mortgage calculator calculate?</h3>
+   <p>It estimates mortgage principal and interest payments and can include additional monthly housing expenses.</p>
+  </div>
+
+  <div class="faq">
+   <h3>2. Does a bigger down payment reduce monthly payments?</h3>
+   <p>Yes. A bigger down payment generally reduces the mortgage amount and the monthly principal and interest payment.</p>
+  </div>
+
+  <div class="faq">
+   <h3>3. What is the difference between a mortgage and a home loan?</h3>
+   <p>A home loan is money borrowed to purchase property. A mortgage is the loan arrangement secured against that property.</p>
+  </div>
+
+  <div class="faq">
+   <h3>4. Does this calculator include property tax?</h3>
+   <p>Yes. You can enter an estimated monthly property tax amount in the optional field.</p>
+  </div>
+
+  <div class="faq">
+   <h3>5. Are mortgage results exact?</h3>
+   <p>No. They are estimates. Actual lender terms, fees, insurance requirements and payment schedules can change your costs.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Explore More Calculators</h2>
+  <div class="related">
+   <a href="/calculators/loan-calculator.html">Loan Calculator →</a>
+   <a href="/calculators/percentage-calculator.html">Percentage Calculator →</a>
+   <a href="/calculators/average-calculator.html">Average Calculator →</a>
+   <a href="/calculators/">Browse All Calculators →</a>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <p>© <span id="year"></span> CalcNest. Free online calculators for smarter decisions.</p>
+ <p><a href="/">Home</a> · <a href="/calculators/">All Calculators</a></p>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function money(value,currency){
+ try{
+  return new Intl.NumberFormat("en-US",{
+   style:"currency",
+   currency:currency,
+   minimumFractionDigits:2,
+   maximumFractionDigits:2
+  }).format(value);
+ }catch(e){
+  return currency+" "+value.toFixed(2);
+ }
+}
+
+function calculateMortgage(){
+ const price=Number($("price").value);
+ const down=Number($("down").value);
+ const annualRate=Number($("rate").value);
+ const years=Number($("years").value);
+ const tax=Number($("tax").value);
+ const insurance=Number($("insurance").value);
+ const hoa=Number($("hoa").value);
+ const extra=Number($("extra").value);
+ const currency=$("currency").value;
+
+ const error=$("error");
+ const results=$("results");
+ error.style.display="none";
+ results.style.display="none";
+
+ const values=[price,down,annualRate,years,tax,insurance,hoa,extra];
+
+ if(values.some(v=>!Number.isFinite(v))){
+  error.textContent="Please enter valid numbers in all fields.";
+  error.style.display="block";
+  return;
+ }
+ if(price<=0){
+  error.textContent="Home purchase price must be greater than zero.";
+  error.style.display="block";
+  return;
+ }
+ if(down<0 || down>=price){
+  error.textContent="Down payment must be zero or more, and less than the home price.";
+  error.style.display="block";
+  return;
+ }
+ if(annualRate<0 || annualRate>1000){
+  error.textContent="Please enter an interest rate between 0 and 1000%.";
+  error.style.display="block";
+  return;
+ }
+ if(years<=0 || years>100){
+  error.textContent="Please select a valid mortgage term.";
+  error.style.display="block";
+  return;
+ }
+ if([tax,insurance,hoa,extra].some(v=>v<0)){
+  error.textContent="Additional monthly costs cannot be negative.";
+  error.style.display="block";
+  return;
+ }
+
+ const principal=price-down;
+ const n=years*12;
+ const r=annualRate/100/12;
+
+ let monthlyPI;
+ if(r===0){
+  monthlyPI=principal/n;
+ }else{
+  const factor=Math.pow(1+r,n);
+  monthlyPI=principal*r*factor/(factor-1);
+ }
+
+ const interest=(monthlyPI*n)-principal;
+ const totalMortgage=monthlyPI*n;
+ const monthlyHousing=monthlyPI+tax+insurance+hoa+extra;
+ const downPct=(down/price)*100;
+
+ $("monthlyTotal").textContent=money(monthlyHousing,currency);
+ $("monthlyPI").textContent=money(monthlyPI,currency);
+ $("loanAmount").textContent=money(principal,currency);
+ $("totalInterest").textContent=money(interest,currency);
+ $("totalPayments").textContent=money(totalMortgage,currency);
+ $("downPercent").textContent=downPct.toFixed(2)+"%";
+
+ results.style.display="block";
+}
+
+$("calculate").addEventListener("click",calculateMortgage);
+
+$("reset").addEventListener("click",()=>{
+ $("price").value="300000";
+ $("down").value="60000";
+ $("rate").value="6.5";
+ $("years").value="30";
+ $("currency").value="USD";
+ $("tax").value="250";
+ $("insurance").value="100";
+ $("hoa").value="50";
+ $("extra").value="0";
+ $("error").style.display="none";
+ $("results").style.display="none";
+});
+
+$("year").textContent=new Date().getFullYear();
+calculateMortgage();
+</script>
+</body>
+</html>
