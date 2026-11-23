@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Budget Calculator – Monthly Income, Expenses & Savings | CalcNest</title>
+<meta name="description" content="Plan your monthly budget with this free budget calculator. Track income, housing, groceries, bills, debt payments, expenses and potential savings.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/budget-calculator.html">
+<meta property="og:title" content="Free Monthly Budget Calculator | CalcNest">
+<meta property="og:description" content="Calculate monthly expenses, remaining income and savings rate with a simple budget planner.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/budget-calculator.html">
+
+<style>
+:root{
+ --ink:#17243a;
+ --muted:#65738b;
+ --blue:#315eea;
+ --purple:#7659e8;
+ --line:#e8edf5;
+ --soft:#f6f8fd;
+ --white:#fff;
+ --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Inter,Arial,sans-serif;
+ background:#f7f9fd;
+ color:var(--ink);
+ line-height:1.65;
+}
+a{color:var(--blue);text-decoration:none}
+header{
+ background:#fff;
+ border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+.nav{
+ max-width:1150px;
+ margin:auto;
+ padding:15px 22px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px;
+}
+.logo{font-size:23px;font-weight:850;color:var(--ink)}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:650}
+.container{max-width:1050px;margin:auto;padding:35px 20px 65px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero{text-align:center;margin:20px auto 32px;max-width:760px}
+.eyebrow{
+ display:inline-block;
+ padding:6px 13px;
+ background:#eaf0ff;
+ color:var(--blue);
+ border-radius:30px;
+ font-size:12px;
+ font-weight:750;
+}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:15px 0}
+.hero p{color:var(--muted);font-size:17px}
+.calculator,.content-section{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:20px;
+ padding:28px;
+ box-shadow:var(--shadow);
+}
+.calculator h2,.content-section h2{margin-top:0;font-size:23px}
+.section-heading{
+ font-size:16px;
+ font-weight:800;
+ margin:25px 0 13px;
+ padding-bottom:9px;
+ border-bottom:1px solid var(--line);
+}
+.form-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:19px;
+}
+.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.field input,.field select{
+ width:100%;
+ padding:13px 14px;
+ border:1px solid #dce3ef;
+ border-radius:10px;
+ font-size:16px;
+ color:var(--ink);
+ background:#fff;
+ outline:none;
+}
+.field input:focus,.field select:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 0 3px rgba(49,94,234,.12);
+}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
+button{
+ border:0;
+ padding:13px 22px;
+ border-radius:10px;
+ font-size:15px;
+ font-weight:750;
+ cursor:pointer;
+}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#edf1f8;color:var(--ink)}
+button:hover{filter:brightness(.96)}
+.error{
+ display:none;
+ margin-top:17px;
+ padding:12px;
+ background:#fff0f0;
+ color:#b42318;
+ border-radius:9px;
+ font-size:14px;
+}
+.results{
+ display:none;
+ margin-top:25px;
+ padding-top:24px;
+ border-top:1px solid var(--line);
+}
+.results h3{margin:0 0 16px;font-size:21px}
+.result-grid{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:13px;
+}
+.result-card{
+ background:var(--soft);
+ border:1px solid var(--line);
+ border-radius:13px;
+ padding:17px;
+}
+.result-card span{display:block;color:var(--muted);font-size:13px}
+.result-card strong{
+ display:block;
+ font-size:21px;
+ margin-top:6px;
+ overflow-wrap:anywhere;
+}
+.result-card.highlight{background:#edf2ff;border-color:#d8e2ff}
+.result-card.highlight strong{color:var(--blue)}
+.result-card.negative{background:#fff0f0;border-color:#f5cece}
+.result-card.negative strong{color:#b42318}
+.status{
+ padding:14px;
+ border-radius:10px;
+ background:var(--soft);
+ margin-top:17px;
+ font-size:14px;
+}
+.status.good{background:#eaf8ef;color:#176b39}
+.status.bad{background:#fff0f0;color:#b42318}
+.breakdown{margin-top:23px}
+.breakdown h3{font-size:18px}
+.breakdown-row{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ padding:11px 0;
+ border-bottom:1px solid var(--line);
+ font-size:14px;
+}
+.breakdown-row:last-child{border:0}
+.breakdown-row strong{text-align:right}
+.bar-track{
+ height:11px;
+ background:#e9edf5;
+ border-radius:20px;
+ overflow:hidden;
+ margin-top:7px;
+}
+.bar-fill{
+ height:100%;
+ width:0;
+ background:linear-gradient(90deg,#315eea,#7659e8);
+ border-radius:20px;
+}
+.bar-label{
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ font-size:13px;
+ margin-top:15px;
+}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.content-section{margin-top:28px;box-shadow:none}
+.content-section h3{font-size:18px;margin-bottom:7px}
+.content-section p,.content-section li{color:#53627a}
+.formula{
+ padding:15px;
+ border-radius:10px;
+ background:var(--soft);
+ overflow-wrap:anywhere;
+ font-weight:700;
+ margin:10px 0;
+}
+.faq{padding:15px 0;border-bottom:1px solid var(--line)}
+.faq:last-child{border:0}
+.faq h3{margin:0 0 5px}
+.faq p{margin:0}
+.related{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:12px;
+}
+.related a{
+ padding:13px;
+ border:1px solid var(--line);
+ border-radius:10px;
+ font-weight:650;
+}
+footer{
+ background:#17243a;
+ color:#dce5f5;
+ text-align:center;
+ padding:28px 18px;
+ font-size:13px;
+}
+footer a{color:#fff}
+@media(max-width:650px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .nav-links{gap:13px}
+ .container{padding:25px 14px 45px}
+ .calculator,.content-section{padding:20px}
+ .form-grid,.result-grid,.related{grid-template-columns:1fr}
+ .breakdown-row{font-size:13px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"CalcNest Budget Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/budget-calculator.html",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "description":"Free monthly budget calculator for income, expenses and savings estimates."
+}
+</script>
+</head>
+
+<body>
+<header>
+ <nav class="nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <div class="nav-links">
+   <a href="/">Home</a>
+   <a href="/calculators/">All Calculators</a>
+   <a href="/#categories">Categories</a>
+   <a href="/#about">About</a>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+ <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/calculators/">Calculators</a> /
+  Budget Calculator
+ </div>
+
+ <section class="hero">
+  <span class="eyebrow">PERSONAL FINANCE</span>
+  <h1>Free Monthly Budget Calculator</h1>
+  <p>Plan your monthly spending, track expenses and discover how much money you may have left for savings.</p>
+ </section>
+
+ <section class="calculator">
+  <h2>Build Your Monthly Budget</h2>
+
+  <div class="section-heading">Monthly Income</div>
+
+  <div class="form-grid">
+   <div class="field">
+    <label for="income">Monthly Take-Home Income</label>
+    <input id="income" type="number" min="0" step="any" value="5000">
+    <div class="hint">Your monthly income after taxes and payroll deductions.</div>
+   </div>
+
+   <div class="field">
+    <label for="extraIncome">Other Monthly Income</label>
+    <input id="extraIncome" type="number" min="0" step="any" value="0">
+    <div class="hint">Freelance income, side jobs or other earnings.</div>
+   </div>
+  </div>
+
+  <div class="section-heading">Monthly Expenses</div>
+
+  <div class="form-grid">
+   <div class="field">
+    <label for="housing">Housing / Rent</label>
+    <input id="housing" type="number" min="0" step="any" value="1500">
+   </div>
+
+   <div class="field">
+    <label for="utilities">Utilities & Bills</label>
+    <input id="utilities" type="number" min="0" step="any" value="250">
+   </div>
+
+   <div class="field">
+    <label for="groceries">Groceries & Food</label>
+    <input id="groceries" type="number" min="0" step="any" value="500">
+   </div>
+
+   <div class="field">
+    <label for="transport">Transport & Fuel</label>
+    <input id="transport" type="number" min="0" step="any" value="300">
+   </div>
+
+   <div class="field">
+    <label for="debt">Debt & Loan Payments</label>
+    <input id="debt" type="number" min="0" step="any" value="400">
+   </div>
+
+   <div class="field">
+    <label for="health">Healthcare & Insurance</label>
+    <input id="health" type="number" min="0" step="any" value="150">
+   </div>
+
+   <div class="field">
+    <label for="education">Education & Childcare</label>
+    <input id="education" type="number" min="0" step="any" value="200">
+   </div>
+
+   <div class="field">
+    <label for="entertainment">Entertainment & Shopping</label>
+    <input id="entertainment" type="number" min="0" step="any" value="200">
+   </div>
+
+   <div class="field">
+    <label for="subscriptions">Subscriptions & Memberships</label>
+    <input id="subscriptions" type="number" min="0" step="any" value="50">
+   </div>
+
+   <div class="field">
+    <label for="other">Other Expenses</label>
+    <input id="other" type="number" min="0" step="any" value="100">
+   </div>
+
+   <div class="field">
+    <label for="currency">Currency</label>
+    <select id="currency">
+     <option value="USD">USD ($)</option>
+     <option value="EUR">EUR (€)</option>
+     <option value="GBP">GBP (£)</option>
+     <option value="PKR">PKR (Rs)</option>
+     <option value="INR">INR (₹)</option>
+     <option value="CAD">CAD ($)</option>
+     <option value="AUD">AUD ($)</option>
+     <option value="AED">AED (د.إ)</option>
+    </select>
+   </div>
+  </div>
+
+  <div class="actions">
+   <button class="primary" id="calculate" type="button">Calculate My Budget</button>
+   <button class="secondary" id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div class="results" id="results" aria-live="polite">
+   <h3>Your Monthly Budget Summary</h3>
+
+   <div class="result-grid">
+    <div class="result-card highlight">
+     <span>Remaining Balance</span>
+     <strong id="remaining">—</strong>
+    </div>
+
+    <div class="result-card">
+     <span>Total Monthly Income</span>
+     <strong id="totalIncome">—</strong>
+    </div>
+
+    <div class="result-card">
+     <span>Total Monthly Expenses</span>
+     <strong id="totalExpenses">—</strong>
+    </div>
+
+    <div class="result-card">
+     <span>Potential Monthly Savings</span>
+     <strong id="savings">—</strong>
+    </div>
+
+    <div class="result-card">
+     <span>Expense Ratio</span>
+     <strong id="expenseRatio">—</strong>
+    </div>
+
+    <div class="result-card">
+     <span>Savings Rate</span>
+     <strong id="savingsRate">—</strong>
+    </div>
+   </div>
+
+   <div class="status" id="status"></div>
+
+   <div class="breakdown">
+    <h3>Expense Breakdown</h3>
+    <div id="breakdown"></div>
+   </div>
+
+   <p class="result-note">
+    Remaining balance is calculated as income minus the expenses entered.
+    It is potential savings only if you actually keep the remaining money.
+   </p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>What Is a Monthly Budget?</h2>
+  <p>
+   A monthly budget is a plan for how you will use your income during a month.
+   It helps you organize essential expenses, manage debt, control discretionary
+   spending and set money aside for future goals.
+  </p>
+
+  <h3>Monthly Budget Formula</h3>
+  <div class="formula">
+   Total Income = Take-Home Income + Other Income
+  </div>
+
+  <div class="formula">
+   Total Expenses = Sum of All Monthly Expenses
+  </div>
+
+  <div class="formula">
+   Remaining Balance = Total Income − Total Expenses
+  </div>
+
+  <h3>Savings Rate Formula</h3>
+  <div class="formula">
+   Savings Rate = (Remaining Balance ÷ Total Income) × 100
+  </div>
+
+  <h3>Example Monthly Budget</h3>
+  <p>
+   Suppose your monthly income is $5,000 and your total monthly expenses
+   are $3,650. Your remaining balance is $1,350.
+   If you keep that amount rather than spending it, it represents a
+   potential savings rate of 27%.
+  </p>
+
+  <h3>Common Monthly Budget Categories</h3>
+  <ul>
+   <li><strong>Housing:</strong> Rent, mortgage and housing-related costs.</li>
+   <li><strong>Utilities:</strong> Electricity, water, internet and phone bills.</li>
+   <li><strong>Food:</strong> Groceries, meals and household food expenses.</li>
+   <li><strong>Transportation:</strong> Fuel, public transport and vehicle expenses.</li>
+   <li><strong>Debt:</strong> Loan payments and credit card repayments.</li>
+   <li><strong>Personal:</strong> Shopping, entertainment and subscriptions.</li>
+   <li><strong>Savings:</strong> Money reserved for emergencies and future goals.</li>
+  </ul>
+
+  <h3>How to Improve Your Monthly Budget</h3>
+  <ul>
+   <li>Record your income and expenses regularly.</li>
+   <li>Separate essential spending from optional purchases.</li>
+   <li>Review recurring subscriptions and unnecessary costs.</li>
+   <li>Set a realistic monthly savings target.</li>
+   <li>Keep an emergency fund for unexpected expenses.</li>
+  </ul>
+
+  <h3>What Is the 50/30/20 Budget Rule?</h3>
+  <p>
+   The 50/30/20 rule is a common budgeting guideline. It suggests allocating
+   approximately 50% of after-tax income to needs, 30% to wants and 20% to
+   savings and debt repayment. It is a flexible guideline, not a rule that
+   works equally well for every income level or location.
+  </p>
+ </section>
+
+ <section class="content-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+   <h3>1. How do I calculate my monthly budget?</h3>
+   <p>Add all monthly income sources, add all monthly expenses and subtract total expenses from total income.</p>
+  </div>
+
+  <div class="faq">
+   <h3>2. What is a good monthly savings rate?</h3>
+   <p>It depends on your income, expenses and financial goals. Saving 20% is a commonly discussed target, but any sustainable amount can help build financial security.</p>
+  </div>
+
+  <div class="faq">
+   <h3>3. What happens if expenses are higher than income?</h3>
+   <p>Your budget shows a negative remaining balance. You may need to reduce expenses, increase income or review your debt and spending commitments.</p>
+  </div>
+
+  <div class="faq">
+   <h3>4. Should I include debt payments in my budget?</h3>
+   <p>Yes. Include required loan payments, credit card repayments and other regular debt obligations in your monthly expenses.</p>
+  </div>
+
+  <div class="faq">
+   <h3>5. Is the remaining balance automatically saved?</h3>
+   <p>No. It is the amount left after the expenses you entered. You need to actually reserve that money to turn it into savings.</p>
+  </div>
+
+  <div class="faq">
+   <h3>6. Can I use this calculator with any currency?</h3>
+   <p>You can select one of the available currencies. Enter all income and expenses in the same currency for a meaningful result.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Explore More Calculators</h2>
+  <div class="related">
+   <a href="/calculators/salary-calculator.html">Salary Calculator →</a>
+   <a href="/calculators/tax-calculator.html">Tax Calculator →</a>
+   <a href="/calculators/loan-calculator.html">Loan Calculator →</a>
+   <a href="/calculators/mortgage-calculator.html">Mortgage Calculator →</a>
+   <a href="/calculators/savings-calculator.html">Savings Calculator →</a>
+   <a href="/calculators/investment-return-calculator.html">Investment Return Calculator →</a>
+   <a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator →</a>
+   <a href="/calculators/discount-calculator.html">Discount Calculator →</a>
+   <a href="/calculators/">Browse All Calculators →</a>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <p>© <span id="year"></span> CalcNest. Free online calculators for smarter decisions.</p>
+ <p><a href="/">Home</a> · <a href="/calculators/">All Calculators</a></p>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const expenseFields = [
+ ["Housing / Rent","housing"],
+ ["Utilities & Bills","utilities"],
+ ["Groceries & Food","groceries"],
+ ["Transport & Fuel","transport"],
+ ["Debt & Loan Payments","debt"],
+ ["Healthcare & Insurance","health"],
+ ["Education & Childcare","education"],
+ ["Entertainment & Shopping","entertainment"],
+ ["Subscriptions & Memberships","subscriptions"],
+ ["Other Expenses","other"]
+];
+
+function money(value,currency){
+ try{
+  return new Intl.NumberFormat("en-US",{
+   style:"currency",
+   currency:currency,
+   minimumFractionDigits:2,
+   maximumFractionDigits:2
+  }).format(value);
+ }catch(e){
+  return currency+" "+value.toFixed(2);
+ }
+}
+
+function calculateBudget(){
+ const income=Number($("income").value);
+ const extraIncome=Number($("extraIncome").value);
+ const currency=$("currency").value;
+
+ const error=$("error");
+ const results=$("results");
+
+ error.style.display="none";
+ results.style.display="none";
+
+ const expenseValues=[];
+
+ for(const [label,id] of expenseFields){
+  const value=Number($(id).value);
+
+  if(!Number.isFinite(value)||value<0){
+   error.textContent="Please enter a valid non-negative amount for "+label+".";
+   error.style.display="block";
+   return;
+  }
+
+  expenseValues.push({label,value});
+ }
+
+ if(!Number.isFinite(income)||!Number.isFinite(extraIncome)){
+  error.textContent="Please enter valid income amounts.";
+  error.style.display="block";
+  return;
+ }
+
+ if(income<0||extraIncome<0){
+  error.textContent="Income amounts cannot be negative.";
+  error.style.display="block";
+  return;
+ }
+
+ const totalIncome=income+extraIncome;
+ const totalExpenses=expenseValues.reduce((sum,item)=>sum+item.value,0);
+ const remaining=totalIncome-totalExpenses;
+
+ if(!Number.isFinite(totalIncome)||!Number.isFinite(totalExpenses)||!Number.isFinite(remaining)){
+  error.textContent="The entered amounts are too large to calculate.";
+  error.style.display="block";
+  return;
+ }
+
+ const expenseRatio=totalIncome>0?(totalExpenses/totalIncome)*100:0;
+ const savingsRate=totalIncome>0?(remaining/totalIncome)*100:0;
+ const potentialSavings=Math.max(0,remaining);
+
+ $("remaining").textContent=money(remaining,currency);
+ $("totalIncome").textContent=money(totalIncome,currency);
+ $("totalExpenses").textContent=money(totalExpenses,currency);
+ $("savings").textContent=money(potentialSavings,currency);
+ $("expenseRatio").textContent=expenseRatio.toFixed(2)+"%";
+ $("savingsRate").textContent=savingsRate.toFixed(2)+"%";
+
+ const status=$("status");
+
+ if(totalIncome===0&&totalExpenses===0){
+  status.className="status";
+  status.textContent="Enter your monthly income and expenses to review your budget.";
+ }else if(remaining<0){
+  status.className="status bad";
+  status.textContent="Your expenses are greater than your income by "+money(Math.abs(remaining),currency)+". Review your spending or income.";
+ }else if(remaining===0){
+  status.className="status";
+  status.textContent="Your budget is balanced. All entered income is allocated to expenses.";
+ }else{
+  status.className="status good";
+  status.textContent="You have "+money(remaining,currency)+" remaining after the expenses entered. Consider reserving some of this amount for savings.";
+ }
+
+ const breakdown=$("breakdown");
+ breakdown.innerHTML="";
+
+ expenseValues.forEach(item=>{
+  const percentage=totalExpenses>0?(item.value/totalExpenses)*100:0;
+
+  const row=document.createElement("div");
+  row.className="bar-label";
+
+  const label=document.createElement("span");
+  label.textContent=item.label;
+
+  const amount=document.createElement("strong");
+  amount.textContent=money(item.value,currency)+" ("+percentage.toFixed(1)+"%)";
+
+  row.append(label,amount);
+
+  const track=document.createElement("div");
+  track.className="bar-track";
+
+  const fill=document.createElement("div");
+  fill.className="bar-fill";
+  fill.style.width=Math.min(percentage,100)+"%";
+
+  track.appendChild(fill);
+  breakdown.append(row,track);
+ });
+
+ results.style.display="block";
+}
+
+$("calculate").addEventListener("click",calculateBudget);
+
+$("reset").addEventListener("click",()=>{
+ $("income").value="5000";
+ $("extraIncome").value="0";
+ $("housing").value="1500";
+ $("utilities").value="250";
+ $("groceries").value="500";
+ $("transport").value="300";
+ $("debt").value="400";
+ $("health").value="150";
+ $("education").value="200";
+ $("entertainment").value="200";
+ $("subscriptions").value="50";
+ $("other").value="100";
+ $("currency").value="USD";
+
+ $("error").style.display="none";
+ $("results").style.display="none";
+});
+
+$("year").textContent=new Date().getFullYear();
+calculateBudget();
+</script>
+</body>
+</html>
