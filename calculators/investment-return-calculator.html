@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Free Investment Return Calculator – ROI & CAGR | CalcNest</title>
+<meta name="description" content="Calculate investment profit, loss, return on investment (ROI), total return percentage and annualized return with this free investment calculator.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/investment-return-calculator.html">
+<meta property="og:title" content="Investment Return Calculator | CalcNest">
+<meta property="og:description" content="Calculate investment returns, profit, loss, ROI and annualized growth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/investment-return-calculator.html">
+
+<style>
+:root{
+ --ink:#17243a;--muted:#65738b;--blue:#315eea;
+ --purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;
+ --white:#fff;--shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#f7f9fd;color:var(--ink);line-height:1.65}
+a{color:var(--blue);text-decoration:none}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{max-width:1150px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{font-size:23px;font-weight:850;color:var(--ink)}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:650}
+.container{max-width:1050px;margin:auto;padding:35px 20px 65px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero{text-align:center;margin:20px auto 32px;max-width:760px}
+.eyebrow{display:inline-block;padding:6px 13px;background:#eaf0ff;color:var(--blue);border-radius:30px;font-size:12px;font-weight:750}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:15px 0}
+.hero p{color:var(--muted);font-size:17px}
+.calculator,.content-section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.calculator h2,.content-section h2{margin-top:0;font-size:23px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.field label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.field input,.field select{width:100%;padding:13px 14px;border:1px solid #dce3ef;border-radius:10px;font-size:16px;color:var(--ink);background:#fff;outline:none}
+.field input:focus,.field select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.12)}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:23px}
+button{border:0;padding:13px 22px;border-radius:10px;font-size:15px;font-weight:750;cursor:pointer}
+.primary{background:var(--blue);color:#fff}
+.secondary{background:#edf1f8;color:var(--ink)}
+button:hover{filter:brightness(.96)}
+.error{display:none;margin-top:17px;padding:12px;background:#fff0f0;color:#b42318;border-radius:9px;font-size:14px}
+.results{display:none;margin-top:25px;padding-top:24px;border-top:1px solid var(--line)}
+.results h3{margin:0 0 16px;font-size:21px}
+.result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.result-card{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:17px}
+.result-card span{display:block;color:var(--muted);font-size:13px}
+.result-card strong{display:block;font-size:21px;margin-top:6px;overflow-wrap:anywhere}
+.result-card.highlight{background:#edf2ff;border-color:#d8e2ff}
+.result-card.highlight strong{color:var(--blue)}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.content-section{margin-top:28px;box-shadow:none}
+.content-section h3{font-size:18px;margin-bottom:7px}
+.content-section p,.content-section li{color:#53627a}
+.formula{padding:15px;border-radius:10px;background:var(--soft);overflow-wrap:anywhere;font-weight:700}
+.faq{padding:15px 0;border-bottom:1px solid var(--line)}
+.faq:last-child{border:0}
+.faq h3{margin:0 0 5px}
+.faq p{margin:0}
+.related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.related a{padding:13px;border:1px solid var(--line);border-radius:10px;font-weight:650}
+footer{background:#17243a;color:#dce5f5;text-align:center;padding:28px 18px;font-size:13px}
+footer a{color:#fff}
+@media(max-width:650px){
+ .nav{align-items:flex-start;flex-direction:column}
+ .nav-links{gap:13px}
+ .container{padding:25px 14px 45px}
+ .calculator,.content-section{padding:20px}
+ .form-grid,.result-grid,.related{grid-template-columns:1fr}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"CalcNest Investment Return Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/investment-return-calculator.html",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "description":"Free investment return calculator for profit, loss, ROI and annualized return."
+}
+</script>
+</head>
+
+<body>
+<header>
+ <nav class="nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <div class="nav-links">
+   <a href="/">Home</a>
+   <a href="/calculators/">All Calculators</a>
+   <a href="/#categories">Categories</a>
+   <a href="/#about">About</a>
+  </div>
+ </nav>
+</header>
+
+<main class="container">
+ <div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/calculators/">Calculators</a> /
+  Investment Return Calculator
+ </div>
+
+ <section class="hero">
+  <span class="eyebrow">FINANCE & MONEY</span>
+  <h1>Free Investment Return Calculator</h1>
+  <p>Calculate your investment profit or loss, return on investment (ROI) and annualized return.</p>
+ </section>
+
+ <section class="calculator">
+  <h2>Calculate Your Investment Return</h2>
+
+  <div class="form-grid">
+   <div class="field">
+    <label for="initial">Initial Investment</label>
+    <input id="initial" type="number" min="0.01" step="any" value="10000">
+    <div class="hint">Your original invested amount.</div>
+   </div>
+
+   <div class="field">
+    <label for="final">Final Investment Value</label>
+    <input id="final" type="number" min="0" step="any" value="15000">
+    <div class="hint">Current or ending value of the investment.</div>
+   </div>
+
+   <div class="field">
+    <label for="additional">Additional Contributions</label>
+    <input id="additional" type="number" min="0" step="any" value="0">
+    <div class="hint">Extra money invested after the initial investment.</div>
+   </div>
+
+   <div class="field">
+    <label for="withdrawals">Withdrawals Received</label>
+    <input id="withdrawals" type="number" min="0" step="any" value="0">
+    <div class="hint">Money withdrawn or distributed during the period.</div>
+   </div>
+
+   <div class="field">
+    <label for="years">Investment Period (Years)</label>
+    <input id="years" type="number" min="0" step="any" value="5">
+   </div>
+
+   <div class="field">
+    <label for="currency">Currency</label>
+    <select id="currency">
+     <option value="USD">USD ($)</option>
+     <option value="EUR">EUR (€)</option>
+     <option value="GBP">GBP (£)</option>
+     <option value="PKR">PKR (Rs)</option>
+     <option value="INR">INR (₹)</option>
+     <option value="CAD">CAD ($)</option>
+     <option value="AUD">AUD ($)</option>
+     <option value="AED">AED (د.إ)</option>
+    </select>
+   </div>
+  </div>
+
+  <div class="actions">
+   <button class="primary" id="calculate" type="button">Calculate Return</button>
+   <button class="secondary" id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div class="results" id="results" aria-live="polite">
+   <h3>Your Investment Results</h3>
+   <div class="result-grid">
+    <div class="result-card highlight">
+     <span>Net Profit / Loss</span>
+     <strong id="profit">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Return on Investment (ROI)</span>
+     <strong id="roi">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Annualized Return (CAGR)</span>
+     <strong id="cagr">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Total Money Invested</span>
+     <strong id="invested">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Final Value + Withdrawals</span>
+     <strong id="value">—</strong>
+    </div>
+    <div class="result-card">
+     <span>Final Investment Value</span>
+     <strong id="finalValue">—</strong>
+    </div>
+   </div>
+   <p class="result-note">
+    ROI is calculated using total contributions and total value received.
+    CAGR is an annualized estimate based on a simplified single-period model.
+    It does not account for the exact dates of additional contributions or withdrawals.
+    Taxes, fees and inflation are not included.
+   </p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>What Is Investment Return?</h2>
+  <p>
+   Investment return measures how much money an investment has gained or lost
+   compared with the amount invested. It can be expressed as a currency amount
+   or a percentage.
+  </p>
+
+  <h3>Return on Investment Formula</h3>
+  <div class="formula">
+   ROI = [(Total Value Received − Total Amount Invested) ÷ Total Amount Invested] × 100
+  </div>
+
+  <h3>Annualized Return Formula</h3>
+  <div class="formula">
+   CAGR = [(Ending Value ÷ Beginning Value)<sup>1 / Years</sup> − 1] × 100
+  </div>
+
+  <h3>Example</h3>
+  <p>
+   Suppose you invest $10,000 and your investment grows to $15,000
+   over five years, with no additional contributions or withdrawals.
+   Your profit is $5,000 and your ROI is 50%.
+   Your annualized return is approximately 8.45%.
+  </p>
+
+  <h3>Why Calculate Investment Returns?</h3>
+  <ul>
+   <li>Measure investment performance.</li>
+   <li>Compare different investment opportunities.</li>
+   <li>Understand profit and loss.</li>
+   <li>Review long-term investment growth.</li>
+  </ul>
+ </section>
+
+ <section class="content-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq">
+   <h3>1. What is ROI?</h3>
+   <p>Return on investment is a percentage that compares net profit or loss with the total amount invested.</p>
+  </div>
+
+  <div class="faq">
+   <h3>2. What is a positive ROI?</h3>
+   <p>A positive ROI means the total value received is greater than the amount invested.</p>
+  </div>
+
+  <div class="faq">
+   <h3>3. What is a negative ROI?</h3>
+   <p>A negative ROI indicates that the investment has lost money based on the values entered.</p>
+  </div>
+
+  <div class="faq">
+   <h3>4. What is CAGR?</h3>
+   <p>Compound annual growth rate is a smoothed annual growth rate over a period. It does not represent the actual return in every year.</p>
+  </div>
+
+  <div class="faq">
+   <h3>5. Does this calculator include withdrawals?</h3>
+   <p>Yes. Enter withdrawals received during the investment period. They are included in the total value received for the simplified ROI calculation.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Explore More Calculators</h2>
+  <div class="related">
+   <a href="/calculators/loan-calculator.html">Loan Calculator →</a>
+   <a href="/calculators/mortgage-calculator.html">Mortgage Calculator →</a>
+   <a href="/calculators/simple-interest-calculator.html">Simple Interest Calculator →</a>
+   <a href="/calculators/savings-calculator.html">Savings Calculator →</a>
+   <a href="/calculators/percentage-calculator.html">Percentage Calculator →</a>
+   <a href="/calculators/">Browse All Calculators →</a>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <p>© <span id="year"></span> CalcNest. Free online calculators for smarter decisions.</p>
+ <p><a href="/">Home</a> · <a href="/calculators/">All Calculators</a></p>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function money(value,currency){
+ try{
+  return new Intl.NumberFormat("en-US",{
+   style:"currency",
+   currency:currency,
+   minimumFractionDigits:2,
+   maximumFractionDigits:2
+  }).format(value);
+ }catch(e){
+  return currency+" "+value.toFixed(2);
+ }
+}
+
+function calculateInvestment(){
+ const initial=Number($("initial").value);
+ const finalValue=Number($("final").value);
+ const additional=Number($("additional").value);
+ const withdrawals=Number($("withdrawals").value);
+ const years=Number($("years").value);
+ const currency=$("currency").value;
+
+ const error=$("error");
+ const results=$("results");
+ error.style.display="none";
+ results.style.display="none";
+
+ const values=[initial,finalValue,additional,withdrawals,years];
+
+ if(values.some(v=>!Number.isFinite(v))){
+  error.textContent="Please enter valid numbers in all fields.";
+  error.style.display="block";
+  return;
+ }
+
+ if(initial<=0){
+  error.textContent="Initial investment must be greater than zero.";
+  error.style.display="block";
+  return;
+ }
+
+ if(finalValue<0||additional<0||withdrawals<0){
+  error.textContent="Final value, contributions and withdrawals cannot be negative.";
+  error.style.display="block";
+  return;
+ }
+
+ if(years<0||years>100){
+  error.textContent="Investment period must be between 0 and 100 years.";
+  error.style.display="block";
+  return;
+ }
+
+ const totalInvested=initial+additional;
+ const totalReceived=finalValue+withdrawals;
+ const profit=totalReceived-totalInvested;
+ const roi=(profit/totalInvested)*100;
+
+ let cagr=null;
+
+ if(years>0 && totalInvested>0 && totalReceived>0){
+  cagr=(Math.pow(totalReceived/totalInvested,1/years)-1)*100;
+ }
+
+ if(!Number.isFinite(roi)||(cagr!==null&&!Number.isFinite(cagr))){
+  error.textContent="The result is too large to calculate. Please check your values.";
+  error.style.display="block";
+  return;
+ }
+
+ $("profit").textContent=money(profit,currency);
+ $("roi").textContent=roi.toFixed(2)+"%";
+ $("cagr").textContent=cagr===null?"Not available":cagr.toFixed(2)+"%";
+ $("invested").textContent=money(totalInvested,currency);
+ $("value").textContent=money(totalReceived,currency);
+ $("finalValue").textContent=money(finalValue,currency);
+
+ results.style.display="block";
+}
+
+$("calculate").addEventListener("click",calculateInvestment);
+
+$("reset").addEventListener("click",()=>{
+ $("initial").value="10000";
+ $("final").value="15000";
+ $("additional").value="0";
+ $("withdrawals").value="0";
+ $("years").value="5";
+ $("currency").value="USD";
+ $("error").style.display="none";
+ $("results").style.display="none";
+});
+
+$("year").textContent=new Date().getFullYear();
+calculateInvestment();
+</script>
+</body>
+</html>
