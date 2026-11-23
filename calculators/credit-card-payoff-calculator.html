@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Credit Card Payoff Calculator | CalcNest</title>
+<meta name="description" content="Estimate credit card payoff time, monthly interest, and total interest based on your balance, APR, and monthly payment.">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/credit-card-payoff-calculator.html">
+<meta property="og:title" content="Credit Card Payoff Calculator | CalcNest"><meta property="og:description" content="Calculate how long it may take to pay off your credit card balance."><meta property="og:type" content="website">
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd}*{box-sizing:border-box}body{margin:0;background:#f8faff;color:var(--ink);font:16px/1.65 Arial,sans-serif}a{color:var(--blue);text-decoration:none}.nav,main{max-width:1050px;margin:auto;padding:20px}.nav{display:flex;justify-content:space-between}.logo{font-size:23px;font-weight:bold;color:var(--ink)}.hero{text-align:center;margin:25px auto}.hero h1{font-size:clamp(30px,5vw,43px);margin:0}.hero p{color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel,.article{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 12px 35px #192d5510}.field{margin:14px 0}.field label{display:block;font-weight:bold;margin-bottom:6px}.field input,.field select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:9px;font-size:16px}.btn{width:100%;border:0;border-radius:9px;padding:14px;background:linear-gradient(110deg,var(--blue),var(--purple));color:white;font-weight:bold;font-size:16px;cursor:pointer}.result{background:var(--soft);padding:17px;border-radius:12px}.big{font-size:30px;color:var(--blue);font-weight:bold}.stat{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);gap:10px}.error{color:#bd2636;font-weight:bold}.article{margin-top:22px}.article h2{margin-top:25px}.article p,.article li{color:#526078}.faq{border-bottom:1px solid var(--line);padding:12px 0}footer{text-align:center;color:var(--muted);padding:25px}@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:19px}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Credit Card Payoff Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body><header><nav class="nav"><a class="logo" href="/">CalcNest</a><a href="/calculators/">All Calculators</a></nav></header>
+<main>
+<section class="hero"><h1>Credit Card Payoff Calculator</h1><p>Estimate how long it may take to clear your credit card balance and how much interest you could pay.</p></section>
+<div class="grid">
+<section class="panel"><h2>Credit Card Details</h2>
+<div class="field"><label for="bal">Current card balance</label><input id="bal" type="number" min="0.01" step=".01" value="5000"></div>
+<div class="field"><label for="apr">Annual percentage rate (APR %)</label><input id="apr" type="number" min="0" max="100" step=".01" value="24"></div>
+<div class="field"><label for="pay">Monthly payment</label><input id="pay" type="number" min=".01" step=".01" value="250"></div>
+<div class="field"><label for="extra">Additional monthly payment</label><input id="extra" type="number" min="0" step=".01" value="0"></div>
+<div class="field"><label for="cur">Currency</label><select id="cur"><option value="$">USD ($)</option><option value="£">GBP (£)</option><option value="€">EUR (€)</option><option value="₨">PKR (₨)</option><option value="C$">CAD (C$)</option><option value="₹">INR (₹)</option></select></div>
+<button class="btn" onclick="calc()">Calculate Payoff</button><p class="error" id="err" role="alert"></p></section>
+<section class="panel"><h2>Your Estimate</h2><div class="result" aria-live="polite">Estimated payoff time<div class="big" id="duration">—</div>
+<div class="stat"><span>Total interest</span><b id="interest">—</b></div><div class="stat"><span>Total paid</span><b id="total">—</b></div><div class="stat"><span>Monthly payment</span><b id="monthly">—</b></div><div class="stat"><span>First month interest</span><b id="first">—</b></div><div class="stat"><span>Payments required</span><b id="count">—</b></div></div></section>
+</div>
+<article class="article"><h2>How Does Credit Card Interest Work?</h2><p>Credit card issuers generally charge interest on balances that are not paid according to the card agreement. This calculator uses a simplified monthly interest estimate based on the APR divided by 12.</p>
+<h2>How to Use the Calculator</h2><ol><li>Enter your current outstanding credit card balance.</li><li>Enter the card's annual percentage rate (APR).</li><li>Enter the amount you can pay each month.</li><li>Add an extra payment if you plan to pay more than the regular amount.</li></ol>
+<h2>How the Estimate Is Calculated</h2><p>Monthly interest is estimated as the outstanding balance multiplied by the monthly rate. The payment is applied to interest first, and the remaining amount reduces the balance. The final payment is adjusted to clear the remaining debt.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><b>Does paying more than the minimum help?</b><p>Yes. Paying more generally reduces the principal faster and can reduce the total interest paid.</p></div>
+<div class="faq"><b>Is the APR divided by 12 an exact issuer calculation?</b><p>No. Actual card interest may use a daily periodic rate and average daily balance method. This calculator provides an estimate.</p></div>
+<div class="faq"><b>Does it include new purchases?</b><p>No. It assumes no new purchases, fees, penalties, or changes to the APR.</p></div>
+<div class="faq"><b>What if my payment is too low?</b><p>If the payment does not cover estimated monthly interest, the balance will not be repaid using the entered payment.</p></div>
+<h2>Related Calculators</h2><p><a href="/calculators/debt-payoff-calculator.html">Debt Payoff Calculator</a> · <a href="/calculators/budget-calculator.html">Budget Calculator</a> · <a href="/calculators/loan-calculator.html">Loan Calculator</a></p></article>
+</main><footer>© 2026 CalcNest · <a href="/">Home</a></footer>
+<script>
+function fmt(n){return cur.value+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function calc(){err.textContent='';let b=+bal.value,r=+apr.value,p=+pay.value,e=+extra.value;if(!(b>0)||r<0||r>100||p<=0||e<0||![b,r,p,e].every(Number.isFinite)){err.textContent='Enter valid values. APR must be between 0 and 100%.';return}
+let left=b,interest=0,paid=0,n=0,first=0,rate=r/1200;
+while(left>.005&&n<1200){let i=left*rate;if(!n)first=i;let amount=Math.min(p+e,left+i);if(amount<=i){err.textContent='Your monthly payment does not cover the interest. Increase the payment.';return}left=Math.max(0,left-(amount-i));interest+=i;paid+=amount;n++}
+if(left>.005){err.textContent='Payoff period exceeds 100 years. Increase your monthly payment.';return}
+duration.textContent=Math.floor(n/12)+' years '+(n%12)+' months';document.getElementById('interest').textContent=fmt(interest);total.textContent=fmt(paid);monthly.textContent=fmt(p+e);first.textContent=fmt(first);count.textContent=n}
+calc();
+</script></body></html>
