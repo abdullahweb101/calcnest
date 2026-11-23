@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Water Intake Calculator - Estimate Your Daily Water Needs | CalcNest</title>
+<meta name="description" content="Estimate your daily water intake based on body weight using adjustable hydration formulas. Convert your result into liters, milliliters, cups and fluid ounces.">
+<meta name="keywords" content="water intake calculator, daily water intake calculator, how much water should I drink, hydration calculator, daily water needs">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/water-intake-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Water Intake Calculator | CalcNest">
+<meta property="og:description" content="Estimate daily water intake with an adjustable weight-based hydration calculator.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/water-intake-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water Intake Calculator | CalcNest">
+<meta name="twitter:description" content="Estimate your daily water intake in liters, cups and fluid ounces.">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Water Intake Calculator",
+  "url":"https://calcnest-7s6.pages.dev/calculators/water-intake-calculator.html",
+  "applicationCategory":"HealthApplication",
+  "operatingSystem":"Any",
+  "description":"A free educational calculator that estimates daily fluid intake using body weight and an adjustable milliliter-per-kilogram factor.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How much water should I drink daily?",
+      "acceptedAnswer":{"@type":"Answer","text":"Fluid needs vary with body size, activity, climate, diet, health and other factors. This calculator provides a rough educational estimate, not a personalized medical prescription."}
+    },
+    {
+      "@type":"Question",
+      "name":"Is 35 ml of water per kg a medical rule?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. The 30 to 35 ml per kg values in this calculator are simplified estimation factors. They are not universal medical requirements."}
+    },
+    {
+      "@type":"Question",
+      "name":"Does daily water intake include drinks and food?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Total water intake can include plain water, other beverages and moisture naturally present in foods."}
+    },
+    {
+      "@type":"Question",
+      "name":"Should I drink more water when exercising?",
+      "acceptedAnswer":{"@type":"Answer","text":"Fluid needs may increase with exercise, sweating and heat. Individual needs vary, so use thirst and appropriate exercise hydration guidance rather than treating this estimate as a fixed target."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can I use this calculator if I have kidney or heart disease?",
+      "acceptedAnswer":{"@type":"Answer","text":"People with kidney, heart or liver conditions, or anyone prescribed a fluid restriction, should follow their healthcare professional's advice instead of relying on a general calculator."}
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+--ink:#17243a;
+--muted:#65738b;
+--blue:#315eea;
+--purple:#7659e8;
+--line:#e8edf5;
+--soft:#f6f8fd;
+--white:#fff;
+--shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:var(--ink);
+background:#fff;
+line-height:1.7;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{
+border-bottom:1px solid var(--line);
+background:#fff;
+}
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+.logo{
+font-size:25px;
+font-weight:800;
+letter-spacing:-1px;
+color:var(--ink);
+}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:600}
+.breadcrumb{
+font-size:13px;
+color:var(--muted);
+padding:20px 0 8px;
+}
+.breadcrumb a{color:var(--blue)}
+.hero{
+padding:28px 0 24px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:35px;
+align-items:center;
+}
+.eyebrow{
+display:inline-block;
+background:#edf1ff;
+color:var(--blue);
+padding:6px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+}
+h1{
+font-size:clamp(32px,5vw,48px);
+line-height:1.13;
+letter-spacing:-1.6px;
+margin:16px 0;
+}
+.hero p{color:var(--muted);font-size:17px;margin:0}
+.hero img{
+width:100%;
+height:270px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+.layout{
+display:grid;
+grid-template-columns:minmax(0,1.45fr) minmax(260px,.65fr);
+gap:25px;
+align-items:start;
+margin:22px auto 55px;
+}
+.card{
+background:#fff;
+border:1px solid var(--line);
+border-radius:18px;
+padding:26px;
+box-shadow:var(--shadow);
+}
+.card h2{margin:0 0 8px;font-size:24px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:17px;
+}
+.field{margin-bottom:17px}
+label{
+display:block;
+font-size:14px;
+font-weight:700;
+margin-bottom:7px;
+}
+input,select{
+width:100%;
+height:48px;
+border:1px solid #dce3ef;
+border-radius:10px;
+padding:0 13px;
+font-size:15px;
+color:var(--ink);
+background:#fff;
+outline:none;
+}
+input:focus,select:focus{
+border-color:var(--blue);
+box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.btn{
+border:0;
+border-radius:10px;
+padding:14px 21px;
+background:linear-gradient(110deg,var(--blue),var(--purple));
+color:#fff;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+width:100%;
+}
+.btn:hover{opacity:.93}
+.result{
+display:none;
+margin-top:23px;
+padding:22px;
+border:1px solid #dce5ff;
+border-radius:15px;
+background:linear-gradient(135deg,#f1f5ff,#f8f5ff);
+}
+.result.show{display:block}
+.result-title{font-size:14px;color:var(--muted);font-weight:700}
+.big{
+font-size:43px;
+font-weight:800;
+line-height:1.3;
+color:var(--blue);
+margin:5px 0;
+}
+.result-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:18px;
+}
+.result-box{
+background:#fff;
+border:1px solid var(--line);
+border-radius:11px;
+padding:13px;
+text-align:center;
+}
+.result-box strong{display:block;font-size:19px}
+.result-box span{font-size:12px;color:var(--muted)}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.side-card{margin-bottom:18px}
+.side-card h3{margin:0 0 13px;font-size:18px}
+.side-card ul{padding-left:19px;margin:0}
+.side-card li{margin:9px 0;font-size:14px}
+.side-card p{font-size:14px;color:var(--muted);margin:0}
+.advice{
+background:#f4f7ff;
+border:1px solid #e2e9ff;
+border-radius:13px;
+padding:16px;
+margin-top:18px;
+}
+.advice strong{display:block;margin-bottom:5px}
+.content{padding-bottom:55px}
+.content section{margin:35px 0}
+.content h2{font-size:27px;line-height:1.3;margin-bottom:12px}
+.content h3{font-size:19px;margin:23px 0 8px}
+.content p,.content li{color:#526078}
+.content ul{padding-left:22px}
+.formula{
+background:#f6f8fd;
+border:1px solid var(--line);
+padding:18px;
+border-radius:12px;
+font-weight:700;
+overflow-wrap:anywhere;
+}
+.example{
+border-left:4px solid var(--blue);
+background:#f7f9ff;
+padding:16px 19px;
+border-radius:0 12px 12px 0;
+}
+.faq{
+padding:18px 0;
+border-bottom:1px solid var(--line);
+}
+.faq h3{margin:0 0 7px;font-size:17px}
+.faq p{margin:0}
+.related{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
+.related a{
+border:1px solid var(--line);
+border-radius:11px;
+padding:13px;
+font-size:14px;
+font-weight:700;
+background:#fff;
+}
+.disclaimer{
+background:#fff8e9;
+border:1px solid #f2e4c6;
+padding:17px;
+border-radius:12px;
+font-size:14px;
+color:#67583a;
+}
+footer{
+border-top:1px solid var(--line);
+padding:25px 0;
+color:var(--muted);
+font-size:13px;
+}
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+}
+@media(max-width:800px){
+.hero,.layout{grid-template-columns:1fr}
+.hero img{height:220px}
+}
+@media(max-width:560px){
+.nav{align-items:flex-start;flex-direction:column;padding:15px 0}
+.nav-links{gap:13px}
+.card{padding:19px}
+.field-grid{grid-template-columns:1fr;gap:0}
+.result-grid{grid-template-columns:1fr 1fr}
+.related{grid-template-columns:1fr 1fr}
+.big{font-size:36px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a class="logo" href="/">Calc<span>Nest</span></a>
+<nav class="nav-links" aria-label="Main navigation">
+<a href="/">Home</a>
+<a href="/calculators/">Calculators</a>
+<a href="/guides/">Guides</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="/">Home</a> ›
+<a href="/calculators/">Calculators</a> ›
+<a href="/calculators/health-calculators.html">Health & Fitness</a> ›
+Water Intake Calculator
+</div>
+
+<section class="hero">
+<div>
+<span class="eyebrow">Health & Fitness Calculator 10 of 20</span>
+<h1>Daily Water Intake Calculator</h1>
+<p>Estimate your daily fluid needs with a simple, adjustable weight-based calculation. View your result in liters, milliliters, US cups and fluid ounces.</p>
+</div>
+<img
+src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1000&q=85"
+alt="Clear drinking water poured into a glass"
+fetchpriority="high"
+>
+</section>
+
+<div class="layout">
+
+<section class="card" id="calculator">
+<h2>Calculate Your Daily Water Estimate</h2>
+<p class="sub">Enter your body weight and select an estimation factor to calculate a general daily fluid estimate.</p>
+
+<div class="field-grid">
+<div class="field">
+<label for="weight">Your body weight</label>
+<input type="number" id="weight" min="1" max="500" step="0.1" placeholder="e.g. 70">
+</div>
+
+<div class="field">
+<label for="weightUnit">Weight unit</label>
+<select id="weightUnit">
+<option value="kg">Kilograms (kg)</option>
+<option value="lb">Pounds (lb)</option>
+</select>
+</div>
+
+<div class="field">
+<label for="factor">Estimation factor</label>
+<select id="factor">
+<option value="30">30 mL per kg</option>
+<option value="33" selected>33 mL per kg</option>
+<option value="35">35 mL per kg</option>
+</select>
+</div>
+
+<div class="field">
+<label for="activity">Activity level</label>
+<select id="activity">
+<option value="normal">Normal daily activity</option>
+<option value="active">Active / regular exercise</option>
+<option value="heavy">Heavy sweating / prolonged exercise</option>
+</select>
+<div class="hint">Activity is shown as a consideration, not an automatic medical adjustment.</div>
+</div>
+</div>
+
+<div class="field">
+<label for="climate">Environment</label>
+<select id="climate">
+<option value="moderate">Moderate temperature</option>
+<option value="hot">Hot or humid environment</option>
+</select>
+</div>
+
+<button class="btn" id="calculateBtn" type="button">Calculate Water Intake</button>
+
+<div class="result" id="result" aria-live="polite">
+<div class="result-title">Estimated daily fluid amount</div>
+<div class="big" id="liters">2.31 L</div>
+<div class="result-grid">
+<div class="result-box">
+<strong id="ml">2,310</strong>
+<span>Milliliters</span>
+</div>
+<div class="result-box">
+<strong id="cups">9.8</strong>
+<span>US cups</span>
+</div>
+<div class="result-box">
+<strong id="ounces">78.1</strong>
+<span>US fluid ounces</span>
+</div>
+</div>
+<p class="result-note" id="resultNote"></p>
+<div class="advice">
+<strong>Important hydration reminder</strong>
+Drink fluids regularly according to your needs. Do not force large amounts of water to meet a calculator target.
+</div>
+</div>
+</section>
+
+<aside>
+<div class="card side-card">
+<h3>Related Health Calculators</h3>
+<ul>
+<li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+<li><a href="/calculators/bmr-calculator.html">BMR Calculator</a></li>
+<li><a href="/calculators/tdee-calculator.html">TDEE Calculator</a></li>
+<li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+<li><a href="/calculators/protein-intake-calculator.html">Protein Intake Calculator</a></li>
+<li><a href="/calculators/macro-calculator.html">Macro Calculator</a></li>
+</ul>
+</div>
+
+<div class="card side-card">
+<h3>How This Calculator Works</h3>
+<p>The calculator converts your weight into kilograms and multiplies it by your selected milliliter-per-kilogram estimation factor. The result is a rough educational estimate, not a personalized hydration prescription.</p>
+</div>
+
+<div class="card side-card">
+<h3>Explore More</h3>
+<p><a href="/calculators/health-calculators.html">Browse all Health & Fitness Calculators →</a></p>
+</div>
+</aside>
+
+</div>
+
+<div class="content">
+
+<section>
+<h2>What Is a Daily Water Intake Calculator?</h2>
+<p>A daily water intake calculator is an educational tool that estimates fluid needs using information such as body weight. It can help you understand how a simple weight-based estimate is calculated and compare the result in familiar measurement units.</p>
+<p>However, there is no single amount of water that is correct for everyone. Hydration needs can change with physical activity, temperature, sweating, diet, age, pregnancy, breastfeeding and medical conditions.</p>
+<p>This CalcNest calculator uses an adjustable estimate of 30, 33 or 35 milliliters per kilogram of body weight. These are simplified calculation factors, not universal medical requirements.</p>
+</section>
+
+<section>
+<h2>Daily Water Intake Formula</h2>
+<p>The calculator uses a straightforward weight-based estimation method:</p>
+<div class="formula">
+Estimated daily fluid amount (mL) = Body weight (kg) × Selected factor (mL/kg)
+</div>
+<p>For pounds, the calculator first converts weight into kilograms:</p>
+<div class="formula">
+Weight in kilograms = Weight in pounds ÷ 2.20462
+</div>
+<p>It then converts the estimated milliliters into liters, US cups and US fluid ounces.</p>
+</section>
+
+<section>
+<h2>Worked Example: Daily Water Estimate for a 70 kg Adult</h2>
+<div class="example">
+<p><strong>Example inputs:</strong> Body weight = 70 kg, estimation factor = 33 mL/kg.</p>
+<p><strong>Calculation:</strong> 70 × 33 = 2,310 mL.</p>
+<p><strong>In liters:</strong> 2,310 ÷ 1,000 = 2.31 liters.</p>
+<p><strong>In US cups:</strong> 2,310 ÷ 236.588 ≈ 9.8 cups.</p>
+<p><strong>In US fluid ounces:</strong> 2,310 ÷ 29.5735 ≈ 78.1 fl oz.</p>
+</div>
+<p>This example demonstrates the arithmetic only. It does not mean every adult weighing 70 kg should consume exactly 2.31 liters of fluid each day.</p>
+</section>
+
+<section>
+<h2>Understanding the Estimation Factors</h2>
+<h3>30 mL per kg</h3>
+<p>A lower calculation factor that can be used to explore a conservative weight-based estimate. It is not a recommended minimum for every person.</p>
+<h3>33 mL per kg</h3>
+<p>A middle calculation option that provides a convenient example for comparing estimates.</p>
+<h3>35 mL per kg</h3>
+<p>A higher calculation option. It should not be interpreted as a universal daily target or a requirement to drink more water.</p>
+</section>
+
+<section>
+<h2>What Can Affect Your Daily Fluid Needs?</h2>
+<ul>
+<li><strong>Physical activity:</strong> Exercise and sweating can increase fluid losses.</li>
+<li><strong>Hot weather:</strong> Heat and humidity may increase sweating and hydration needs.</li>
+<li><strong>Diet:</strong> Foods such as fruit, vegetables and soups contribute water.</li>
+<li><strong>Pregnancy and breastfeeding:</strong> Fluid requirements may change during these stages.</li>
+<li><strong>Health conditions:</strong> Some medical conditions and medicines affect fluid balance.</li>
+<li><strong>Age:</strong> Hydration needs and the ability to recognize thirst can vary with age.</li>
+</ul>
+<p>The activity and climate selections in this calculator are reminders to consider these factors. They do not automatically increase the calculated result because individual fluid losses can vary substantially.</p>
+</section>
+
+<section>
+<h2>Water, Beverages and Food: What Counts?</h2>
+<p>Total water intake does not have to come entirely from plain drinking water. Other beverages and the moisture naturally found in foods also contribute to overall fluid intake.</p>
+<p>For example, soups, fruits and vegetables contain water. The amount contributed by food varies with your diet, so a calculator result should not be treated as the exact volume of plain water you must drink.</p>
+</section>
+
+<section>
+<h2>Practical Hydration Tips</h2>
+<ul>
+<li>Keep water accessible during your normal daily routine.</li>
+<li>Drink regularly rather than trying to consume a large amount at once.</li>
+<li>Consider additional fluid needs during prolonged exercise or hot weather.</li>
+<li>Include water-rich foods as part of a balanced diet.</li>
+<li>Follow medical advice if you have been given a specific fluid target or restriction.</li>
+<li>Avoid forcing excessive water intake in a short period.</li>
+</ul>
+</section>
+
+<section>
+<h2>Limitations and Health Disclaimer</h2>
+<div class="disclaimer">
+This calculator provides a general educational estimate only. It does not diagnose dehydration, assess kidney function or prescribe a personal fluid target. People with kidney disease, heart failure, liver disease, certain hormonal conditions, or a prescribed fluid restriction should follow their healthcare professional's instructions. Children, pregnant or breastfeeding individuals, and people with significant illness may need different guidance. Seek medical advice if you are concerned about dehydration or fluid balance.
+</div>
+</section>
+
+<section>
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<h3>1. How much water should I drink daily?</h3>
+<p>There is no single daily amount that applies to everyone. Fluid needs depend on body size, activity, climate, diet and health. Use this calculator as a rough educational estimate only.</p>
+</div>
+
+<div class="faq">
+<h3>2. Is 35 mL per kg a medical rule?</h3>
+<p>No. The factors offered here are simplified estimation options. They are not universal medical requirements or a substitute for individual medical advice.</p>
+</div>
+
+<div class="faq">
+<h3>3. Does my daily water intake include tea, milk and food?</h3>
+<p>Yes. Total water intake can include plain water, other beverages and moisture from foods. The amount varies according to what you eat and drink.</p>
+</div>
+
+<div class="faq">
+<h3>4. Should I drink extra water when exercising?</h3>
+<p>Exercise and sweating can increase fluid losses. Your needs depend on exercise duration, intensity, temperature and individual sweat rate. Follow suitable exercise hydration guidance.</p>
+</div>
+
+<div class="faq">
+<h3>5. Can drinking too much water be harmful?</h3>
+<p>Yes. Excessive water intake, particularly over a short period, can dangerously lower blood sodium levels. Do not force yourself to drink beyond your needs.</p>
+</div>
+
+<div class="faq">
+<h3>6. Can I use this calculator if I have kidney or heart disease?</h3>
+<p>Do not rely on a general calculator if you have a condition that affects fluid balance or have been given a fluid restriction. Ask your healthcare professional for an appropriate target.</p>
+</div>
+
+<div class="faq">
+<h3>7. What is the difference between liters and fluid ounces?</h3>
+<p>One liter equals 1,000 milliliters and approximately 33.814 US fluid ounces. This calculator displays both metric and US customary measurements.</p>
+</div>
+</section>
+
+<section>
+<h2>Explore Related Health Calculators</h2>
+<p>Continue exploring health, fitness and body measurement tools on CalcNest:</p>
+<div class="related">
+<a href="/calculators/bmi-calculator.html">BMI Calculator →</a>
+<a href="/calculators/bmr-calculator.html">BMR Calculator →</a>
+<a href="/calculators/tdee-calculator.html">TDEE Calculator →</a>
+<a href="/calculators/calorie-calculator.html">Calorie Calculator →</a>
+<a href="/calculators/protein-intake-calculator.html">Protein Intake →</a>
+<a href="/calculators/macro-calculator.html">Macro Calculator →</a>
+<a href="/calculators/sleep-calculator.html">Sleep Calculator →</a>
+<a href="/calculators/health-calculators.html">All Health Calculators →</a>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+<div class="container footer-inner">
+<div>© 2026 CalcNest. All rights reserved.</div>
+<div>
+<a href="/about/">About</a> ·
+<a href="/contact/">Contact</a> ·
+<a href="/privacy-policy/">Privacy Policy</a> ·
+<a href="/terms/">Terms</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+const weightInput=document.getElementById("weight");
+const unitInput=document.getElementById("weightUnit");
+const factorInput=document.getElementById("factor");
+const activityInput=document.getElementById("activity");
+const climateInput=document.getElementById("climate");
+const result=document.getElementById("result");
+
+function formatNumber(value,decimals){
+return value.toLocaleString("en-US",{
+minimumFractionDigits:decimals,
+maximumFractionDigits:decimals
+});
+}
+
+function calculate(){
+const enteredWeight=Number(weightInput.value);
+const unit=unitInput.value;
+const factor=Number(factorInput.value);
+
+if(!Number.isFinite(enteredWeight)||enteredWeight<=0){
+alert("Please enter a valid body weight greater than zero.");
+weightInput.focus();
+return;
+}
+
+if(enteredWeight>500){
+alert("Please enter a realistic body weight.");
+weightInput.focus();
+return;
+}
+
+const weightKg=unit==="lb"?enteredWeight/2.2046226218:enteredWeight;
+
+if(!Number.isFinite(weightKg)||weightKg<=0){
+alert("Please check your weight input.");
+return;
+}
+
+const dailyMl=weightKg*factor;
+const liters=dailyMl/1000;
+const cups=dailyMl/236.5882365;
+const ounces=dailyMl/29.57352956;
+
+document.getElementById("liters").textContent=formatNumber(liters,2)+" L";
+document.getElementById("ml").textContent=formatNumber(dailyMl,0);
+document.getElementById("cups").textContent=formatNumber(cups,1);
+document.getElementById("ounces").textContent=formatNumber(ounces,1);
+
+let note="This is a simplified weight-based estimate. It is not a personalized medical fluid target.";
+
+if(activityInput.value==="active"){
+note+=" You selected regular exercise: sweating and exercise duration may change your fluid needs.";
+}else if(activityInput.value==="heavy"){
+note+=" You selected heavy sweating or prolonged exercise: individual fluid and electrolyte needs can vary considerably.";
+}
+
+if(climateInput.value==="hot"){
+note+=" Hot or humid conditions may increase fluid losses.";
+}
+
+note+=" Food and beverages both contribute to total water intake.";
+
+document.getElementById("resultNote").textContent=note;
+
+result.classList.add("show");
+result.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+document.getElementById("calculateBtn").addEventListener("click",calculate);
+
+weightInput.addEventListener("keydown",function(event){
+if(event.key==="Enter")calculate();
+});
+
+})();
+</script>
+
+</body>
+</html>
