@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emergency Fund Calculator - Savings Goal | CalcNest</title>
+<meta name="description" content="Calculate how much emergency savings you may need based on monthly essential expenses and your chosen number of months.">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/emergency-fund-calculator.html">
+<meta property="og:title" content="Emergency Fund Calculator | CalcNest"><meta property="og:description" content="Set an emergency savings target and estimate how much more you need to save."><meta property="og:type" content="website">
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd}*{box-sizing:border-box}body{margin:0;background:#f8faff;color:var(--ink);font:16px/1.65 Arial,sans-serif}a{color:var(--blue);text-decoration:none}.nav,main{max-width:1050px;margin:auto;padding:20px}.nav{display:flex;justify-content:space-between}.logo{font-size:23px;font-weight:bold;color:var(--ink)}.hero{text-align:center;margin:25px auto}.hero h1{font-size:clamp(30px,5vw,43px);margin:0}.hero p{color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel,.article{background:white;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 12px 35px #192d5510}.field{margin:14px 0}.field label{display:block;font-weight:bold;margin-bottom:6px}.field input,.field select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:9px;font-size:16px}.btn{width:100%;border:0;border-radius:9px;padding:14px;background:linear-gradient(110deg,var(--blue),var(--purple));color:white;font-weight:bold;font-size:16px;cursor:pointer}.result{background:var(--soft);padding:17px;border-radius:12px}.big{font-size:30px;color:var(--blue);font-weight:bold}.stat{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);gap:10px}.article{margin-top:22px}.article h2{margin-top:25px}.article p,.article li{color:#526078}.faq{border-bottom:1px solid var(--line);padding:12px 0}footer{text-align:center;color:var(--muted);padding:25px}@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:19px}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Emergency Fund Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body><header><nav class="nav"><a class="logo" href="/">CalcNest</a><a href="/calculators/">All Calculators</a></nav></header><main>
+<section class="hero"><h1>Emergency Fund Calculator</h1><p>Estimate a practical emergency savings target based on your essential monthly expenses and the number of months you want to cover.</p></section>
+<div class="grid"><section class="panel"><h2>Your Monthly Essentials</h2>
+<div class="field"><label for="housing">Housing or rent</label><input id="housing" type="number" min="0" value="1200"></div>
+<div class="field"><label for="utilities">Utilities and bills</label><input id="utilities" type="number" min="0" value="250"></div>
+<div class="field"><label for="food">Groceries and essential food</label><input id="food" type="number" min="0" value="450"></div>
+<div class="field"><label for="transport">Essential transport</label><input id="transport" type="number" min="0" value="200"></div>
+<div class="field"><label for="debt">Minimum debt payments</label><input id="debt" type="number" min="0" value="250"></div>
+<div class="field"><label for="health">Healthcare and insurance</label><input id="health" type="number" min="0" value="150"></div>
+<div class="field"><label for="other">Other essential expenses</label><input id="other" type="number" min="0" value="100"></div>
+<div class="field"><label for="months">Months of expenses to cover</label><select id="months"><option value="3">3 months</option><option value="4">4 months</option><option value="6" selected>6 months</option><option value="9">9 months</option><option value="12">12 months</option></select></div>
+<div class="field"><label for="saved">Current emergency savings</label><input id="saved" type="number" min="0" value="2000"></div>
+<div class="field"><label for="monthly">Amount you can save each month</label><input id="monthly" type="number" min="0" value="300"></div>
+<div class="field"><label for="cur">Currency</label><select id="cur"><option value="$">USD ($)</option><option value="£">GBP (£)</option><option value="€">EUR (€)</option><option value="₨">PKR (₨)</option><option value="C$">CAD (C$)</option><option value="₹">INR (₹)</option></select></div>
+<button class="btn" onclick="calc()">Calculate Emergency Fund</button><p id="err" style="color:#bd2636;font-weight:bold" role="alert"></p></section>
+<section class="panel"><h2>Your Savings Target</h2><div class="result" aria-live="polite">Recommended target based on your selected months<div class="big" id="target">—</div>
+<div class="stat"><span>Essential monthly expenses</span><b id="expense">—</b></div><div class="stat"><span>Current savings</span><b id="current">—</b></div><div class="stat"><span>Remaining amount needed</span><b id="remaining">—</b></div><div class="stat"><span>Progress</span><b id="progress">—</b></div><div class="stat"><span>Estimated time to target</span><b id="time">—</b></div></div></section></div>
+<article class="article"><h2>What Is an Emergency Fund?</h2><p>An emergency fund is money set aside for unexpected expenses or income disruptions. It may help cover essential costs during events such as job loss, urgent repairs, or unexpected medical bills.</p>
+<h2>How Much Should You Save?</h2><p>A common planning guideline is to build savings equal to three to six months of essential expenses. Your appropriate target may be higher or lower depending on income stability, dependants, insurance, debt obligations, and access to other resources.</p>
+<h2>How to Use This Calculator</h2><ol><li>Enter your essential monthly expenses.</li><li>Choose how many months you want your fund to cover.</li><li>Enter your current emergency savings.</li><li>Enter how much you can save monthly.</li><li>Calculate your target and estimated saving timeline.</li></ol>
+<h2>Frequently Asked Questions</h2><div class="faq"><b>Should I include entertainment expenses?</b><p>This calculator focuses on essential costs. You can include any additional expenses you believe are necessary during an emergency.</p></div>
+<div class="faq"><b>Where should I keep an emergency fund?</b><p>Many people prefer an accessible, low-risk savings account. Consider access, fees, deposit protection, and local financial rules.</p></div>
+<div class="faq"><b>Does this calculator include investment returns?</b><p>No. It assumes no interest or investment growth on your emergency savings.</p></div>
+<div class="faq"><b>Is six months always necessary?</b><p>No. The right target depends on your personal circumstances. Three to six months is a common starting guideline, not a universal rule.</p></div>
+<h2>Related Finance Calculators</h2><p><a href="/calculators/budget-calculator.html">Budget Calculator</a> · <a href="/calculators/savings-calculator.html">Savings Calculator</a> · <a href="/calculators/debt-payoff-calculator.html">Debt Payoff Calculator</a></p></article>
+</main><footer>© 2026 CalcNest · <a href="/">Home</a></footer>
+<script>
+function fmt(n){return cur.value+Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})}
+function calc(){err.textContent='';let ids=['housing','utilities','food','transport','debt','health','other','saved','monthly'];let v=ids.map(id=>Number(document.getElementById(id).value));if(v.some(x=>!Number.isFinite(x)||x<0)){err.textContent='Please enter valid non-negative amounts.';return}
+let expense=v.slice(0,7).reduce((a,b)=>a+b,0),target=expense*Number(months.value),gap=Math.max(0,target-v[7]),progress=target?Math.min(100,v[7]/target*100):100;
+document.getElementById('target').textContent=fmt(target);document.getElementById('expense').textContent=fmt(expense);document.getElementById('current').textContent=fmt(v[7]);document.getElementById('remaining').textContent=fmt(gap);document.getElementById('progress').textContent=progress.toFixed(1)+'%';
+document.getElementById('time').textContent=gap===0?'Goal reached':v[8]>0?Math.ceil(gap/v[8])+' months':'Not estimated — enter monthly savings';}
+calc();
+</script></body></html>
