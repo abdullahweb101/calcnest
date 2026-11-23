@@ -1,0 +1,1272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BMR Calculator – Calculate Your Basal Metabolic Rate | CalcNest</title>
+  <meta name="description" content="Calculate your Basal Metabolic Rate (BMR) using the Mifflin-St Jeor equation. Estimate resting daily calorie needs with metric or imperial measurements using CalcNest.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/bmr-calculator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free BMR Calculator | CalcNest">
+  <meta property="og:description" content="Estimate your basal metabolic rate using age, sex, height and weight.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/bmr-calculator.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80">
+
+  <meta name="theme-color" content="#ffffff">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "BMR Calculator",
+    "url": "https://calcnest-7s6.pages.dev/calculators/bmr-calculator.html",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "description": "A free BMR calculator using the Mifflin-St Jeor equation to estimate resting energy expenditure.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcNest",
+      "url": "https://calcnest-7s6.pages.dev/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is BMR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basal Metabolic Rate (BMR) is an estimate of the energy your body uses to maintain essential functions while at complete rest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is BMR calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This calculator uses the Mifflin-St Jeor equation, which estimates BMR using weight, height, age and a sex-specific equation constant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does BMR include exercise calories?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. BMR estimates energy used at rest. It does not include exercise, walking or other daily activity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between BMR and TDEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMR estimates energy expenditure at rest, while Total Daily Energy Expenditure (TDEE) estimates total daily energy use including physical activity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is BMR the number of calories I should eat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily. BMR is an estimate of resting energy expenditure, not an individualized calorie target. Daily energy needs depend on activity and other factors."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink: #17243a;
+      --muted: #65738b;
+      --blue: #315eea;
+      --purple: #7659e8;
+      --line: #e8edf5;
+      --soft: #f6f8fd;
+      --white: #fff;
+      --shadow: 0 12px 35px rgba(25,45,85,.07);
+      --green: #16865b;
+      --orange: #c47a18;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .breadcrumb {
+      padding: 19px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .breadcrumb a {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 35px 0 28px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      background: #eef2ff;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.12;
+      letter-spacing: -1.8px;
+      margin-bottom: 17px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 19px;
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    .calculator-section {
+      padding: 28px 0 45px;
+    }
+
+    .calculator-box {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 25px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 27px;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .calculator-form h2,
+    .result-panel h2 {
+      font-size: 23px;
+      margin-bottom: 7px;
+    }
+
+    .subtext {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .unit-switch,
+    .gender-switch {
+      display: flex;
+      background: var(--soft);
+      padding: 5px;
+      border-radius: 11px;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+
+    .unit-switch button,
+    .gender-switch button {
+      flex: 1;
+      border: 0;
+      border-radius: 8px;
+      padding: 11px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .unit-switch button.active,
+    .gender-switch button.active {
+      background: var(--blue);
+      color: white;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #dce3ef;
+      border-radius: 10px;
+      font-size: 16px;
+      color: var(--ink);
+      outline: none;
+      background: #fff;
+    }
+
+    .field input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(49,94,234,.1);
+    }
+
+    .height-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .input-help {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
+    .calculate-btn {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 11px;
+      color: white;
+      background: linear-gradient(110deg, var(--blue), var(--purple));
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .reset-btn {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: white;
+      color: var(--muted);
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .result-panel {
+      border-radius: 16px;
+      background: var(--soft);
+      padding: 25px;
+      min-height: 100%;
+    }
+
+    .result-placeholder {
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .result-placeholder .symbol {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .result-number {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--blue);
+      margin: 15px 0 5px;
+    }
+
+    .result-unit {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .result-category {
+      display: inline-block;
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 13px 0;
+      background: #e6f5ee;
+      color: var(--green);
+    }
+
+    .result-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 10px 0 18px;
+    }
+
+    .result-stat {
+      padding: 15px;
+      border-radius: 11px;
+      background: #fff;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .result-stat span {
+      color: var(--muted);
+      display: block;
+      font-size: 12px;
+    }
+
+    .result-stat strong {
+      display: block;
+      font-size: 21px;
+      margin-top: 3px;
+    }
+
+    .result-note {
+      margin-top: 16px;
+      padding: 13px;
+      border-radius: 10px;
+      background: white;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .error {
+      display: none;
+      color: #c33b42;
+      background: #fff0f0;
+      padding: 11px;
+      border-radius: 9px;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+
+    .content-section {
+      padding: 35px 0;
+    }
+
+    .content-section h2 {
+      font-size: 28px;
+      line-height: 1.25;
+      margin-bottom: 15px;
+      letter-spacing: -.5px;
+    }
+
+    .content-section h3 {
+      font-size: 20px;
+      margin: 25px 0 9px;
+    }
+
+    .content-section p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .content-section ul,
+    .content-section ol {
+      padding-left: 23px;
+      color: var(--muted);
+      margin: 12px 0 18px;
+    }
+
+    .content-section li {
+      margin-bottom: 8px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .info-card {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 19px;
+      background: #fff;
+    }
+
+    .info-card h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
+    }
+
+    .info-card p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .formula {
+      background: #f0f3ff;
+      border: 1px solid #dfe6ff;
+      border-radius: 12px;
+      padding: 18px;
+      color: #263f9c;
+      font-weight: 700;
+      margin: 16px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      background: #fff8e9;
+      border-left: 4px solid #e5a63b;
+      padding: 16px;
+      border-radius: 9px;
+      color: #765a27;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 17px 0;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-top: 18px;
+    }
+
+    .related-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-weight: 700;
+      background: #fff;
+      transition: .2s;
+    }
+
+    .related-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .related-card small {
+      display: block;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .footer {
+      margin-top: 45px;
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer a {
+      margin-left: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .hero,
+      .calculator-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        height: 220px;
+      }
+
+      .info-grid,
+      .related-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .calculator-box {
+        padding: 17px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 24px, 1120px);
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .info-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-number {
+        font-size: 42px;
+      }
+
+      .content-section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="container nav">
+      <a href="/" class="brand">Calc<span>Nest</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/calculators/">Calculators</a>
+        <a href="/guides/">Guides</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a> /
+      <a href="/calculators/">Calculators</a> /
+      <a href="/calculators/health-calculators.html">Health & Fitness</a> /
+      BMR Calculator
+    </div>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">FREE HEALTH & FITNESS TOOL</span>
+        <h1>BMR Calculator</h1>
+        <p>
+          Estimate your Basal Metabolic Rate (BMR) using your age, sex,
+          height and weight. Understand how much energy your body may use
+          at rest with this free Mifflin-St Jeor BMR calculator.
+        </p>
+      </div>
+
+      <div>
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1100&q=80"
+          alt="Balanced nutritious food associated with everyday energy and nutrition"
+          width="1100"
+          height="650"
+          fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="calculator-section" id="bmr-calculator">
+      <div class="calculator-box">
+
+        <div class="calculator-form">
+          <h2>Calculate Your BMR</h2>
+          <p class="subtext">
+            Enter your details to estimate your resting energy expenditure.
+          </p>
+
+          <div class="unit-switch" role="group" aria-label="Measurement system">
+            <button type="button" id="metricBtn" class="active">Metric (kg, cm)</button>
+            <button type="button" id="imperialBtn">Imperial (lb, in)</button>
+          </div>
+
+          <div class="field">
+            <label>Sex used by the equation</label>
+            <div class="gender-switch" role="group" aria-label="Equation sex option">
+              <button type="button" id="maleBtn" class="active">Male</button>
+              <button type="button" id="femaleBtn">Female</button>
+            </div>
+            <p class="input-help">
+              The Mifflin-St Jeor equation uses a sex-specific constant.
+              This is a simplified estimate and may not represent every individual.
+            </p>
+          </div>
+
+          <div id="errorBox" class="error" role="alert"></div>
+
+          <div class="field">
+            <label for="age">Age (years)</label>
+            <input type="number" id="age" min="18" max="120" step="1" placeholder="For example, 30">
+          </div>
+
+          <div class="field">
+            <label for="weight">Weight <span id="weightUnit">(kg)</span></label>
+            <input type="number" id="weight" min="1" max="500" step="any" placeholder="For example, 70">
+          </div>
+
+          <div id="metricHeight" class="field">
+            <label for="heightCm">Height (cm)</label>
+            <input type="number" id="heightCm" min="100" max="250" step="any" placeholder="For example, 175">
+          </div>
+
+          <div id="imperialHeight" class="field" style="display:none;">
+            <label>Height (feet and inches)</label>
+            <div class="height-grid">
+              <div>
+                <input type="number" id="heightFt" min="3" max="8" step="1" placeholder="Feet">
+                <p class="input-help">Feet</p>
+              </div>
+              <div>
+                <input type="number" id="heightIn" min="0" max="11.99" step="any" placeholder="Inches">
+                <p class="input-help">Inches</p>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="calculate-btn" id="calculateBtn">
+            Calculate My BMR
+          </button>
+
+          <button type="button" class="reset-btn" id="resetBtn">
+            Reset Calculator
+          </button>
+        </div>
+
+        <div class="result-panel" aria-live="polite">
+          <div id="resultPlaceholder" class="result-placeholder">
+            <div class="symbol">🔥</div>
+            <h2>Your BMR Result</h2>
+            <p>Enter your information and calculate your estimated resting calories.</p>
+          </div>
+
+          <div id="resultContent" style="display:none;">
+            <h2>Your Estimated BMR</h2>
+            <div class="result-number" id="bmrValue">0</div>
+            <div class="result-unit">Calories per day (kcal/day)</div>
+
+            <div class="result-category">Estimated resting energy</div>
+
+            <p class="result-description" id="bmrDescription"></p>
+
+            <div class="result-stat">
+              <span>Estimated daily resting energy</span>
+              <strong id="dailyBmr">0 kcal/day</strong>
+            </div>
+
+            <div class="result-stat">
+              <span>Estimated hourly average</span>
+              <strong id="hourlyBmr">0 kcal/hour</strong>
+            </div>
+
+            <div class="result-note">
+              BMR is not your total daily calorie requirement or a recommended
+              food intake target. Daily energy use also depends on physical activity.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>What Is Basal Metabolic Rate (BMR)?</h2>
+      <p>
+        Basal Metabolic Rate, commonly known as BMR, is an estimate of the
+        amount of energy your body uses to maintain essential functions
+        while at complete rest. These functions include breathing,
+        circulation, maintaining body temperature and supporting basic
+        cellular processes.
+      </p>
+      <p>
+        Your body uses energy even when you are sleeping or sitting still.
+        This resting energy requirement is an important part of total daily
+        energy expenditure.
+      </p>
+      <p>
+        BMR is not the same as the total number of calories you burn in a day.
+        Walking, exercise, digestion and other daily activities require
+        additional energy.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>How Does This BMR Calculator Work?</h2>
+      <p>
+        This calculator uses the Mifflin-St Jeor equation. It estimates
+        resting energy expenditure using four main inputs: weight, height,
+        age and the sex-specific constant used by the equation.
+      </p>
+
+      <h3>Mifflin-St Jeor Formula for Men</h3>
+      <div class="formula">
+        BMR = (10 × Weight in kg) + (6.25 × Height in cm) − (5 × Age) + 5
+      </div>
+
+      <h3>Mifflin-St Jeor Formula for Women</h3>
+      <div class="formula">
+        BMR = (10 × Weight in kg) + (6.25 × Height in cm) − (5 × Age) − 161
+      </div>
+
+      <p>
+        When imperial measurements are selected, the calculator first
+        converts pounds to kilograms and inches to centimetres. It then
+        applies the same metric equation.
+      </p>
+
+      <h3>Example BMR Calculation</h3>
+      <p>
+        Consider a 30-year-old man who weighs 70 kg and is 175 cm tall.
+      </p>
+      <div class="formula">
+        BMR = (10 × 70) + (6.25 × 175) − (5 × 30) + 5
+        <br>
+        BMR = 700 + 1093.75 − 150 + 5
+        <br>
+        BMR = 1648.75 kcal/day
+      </div>
+      <p>
+        The estimated BMR in this example is approximately 1,649 calories
+        per day. This is a calculated estimate, not a personalized diet target.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>BMR vs TDEE: What Is the Difference?</h2>
+      <p>
+        BMR and Total Daily Energy Expenditure (TDEE) are related but
+        measure different things.
+      </p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>BMR</h3>
+          <p>
+            Estimates energy used for essential body functions while at rest.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>TDEE</h3>
+          <p>
+            Estimates total daily energy use, including resting needs and activity.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Daily Activity</h3>
+          <p>
+            Walking, exercise, work and everyday movement contribute to energy use.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        To explore estimated total daily energy expenditure, use our
+        <a href="/calculators/tdee-calculator.html">TDEE Calculator</a>.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Factors That Can Affect BMR</h2>
+
+      <h3>Age</h3>
+      <p>
+        Energy requirements can change with age as body composition and
+        other physiological factors change.
+      </p>
+
+      <h3>Body Size and Composition</h3>
+      <p>
+        Height, weight and the amount of metabolically active tissue can
+        influence resting energy expenditure.
+      </p>
+
+      <h3>Hormones and Health</h3>
+      <p>
+        Hormonal conditions, illness, medications and other individual
+        health factors may influence energy needs. A formula cannot
+        account for every such factor.
+      </p>
+
+      <h3>Genetics and Individual Differences</h3>
+      <p>
+        People with similar age, height and weight may still have different
+        resting energy requirements. Prediction equations provide
+        estimates rather than direct measurements.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>How to Use This BMR Calculator</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>1. Select Measurement Units</h3>
+          <p>Choose metric or imperial units based on how you measure your height and weight.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>2. Enter Your Details</h3>
+          <p>Provide your age, weight, height and the equation option that applies to you.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>3. Calculate Your BMR</h3>
+          <p>View your estimated resting calories per day and hourly average.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Frequently Asked Questions About BMR</h2>
+
+      <div class="faq-item">
+        <h3>1. What does BMR stand for?</h3>
+        <p>
+          BMR stands for Basal Metabolic Rate. It estimates the energy
+          your body uses to maintain essential functions at rest.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>2. How many calories does BMR represent?</h3>
+        <p>
+          BMR is expressed in calories per day and represents estimated
+          resting energy expenditure. Your result depends on your
+          measurements and the equation used.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>3. Is BMR the same as maintenance calories?</h3>
+        <p>
+          No. Maintenance calories are more closely related to total daily
+          energy expenditure, which includes physical activity and other
+          energy needs beyond resting metabolism.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>4. Which formula does this calculator use?</h3>
+        <p>
+          This calculator uses the Mifflin-St Jeor equation, a commonly
+          used predictive equation for estimating resting energy expenditure
+          in adults.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>5. Does BMR include exercise?</h3>
+        <p>
+          No. Exercise and everyday movement are not included in a BMR
+          estimate. They contribute to total daily energy expenditure.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>6. Can I use BMR as my daily calorie intake goal?</h3>
+        <p>
+          No. BMR is not an individualized calorie intake recommendation.
+          Personal energy needs depend on activity, health and other factors.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>7. Is this BMR calculator accurate?</h3>
+        <p>
+          It provides an estimate using a published prediction equation.
+          Actual resting energy expenditure can differ between individuals.
+          A clinical measurement may be needed for a more direct assessment.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>8. Can I calculate BMR in pounds and feet?</h3>
+        <p>
+          Yes. Select Imperial mode and enter your weight in pounds and
+          height in feet and inches.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Explore Related Health Calculators</h2>
+      <p>
+        Continue exploring your estimated energy needs and other
+        health-related measurements with these CalcNest tools.
+      </p>
+
+      <div class="related-grid">
+        <a class="related-card" href="/calculators/bmi-calculator.html">
+          BMI Calculator
+          <small>Calculate your body mass index</small>
+        </a>
+
+        <a class="related-card" href="/calculators/tdee-calculator.html">
+          TDEE Calculator
+          <small>Estimate total daily energy expenditure</small>
+        </a>
+
+        <a class="related-card" href="/calculators/calorie-calculator.html">
+          Calorie Calculator
+          <small>Explore estimated daily calorie needs</small>
+        </a>
+
+        <a class="related-card" href="/calculators/macro-calculator.html">
+          Macro Calculator
+          <small>Explore macronutrient estimates</small>
+        </a>
+
+        <a class="related-card" href="/calculators/protein-intake-calculator.html">
+          Protein Intake Calculator
+          <small>Estimate daily protein requirements</small>
+        </a>
+
+        <a class="related-card" href="/calculators/ideal-weight-calculator.html">
+          Ideal Weight Calculator
+          <small>Compare common weight estimates</small>
+        </a>
+      </div>
+
+      <p style="margin-top:22px;">
+        <a href="/calculators/health-calculators.html">
+          ← Explore all Health & Fitness Calculators
+        </a>
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Health Disclaimer</h2>
+      <p>
+        This calculator is intended for general educational and
+        informational purposes only. BMR is an estimate, not a direct
+        measurement of metabolism, medical diagnosis or personalized
+        nutrition advice. It should not be used alone to determine a
+        diet or treatment plan. Consult a qualified healthcare
+        professional or registered dietitian for individual guidance.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>CalcNest</strong>
+        <p>Free online calculators for everyday decisions.</p>
+      </div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/calculators/">Calculators</a>
+        <a href="/calculators/health-calculators.html">Health Tools</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const metricBtn = document.getElementById("metricBtn");
+    const imperialBtn = document.getElementById("imperialBtn");
+    const maleBtn = document.getElementById("maleBtn");
+    const femaleBtn = document.getElementById("femaleBtn");
+
+    const metricHeight = document.getElementById("metricHeight");
+    const imperialHeight = document.getElementById("imperialHeight");
+    const weightUnit = document.getElementById("weightUnit");
+
+    const ageInput = document.getElementById("age");
+    const weightInput = document.getElementById("weight");
+    const heightCmInput = document.getElementById("heightCm");
+    const heightFtInput = document.getElementById("heightFt");
+    const heightInInput = document.getElementById("heightIn");
+
+    const errorBox = document.getElementById("errorBox");
+    const resultPlaceholder = document.getElementById("resultPlaceholder");
+    const resultContent = document.getElementById("resultContent");
+
+    let unitSystem = "metric";
+    let equationSex = "male";
+
+    function hideError() {
+      errorBox.textContent = "";
+      errorBox.style.display = "none";
+    }
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.style.display = "block";
+    }
+
+    function clearResult() {
+      resultPlaceholder.style.display = "flex";
+      resultContent.style.display = "none";
+    }
+
+    function selectUnit(system) {
+      unitSystem = system;
+      const isMetric = system === "metric";
+
+      metricBtn.classList.toggle("active", isMetric);
+      imperialBtn.classList.toggle("active", !isMetric);
+
+      metricHeight.style.display = isMetric ? "block" : "none";
+      imperialHeight.style.display = isMetric ? "none" : "block";
+
+      weightUnit.textContent = isMetric ? "(kg)" : "(lb)";
+      weightInput.placeholder = isMetric ? "For example, 70" : "For example, 154";
+
+      hideError();
+      clearResult();
+    }
+
+    function selectSex(sex) {
+      equationSex = sex;
+
+      maleBtn.classList.toggle("active", sex === "male");
+      femaleBtn.classList.toggle("active", sex === "female");
+
+      hideError();
+      clearResult();
+    }
+
+    metricBtn.addEventListener("click", () => selectUnit("metric"));
+    imperialBtn.addEventListener("click", () => selectUnit("imperial"));
+    maleBtn.addEventListener("click", () => selectSex("male"));
+    femaleBtn.addEventListener("click", () => selectSex("female"));
+
+    function calculateBMR() {
+      hideError();
+
+      const age = Number(ageInput.value);
+      const enteredWeight = Number(weightInput.value);
+
+      if (!ageInput.value || !Number.isFinite(age) ||
+          age < 18 || age > 120 || !Number.isInteger(age)) {
+        showError("Please enter a valid adult age between 18 and 120 years.");
+        return;
+      }
+
+      if (!weightInput.value || !Number.isFinite(enteredWeight) ||
+          enteredWeight <= 0) {
+        showError("Please enter a valid weight greater than zero.");
+        return;
+      }
+
+      let weightKg;
+      let heightCm;
+
+      if (unitSystem === "metric") {
+        heightCm = Number(heightCmInput.value);
+
+        if (!heightCmInput.value || !Number.isFinite(heightCm) ||
+            heightCm < 100 || heightCm > 250) {
+          showError("Please enter a valid height between 100 cm and 250 cm.");
+          return;
+        }
+
+        if (enteredWeight > 500) {
+          showError("Please enter a realistic weight in kilograms.");
+          return;
+        }
+
+        weightKg = enteredWeight;
+
+      } else {
+        const feet = Number(heightFtInput.value);
+        const inches = heightInInput.value === "" ? 0 : Number(heightInInput.value);
+
+        if (!heightFtInput.value || !Number.isFinite(feet) ||
+            feet < 3 || feet > 8) {
+          showError("Please enter a valid height in feet.");
+          return;
+        }
+
+        if (!Number.isFinite(inches) || inches < 0 || inches >= 12) {
+          showError("Inches must be 0 or more and less than 12.");
+          return;
+        }
+
+        if (enteredWeight > 1100) {
+          showError("Please enter a realistic weight in pounds.");
+          return;
+        }
+
+        const totalInches = (feet * 12) + inches;
+
+        if (totalInches <= 0) {
+          showError("Please enter a valid height.");
+          return;
+        }
+
+        weightKg = enteredWeight * 0.45359237;
+        heightCm = totalInches * 2.54;
+      }
+
+      const constant = equationSex === "male" ? 5 : -161;
+
+      const bmr =
+        (10 * weightKg) +
+        (6.25 * heightCm) -
+        (5 * age) +
+        constant;
+
+      if (!Number.isFinite(bmr) || bmr <= 0 || bmr > 10000) {
+        showError("The entered measurements produce an unusual result. Please check your inputs.");
+        return;
+      }
+
+      displayResult(bmr);
+    }
+
+    function displayResult(bmr) {
+      const roundedBmr = Math.round(bmr);
+      const hourly = bmr / 24;
+
+      document.getElementById("bmrValue").textContent =
+        roundedBmr.toLocaleString("en-US");
+
+      document.getElementById("dailyBmr").textContent =
+        roundedBmr.toLocaleString("en-US") + " kcal/day";
+
+      document.getElementById("hourlyBmr").textContent =
+        hourly.toFixed(1) + " kcal/hour";
+
+      document.getElementById("bmrDescription").textContent =
+        "Based on the information entered, your estimated resting energy expenditure is approximately " +
+        roundedBmr.toLocaleString("en-US") +
+        " calories per day. This estimate does not include your daily physical activity.";
+
+      resultPlaceholder.style.display = "none";
+      resultContent.style.display = "block";
+    }
+
+    function resetCalculator() {
+      ageInput.value = "";
+      weightInput.value = "";
+      heightCmInput.value = "";
+      heightFtInput.value = "";
+      heightInInput.value = "";
+
+      selectUnit("metric");
+      selectSex("male");
+
+      hideError();
+      clearResult();
+    }
+
+    document.getElementById("calculateBtn").addEventListener("click", calculateBMR);
+    document.getElementById("resetBtn").addEventListener("click", resetCalculator);
+
+    [ageInput, weightInput, heightCmInput, heightFtInput, heightInInput].forEach(input => {
+      input.addEventListener("keydown", event => {
+        if (event.key === "Enter") calculateBMR();
+      });
+    });
+  </script>
+
+</body>
+</html>
