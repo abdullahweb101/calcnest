@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Protein Intake Calculator - Daily Protein Needs | CalcNest</title>
+<meta name="description" content="Estimate your daily protein intake based on body weight, activity level and fitness goals. Calculate protein in grams, calories and meals with this free protein calculator.">
+<meta name="keywords" content="protein intake calculator, daily protein calculator, how much protein do I need, protein per day, protein requirements">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/protein-intake-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Protein Intake Calculator | CalcNest">
+<meta property="og:description" content="Estimate your daily protein needs using body weight and activity level.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/protein-intake-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protein Intake Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate your estimated daily protein intake in grams and calories.">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Protein Intake Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/protein-intake-calculator.html",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "description":"A free educational calculator for estimating daily protein intake based on body weight and selected protein factors.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"How much protein do I need per day?",
+   "acceptedAnswer":{"@type":"Answer","text":"Protein needs depend on body weight, age, health, activity and goals. This calculator uses adjustable educational estimates and does not provide a personal medical prescription."}
+  },
+  {
+   "@type":"Question",
+   "name":"How many calories are in one gram of protein?",
+   "acceptedAnswer":{"@type":"Answer","text":"One gram of dietary protein provides approximately four calories."}
+  },
+  {
+   "@type":"Question",
+   "name":"Do athletes need more protein?",
+   "acceptedAnswer":{"@type":"Answer","text":"People who train regularly may need more protein than sedentary adults. Appropriate intake depends on training, body weight, diet and individual circumstances."}
+  },
+  {
+   "@type":"Question",
+   "name":"Can I get enough protein from plant foods?",
+   "acceptedAnswer":{"@type":"Answer","text":"Yes. Beans, lentils, soy foods, nuts, seeds and whole grains can contribute protein. Eating a varied diet helps provide essential amino acids."}
+  },
+  {
+   "@type":"Question",
+   "name":"Is more protein always better?",
+   "acceptedAnswer":{"@type":"Answer","text":"No. More protein is not automatically better. Excessive or unsuitable intake may be inappropriate for some people, especially those with certain medical conditions."}
+  }
+ ]
+}
+</script>
+
+<style>
+:root{
+--ink:#17243a;
+--muted:#65738b;
+--blue:#315eea;
+--purple:#7659e8;
+--line:#e8edf5;
+--soft:#f6f8fd;
+--white:#fff;
+--shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+color:var(--ink);
+background:#fff;
+line-height:1.7;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:#fff}
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+.logo{
+font-size:25px;
+font-weight:800;
+letter-spacing:-1px;
+color:var(--ink);
+}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:22px;flex-wrap:wrap}
+.nav-links a{font-size:14px;color:var(--muted);font-weight:600}
+.breadcrumb{font-size:13px;color:var(--muted);padding:20px 0 8px}
+.breadcrumb a{color:var(--blue)}
+.hero{
+padding:28px 0 24px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:35px;
+align-items:center;
+}
+.eyebrow{
+display:inline-block;
+background:#edf1ff;
+color:var(--blue);
+padding:6px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:700;
+}
+h1{
+font-size:clamp(32px,5vw,48px);
+line-height:1.13;
+letter-spacing:-1.6px;
+margin:16px 0;
+}
+.hero p{color:var(--muted);font-size:17px;margin:0}
+.hero img{
+width:100%;
+height:270px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+.layout{
+display:grid;
+grid-template-columns:minmax(0,1.45fr) minmax(260px,.65fr);
+gap:25px;
+align-items:start;
+margin:22px auto 55px;
+}
+.card{
+background:#fff;
+border:1px solid var(--line);
+border-radius:18px;
+padding:26px;
+box-shadow:var(--shadow);
+}
+.card h2{margin:0 0 8px;font-size:24px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{margin-bottom:17px}
+label{display:block;font-size:14px;font-weight:700;margin-bottom:7px}
+input,select{
+width:100%;
+height:48px;
+border:1px solid #dce3ef;
+border-radius:10px;
+padding:0 13px;
+font-size:15px;
+color:var(--ink);
+background:#fff;
+outline:none;
+}
+input:focus,select:focus{
+border-color:var(--blue);
+box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.btn{
+border:0;
+border-radius:10px;
+padding:14px 21px;
+background:linear-gradient(110deg,var(--blue),var(--purple));
+color:#fff;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+width:100%;
+}
+.btn:hover{opacity:.93}
+.result{
+display:none;
+margin-top:23px;
+padding:22px;
+border:1px solid #dce5ff;
+border-radius:15px;
+background:linear-gradient(135deg,#f1f5ff,#f8f5ff);
+}
+.result.show{display:block}
+.result-title{font-size:14px;color:var(--muted);font-weight:700}
+.big{
+font-size:43px;
+font-weight:800;
+line-height:1.3;
+color:var(--blue);
+margin:5px 0;
+}
+.result-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:18px;
+}
+.result-box{
+background:#fff;
+border:1px solid var(--line);
+border-radius:11px;
+padding:13px;
+text-align:center;
+}
+.result-box strong{display:block;font-size:19px}
+.result-box span{font-size:12px;color:var(--muted)}
+.result-note{font-size:13px;color:var(--muted);margin-top:15px}
+.side-card{margin-bottom:18px}
+.side-card h3{margin:0 0 13px;font-size:18px}
+.side-card ul{padding-left:19px;margin:0}
+.side-card li{margin:9px 0;font-size:14px}
+.side-card p{font-size:14px;color:var(--muted);margin:0}
+.advice{
+background:#f4f7ff;
+border:1px solid #e2e9ff;
+border-radius:13px;
+padding:16px;
+margin-top:18px;
+}
+.advice strong{display:block;margin-bottom:5px}
+.content{padding-bottom:55px}
+.content section{margin:35px 0}
+.content h2{font-size:27px;line-height:1.3;margin-bottom:12px}
+.content h3{font-size:19px;margin:23px 0 8px}
+.content p,.content li{color:#526078}
+.content ul{padding-left:22px}
+.formula{
+background:#f6f8fd;
+border:1px solid var(--line);
+padding:18px;
+border-radius:12px;
+font-weight:700;
+overflow-wrap:anywhere;
+}
+.example{
+border-left:4px solid var(--blue);
+background:#f7f9ff;
+padding:16px 19px;
+border-radius:0 12px 12px 0;
+}
+.faq{padding:18px 0;border-bottom:1px solid var(--line)}
+.faq h3{margin:0 0 7px;font-size:17px}
+.faq p{margin:0}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.related a{
+border:1px solid var(--line);
+border-radius:11px;
+padding:13px;
+font-size:14px;
+font-weight:700;
+background:#fff;
+}
+.disclaimer{
+background:#fff8e9;
+border:1px solid #f2e4c6;
+padding:17px;
+border-radius:12px;
+font-size:14px;
+color:#67583a;
+}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:800px){
+.hero,.layout{grid-template-columns:1fr}
+.hero img{height:220px}
+}
+@media(max-width:560px){
+.nav{align-items:flex-start;flex-direction:column;padding:15px 0}
+.nav-links{gap:13px}
+.card{padding:19px}
+.field-grid{grid-template-columns:1fr;gap:0}
+.result-grid{grid-template-columns:1fr 1fr}
+.related{grid-template-columns:1fr 1fr}
+.big{font-size:36px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a class="logo" href="/">Calc<span>Nest</span></a>
+<nav class="nav-links" aria-label="Main navigation">
+<a href="/">Home</a>
+<a href="/calculators/">Calculators</a>
+<a href="/guides/">Guides</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="/">Home</a> ›
+<a href="/calculators/">Calculators</a> ›
+<a href="/calculators/health-calculators.html">Health & Fitness</a> ›
+Protein Intake Calculator
+</div>
+
+<section class="hero">
+<div>
+<span class="eyebrow">Health & Fitness Calculator 11 of 20</span>
+<h1>Daily Protein Intake Calculator</h1>
+<p>Estimate how much protein you may need each day based on body weight and your selected activity or fitness goal. View protein grams, calories and a simple meal distribution.</p>
+</div>
+<img
+src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=1000&q=85"
+alt="Nutritious meal with protein-rich foods"
+fetchpriority="high"
+>
+</section>
+
+<div class="layout">
+
+<section class="card" id="calculator">
+<h2>Calculate Your Daily Protein Needs</h2>
+<p class="sub">Enter your body weight and choose an estimation range. The result is an educational estimate, not a medical prescription.</p>
+
+<div class="field-grid">
+<div class="field">
+<label for="weight">Your body weight</label>
+<input type="number" id="weight" min="1" max="500" step="0.1" placeholder="e.g. 70">
+</div>
+
+<div class="field">
+<label for="unit">Weight unit</label>
+<select id="unit">
+<option value="kg">Kilograms (kg)</option>
+<option value="lb">Pounds (lb)</option>
+</select>
+</div>
+
+<div class="field">
+<label for="goal">Activity / fitness goal</label>
+<select id="goal">
+<option value="0.8">General adult reference (0.8 g/kg)</option>
+<option value="1.2">Lightly active (1.2 g/kg)</option>
+<option value="1.4">Regular activity (1.4 g/kg)</option>
+<option value="1.6" selected>Strength or fitness training (1.6 g/kg)</option>
+<option value="1.8">Higher training estimate (1.8 g/kg)</option>
+<option value="2">Intensive training estimate (2.0 g/kg)</option>
+</select>
+</div>
+
+<div class="field">
+<label for="meals">Meals per day</label>
+<select id="meals">
+<option value="2">2 meals</option>
+<option value="3" selected>3 meals</option>
+<option value="4">4 meals</option>
+<option value="5">5 meals</option>
+<option value="6">6 meals</option>
+</select>
+</div>
+</div>
+
+<button class="btn" id="calculateBtn" type="button">Calculate Daily Protein</button>
+
+<div class="result" id="result" aria-live="polite">
+<div class="result-title">Estimated daily protein amount</div>
+<div class="big" id="protein">112 g</div>
+
+<div class="result-grid">
+<div class="result-box">
+<strong id="calories">448</strong>
+<span>Protein calories</span>
+</div>
+<div class="result-box">
+<strong id="perMeal">37.3 g</strong>
+<span>Average per meal</span>
+</div>
+<div class="result-box">
+<strong id="perKg">1.60</strong>
+<span>Grams per kg</span>
+</div>
+</div>
+
+<p class="result-note" id="resultNote"></p>
+
+<div class="advice">
+<strong>Protein distribution tip</strong>
+You can spread protein across meals instead of consuming most of it in one sitting. Your overall diet and health matter too.
+</div>
+</div>
+</section>
+
+<aside>
+<div class="card side-card">
+<h3>Related Health Calculators</h3>
+<ul>
+<li><a href="/calculators/calorie-calculator.html">Calorie Calculator</a></li>
+<li><a href="/calculators/macro-calculator.html">Macro Calculator</a></li>
+<li><a href="/calculators/tdee-calculator.html">TDEE Calculator</a></li>
+<li><a href="/calculators/bmi-calculator.html">BMI Calculator</a></li>
+<li><a href="/calculators/bmr-calculator.html">BMR Calculator</a></li>
+<li><a href="/calculators/lean-body-mass-calculator.html">Lean Body Mass Calculator</a></li>
+</ul>
+</div>
+
+<div class="card side-card">
+<h3>How It Works</h3>
+<p>The calculator converts your weight into kilograms and multiplies it by the selected protein factor to estimate a daily amount in grams.</p>
+</div>
+
+<div class="card side-card">
+<h3>Explore More</h3>
+<p><a href="/calculators/health-calculators.html">Browse all Health & Fitness Calculators →</a></p>
+</div>
+</aside>
+
+</div>
+
+<div class="content">
+
+<section>
+<h2>What Is a Protein Intake Calculator?</h2>
+<p>A protein intake calculator estimates how much dietary protein a person may need based on body weight and a selected protein-per-kilogram factor. It can help people understand protein quantities when planning a balanced diet or reviewing nutrition goals.</p>
+<p>Protein is an essential macronutrient. It contributes to the maintenance and repair of body tissues and is involved in many normal processes, including enzyme production and immune function.</p>
+<p>Protein needs are not identical for everyone. Age, health, pregnancy, activity, training goals and overall diet can all influence appropriate intake.</p>
+</section>
+
+<section>
+<h2>Daily Protein Intake Formula</h2>
+<p>This calculator uses a weight-based equation:</p>
+<div class="formula">
+Daily protein estimate (grams) = Body weight (kg) × Selected protein factor (g/kg)
+</div>
+<p>If your weight is entered in pounds, it is converted first:</p>
+<div class="formula">
+Weight in kilograms = Weight in pounds ÷ 2.20462
+</div>
+<p>Protein calories are estimated using approximately four calories per gram:</p>
+<div class="formula">
+Protein calories = Daily protein grams × 4
+</div>
+<p>The per-meal estimate divides your daily protein amount by the number of meals selected.</p>
+</section>
+
+<section>
+<h2>Worked Example: Protein for a 70 kg Adult</h2>
+<div class="example">
+<p><strong>Body weight:</strong> 70 kg.</p>
+<p><strong>Selected factor:</strong> 1.6 grams per kilogram.</p>
+<p><strong>Calculation:</strong> 70 × 1.6 = 112 grams of protein per day.</p>
+<p><strong>Protein calories:</strong> 112 × 4 = 448 calories.</p>
+<p><strong>Across three meals:</strong> 112 ÷ 3 = approximately 37.3 grams per meal.</p>
+</div>
+<p>This is an example of how the calculator works. The selected factor is not automatically appropriate for every person weighing 70 kg.</p>
+</section>
+
+<section>
+<h2>Understanding the Protein Factors</h2>
+
+<h3>0.8 g/kg: General adult reference</h3>
+<p>Approximately 0.8 grams per kilogram is commonly used as a reference for the protein Recommended Dietary Allowance for many healthy adults. Individual circumstances may differ.</p>
+
+<h3>1.2 g/kg: Light activity estimate</h3>
+<p>This option provides a higher comparison point for people who are more active. It is an estimation setting, not a universal requirement.</p>
+
+<h3>1.4 g/kg: Regular activity estimate</h3>
+<p>This factor can be used to explore a moderate protein intake scenario for someone with regular physical activity.</p>
+
+<h3>1.6 g/kg: Strength and fitness training estimate</h3>
+<p>This is a commonly discussed sports-nutrition comparison point for people doing resistance or fitness training. It is not necessary or suitable for everyone.</p>
+
+<h3>1.8 to 2.0 g/kg: Higher training estimates</h3>
+<p>These higher factors allow users to explore larger protein estimates. Higher intake should not be assumed to improve results for every person.</p>
+</section>
+
+<section>
+<h2>Why Does Your Body Need Protein?</h2>
+<ul>
+<li><strong>Muscle maintenance:</strong> Protein supplies amino acids used in muscle tissue maintenance.</li>
+<li><strong>Tissue repair:</strong> Protein is involved in normal tissue growth and repair.</li>
+<li><strong>Enzymes:</strong> Many enzymes that support body processes are proteins.</li>
+<li><strong>Immune function:</strong> Proteins contribute to normal immune system activity.</li>
+<li><strong>Structure:</strong> Proteins help form skin, hair, connective tissue and other body structures.</li>
+<li><strong>Satiety:</strong> Protein-containing meals may help some people feel satisfied after eating.</li>
+</ul>
+</section>
+
+<section>
+<h2>Good Dietary Sources of Protein</h2>
+<p>Protein is available from both animal and plant foods. Examples include:</p>
+<ul>
+<li>Eggs, fish and seafood.</li>
+<li>Chicken, turkey and lean meats.</li>
+<li>Milk, yogurt and cheese.</li>
+<li>Lentils, chickpeas and beans.</li>
+<li>Tofu, tempeh and other soy foods.</li>
+<li>Nuts, seeds and nut butters.</li>
+<li>Whole grains such as oats and quinoa.</li>
+</ul>
+<p>A varied diet can provide protein alongside fiber, vitamins, minerals and other important nutrients.</p>
+</section>
+
+<section>
+<h2>How to Distribute Protein Across Meals</h2>
+<p>Some people find it useful to spread protein intake across their meals. The calculator divides your estimated daily amount evenly by the number of meals you select.</p>
+<p>This is a simple planning aid, not a requirement to eat exactly the same amount at every meal. Your normal eating pattern, appetite and dietary needs can guide how you distribute food throughout the day.</p>
+</section>
+
+<section>
+<h2>Protein Intake and Fitness Goals</h2>
+<h3>Muscle development</h3>
+<p>Resistance training and adequate nutrition work together. Protein provides amino acids used in muscle maintenance and growth, while training supplies the stimulus for adaptation.</p>
+<h3>Weight management</h3>
+<p>Protein can be part of a balanced eating pattern during weight management. Total energy intake, food quality, activity and consistency also matter.</p>
+<h3>General health</h3>
+<p>People who are not focused on athletic performance still need sufficient dietary protein. A varied diet can help provide protein and other essential nutrients.</p>
+</section>
+
+<section>
+<h2>Important Limitations and Health Disclaimer</h2>
+<div class="disclaimer">
+This calculator provides general educational estimates, not individualized medical or dietetic advice. People with kidney disease, liver disease, metabolic conditions, or a medically prescribed diet should ask a qualified healthcare professional before changing protein intake. Needs can also differ during pregnancy, breastfeeding, childhood and older age. Do not use the higher settings as a recommendation without considering your personal circumstances.
+</div>
+</section>
+
+<section>
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<h3>1. How much protein do I need per day?</h3>
+<p>Protein needs depend on body weight, age, activity, health and personal goals. This calculator lets you explore several weight-based estimates, but it cannot determine your exact individual requirement.</p>
+</div>
+
+<div class="faq">
+<h3>2. How many calories are in one gram of protein?</h3>
+<p>One gram of protein provides approximately four calories. The calculator uses this conversion to estimate calories from protein.</p>
+</div>
+
+<div class="faq">
+<h3>3. Do people who exercise need more protein?</h3>
+<p>People who train regularly may need more protein than sedentary adults. The appropriate amount depends on training type, intensity, body weight and individual needs.</p>
+</div>
+
+<div class="faq">
+<h3>4. Can vegetarians get enough protein?</h3>
+<p>Yes. Lentils, beans, chickpeas, soy foods, nuts, seeds, dairy and eggs can all contribute protein. A varied diet is useful for meeting nutritional needs.</p>
+</div>
+
+<div class="faq">
+<h3>5. Is more protein always better?</h3>
+<p>No. More protein does not automatically produce better results. Appropriate intake depends on your circumstances, and excessive intake may be unsuitable for some people.</p>
+</div>
+
+<div class="faq">
+<h3>6. Should I calculate protein using my current weight?</h3>
+<p>This calculator uses the weight you enter. For people with certain body compositions or medical conditions, a healthcare professional may recommend a different approach.</p>
+</div>
+
+<div class="faq">
+<h3>7. Can I eat all my protein in one meal?</h3>
+<p>Your overall daily diet matters most. Some people prefer distributing protein across several meals, and this calculator provides an optional per-meal estimate for planning.</p>
+</div>
+</section>
+
+<section>
+<h2>Explore Related Health Calculators</h2>
+<p>Use these free tools to explore other health and nutrition measurements:</p>
+<div class="related">
+<a href="/calculators/calorie-calculator.html">Calorie Calculator →</a>
+<a href="/calculators/macro-calculator.html">Macro Calculator →</a>
+<a href="/calculators/tdee-calculator.html">TDEE Calculator →</a>
+<a href="/calculators/bmi-calculator.html">BMI Calculator →</a>
+<a href="/calculators/bmr-calculator.html">BMR Calculator →</a>
+<a href="/calculators/lean-body-mass-calculator.html">Lean Body Mass →</a>
+<a href="/calculators/healthy-weight-calculator.html">Healthy Weight →</a>
+<a href="/calculators/health-calculators.html">All Health Calculators →</a>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+<div class="container footer-inner">
+<div>© 2026 CalcNest. All rights reserved.</div>
+<div>
+<a href="/about/">About</a> ·
+<a href="/contact/">Contact</a> ·
+<a href="/privacy-policy/">Privacy Policy</a> ·
+<a href="/terms/">Terms</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+const weightInput=document.getElementById("weight");
+const unitInput=document.getElementById("unit");
+const goalInput=document.getElementById("goal");
+const mealsInput=document.getElementById("meals");
+const result=document.getElementById("result");
+
+function formatNumber(value,decimals){
+return value.toLocaleString("en-US",{
+minimumFractionDigits:decimals,
+maximumFractionDigits:decimals
+});
+}
+
+function calculate(){
+const enteredWeight=Number(weightInput.value);
+const unit=unitInput.value;
+const factor=Number(goalInput.value);
+const meals=Number(mealsInput.value);
+
+if(!Number.isFinite(enteredWeight)||enteredWeight<=0){
+alert("Please enter a valid body weight greater than zero.");
+weightInput.focus();
+return;
+}
+
+if(enteredWeight>500){
+alert("Please enter a realistic body weight.");
+weightInput.focus();
+return;
+}
+
+const weightKg=unit==="lb"
+?enteredWeight/2.2046226218
+:enteredWeight;
+
+if(!Number.isFinite(weightKg)||weightKg<=0){
+alert("Please check your weight input.");
+return;
+}
+
+const dailyProtein=weightKg*factor;
+const proteinCalories=dailyProtein*4;
+const perMeal=dailyProtein/meals;
+
+document.getElementById("protein").textContent=
+formatNumber(dailyProtein,1)+" g";
+
+document.getElementById("calories").textContent=
+formatNumber(proteinCalories,0);
+
+document.getElementById("perMeal").textContent=
+formatNumber(perMeal,1)+" g";
+
+document.getElementById("perKg").textContent=
+formatNumber(factor,2);
+
+let note="Your result uses "+formatNumber(weightKg,1)+
+" kg body weight × "+formatNumber(factor,1)+" g/kg. "+
+"This is a general estimate, not a personal nutrition prescription.";
+
+if(factor>=1.8){
+note+=" You selected a higher training estimate. Consider whether this level is appropriate for your health and circumstances.";
+}
+
+document.getElementById("resultNote").textContent=note;
+
+result.classList.add("show");
+result.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+document.getElementById("calculateBtn").addEventListener("click",calculate);
+
+weightInput.addEventListener("keydown",function(event){
+if(event.key==="Enter")calculate();
+});
+
+})();
+</script>
+
+</body>
+</html>
