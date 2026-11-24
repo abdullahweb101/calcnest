@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>One Rep Max Calculator - Estimate Your 1RM Strength | CalcNest</title>
+<meta name="description" content="Estimate your one-rep max (1RM) for weightlifting using proven strength formulas. Calculate maximum lifting strength from weight and repetitions with detailed results.">
+<meta name="keywords" content="one rep max calculator, 1RM calculator, max lift calculator, weightlifting calculator, bench press max calculator, squat max calculator, deadlift max calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/one-rep-max-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="One Rep Max Calculator | CalcNest">
+<meta property="og:description" content="Estimate your maximum lifting strength with multiple 1RM formulas.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/one-rep-max-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="One Rep Max Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate your estimated one-rep maximum for weightlifting.">
+
+<style>
+:root{
+ --ink:#17243a;
+ --muted:#65738b;
+ --blue:#315eea;
+ --purple:#7659e8;
+ --line:#e8edf5;
+ --soft:#f6f8fd;
+ --white:#fff;
+ --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:var(--ink);
+ background:#fff;
+ line-height:1.7;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{
+ background:#fff;
+ border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:20;
+}
+.nav{
+ min-height:70px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.logo{
+ font-size:25px;
+ font-weight:800;
+ color:var(--ink);
+ letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:14px;font-weight:700}
+.hero{
+ padding:55px 0 35px;
+ background:linear-gradient(120deg,#f4f7ff,#f8f6ff);
+}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--blue)}
+.hero-grid{
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ gap:35px;
+ align-items:center;
+}
+.eyebrow{
+ color:var(--blue);
+ font-size:12px;
+ font-weight:800;
+ letter-spacing:1.5px;
+ text-transform:uppercase;
+}
+h1{
+ font-size:clamp(32px,5vw,49px);
+ line-height:1.12;
+ letter-spacing:-1.7px;
+ margin:12px 0 17px;
+}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{
+ width:100%;
+ height:300px;
+ object-fit:cover;
+ border-radius:20px;
+ box-shadow:var(--shadow);
+}
+main{padding:38px 0 65px}
+.section-title{font-size:27px;line-height:1.25;margin:0 0 12px}
+.section-intro{color:var(--muted);margin:0 0 24px}
+.calculator-layout{
+ display:grid;
+ grid-template-columns:1fr .85fr;
+ gap:24px;
+ align-items:start;
+}
+.panel{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:25px;
+ box-shadow:var(--shadow);
+}
+.panel h2{font-size:22px;margin:0 0 7px}
+.panel-sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field{margin-bottom:18px}
+label{
+ display:block;
+ font-size:14px;
+ font-weight:700;
+ margin-bottom:7px;
+}
+input,select{
+ width:100%;
+ min-height:48px;
+ padding:12px 13px;
+ border:1px solid #dce3ef;
+ border-radius:10px;
+ font:inherit;
+ color:var(--ink);
+ background:#fff;
+ outline:none;
+}
+input:focus,select:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.input-row{display:grid;grid-template-columns:1fr 125px;gap:10px}
+button{
+ border:0;
+ border-radius:10px;
+ background:linear-gradient(100deg,var(--blue),var(--purple));
+ color:#fff;
+ font-size:15px;
+ font-weight:800;
+ padding:14px 20px;
+ cursor:pointer;
+ width:100%;
+}
+button:hover{opacity:.93}
+button.secondary{
+ background:#eef2ff;
+ color:var(--blue);
+ border:1px solid #dce4ff;
+}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.error{
+ display:none;
+ color:#b42318;
+ background:#fff0ef;
+ border:1px solid #ffd1cc;
+ border-radius:9px;
+ padding:10px 12px;
+ font-size:13px;
+ margin:12px 0;
+}
+.result-panel{
+ background:linear-gradient(145deg,#f1f5ff,#f8f5ff);
+ border:1px solid #e2e8ff;
+ border-radius:16px;
+ padding:22px;
+}
+.result-label{
+ color:var(--muted);
+ font-size:13px;
+ font-weight:700;
+}
+.result-number{
+ font-size:43px;
+ line-height:1.2;
+ font-weight:900;
+ color:var(--blue);
+ margin:5px 0;
+ overflow-wrap:anywhere;
+}
+.result-unit{font-size:14px;color:var(--muted)}
+.result-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:20px;
+}
+.mini-result{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:11px;
+ padding:13px;
+}
+.mini-result span{display:block;font-size:12px;color:var(--muted)}
+.mini-result strong{font-size:19px}
+.result-note{font-size:13px;color:var(--muted);margin:15px 0 0}
+.placeholder{
+ color:var(--muted);
+ background:var(--soft);
+ border:1px dashed #cbd5e5;
+ border-radius:13px;
+ padding:28px 18px;
+ text-align:center;
+}
+.strength-box{
+ margin-top:16px;
+ padding:15px;
+ border-radius:12px;
+ background:#fff;
+ border:1px solid var(--line);
+}
+.strength-box strong{display:block;margin-bottom:5px}
+.strength-box p{font-size:13px;color:var(--muted);margin:0}
+.content-section{margin-top:48px}
+.content-section h2{font-size:26px;line-height:1.3}
+.content-section h3{font-size:19px;margin:24px 0 8px}
+.content-section p,.content-section li{color:#536178}
+.formula{
+ background:#f5f7ff;
+ border-left:4px solid var(--blue);
+ padding:15px 18px;
+ border-radius:8px;
+ margin:14px 0;
+ overflow-wrap:anywhere;
+}
+.example-table{
+ width:100%;
+ border-collapse:collapse;
+ margin:17px 0;
+ font-size:14px;
+}
+.example-table th,.example-table td{
+ padding:12px;
+ border:1px solid var(--line);
+ text-align:left;
+}
+.example-table th{background:#f5f7fc}
+.note{
+ background:#fff9e9;
+ border:1px solid #f4e3b5;
+ border-radius:12px;
+ padding:15px;
+ color:#765b20;
+ margin:18px 0;
+ font-size:14px;
+}
+.related-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:14px;
+}
+.related-card{
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:16px;
+ background:#fff;
+}
+.related-card a{font-weight:800}
+.related-card p{font-size:13px;margin:6px 0 0}
+.faq-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.faq-item h3{font-size:17px;margin:0 0 7px}
+.faq-item p{margin:0;color:var(--muted)}
+footer{
+ border-top:1px solid var(--line);
+ background:#fafbfe;
+ padding:30px 0;
+ color:var(--muted);
+ font-size:13px;
+}
+.footer-inner{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ flex-wrap:wrap;
+}
+footer a{margin-right:13px}
+@media(max-width:800px){
+ .hero-grid,.calculator-layout{grid-template-columns:1fr}
+ .hero img{height:230px}
+ .related-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ nav{gap:10px}
+ nav a{font-size:12px}
+ .logo{font-size:22px}
+ .panel{padding:18px}
+ .input-row{grid-template-columns:1fr 105px}
+ .related-grid{grid-template-columns:1fr}
+ .result-number{font-size:36px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"One Rep Max Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/one-rep-max-calculator.html",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "description":"Estimate one-repetition maximum lifting strength using multiple strength estimation formulas.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"What is a one rep max?",
+   "acceptedAnswer":{"@type":"Answer","text":"A one-repetition maximum (1RM) is the maximum weight a person can lift for one complete repetition with proper technique."}
+  },
+  {
+   "@type":"Question",
+   "name":"How accurate is an estimated 1RM?",
+   "acceptedAnswer":{"@type":"Answer","text":"An estimated 1RM is an approximation. Accuracy varies with exercise, technique, training experience, fatigue and the formula used."}
+  },
+  {
+   "@type":"Question",
+   "name":"Which 1RM formula should I use?",
+   "acceptedAnswer":{"@type":"Answer","text":"Epley and Brzycki are commonly used estimation methods. Comparing several formulas can provide a useful range rather than one exact value."}
+  }
+ ]
+}
+</script>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <nav>
+   <a href="/">Home</a>
+   <a href="/calculators/">Calculators</a>
+   <a href="/#guides">Guides</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="container">
+  <div class="breadcrumb">
+   <a href="/">Home</a> / <a href="/calculators/health-calculators.html">Health & Fitness</a> / One Rep Max Calculator
+  </div>
+  <div class="hero-grid">
+   <div>
+    <div class="eyebrow">Free Strength Calculator</div>
+    <h1>One Rep Max Calculator</h1>
+    <p>Estimate your one-repetition maximum (1RM) for bench press, squat, deadlift and other strength exercises. Compare multiple formulas and explore estimated lifting percentages.</p>
+   </div>
+   <img
+    src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1000"
+    alt="Strength training gym with weightlifting equipment"
+    fetchpriority="high">
+  </div>
+ </div>
+</section>
+
+<main class="container">
+ <h2 class="section-title">Calculate Your Estimated 1RM</h2>
+ <p class="section-intro">Enter the weight you lifted and the number of completed repetitions in that set.</p>
+
+ <div class="calculator-layout">
+  <section class="panel">
+   <h2>Lift Details</h2>
+   <p class="panel-sub">Use a completed working set. Do not attempt a dangerous maximum lift just to use this calculator.</p>
+
+   <div class="field">
+    <label for="exercise">Exercise</label>
+    <select id="exercise">
+     <option value="Bench Press">Bench Press</option>
+     <option value="Squat">Squat</option>
+     <option value="Deadlift">Deadlift</option>
+     <option value="Overhead Press">Overhead Press</option>
+     <option value="Barbell Row">Barbell Row</option>
+     <option value="Other Exercise">Other Exercise</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="weight">Weight lifted</label>
+    <div class="input-row">
+     <input id="weight" type="number" min="0.1" step="any" placeholder="e.g. 80">
+     <select id="unit" aria-label="Weight unit">
+      <option value="kg">Kilograms</option>
+      <option value="lb">Pounds</option>
+     </select>
+    </div>
+    <div class="hint">Enter the total weight lifted, including the bar where applicable.</div>
+   </div>
+
+   <div class="field">
+    <label for="reps">Completed repetitions</label>
+    <input id="reps" type="number" min="1" max="12" step="1" placeholder="e.g. 5">
+    <div class="hint">For a more useful estimate, use a set of 2–10 repetitions.</div>
+   </div>
+
+   <div class="field">
+    <label for="formula">Estimation formula</label>
+    <select id="formula">
+     <option value="average">Average of all formulas</option>
+     <option value="epley">Epley Formula</option>
+     <option value="brzycki">Brzycki Formula</option>
+     <option value="lander">Lander Formula</option>
+     <option value="lombardi">Lombardi Formula</option>
+     <option value="oconner">O'Conner Formula</option>
+    </select>
+   </div>
+
+   <div id="error" class="error" role="alert"></div>
+
+   <button id="calculate" type="button">Calculate My One Rep Max</button>
+   <div class="actions">
+    <button class="secondary" id="reset" type="button">Reset</button>
+    <button class="secondary" id="sample" type="button">Try Example</button>
+   </div>
+  </section>
+
+  <section class="panel" aria-live="polite">
+   <h2>Your Estimated Result</h2>
+   <p class="panel-sub">Your estimated maximum for the selected exercise.</p>
+
+   <div id="placeholder" class="placeholder">
+    <strong>Your result will appear here.</strong>
+    <p>Enter your lifting weight and repetitions, then select Calculate.</p>
+   </div>
+
+   <div id="result" style="display:none">
+    <div class="result-panel">
+     <div class="result-label" id="result-title">Estimated One Rep Max</div>
+     <div class="result-number" id="one-rep-max">—</div>
+     <div class="result-unit" id="result-unit">Kilograms</div>
+     <div class="result-grid">
+      <div class="mini-result">
+       <span>Weight lifted</span>
+       <strong id="display-weight">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Repetitions</span>
+       <strong id="display-reps">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>90% of 1RM</span>
+       <strong id="percent-90">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>80% of 1RM</span>
+       <strong id="percent-80">—</strong>
+      </div>
+     </div>
+     <p class="result-note" id="formula-note"></p>
+    </div>
+
+    <div class="strength-box">
+     <strong>Estimated training loads</strong>
+     <p id="training-loads">Your percentage-based training loads will appear here.</p>
+    </div>
+
+    <div class="strength-box">
+     <strong>Formula comparison</strong>
+     <div id="comparison"></div>
+    </div>
+   </div>
+  </section>
+ </div>
+
+ <section class="content-section">
+  <h2>What Is a One Rep Max (1RM)?</h2>
+  <p>A one-repetition maximum, commonly written as 1RM, is the heaviest weight a person can lift for one complete repetition of a particular exercise while maintaining appropriate technique. It is often used in strength training to describe performance and plan resistance-training intensity.</p>
+  <p>Your 1RM can be estimated from a submaximal set. For example, if you lift 80 kg for five repetitions, a formula can estimate the weight you might be able to lift once. This avoids the need to test a true maximum every time you want to plan your training.</p>
+
+  <h2>How to Use This Calculator</h2>
+  <ol>
+   <li>Select your exercise, such as bench press, squat or deadlift.</li>
+   <li>Enter the total weight used in your completed set.</li>
+   <li>Enter the number of repetitions you completed.</li>
+   <li>Choose a formula or use the average of all available formulas.</li>
+   <li>Select Calculate My One Rep Max to view the estimate and training percentages.</li>
+  </ol>
+
+  <h2>One Rep Max Formulas</h2>
+  <p>Different formulas estimate maximum strength in different ways. Their results can vary, especially at higher repetition counts. This calculator includes five commonly referenced estimation equations.</p>
+
+  <h3>1. Epley Formula</h3>
+  <div class="formula"><strong>1RM = Weight × (1 + Repetitions ÷ 30)</strong></div>
+  <p>The Epley formula is a widely used estimation method for resistance training. It is often applied to sets with moderate repetition counts.</p>
+
+  <h3>2. Brzycki Formula</h3>
+  <div class="formula"><strong>1RM = Weight × 36 ÷ (37 − Repetitions)</strong></div>
+  <p>The Brzycki equation is another popular method. Its estimate becomes less suitable as repetitions approach its upper mathematical limit.</p>
+
+  <h3>3. Lander Formula</h3>
+  <div class="formula"><strong>1RM = (100 × Weight) ÷ (101.3 − 2.67123 × Repetitions)</strong></div>
+  <p>The Lander equation provides an alternative estimate based on weight and completed repetitions.</p>
+
+  <h3>4. Lombardi Formula</h3>
+  <div class="formula"><strong>1RM = Weight × Repetitions<sup>0.10</sup></strong></div>
+  <p>The Lombardi formula uses a power relationship between the repetitions and the weight lifted.</p>
+
+  <h3>5. O'Conner Formula</h3>
+  <div class="formula"><strong>1RM = Weight × (1 + 0.025 × Repetitions)</strong></div>
+  <p>This equation is a straightforward alternative for estimating a maximum from a completed set.</p>
+
+  <h2>Example: Estimating a Bench Press 1RM</h2>
+  <p>Suppose someone completes five bench press repetitions using 80 kg. Using the Epley formula:</p>
+  <div class="formula">
+   1RM = 80 × (1 + 5 ÷ 30)<br>
+   1RM = 80 × 1.1667<br>
+   <strong>Estimated 1RM ≈ 93.33 kg</strong>
+  </div>
+  <p>This is a mathematical estimate, not a guarantee that the person can safely lift exactly 93.33 kg.</p>
+
+  <h2>Training Loads Based on Your 1RM</h2>
+  <p>Strength programs sometimes use percentages of estimated 1RM to set training weights. The table below illustrates common percentage calculations. Actual programming depends on your goals, experience and exercise.</p>
+
+  <table class="example-table">
+   <thead>
+    <tr><th>Percentage</th><th>Example load if 1RM is 100 kg</th><th>Illustrative use</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>50%</td><td>50 kg</td><td>Light training or technique work</td></tr>
+    <tr><td>60%</td><td>60 kg</td><td>Moderate resistance</td></tr>
+    <tr><td>70%</td><td>70 kg</td><td>Moderate-to-challenging training</td></tr>
+    <tr><td>80%</td><td>80 kg</td><td>Heavy training</td></tr>
+    <tr><td>85%</td><td>85 kg</td><td>Higher-intensity work</td></tr>
+    <tr><td>90%</td><td>90 kg</td><td>Very heavy training</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Why Can 1RM Estimates Differ?</h2>
+  <ul>
+   <li><strong>Exercise type:</strong> Performance varies between bench press, squat, deadlift and other movements.</li>
+   <li><strong>Technique:</strong> Range of motion and lifting form can affect repetitions and estimated strength.</li>
+   <li><strong>Training experience:</strong> Experienced lifters may perform differently from beginners at the same repetition count.</li>
+   <li><strong>Fatigue:</strong> Sleep, recovery, nutrition and recent training can influence performance.</li>
+   <li><strong>Formula selection:</strong> Each equation uses a different mathematical relationship.</li>
+  </ul>
+
+  <div class="note">
+   <strong>Safety note:</strong> Estimated 1RM values are not medical or coaching advice. Do not attempt a true maximum lift without appropriate experience, equipment, supervision and safety precautions. Stop if you experience pain, dizziness or unusual symptoms. Use conservative loads and proper technique.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+   <h3>1. What does 1RM mean in weightlifting?</h3>
+   <p>1RM means one-repetition maximum. It is the heaviest load a person can lift for one complete repetition of a specific exercise with appropriate technique.</p>
+  </div>
+  <div class="faq-item">
+   <h3>2. Is an estimated one rep max accurate?</h3>
+   <p>It is an approximation rather than an exact measurement. The estimate depends on the exercise, repetition count, technique, fatigue and formula used.</p>
+  </div>
+  <div class="faq-item">
+   <h3>3. Which formula is best for calculating 1RM?</h3>
+   <p>No single formula is best for everyone. Epley and Brzycki are common choices. Comparing multiple estimates can provide a more useful range.</p>
+  </div>
+  <div class="faq-item">
+   <h3>4. Can I calculate my bench press max?</h3>
+   <p>Yes. Select Bench Press, enter the weight lifted and completed repetitions, then calculate your estimated one-rep maximum.</p>
+  </div>
+  <div class="faq-item">
+   <h3>5. Can beginners use a 1RM calculator?</h3>
+   <p>Beginners can use it to understand estimated strength, but should prioritize learning correct technique and building a consistent training base rather than testing maximum loads.</p>
+  </div>
+  <div class="faq-item">
+   <h3>6. How many repetitions should I enter?</h3>
+   <p>Sets of around 2–10 repetitions are commonly used for estimates. Predictions generally become less reliable as the repetition count increases.</p>
+  </div>
+  <div class="faq-item">
+   <h3>7. Does this calculator work with pounds and kilograms?</h3>
+   <p>Yes. Choose kilograms or pounds before entering your lifting weight. The result is displayed in the same unit.</p>
+  </div>
+  <div class="faq-item">
+   <h3>8. Should I test my actual maximum lift?</h3>
+   <p>You do not need to test a true maximum to estimate your strength. A completed submaximal set can provide an estimate without requiring an all-out attempt.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Related Health & Fitness Calculators</h2>
+  <p class="section-intro">Explore more free tools for training, activity and fitness planning.</p>
+  <div class="related-grid">
+   <div class="related-card">
+    <a href="/calculators/body-fat-calculator.html">Body Fat Calculator</a>
+    <p>Estimate body fat percentage using selected measurements.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/lean-body-mass-calculator.html">Lean Body Mass Calculator</a>
+    <p>Estimate lean body mass from body weight and body fat percentage.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/calorie-calculator.html">Calorie Calculator</a>
+    <p>Explore estimated daily calorie needs.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/protein-intake-calculator.html">Protein Intake Calculator</a>
+    <p>Estimate a daily protein target based on body weight.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/macro-calculator.html">Macro Calculator</a>
+    <p>Convert a calorie target into protein, carbohydrate and fat amounts.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/health-calculators.html">All Health Calculators</a>
+    <p>Browse the complete Health & Fitness calculator collection.</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <div>© 2026 CalcNest. Free online calculators for everyday decisions.</div>
+  <div>
+   <a href="/">Home</a>
+   <a href="/calculators/health-calculators.html">Health Calculators</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ const $ = id => document.getElementById(id);
+
+ const weightInput = $("weight");
+ const repsInput = $("reps");
+ const unitInput = $("unit");
+ const formulaInput = $("formula");
+ const errorBox = $("error");
+
+ function round(value){
+  return Math.round(value * 100) / 100;
+ }
+
+ function format(value){
+  return round(value).toLocaleString(undefined,{
+   maximumFractionDigits:2
+  });
+ }
+
+ function calculateFormula(weight,reps){
+  const results = {
+   epley: weight * (1 + reps / 30),
+   brzycki: weight * 36 / (37 - reps),
+   lander: (100 * weight) / (101.3 - 2.67123 * reps),
+   lombardi: weight * Math.pow(reps,0.10),
+   oconner: weight * (1 + 0.025 * reps)
+  };
+  return results;
+ }
+
+ function showError(message){
+  errorBox.textContent = message;
+  errorBox.style.display = "block";
+ }
+
+ function clearError(){
+  errorBox.textContent = "";
+  errorBox.style.display = "none";
+ }
+
+ function calculate(){
+  clearError();
+
+  const weight = Number(weightInput.value);
+  const reps = Number(repsInput.value);
+  const unit = unitInput.value;
+  const exercise = $("exercise").value;
+  const selectedFormula = formulaInput.value;
+
+  if(!Number.isFinite(weight) || weight <= 0){
+   showError("Please enter a valid weight greater than zero.");
+   weightInput.focus();
+   return;
+  }
+
+  if(!Number.isInteger(reps) || reps < 1 || reps > 12){
+   showError("Please enter a whole-number repetition count between 1 and 12.");
+   repsInput.focus();
+   return;
+  }
+
+  if(reps === 1){
+   showError("You entered one repetition. For an estimate, enter a completed set of 2–12 repetitions.");
+   repsInput.focus();
+   return;
+  }
+
+  const formulas = calculateFormula(weight,reps);
+  let estimated;
+
+  if(selectedFormula === "average"){
+   const values = Object.values(formulas);
+   estimated = values.reduce((sum,value)=>sum+value,0) / values.length;
+  }else{
+   estimated = formulas[selectedFormula];
+  }
+
+  if(!Number.isFinite(estimated) || estimated < weight){
+   showError("The selected inputs produced an invalid estimate. Please check your values.");
+   return;
+  }
+
+  $("placeholder").style.display = "none";
+  $("result").style.display = "block";
+
+  $("result-title").textContent = exercise + " — Estimated 1RM";
+  $("one-rep-max").textContent = format(estimated) + " " + unit;
+  $("result-unit").textContent = unit === "kg" ? "Kilograms" : "Pounds";
+  $("display-weight").textContent = format(weight) + " " + unit;
+  $("display-reps").textContent = reps;
+
+  $("percent-90").textContent = format(estimated * .90) + " " + unit;
+  $("percent-80").textContent = format(estimated * .80) + " " + unit;
+
+  const names = {
+   average:"Average of five estimation formulas",
+   epley:"Epley formula",
+   brzycki:"Brzycki formula",
+   lander:"Lander formula",
+   lombardi:"Lombardi formula",
+   oconner:"O'Conner formula"
+  };
+
+  $("formula-note").textContent =
+   "Estimate calculated using " + names[selectedFormula] +
+   ". This is a prediction based on your completed set, not a tested maximum.";
+
+  const percentages = [50,60,70,75,80,85,90,95];
+  $("training-loads").innerHTML = percentages.map(percent =>
+   "<strong>" + percent + "%:</strong> " +
+   format(estimated * percent / 100) + " " + unit
+  ).join(" &nbsp; | &nbsp; ");
+
+  const formulaLabels = {
+   epley:"Epley",
+   brzycki:"Brzycki",
+   lander:"Lander",
+   lombardi:"Lombardi",
+   oconner:"O'Conner"
+  };
+
+  $("comparison").innerHTML = Object.entries(formulas).map(([key,value]) =>
+   "<div style='display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #edf0f6;font-size:13px'>" +
+   "<span>" + formulaLabels[key] + "</span><strong>" +
+   format(value) + " " + unit + "</strong></div>"
+  ).join("");
+
+  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+ }
+
+ $("calculate").addEventListener("click",calculate);
+
+ $("reset").addEventListener("click",function(){
+  weightInput.value = "";
+  repsInput.value = "";
+  $("exercise").value = "Bench Press";
+  unitInput.value = "kg";
+  formulaInput.value = "average";
+  clearError();
+  $("result").style.display = "none";
+  $("placeholder").style.display = "block";
+ });
+
+ $("sample").addEventListener("click",function(){
+  $("exercise").value = "Bench Press";
+  weightInput.value = "80";
+  unitInput.value = "kg";
+  repsInput.value = "5";
+  formulaInput.value = "average";
+  calculate();
+ });
+})();
+</script>
+</body>
+</html>
