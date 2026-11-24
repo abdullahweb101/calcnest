@@ -1,0 +1,1373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CAC Calculator - Customer Acquisition Cost Calculator | CalcNest</title>
+<meta name="description" content="Calculate Customer Acquisition Cost (CAC) using advertising, sales, marketing, agency and other expenses. Estimate acquisition budgets and evaluate customer acquisition efficiency.">
+<meta name="keywords" content="CAC calculator, customer acquisition cost calculator, calculate CAC, customer acquisition cost formula, sales and marketing cost calculator, CAC ratio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/cac-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free CAC Calculator - Customer Acquisition Cost | CalcNest">
+<meta property="og:description" content="Calculate customer acquisition cost using your sales and marketing expenses.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/cac-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CAC Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate customer acquisition costs and plan your growth budget.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Customer Acquisition Cost Calculator",
+  "url":"https://calcnest-7s6.pages.dev/calculators/cac-calculator.html",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "description":"Free online calculator to estimate customer acquisition cost from sales and marketing expenses.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is Customer Acquisition Cost?",
+      "acceptedAnswer":{"@type":"Answer","text":"Customer Acquisition Cost (CAC) is the average amount a business spends to acquire one new customer during a defined period. It can include sales, marketing, advertising and other acquisition-related expenses."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate CAC?",
+      "acceptedAnswer":{"@type":"Answer","text":"Divide the total sales and marketing costs attributable to customer acquisition during a period by the number of new customers acquired during that same period."}
+    },
+    {
+      "@type":"Question",
+      "name":"What expenses should be included in CAC?",
+      "acceptedAnswer":{"@type":"Answer","text":"Depending on the chosen methodology, expenses can include advertising, sales and marketing salaries, agency fees, marketing software, campaign production and other costs directly related to acquiring customers."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is a good CAC?",
+      "acceptedAnswer":{"@type":"Answer","text":"A good CAC depends on customer lifetime value, gross margin, retention, payback period, industry and business model. There is no universal benchmark."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is the difference between CAC and CPA?",
+      "acceptedAnswer":{"@type":"Answer","text":"CPA often measures the cost of a specific campaign action, such as a lead or purchase. CAC generally measures the broader sales and marketing cost of acquiring a new customer."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is the CAC to LTV ratio?",
+      "acceptedAnswer":{"@type":"Answer","text":"The CAC to LTV ratio compares customer acquisition cost with estimated customer lifetime value. It helps businesses assess whether expected customer value justifies acquisition spending."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can CAC be calculated monthly?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Divide the relevant sales and marketing expenses for a month by the new customers acquired during that same month, while accounting for sales-cycle and attribution timing."}
+    },
+    {
+      "@type":"Question",
+      "name":"Why is my CAC increasing?",
+      "acceptedAnswer":{"@type":"Answer","text":"CAC can rise due to higher advertising costs, stronger competition, lower conversion rates, inefficient targeting, longer sales cycles, increased staffing costs or changes in customer mix."}
+    },
+    {
+      "@type":"Question",
+      "name":"How can a business reduce CAC?",
+      "acceptedAnswer":{"@type":"Answer","text":"Businesses can test more efficient channels, improve conversion rates, refine targeting, optimize sales processes, improve retention and measure acquisition costs consistently."}
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#17243a;
+  --muted:#65738b;
+  --blue:#315eea;
+  --purple:#7659e8;
+  --line:#e8edf5;
+  --soft:#f6f8fd;
+  --white:#fff;
+  --green:#14865c;
+  --red:#c43e50;
+  --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:Arial,sans-serif;
+  line-height:1.65;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.nav{
+  min-height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo{
+  color:var(--ink);
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:700}
+.breadcrumb{padding:22px 0 8px;color:var(--muted);font-size:13px}
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:35px;
+  align-items:center;
+  padding:25px 0 40px;
+}
+.eyebrow{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:30px;
+  background:#edf1ff;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+}
+h1{
+  font-size:clamp(34px,5vw,51px);
+  line-height:1.12;
+  letter-spacing:-1.8px;
+  margin:17px 0;
+}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero-points span{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:700;
+}
+.calculator-section{padding:20px 0 55px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{font-size:29px;margin:0 0 7px;letter-spacing:-.7px}
+.section-heading p{color:var(--muted);margin:0}
+.calc-layout{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:22px;
+  align-items:start;
+}
+.panel{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+.panel h2,.panel h3{margin-top:0}
+.mode-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:23px;
+}
+.mode-btn{
+  border:1px solid var(--line);
+  background:var(--soft);
+  padding:12px 8px;
+  border-radius:10px;
+  cursor:pointer;
+  color:var(--ink);
+  font-weight:700;
+  font-size:13px;
+}
+.mode-btn.active{background:#edf1ff;border-color:var(--blue);color:var(--blue)}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.field input,.field select{
+  width:100%;
+  min-height:47px;
+  border:1px solid #dce3ef;
+  border-radius:10px;
+  padding:11px 12px;
+  font:inherit;
+  color:var(--ink);
+  background:#fff;
+  outline:none;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.field small{display:block;margin-top:5px;color:var(--muted);font-size:11px}
+.currency-field{max-width:240px}
+.expense-box{
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:17px;
+  margin-bottom:19px;
+  background:#fcfdff;
+}
+.expense-box h3{font-size:16px;margin:0 0 13px}
+.expense-row{
+  display:grid;
+  grid-template-columns:1fr 170px;
+  gap:12px;
+  align-items:center;
+  margin-bottom:12px;
+}
+.expense-row:last-child{margin-bottom:0}
+.expense-row label{font-size:13px;font-weight:700}
+.expense-row input{
+  width:100%;
+  min-height:43px;
+  border:1px solid #dce3ef;
+  border-radius:9px;
+  padding:9px 11px;
+  font:inherit;
+}
+.expense-row input:focus{outline:2px solid rgba(49,94,234,.18);border-color:var(--blue)}
+.total-expenses{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:13px;
+  border-radius:10px;
+  background:#edf1ff;
+  color:var(--blue);
+  font-weight:800;
+  margin-top:14px;
+}
+.primary-btn,.secondary-btn{
+  border:0;border-radius:10px;padding:13px 19px;
+  cursor:pointer;font-weight:800;font-size:14px;
+}
+.primary-btn{color:#fff;background:linear-gradient(110deg,var(--blue),var(--purple))}
+.secondary-btn{background:#edf1ff;color:var(--blue);border:1px solid #dfe5ff}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:7px}
+.error{
+  display:none;padding:11px 13px;margin:14px 0;
+  border-radius:9px;background:#fff0f1;color:var(--red);font-size:13px;
+}
+.results{
+  margin-top:23px;padding:20px;border-radius:15px;
+  background:linear-gradient(135deg,#f0f4ff,#f8f5ff);
+  border:1px solid #e4e9ff;
+}
+.results-top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.results-top h3{margin:0;font-size:16px}
+.result-main{padding:17px 0;border-bottom:1px solid #dfe5f5}
+.result-main small{color:var(--muted);font-weight:700}
+.result-value{
+  display:block;color:var(--blue);
+  font-size:clamp(32px,5vw,43px);font-weight:800;
+  letter-spacing:-1px;line-height:1.3;overflow-wrap:anywhere;
+}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:15px}
+.result-item{
+  background:rgba(255,255,255,.8);
+  border:1px solid #e5e9f5;border-radius:10px;padding:12px;
+}
+.result-item small{display:block;color:var(--muted);font-size:11px}
+.result-item strong{font-size:18px;overflow-wrap:anywhere}
+.result-note{color:var(--muted);font-size:12px;margin:13px 0 0}
+.side-panel{background:var(--soft)}
+.side-panel h3{font-size:19px}
+.side-stat{padding:14px 0;border-bottom:1px solid var(--line)}
+.side-stat:last-child{border:0}
+.side-stat strong{display:block;color:var(--blue);font-size:18px}
+.side-stat span{font-size:12px;color:var(--muted)}
+.info-card{
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:15px;padding:20px;margin:18px 0;
+}
+.quick-section{margin-top:22px}
+.quick-section h3{font-size:15px;margin-bottom:10px}
+.quick-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.quick-btn{
+  padding:8px 11px;background:#fff;border:1px solid var(--line);
+  border-radius:8px;cursor:pointer;color:var(--ink);font-size:12px;font-weight:700;
+}
+.content-section{padding:30px 0}
+.content-section h2{font-size:27px;letter-spacing:-.5px;margin:0 0 13px}
+.content-section h3{font-size:19px;margin:23px 0 8px}
+.content-section p,.content-section li{color:#526179}
+.content-section ul,.content-section ol{padding-left:22px}
+.formula{
+  display:block;padding:15px;background:#17243a;color:#fff;
+  border-radius:10px;font-weight:700;overflow-wrap:anywhere;margin:12px 0;
+}
+.table-wrap{overflow-x:auto;margin:17px 0}
+table{width:100%;border-collapse:collapse;min-width:540px}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;font-size:14px}
+th{background:var(--soft)}
+tr:nth-child(even) td{background:#fcfdff}
+.faq-list{display:grid;gap:11px}
+details{border:1px solid var(--line);border-radius:12px;padding:15px 17px;background:#fff}
+summary{cursor:pointer;font-weight:700}
+details p{margin-bottom:0}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.related-card{padding:17px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.related-card strong{display:block;margin-bottom:5px}
+.related-card span{font-size:12px;color:var(--muted)}
+footer{
+  margin-top:40px;padding:30px 0;background:#f7f9fd;
+  border-top:1px solid var(--line);color:var(--muted);font-size:13px;
+}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px}
+footer a{margin-right:13px}
+@media(max-width:850px){.hero,.calc-layout{grid-template-columns:1fr}.hero img{height:230px}}
+@media(max-width:600px){
+  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+  .nav-links{gap:13px}.nav-links a{font-size:12px}
+  .field-grid{grid-template-columns:1fr}
+  .panel{padding:17px}
+  .mode-tabs{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
+  .expense-row{grid-template-columns:1fr}
+  .hero{padding-top:15px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="/">Calc<span>Nest</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a> ›
+    <a href="/calculators/business-marketing-calculators.html">Business &amp; Marketing</a> ›
+    CAC Calculator
+  </div>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">FREE BUSINESS &amp; MARKETING TOOL</span>
+      <h1>Customer Acquisition Cost (CAC) Calculator</h1>
+      <p>
+        Find out how much your business spends to acquire each new customer.
+        Include advertising, sales, marketing, agency and other acquisition
+        expenses to calculate a broader customer acquisition cost and plan
+        future growth budgets.
+      </p>
+      <div class="hero-points">
+        <span>✓ Full Cost Breakdown</span>
+        <span>✓ 3 Calculation Modes</span>
+        <span>✓ Multiple Currencies</span>
+        <span>✓ Free to Use</span>
+      </div>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200"
+      alt="Business team discussing sales and marketing customer acquisition strategy"
+      fetchpriority="high">
+  </section>
+
+  <section class="calculator-section" id="calculator">
+    <div class="section-heading">
+      <h2>Calculate Your Customer Acquisition Cost</h2>
+      <p>Choose a mode, enter your expenses and review your customer acquisition metrics.</p>
+    </div>
+
+    <div class="calc-layout">
+      <div class="panel">
+
+        <div class="mode-tabs" role="group" aria-label="Calculation mode">
+          <button class="mode-btn active" data-mode="cac" type="button">Find CAC</button>
+          <button class="mode-btn" data-mode="budget" type="button">Find Budget</button>
+          <button class="mode-btn" data-mode="customers" type="button">Find Customers</button>
+        </div>
+
+        <div class="field currency-field">
+          <label for="currency">Currency</label>
+          <select id="currency">
+            <option value="USD">USD - US Dollar ($)</option>
+            <option value="EUR">EUR - Euro (€)</option>
+            <option value="GBP">GBP - British Pound (£)</option>
+            <option value="PKR">PKR - Pakistani Rupee (Rs)</option>
+            <option value="INR">INR - Indian Rupee (₹)</option>
+            <option value="CAD">CAD - Canadian Dollar (C$)</option>
+            <option value="AUD">AUD - Australian Dollar (A$)</option>
+            <option value="AED">AED - UAE Dirham</option>
+            <option value="SAR">SAR - Saudi Riyal</option>
+            <option value="JPY">JPY - Japanese Yen (¥)</option>
+          </select>
+        </div>
+
+        <div id="cacFields">
+          <div class="expense-box">
+            <h3>Sales &amp; Marketing Expenses</h3>
+
+            <div class="expense-row">
+              <label for="advertising">Advertising &amp; Paid Media</label>
+              <input id="advertising" type="number" min="0" step="any" value="3000">
+            </div>
+
+            <div class="expense-row">
+              <label for="marketingSalary">Marketing Team Salaries</label>
+              <input id="marketingSalary" type="number" min="0" step="any" value="2000">
+            </div>
+
+            <div class="expense-row">
+              <label for="salesSalary">Sales Team Salaries</label>
+              <input id="salesSalary" type="number" min="0" step="any" value="2500">
+            </div>
+
+            <div class="expense-row">
+              <label for="agency">Agency &amp; Freelance Fees</label>
+              <input id="agency" type="number" min="0" step="any" value="500">
+            </div>
+
+            <div class="expense-row">
+              <label for="software">Marketing &amp; Sales Software</label>
+              <input id="software" type="number" min="0" step="any" value="300">
+            </div>
+
+            <div class="expense-row">
+              <label for="otherCosts">Other Acquisition Expenses</label>
+              <input id="otherCosts" type="number" min="0" step="any" value="200">
+            </div>
+
+            <div class="total-expenses">
+              <span>Total Acquisition Expenses</span>
+              <strong id="liveTotal">$8,500.00</strong>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="newCustomers">New Customers Acquired</label>
+            <input id="newCustomers" type="number" min="1" step="1" value="100">
+            <small>Count new customers acquired during the same measurement period.</small>
+          </div>
+
+          <div class="field">
+            <label for="period">Measurement Period</label>
+            <select id="period">
+              <option value="Monthly">Monthly</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Campaign">Campaign</option>
+              <option value="Custom">Custom period</option>
+            </select>
+            <small>Use the same period for expenses and acquired customers.</small>
+          </div>
+        </div>
+
+        <div id="budgetFields" hidden>
+          <div class="field-grid">
+            <div class="field">
+              <label for="targetCAC">Target CAC</label>
+              <input id="targetCAC" type="number" min="0.000001" step="any" value="85">
+              <small>Your planned cost to acquire one new customer.</small>
+            </div>
+            <div class="field">
+              <label for="targetCustomers">Target New Customers</label>
+              <input id="targetCustomers" type="number" min="1" step="1" value="150">
+              <small>How many new customers do you want?</small>
+            </div>
+          </div>
+        </div>
+
+        <div id="customerFields" hidden>
+          <div class="field-grid">
+            <div class="field">
+              <label for="availableBudget">Available Acquisition Budget</label>
+              <input id="availableBudget" type="number" min="0" step="any" value="10000">
+              <small>Total budget allocated to customer acquisition.</small>
+            </div>
+            <div class="field">
+              <label for="expectedCAC">Expected CAC</label>
+              <input id="expectedCAC" type="number" min="0.000001" step="any" value="100">
+              <small>Expected average cost to acquire one customer.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="primary-btn" id="calculateBtn" type="button">Calculate CAC</button>
+          <button class="secondary-btn" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="error" id="errorBox" role="alert" aria-live="polite"></div>
+
+        <div class="results" id="results" aria-live="polite">
+          <div class="results-top">
+            <h3 id="resultHeading">Your CAC Results</h3>
+            <span class="eyebrow">CALCULATED</span>
+          </div>
+
+          <div class="result-main">
+            <small id="mainResultLabel">Customer Acquisition Cost</small>
+            <strong class="result-value" id="mainResult">$85.00</strong>
+          </div>
+
+          <div class="result-grid">
+            <div class="result-item">
+              <small id="labelOne">Total Expenses</small>
+              <strong id="valueOne">$8,500.00</strong>
+            </div>
+            <div class="result-item">
+              <small id="labelTwo">New Customers</small>
+              <strong id="valueTwo">100</strong>
+            </div>
+            <div class="result-item">
+              <small>Cost for 10 Customers</small>
+              <strong id="costTen">$850.00</strong>
+            </div>
+            <div class="result-item">
+              <small>Customers per 1,000</small>
+              <strong id="customersThousand">11.76</strong>
+            </div>
+          </div>
+
+          <p class="result-note" id="resultNote">
+            Your business spends an average of $85.00 to acquire one new customer.
+          </p>
+
+          <div class="action-row">
+            <button class="secondary-btn" id="copyBtn" type="button">Copy Results</button>
+          </div>
+        </div>
+
+        <div class="quick-section">
+          <h3>Try Sample Expenses</h3>
+          <div class="quick-buttons">
+            <button class="quick-btn" data-preset="small" type="button">Small Business</button>
+            <button class="quick-btn" data-preset="medium" type="button">Growing Business</button>
+            <button class="quick-btn" data-preset="large" type="button">Larger Campaign</button>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="panel side-panel">
+        <h3>What Does CAC Tell You?</h3>
+        <p style="color:var(--muted);font-size:13px">
+          CAC estimates the average sales and marketing investment required
+          to bring one new customer into your business.
+        </p>
+
+        <div class="side-stat">
+          <strong>Total Sales &amp; Marketing Costs</strong>
+          <span>Include the expenses relevant to your selected CAC method.</span>
+        </div>
+        <div class="side-stat">
+          <strong>New Customers Acquired</strong>
+          <span>Count actual new customers, not every lead or website visitor.</span>
+        </div>
+        <div class="side-stat">
+          <strong>Same Measurement Period</strong>
+          <span>Match the expense period with the customer acquisition period.</span>
+        </div>
+
+        <div class="info-card">
+          <strong>Important distinction</strong>
+          <p style="font-size:12px;margin-bottom:0">
+            This calculator estimates blended CAC using the expense
+            categories you enter. It does not automatically determine
+            whether those customers are profitable.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>What Is Customer Acquisition Cost (CAC)?</h2>
+    <p>
+      Customer Acquisition Cost, or CAC, is a business metric that measures
+      the average amount spent to acquire one new customer. It helps
+      companies understand how much they invest in sales and marketing
+      activities to grow their customer base.
+    </p>
+    <p>
+      CAC is commonly used by ecommerce businesses, subscription services,
+      SaaS companies, agencies, startups and other organizations that
+      invest money in attracting and converting new customers.
+    </p>
+
+    <div class="info-card">
+      <strong>Simple example:</strong>
+      <p>
+        Imagine a business spends $8,500 on advertising, salaries, agency
+        fees and marketing software in one month. If it acquires 100 new
+        customers during the same period, its blended CAC is $85.
+      </p>
+    </div>
+
+    <h2>Customer Acquisition Cost Formula</h2>
+    <p>The basic blended CAC formula is:</p>
+    <span class="formula">CAC = Total Acquisition Expenses ÷ Number of New Customers</span>
+
+    <p>Example using the calculator's sample figures:</p>
+    <span class="formula">CAC = $8,500 ÷ 100 = $85</span>
+
+    <p>
+      This means the business spent an average of $85 to acquire each new
+      customer during the selected measurement period.
+    </p>
+
+    <h3>What Counts as Acquisition Expenses?</h3>
+    <p>
+      The expenses included in CAC depend on your reporting method. A
+      broader calculation may include several categories:
+    </p>
+    <ul>
+      <li><strong>Advertising:</strong> Paid search, social media ads, display campaigns and other paid media.</li>
+      <li><strong>Marketing salaries:</strong> Relevant compensation for employees working on customer acquisition.</li>
+      <li><strong>Sales salaries:</strong> Relevant sales team compensation and acquisition-related commissions.</li>
+      <li><strong>Agency fees:</strong> External marketing agencies, consultants and freelancers.</li>
+      <li><strong>Software:</strong> CRM, marketing automation, analytics and sales tools.</li>
+      <li><strong>Other expenses:</strong> Creative production, campaign-related events and other relevant costs.</li>
+    </ul>
+
+    <div class="info-card">
+      <strong>Choose a consistent methodology</strong>
+      <p>
+        Some companies calculate paid-media CAC using advertising costs
+        only. Others calculate blended CAC using broader sales and
+        marketing expenses. Both can be useful, but they answer different
+        questions. State clearly which expenses your calculation includes.
+      </p>
+    </div>
+
+    <h2>How to Calculate CAC Step by Step</h2>
+    <ol>
+      <li>Choose a measurement period, such as one month or one quarter.</li>
+      <li>Add the relevant acquisition-related marketing expenses.</li>
+      <li>Add relevant sales expenses using a consistent allocation method.</li>
+      <li>Count the new customers acquired during that period or attributable cohort.</li>
+      <li>Divide total included expenses by the number of new customers.</li>
+      <li>Compare the result with customer value, retention and profitability.</li>
+    </ol>
+
+    <h2>Worked Customer Acquisition Cost Examples</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Total Acquisition Expenses</th>
+            <th>New Customers</th>
+            <th>Blended CAC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$2,000</td><td>50</td><td>$40</td></tr>
+          <tr><td>$5,000</td><td>100</td><td>$50</td></tr>
+          <tr><td>$8,500</td><td>100</td><td>$85</td></tr>
+          <tr><td>$12,000</td><td>200</td><td>$60</td></tr>
+          <tr><td>$25,000</td><td>250</td><td>$100</td></tr>
+          <tr><td>$40,000</td><td>800</td><td>$50</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to Use This CAC Calculator</h2>
+    <ol>
+      <li>Select your preferred currency.</li>
+      <li>Choose Find CAC to calculate your average acquisition cost.</li>
+      <li>Enter advertising, marketing, sales, agency, software and other costs.</li>
+      <li>Enter the number of new customers acquired in the same period.</li>
+      <li>Select your measurement period.</li>
+      <li>Click Calculate CAC to view the result.</li>
+      <li>Use Find Budget to estimate a target acquisition budget.</li>
+      <li>Use Find Customers to estimate how many customers a budget could acquire.</li>
+      <li>Copy the results for your campaign reports.</li>
+    </ol>
+
+    <h2>Blended CAC vs Paid CAC</h2>
+    <h3>Blended CAC</h3>
+    <p>
+      Blended CAC divides the selected total sales and marketing expenses
+      by all new customers acquired in the measurement period. It provides
+      a broader view of customer acquisition efficiency across channels.
+    </p>
+
+    <h3>Paid CAC</h3>
+    <p>
+      Paid CAC focuses on paid acquisition spending and the customers
+      attributed to paid channels. Its calculation should use a clearly
+      defined attribution method and matching customer count.
+    </p>
+
+    <p>
+      Do not compare paid CAC from one channel with blended CAC from the
+      whole business as if they were identical metrics.
+    </p>
+
+    <h2>CAC vs CPA: What Is the Difference?</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>CAC</th><th>CPA</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Full Name</td>
+            <td>Customer Acquisition Cost</td>
+            <td>Cost Per Acquisition / Action</td>
+          </tr>
+          <tr>
+            <td>Main Purpose</td>
+            <td>Measure the cost of acquiring new customers</td>
+            <td>Measure the cost of a defined conversion action</td>
+          </tr>
+          <tr>
+            <td>Expense Scope</td>
+            <td>Can include broader sales and marketing expenses</td>
+            <td>Often focuses on campaign-level costs</td>
+          </tr>
+          <tr>
+            <td>Conversion</td>
+            <td>New customer</td>
+            <td>Lead, signup, purchase or another defined action</td>
+          </tr>
+          <tr>
+            <td>Typical Use</td>
+            <td>Business growth and acquisition economics</td>
+            <td>Campaign and channel performance</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Understanding the CAC to LTV Relationship</h2>
+    <p>
+      Customer Lifetime Value (LTV) estimates the value or contribution
+      generated by a customer over the relationship with a business.
+      Comparing LTV with CAC can help businesses evaluate acquisition
+      economics.
+    </p>
+    <span class="formula">LTV to CAC Ratio = Customer Lifetime Value ÷ Customer Acquisition Cost</span>
+    <p>
+      For example, if estimated customer lifetime value is $600 and CAC
+      is $100, the LTV-to-CAC ratio is 6:1. This is a mathematical
+      comparison, not a universal guarantee of profitability.
+    </p>
+    <p>
+      For a meaningful comparison, use compatible definitions. In
+      particular, distinguish revenue-based LTV from gross-profit-based
+      or contribution-margin-based LTV.
+    </p>
+
+    <h2>What Is a Good CAC?</h2>
+    <p>
+      There is no single CAC that is good for every business. A sustainable
+      acquisition cost depends on product margins, customer lifetime
+      value, retention, operating expenses, cash flow and the time required
+      to recover acquisition spending.
+    </p>
+    <p>When evaluating CAC, consider:</p>
+    <ul>
+      <li>How much gross profit each new customer generates.</li>
+      <li>How frequently customers make repeat purchases.</li>
+      <li>How long customers remain subscribed or active.</li>
+      <li>How long it takes to recover acquisition spending.</li>
+      <li>Whether customers acquired from different channels have different quality.</li>
+      <li>Whether your calculation includes the full relevant acquisition cost.</li>
+    </ul>
+
+    <h2>How to Reduce Customer Acquisition Cost</h2>
+    <h3>Improve Conversion Rates</h3>
+    <p>
+      Review landing pages, checkout flows, forms, calls to action and
+      mobile usability. Removing unnecessary friction can help more
+      prospects become customers.
+    </p>
+
+    <h3>Improve Audience Targeting</h3>
+    <p>
+      Analyze which audiences generate valuable customers rather than
+      simply large numbers of clicks or leads. Refine campaigns using
+      reliable conversion and customer-quality data.
+    </p>
+
+    <h3>Optimize Sales Processes</h3>
+    <p>
+      Review lead qualification, follow-up times, sales handoffs and
+      repetitive administrative tasks. Efficient processes can help
+      teams use their resources more effectively.
+    </p>
+
+    <h3>Use Retention and Referrals</h3>
+    <p>
+      Customer retention and referral programs can support business
+      growth. However, measure the costs of these programs separately
+      and avoid treating every repeat purchase as a newly acquired
+      customer.
+    </p>
+
+    <h3>Measure Channels Consistently</h3>
+    <p>
+      Track acquisition costs and customer quality by channel. Use
+      consistent attribution rules, conversion definitions and reporting
+      periods so comparisons remain meaningful.
+    </p>
+
+    <h2>Important CAC Calculation Limitations</h2>
+    <ul>
+      <li>Expense allocation can differ between companies.</li>
+      <li>Customers may convert weeks or months after the first marketing interaction.</li>
+      <li>Attribution systems may assign the same customer differently.</li>
+      <li>New customer counts should exclude existing customers and duplicate records.</li>
+      <li>Seasonality and one-time campaigns can cause short-term changes.</li>
+      <li>A blended CAC does not show the cost of every individual acquisition channel.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <details>
+        <summary>1. What does CAC stand for?</summary>
+        <p>
+          CAC stands for Customer Acquisition Cost. It measures the
+          average amount a business spends to acquire one new customer.
+        </p>
+      </details>
+
+      <details>
+        <summary>2. How do I calculate customer acquisition cost?</summary>
+        <p>
+          Add the relevant sales and marketing expenses for a defined
+          period and divide the total by the number of new customers
+          acquired during the matching period.
+        </p>
+      </details>
+
+      <details>
+        <summary>3. Should salaries be included in CAC?</summary>
+        <p>
+          A broader CAC calculation can include the relevant portion of
+          sales and marketing salaries. Use a consistent allocation method
+          and avoid including unrelated employee costs.
+        </p>
+      </details>
+
+      <details>
+        <summary>4. What is the difference between blended CAC and paid CAC?</summary>
+        <p>
+          Blended CAC includes the selected overall acquisition expenses
+          and all relevant new customers. Paid CAC focuses on paid-channel
+          costs and customers attributed to those channels.
+        </p>
+      </details>
+
+      <details>
+        <summary>5. Is a lower CAC always better?</summary>
+        <p>
+          Not necessarily. A lower CAC may be less valuable if it produces
+          low-quality customers. Consider customer value, retention,
+          margins and long-term profitability.
+        </p>
+      </details>
+
+      <details>
+        <summary>6. How often should I calculate CAC?</summary>
+        <p>
+          Many businesses monitor CAC monthly or quarterly. The best
+          frequency depends on sales-cycle length, customer volume,
+          seasonality and how quickly acquisition costs change.
+        </p>
+      </details>
+
+      <details>
+        <summary>7. What is the CAC to LTV ratio?</summary>
+        <p>
+          It compares estimated customer lifetime value with the cost of
+          acquiring that customer. A business should use consistent value
+          definitions and consider gross margins and retention.
+        </p>
+      </details>
+
+      <details>
+        <summary>8. Why can CAC increase even when advertising spend stays the same?</summary>
+        <p>
+          CAC can increase if fewer new customers are acquired, conversion
+          rates decline, the sales cycle becomes longer or customer
+          attribution changes.
+        </p>
+      </details>
+
+      <details>
+        <summary>9. Does this calculator include all business expenses?</summary>
+        <p>
+          No. It includes the expense categories you enter. You can add
+          relevant acquisition expenses to the Other Acquisition Expenses
+          field, but ordinary operating expenses should not automatically
+          be treated as acquisition costs.
+        </p>
+      </details>
+
+      <details>
+        <summary>10. Can a small business use CAC?</summary>
+        <p>
+          Yes. Small businesses can use CAC to understand the cost of
+          acquiring customers, compare marketing channels and plan
+          growth spending. Even a simple, consistently measured estimate
+          can be useful.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Explore Related Business &amp; Marketing Calculators</h2>
+    <p>
+      Explore other tools to measure marketing costs, conversion
+      performance and customer value.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/cpa-calculator.html">
+        <strong>CPA Calculator</strong>
+        <span>Calculate cost per acquisition or campaign action.</span>
+      </a>
+      <a class="related-card" href="/calculators/cpc-calculator.html">
+        <strong>CPC Calculator</strong>
+        <span>Calculate average advertising cost per click.</span>
+      </a>
+      <a class="related-card" href="/calculators/ctr-calculator.html">
+        <strong>CTR Calculator</strong>
+        <span>Measure advertising click-through rate.</span>
+      </a>
+      <a class="related-card" href="/calculators/conversion-rate-calculator.html">
+        <strong>Conversion Rate Calculator</strong>
+        <span>Measure the percentage of visitors who convert.</span>
+      </a>
+      <a class="related-card" href="/calculators/roas-calculator.html">
+        <strong>ROAS Calculator</strong>
+        <span>Compare advertising revenue with advertising spend.</span>
+      </a>
+      <a class="related-card" href="/calculators/business-marketing-calculators.html">
+        <strong>All Business Calculators</strong>
+        <span>Browse the complete Business &amp; Marketing category.</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>CalcNest</strong>
+      <p>Free online calculators for everyday decisions and smarter planning.</p>
+    </div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container">
+    <p>© <span id="year"></span> CalcNest. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const currencySymbols = {
+    USD:"$", EUR:"€", GBP:"£", PKR:"Rs ", INR:"₹",
+    CAD:"C$", AUD:"A$", AED:"AED ", SAR:"SAR ", JPY:"¥"
+  };
+
+  const expenseIds = [
+    "advertising",
+    "marketingSalary",
+    "salesSalary",
+    "agency",
+    "software",
+    "otherCosts"
+  ];
+
+  let currentMode = "cac";
+  let lastResultText = "";
+
+  function getNumber(id){
+    return Number($(id).value);
+  }
+
+  function money(value){
+    const symbol = currencySymbols[$("currency").value] || $("currency").value+" ";
+    return symbol + new Intl.NumberFormat("en-US",{
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }).format(value);
+  }
+
+  function num(value,digits=2){
+    return new Intl.NumberFormat("en-US",{
+      maximumFractionDigits:digits
+    }).format(value);
+  }
+
+  function showError(message){
+    $("errorBox").textContent=message;
+    $("errorBox").style.display="block";
+  }
+
+  function clearError(){
+    $("errorBox").textContent="";
+    $("errorBox").style.display="none";
+  }
+
+  function validNonNegative(value){
+    return Number.isFinite(value) && value>=0;
+  }
+
+  function getTotalExpenses(){
+    return expenseIds.reduce((sum,id)=>sum+getNumber(id),0);
+  }
+
+  function updateLiveTotal(){
+    const values=expenseIds.map(getNumber);
+    const invalid=values.some(value=>!validNonNegative(value));
+
+    if(invalid){
+      $("liveTotal").textContent="Check expense values";
+      return;
+    }
+
+    $("liveTotal").textContent=money(getTotalExpenses());
+  }
+
+  function displayResults(main,label,firstLabel,firstValue,
+                          secondLabel,secondValue,costTen,
+                          customersThousand,note){
+    $("mainResultLabel").textContent=label;
+    $("mainResult").textContent=main;
+    $("labelOne").textContent=firstLabel;
+    $("valueOne").textContent=firstValue;
+    $("labelTwo").textContent=secondLabel;
+    $("valueTwo").textContent=secondValue;
+    $("costTen").textContent=costTen;
+    $("customersThousand").textContent=customersThousand;
+    $("resultNote").textContent=note;
+
+    lastResultText=
+      "Customer Acquisition Cost Calculator Results\n"+
+      label+": "+main+"\n"+
+      firstLabel+": "+firstValue+"\n"+
+      secondLabel+": "+secondValue+"\n"+
+      "Cost for 10 customers: "+costTen+"\n"+
+      "Customers per 1,000: "+customersThousand+"\n"+
+      note;
+  }
+
+  function showFields(){
+    $("cacFields").hidden=currentMode!=="cac";
+    $("budgetFields").hidden=currentMode!=="budget";
+    $("customerFields").hidden=currentMode!=="customers";
+
+    document.querySelectorAll(".mode-btn").forEach(button=>{
+      button.classList.toggle("active",button.dataset.mode===currentMode);
+    });
+
+    const headings={
+      cac:["Calculate CAC","Your CAC Results"],
+      budget:["Calculate Budget","Your Budget Estimate"],
+      customers:["Calculate Customers","Your Customer Estimate"]
+    };
+
+    $("calculateBtn").textContent=headings[currentMode][0];
+    $("resultHeading").textContent=headings[currentMode][1];
+
+    clearError();
+    calculate();
+  }
+
+  function calculate(){
+    clearError();
+
+    if(currentMode==="cac"){
+      const expenses=expenseIds.map(getNumber);
+
+      if(expenses.some(value=>!validNonNegative(value))){
+        showError("All expense fields must contain valid amounts of zero or more.");
+        return;
+      }
+
+      const total=getTotalExpenses();
+      const customers=getNumber("newCustomers");
+
+      if(!Number.isInteger(customers)||customers<=0){
+        showError("Enter a positive whole number of new customers.");
+        return;
+      }
+
+      const cac=total/customers;
+
+      displayResults(
+        money(cac),
+        "Customer Acquisition Cost",
+        "Total Acquisition Expenses",
+        money(total),
+        "New Customers",
+        num(customers,0),
+        money(cac*10),
+        total===0?"Not applicable":num(customers/total*1000),
+        "Your business spent an average of "+money(cac)+
+        " to acquire each new customer during the "+$("period").value.toLowerCase()+" period."
+      );
+
+      if(total===0){
+        $("customersThousand").textContent="Not applicable";
+      }
+      return;
+    }
+
+    if(currentMode==="budget"){
+      const targetCAC=getNumber("targetCAC");
+      const customers=getNumber("targetCustomers");
+
+      if(!Number.isFinite(targetCAC)||targetCAC<=0){
+        showError("Enter a target CAC greater than zero.");
+        return;
+      }
+
+      if(!Number.isInteger(customers)||customers<=0){
+        showError("Enter a positive whole number of target customers.");
+        return;
+      }
+
+      const budget=targetCAC*customers;
+
+      displayResults(
+        money(budget),
+        "Estimated Acquisition Budget",
+        "Target CAC",
+        money(targetCAC),
+        "Target Customers",
+        num(customers,0),
+        money(targetCAC*10),
+        num(customers/budget*1000),
+        "At a target CAC of "+money(targetCAC)+
+        ", the estimated budget for "+num(customers,0)+
+        " new customers is "+money(budget)+"."
+      );
+      return;
+    }
+
+    if(currentMode==="customers"){
+      const budget=getNumber("availableBudget");
+      const cac=getNumber("expectedCAC");
+
+      if(!validNonNegative(budget)){
+        showError("Enter a valid acquisition budget of zero or more.");
+        return;
+      }
+
+      if(!Number.isFinite(cac)||cac<=0){
+        showError("Enter an expected CAC greater than zero.");
+        return;
+      }
+
+      const estimated=budget/cac;
+      const whole=Math.floor(estimated);
+
+      displayResults(
+        num(estimated),
+        "Estimated New Customers",
+        "Available Budget",
+        money(budget),
+        "Expected CAC",
+        money(cac),
+        money(cac*10),
+        budget===0?"Not applicable":num(estimated/budget*1000),
+        "At an expected CAC of "+money(cac)+
+        ", your budget could acquire approximately "+num(estimated)+
+        " customers, or "+num(whole,0)+" complete customer acquisitions."
+      );
+
+      if(budget===0){
+        $("customersThousand").textContent="Not applicable";
+      }
+    }
+  }
+
+  document.querySelectorAll(".mode-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+      currentMode=button.dataset.mode;
+      showFields();
+    });
+  });
+
+  $("calculateBtn").addEventListener("click",calculate);
+  $("currency").addEventListener("change",()=>{
+    updateLiveTotal();
+    calculate();
+  });
+
+  expenseIds.forEach(id=>{
+    $(id).addEventListener("input",()=>{
+      updateLiveTotal();
+      if(currentMode==="cac")calculate();
+    });
+  });
+
+  ["newCustomers","period","targetCAC","targetCustomers",
+   "availableBudget","expectedCAC"].forEach(id=>{
+    $(id).addEventListener("input",()=>{
+      if(currentMode==="cac" && id!=="newCustomers")return;
+      calculate();
+    });
+    $(id).addEventListener("change",calculate);
+  });
+
+  $("resetBtn").addEventListener("click",()=>{
+    const defaults={
+      advertising:3000,
+      marketingSalary:2000,
+      salesSalary:2500,
+      agency:500,
+      software:300,
+      otherCosts:200,
+      newCustomers:100,
+      targetCAC:85,
+      targetCustomers:150,
+      availableBudget:10000,
+      expectedCAC:100
+    };
+
+    Object.keys(defaults).forEach(id=>$(id).value=defaults[id]);
+    $("period").value="Monthly";
+    $("currency").value="USD";
+    currentMode="cac";
+    updateLiveTotal();
+    showFields();
+  });
+
+  const presets={
+    small:{
+      advertising:500,
+      marketingSalary:300,
+      salesSalary:400,
+      agency:100,
+      software:50,
+      otherCosts:50,
+      customers:20
+    },
+    medium:{
+      advertising:3000,
+      marketingSalary:2000,
+      salesSalary:2500,
+      agency:500,
+      software:300,
+      otherCosts:200,
+      customers:100
+    },
+    large:{
+      advertising:15000,
+      marketingSalary:6000,
+      salesSalary:8000,
+      agency:2000,
+      software:1000,
+      otherCosts:1000,
+      customers:400
+    }
+  };
+
+  document.querySelectorAll(".quick-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const preset=presets[button.dataset.preset];
+      if(!preset)return;
+
+      currentMode="cac";
+      $("advertising").value=preset.advertising;
+      $("marketingSalary").value=preset.marketingSalary;
+      $("salesSalary").value=preset.salesSalary;
+      $("agency").value=preset.agency;
+      $("software").value=preset.software;
+      $("otherCosts").value=preset.otherCosts;
+      $("newCustomers").value=preset.customers;
+
+      updateLiveTotal();
+      showFields();
+      $("calculator").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
+
+  $("copyBtn").addEventListener("click",async()=>{
+    if(!lastResultText)return;
+
+    const button=$("copyBtn");
+
+    try{
+      await navigator.clipboard.writeText(lastResultText);
+      button.textContent="Copied!";
+    }catch(error){
+      button.textContent="Copy unavailable";
+    }
+
+    setTimeout(()=>button.textContent="Copy Results",1600);
+  });
+
+  document.querySelectorAll(
+    "#advertising,#marketingSalary,#salesSalary,#agency,#software,#otherCosts,#newCustomers,#targetCAC,#targetCustomers,#availableBudget,#expectedCAC"
+  ).forEach(input=>{
+    input.addEventListener("keydown",event=>{
+      if(event.key==="Enter")calculate();
+    });
+  });
+
+  $("year").textContent=new Date().getFullYear();
+  updateLiveTotal();
+  showFields();
+})();
+</script>
+
+</body>
+</html>
