@@ -2,61 +2,1370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Data Storage Converter - KB, MB, GB, TB & Bytes | CalcNest</title>
-<meta name="description" content="Convert bits, bytes, KB, MB, GB, TB and binary KiB, MiB, GiB units with this free data storage converter.">
-<meta name="keywords" content="data storage converter, KB to MB, MB to GB, GB to TB, bytes converter, bits to bytes, MB to MiB, binary data units">
-<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/data-storage-converter.html"><meta name="robots" content="index,follow">
-<meta property="og:title" content="Data Storage Converter | CalcNest"><meta property="og:description" content="Convert digital storage units instantly."><meta property="og:type" content="website">
-<style>
-:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--line:#e8edf5}*{box-sizing:border-box}body{margin:0;font:16px/1.65 Arial;color:var(--ink)}a{text-decoration:none;color:inherit}header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#ffffffed;z-index:5}.nav,.container{width:min(1080px,calc(100% - 32px));margin:auto}.nav{padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-size:25px;font-weight:800}.brand span{color:var(--blue)}nav{display:flex;gap:17px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}.hero{padding:40px 0 22px}.tag{background:#edf2ff;color:var(--blue);padding:5px 12px;border-radius:30px;font-size:12px;font-weight:bold}h1{font-size:clamp(32px,5vw,46px);line-height:1.15;margin:14px 0}.hero p,.section p,.section li{color:var(--muted)}.panel{padding:25px;border:1px solid var(--line);border-radius:17px;box-shadow:0 12px 35px #192d550d;margin:18px 0}.grid{display:grid;grid-template-columns:1fr 55px 1fr;gap:13px;align-items:end}label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:10px;font:inherit;color:var(--ink);background:white}.swap{height:47px;border:0;border-radius:10px;background:#edf2ff;color:var(--blue);font-size:22px;cursor:pointer}.result{margin-top:18px;padding:19px;border-radius:12px;background:linear-gradient(120deg,#edf2ff,#f5f1ff)}.result small{font-weight:bold;color:#596987}.result strong{display:block;font-size:clamp(23px,4vw,34px);color:#254fd0;overflow-wrap:anywhere}.result p{font-size:13px;color:var(--muted);margin:4px 0}.actions,.quick,.links{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}.btn.alt,.quick button{background:#edf2ff;color:var(--blue)}.quick button{border:1px solid var(--line);border-radius:20px;padding:7px 12px;cursor:pointer}.section{padding:22px 0;border-bottom:1px solid var(--line)}h2{font-size:25px;margin:0 0 9px}h3{font-size:18px;margin:18px 0 6px}.formula,.note{padding:14px;background:#f2f5ff;border-left:4px solid var(--blue);border-radius:8px;margin:13px 0;color:#34486e}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{border:1px solid var(--line);background:#fbfcff;border-radius:11px;padding:14px}.card a{color:var(--blue);font-weight:bold}.faq{padding:13px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.links a{border:1px solid var(--line);padding:9px 12px;border-radius:8px;color:var(--blue);font-size:13px;font-weight:bold}footer{margin-top:30px;padding:23px 0;background:#f7f9fd;color:var(--muted);font-size:13px}table{border-collapse:collapse;width:100%;margin:15px 0}td,th{padding:10px;border:1px solid var(--line);text-align:left}th{background:#f5f7fc}@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.swap{height:39px}.cards{grid-template-columns:1fr 1fr}.panel{padding:17px}}@media(max-width:430px){.cards{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Data Storage Converter - Bytes, KB, MB, GB, TB & More | CalcNest</title>
+  <meta name="description" content="Convert bits, bytes, KB, MB, GB, TB, KiB, MiB, GiB and more with the free CalcNest Data Storage Converter. Compare decimal and binary storage units instantly.">
+  <meta name="keywords" content="data storage converter, bytes converter, KB to MB, MB to GB, GB to TB, GB to GiB, bits to bytes, binary storage converter, data size calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/data-storage-converter.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Data Storage Converter - Bytes, KB, MB, GB & More | CalcNest">
+  <meta property="og:description" content="Convert digital storage units instantly. Compare decimal and binary units, calculate file sizes and understand storage measurements.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/data-storage-converter.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Data Storage Converter | CalcNest">
+  <meta name="twitter:description" content="Convert bits, bytes, KB, MB, GB, TB and binary storage units for free.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"CalcNest Data Storage Converter",
+    "url":"https://calcnest-7s6.pages.dev/calculators/data-storage-converter.html",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "description":"A free online converter for bits, bytes, decimal storage units and binary storage units.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How many bytes are in one kilobyte?",
+        "acceptedAnswer":{"@type":"Answer","text":"One decimal kilobyte (kB) contains 1,000 bytes. A kibibyte (KiB), a binary unit, contains 1,024 bytes."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is the difference between GB and GiB?",
+        "acceptedAnswer":{"@type":"Answer","text":"One gigabyte (GB) is 1,000,000,000 bytes, while one gibibyte (GiB) is 1,073,741,824 bytes. GB uses decimal multiples and GiB uses binary multiples."}
+      },
+      {
+        "@type":"Question",
+        "name":"How many bits are in one byte?",
+        "acceptedAnswer":{"@type":"Answer","text":"One byte contains 8 bits."}
+      },
+      {
+        "@type":"Question",
+        "name":"How many megabytes are in one gigabyte?",
+        "acceptedAnswer":{"@type":"Answer","text":"One decimal gigabyte (GB) contains 1,000 megabytes (MB)."}
+      },
+      {
+        "@type":"Question",
+        "name":"Why does my hard drive show less storage than advertised?",
+        "acceptedAnswer":{"@type":"Answer","text":"Storage manufacturers generally advertise capacity using decimal units, while some operating systems display binary-based values or use different labels. Formatting and system-reserved space can also affect the available capacity."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is a megabit the same as a megabyte?",
+        "acceptedAnswer":{"@type":"Answer","text":"No. A megabit (Mbit) contains 1,000,000 bits, while a megabyte (MB) contains 1,000,000 bytes or 8,000,000 bits."}
+      },
+      {
+        "@type":"Question",
+        "name":"Does this calculator convert internet speed?",
+        "acceptedAnswer":{"@type":"Answer","text":"This tool converts data quantities such as bits and bytes, not data transfer rates. Internet speed is normally measured in bits per second, such as Mbps."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the Data Storage Converter free?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. The CalcNest Data Storage Converter is free to use online and does not require registration."}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.7;
+    }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+    }
+
+    a:hover{text-decoration:underline}
+
+    button,input,select{font:inherit}
+
+    .container{
+      width:min(1120px,calc(100% - 36px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      color:var(--ink);
+      font-size:23px;
+      font-weight:800;
+      letter-spacing:-.7px;
+    }
+
+    .brand span{color:var(--blue)}
+
+    .navlinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .navlinks a{color:#42516a}
+
+    .breadcrumbs{
+      padding:20px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .breadcrumbs a{color:var(--muted)}
+
+    .hero{padding:26px 0 22px}
+
+    .eyebrow{
+      color:var(--blue);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:9px 0 13px;
+      font-size:clamp(31px,5vw,48px);
+      line-height:1.12;
+      letter-spacing:-1.5px;
+    }
+
+    .hero p{
+      max-width:790px;
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .hero-image{
+      display:block;
+      width:100%;
+      height:270px;
+      margin-top:24px;
+      border-radius:var(--radius);
+      object-fit:cover;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);
+      gap:24px;
+      align-items:start;
+      margin:24px 0 42px;
+    }
+
+    .panel,.side-card,.content-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .panel{padding:26px}
+
+    .panel h2,.content-card h2{
+      margin:0 0 8px;
+      font-size:23px;
+      line-height:1.3;
+    }
+
+    .sub{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    label{
+      display:block;
+      margin:0 0 7px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    input,select{
+      width:100%;
+      min-height:48px;
+      padding:11px 13px;
+      border:1px solid #dce3ef;
+      border-radius:11px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+    }
+
+    input:focus,select:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.12);
+    }
+
+    .fields{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{min-width:0}
+
+    .swapline{
+      display:flex;
+      justify-content:center;
+      margin:15px 0;
+    }
+
+    .swapbtn,.action,.quick button{
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    .swapbtn{
+      padding:9px 16px;
+      background:#edf1ff;
+      color:var(--blue);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .action{padding:11px 17px}
+
+    .action.primary{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .action.secondary{
+      background:#edf1ff;
+      color:var(--blue);
+    }
+
+    .action.gray{
+      background:#f0f2f6;
+      color:#42516a;
+    }
+
+    .result{
+      margin-top:22px;
+      padding:20px;
+      border:1px solid #e0e7ff;
+      border-radius:14px;
+      background:linear-gradient(135deg,#eef3ff,#f5f1ff);
+    }
+
+    .result-label{
+      color:#5b6680;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+    }
+
+    .result-value{
+      margin:7px 0;
+      font-size:clamp(25px,4vw,36px);
+      font-weight:800;
+      line-height:1.3;
+      overflow-wrap:anywhere;
+    }
+
+    .result-note{
+      color:var(--muted);
+      font-size:13px;
+      overflow-wrap:anywhere;
+    }
+
+    .quick-title{
+      margin:20px 0 9px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .quick{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .quick button{
+      padding:8px 11px;
+      background:#f1f4fa;
+      color:#42516a;
+      font-size:12px;
+    }
+
+    .quick button:hover{
+      background:#e6ecff;
+      color:var(--blue);
+    }
+
+    .side-card{
+      padding:20px;
+      margin-bottom:18px;
+    }
+
+    .side-card h3{
+      margin:0 0 10px;
+      font-size:17px;
+    }
+
+    .side-card p,.side-card li{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .side-card ul{
+      margin:8px 0;
+      padding-left:19px;
+    }
+
+    .notice{
+      padding:14px 16px;
+      border:1px solid #e5e8f7;
+      border-radius:12px;
+      background:#f7f8ff;
+      color:#526078;
+      font-size:13px;
+    }
+
+    .content-card{
+      padding:26px;
+      margin:20px 0;
+    }
+
+    .content-card p,.content-card li{color:#526078}
+
+    .content-card h3{
+      margin:22px 0 7px;
+      font-size:18px;
+    }
+
+    .formula{
+      padding:14px 16px;
+      border-left:4px solid var(--purple);
+      border-radius:9px;
+      background:var(--soft);
+      font-weight:700;
+      overflow-wrap:anywhere;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      margin-top:14px;
+    }
+
+    table{
+      width:100%;
+      min-width:510px;
+      border-collapse:collapse;
+    }
+
+    th,td{
+      padding:12px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      font-size:14px;
+    }
+
+    th{background:var(--soft)}
+
+    .faq{
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .faq:last-child{border:0}
+
+    .faq h3{
+      margin:0 0 5px;
+      font-size:16px;
+    }
+
+    .faq p{margin:0}
+
+    .related{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .related a{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    footer{
+      margin-top:45px;
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      background:#f7f9fd;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    @media(max-width:800px){
+      .layout{grid-template-columns:1fr}
+      .hero-image{height:220px}
+    }
+
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1120px)}
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:14px 0;
+      }
+      .navlinks{gap:13px}
+      .panel,.content-card{padding:19px}
+      .fields{grid-template-columns:1fr}
+      .related{grid-template-columns:1fr}
+      .hero-image{height:185px}
+    }
+  </style>
 </head>
+
 <body>
-<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main class="container">
-<section class="hero"><span class="tag">Digital Storage &amp; Data Size Tool</span><h1>Data Storage Converter</h1><p>Convert bits, bytes, kilobytes, megabytes, gigabytes, terabytes and binary storage units. Understand file sizes, memory capacity, disk storage and data transfer measurements with this free online converter.</p></section>
-<section class="panel" id="calculator"><h2>Convert Data Units</h2><p class="hero">Choose a digital unit and enter the amount you want to convert.</p>
-<div class="grid"><div><label for="amount">Data value</label><input id="amount" type="number" min="0" step="any" value="1"></div><button class="swap" id="swap" type="button" aria-label="Swap units">⇄</button><div><label for="from">From</label><select id="from"></select></div></div>
-<div style="margin-top:13px"><label for="to">Convert to</label><select id="to"></select></div>
-<div class="result" aria-live="polite"><small>CONVERSION RESULT</small><strong id="answer"></strong><p id="detail"></p></div>
-<div class="actions"><button class="btn" id="copy">Copy Result</button><button class="btn alt" id="reset">Reset</button></div>
-<div class="quick"><button data-value="1">1</button><button data-value="100">100</button><button data-value="512">512</button><button data-value="1000">1,000</button><button data-value="1024">1,024</button><button data-value="1000000">1 million</button></div></section>
-<section class="section"><h2>Popular Data Conversions</h2><div class="cards">
-<div class="card"><b>KB to MB</b><p>Convert kilobytes into megabytes.</p><a href="#calculator" onclick="setConversion('KB','MB')">Convert →</a></div>
-<div class="card"><b>MB to GB</b><p>Convert megabytes into gigabytes.</p><a href="#calculator" onclick="setConversion('MB','GB')">Convert →</a></div>
-<div class="card"><b>GB to TB</b><p>Convert gigabytes into terabytes.</p><a href="#calculator" onclick="setConversion('GB','TB')">Convert →</a></div>
-<div class="card"><b>Bytes to KB</b><p>Convert bytes into kilobytes.</p><a href="#calculator" onclick="setConversion('B','KB')">Convert →</a></div>
-<div class="card"><b>MB to MiB</b><p>Compare decimal and binary megabytes.</p><a href="#calculator" onclick="setConversion('MB','MiB')">Convert →</a></div>
-<div class="card"><b>Bits to Bytes</b><p>Convert data bits into bytes.</p><a href="#calculator" onclick="setConversion('bit','B')">Convert →</a></div>
-</div></section>
-<section class="section"><h2>Decimal and Binary Storage Units</h2><p>Digital storage uses two common measurement systems. Decimal units use powers of 1,000, while binary units use powers of 1,024. This distinction explains why advertised drive capacity and some operating system displays may differ.</p>
-<table><tr><th>Decimal unit</th><th>Bytes</th><th>Binary unit</th><th>Bytes</th></tr><tr><td>1 kB</td><td>1,000</td><td>1 KiB</td><td>1,024</td></tr><tr><td>1 MB</td><td>1,000,000</td><td>1 MiB</td><td>1,048,576</td></tr><tr><td>1 GB</td><td>1,000,000,000</td><td>1 GiB</td><td>1,073,741,824</td></tr><tr><td>1 TB</td><td>1,000,000,000,000</td><td>1 TiB</td><td>1,099,511,627,776</td></tr></table>
-<h3>Conversion formula</h3><div class="formula"><b>Result = Value × Source factor ÷ Destination factor</b></div><p>This converter uses bits as its base unit. One byte equals exactly 8 bits.</p>
-<h3>Examples</h3><div class="formula">1 GB = 1,000 MB (decimal)</div><div class="formula">1 GiB = 1,024 MiB (binary)</div><div class="formula">8 bits = 1 byte</div></section>
-<section class="section"><h2>Frequently Asked Questions</h2>
-<div class="faq"><h3>How many bytes are in a kilobyte?</h3><p>One decimal kilobyte (kB) is 1,000 bytes. One kibibyte (KiB) is 1,024 bytes.</p></div>
-<div class="faq"><h3>What is the difference between GB and GiB?</h3><p>One gigabyte (GB) is 1 billion bytes. One gibibyte (GiB) is 1,073,741,824 bytes.</p></div>
-<div class="faq"><h3>How many megabytes are in one gigabyte?</h3><p>In the decimal system, one GB equals 1,000 MB. In binary terms, one GiB equals 1,024 MiB.</p></div>
-<div class="faq"><h3>How many bits are in one byte?</h3><p>One byte contains exactly 8 bits.</p></div>
-<div class="faq"><h3>Why does my hard drive show less space than advertised?</h3><p>Manufacturers generally advertise capacity using decimal units, while some systems display capacity using binary-based calculations or reserve space for system functions and formatting.</p></div>
-<div class="faq"><h3>Is this converter free?</h3><p>Yes. CalcNest's data storage converter is free to use without registration.</p></div>
-</section>
-<section class="section"><h2>Explore More Calculators</h2><div class="links"><a href="/calculators/unit-converters.html">All Unit Converters</a><a href="/calculators/length-converter.html">Length Converter</a><a href="/calculators/volume-converter.html">Volume Converter</a><a href="/calculators/time-unit-converter.html">Time Converter</a><a href="/calculators/">All Calculators</a></div></section>
-<p class="note">Note: Decimal and binary units are intentionally kept separate. Always check whether a specification uses kB/MB/GB or KiB/MiB/GiB before comparing storage capacity or data sizes.</p>
-</main><footer><div class="container">© <span id="year"></span> CalcNest. Free online calculators.</div></footer>
+
+  <div class="breadcrumbs">
+    <a href="/">Home</a> ›
+    <a href="/calculators/unit-converters.html">Unit Converters</a> ›
+    Data Storage Converter
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Free digital storage calculator</div>
+    <h1>Data Storage Converter</h1>
+
+    <p>
+      Convert bits, bytes, kilobytes, megabytes, gigabytes, terabytes
+      and binary storage units instantly. Compare decimal and binary
+      measurements to understand file sizes, device capacity and digital data.
+    </p>
+
+    <img
+      class="hero-image"
+      src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200"
+      alt="Computer servers and digital infrastructure representing data storage"
+      fetchpriority="high">
+  </section>
+
+  <section class="layout" id="converter">
+
+    <div class="panel">
+
+      <h2>Convert Data Storage Units</h2>
+
+      <p class="sub">
+        Enter a data quantity, select its unit and choose the unit
+        you want to convert it into.
+      </p>
+
+      <div class="fields">
+
+        <div class="field">
+          <label for="amount">Enter data amount</label>
+          <input
+            id="amount"
+            type="number"
+            min="0"
+            step="any"
+            value="1"
+            inputmode="decimal"
+            placeholder="Enter a number">
+        </div>
+
+        <div class="field">
+          <label for="fromUnit">Convert from</label>
+          <select id="fromUnit">
+            <optgroup label="Basic units">
+              <option value="bit">Bit (bit)</option>
+              <option value="byte" selected>Byte (B)</option>
+            </optgroup>
+
+            <optgroup label="Decimal units (base 1000)">
+              <option value="kbit">Kilobit (kbit)</option>
+              <option value="mbit">Megabit (Mbit)</option>
+              <option value="gbit">Gigabit (Gbit)</option>
+              <option value="tbit">Terabit (Tbit)</option>
+              <option value="kb">Kilobyte (kB)</option>
+              <option value="mb">Megabyte (MB)</option>
+              <option value="gb">Gigabyte (GB)</option>
+              <option value="tb">Terabyte (TB)</option>
+              <option value="pb">Petabyte (PB)</option>
+              <option value="eb">Exabyte (EB)</option>
+            </optgroup>
+
+            <optgroup label="Binary units (base 1024)">
+              <option value="kib">Kibibyte (KiB)</option>
+              <option value="mib">Mebibyte (MiB)</option>
+              <option value="gib">Gibibyte (GiB)</option>
+              <option value="tib">Tebibyte (TiB)</option>
+              <option value="pib">Pebibyte (PiB)</option>
+              <option value="eib">Exbibyte (EiB)</option>
+            </optgroup>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="swapline">
+        <button
+          class="swapbtn"
+          id="swapBtn"
+          type="button"
+          aria-label="Swap conversion units">
+          ⇅ Swap units
+        </button>
+      </div>
+
+      <div class="field">
+        <label for="toUnit">Convert to</label>
+        <select id="toUnit">
+
+          <optgroup label="Basic units">
+            <option value="bit">Bit (bit)</option>
+            <option value="byte">Byte (B)</option>
+          </optgroup>
+
+          <optgroup label="Decimal units (base 1000)">
+            <option value="kbit">Kilobit (kbit)</option>
+            <option value="mbit">Megabit (Mbit)</option>
+            <option value="gbit">Gigabit (Gbit)</option>
+            <option value="tbit">Terabit (Tbit)</option>
+            <option value="kb">Kilobyte (kB)</option>
+            <option value="mb" selected>Megabyte (MB)</option>
+            <option value="gb">Gigabyte (GB)</option>
+            <option value="tb">Terabyte (TB)</option>
+            <option value="pb">Petabyte (PB)</option>
+            <option value="eb">Exabyte (EB)</option>
+          </optgroup>
+
+          <optgroup label="Binary units (base 1024)">
+            <option value="kib">Kibibyte (KiB)</option>
+            <option value="mib">Mebibyte (MiB)</option>
+            <option value="gib">Gibibyte (GiB)</option>
+            <option value="tib">Tebibyte (TiB)</option>
+            <option value="pib">Pebibyte (PiB)</option>
+            <option value="eib">Exbibyte (EiB)</option>
+          </optgroup>
+
+        </select>
+      </div>
+
+      <div class="actions">
+        <button class="action primary" id="convertBtn" type="button">
+          Convert Data
+        </button>
+
+        <button class="action secondary" id="copyBtn" type="button">
+          Copy Result
+        </button>
+
+        <button class="action gray" id="resetBtn" type="button">
+          Reset
+        </button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="result-label">Converted result</div>
+        <div class="result-value" id="resultValue">0.000001 MB</div>
+        <div class="result-note" id="resultNote">
+          1 byte = 0.000001 megabytes.
+        </div>
+      </div>
+
+      <div class="quick-title">Popular conversions</div>
+
+      <div class="quick">
+        <button type="button" data-value="1024" data-from="kb" data-to="mb">
+          1024 kB to MB
+        </button>
+
+        <button type="button" data-value="1" data-from="gb" data-to="mb">
+          1 GB to MB
+        </button>
+
+        <button type="button" data-value="1" data-from="gb" data-to="gib">
+          1 GB to GiB
+        </button>
+
+        <button type="button" data-value="1" data-from="byte" data-to="bit">
+          1 Byte to bits
+        </button>
+
+        <button type="button" data-value="8" data-from="mbit" data-to="mb">
+          8 Mbit to MB
+        </button>
+
+        <button type="button" data-value="1" data-from="tb" data-to="gb">
+          1 TB to GB
+        </button>
+      </div>
+
+    </div>
+
+    <aside>
+
+      <div class="side-card">
+        <h3>Quick storage facts</h3>
+        <ul>
+          <li>1 byte = 8 bits</li>
+          <li>1 kB = 1,000 bytes</li>
+          <li>1 MB = 1,000 kB</li>
+          <li>1 GB = 1,000 MB</li>
+          <li>1 TB = 1,000 GB</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>Decimal vs binary</h3>
+        <p>
+          Decimal storage units use powers of 1,000. Binary storage units
+          use powers of 1,024. This difference explains why GB and GiB
+          are not exactly the same.
+        </p>
+      </div>
+
+      <div class="side-card">
+        <h3>Useful for</h3>
+        <p>
+          Students, computer users, developers, IT professionals,
+          cloud storage users, website owners and anyone comparing
+          file sizes or storage devices.
+        </p>
+      </div>
+
+      <div class="notice">
+        <strong>Important:</strong> This calculator converts data quantities,
+        not internet speed. Internet transfer rates are measured in units
+        such as Mbps or MB/s.
+      </div>
+
+    </aside>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>How to use the Data Storage Converter</h2>
+
+    <ol>
+      <li>Enter the amount of digital data you want to convert.</li>
+      <li>Select the original unit, such as MB, GB, bytes or GiB.</li>
+      <li>Choose your desired target unit.</li>
+      <li>Click Convert Data or simply change the input to update the result.</li>
+      <li>Use Copy Result to copy the calculated conversion.</li>
+    </ol>
+
+    <p>
+      You can reverse the conversion with the Swap Units button.
+      Popular conversion shortcuts are also available for common
+      storage calculations.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Data storage conversion formulas</h2>
+
+    <p>
+      Digital data is measured in bits and bytes. This calculator uses
+      bits as its common base unit. Every selected unit has a defined
+      number of bits, allowing the tool to convert between different
+      storage systems consistently.
+    </p>
+
+    <h3>Basic conversion formula</h3>
+
+    <div class="formula">
+      Data in bits = Input value × Bits per source unit
+    </div>
+
+    <br>
+
+    <div class="formula">
+      Converted value = Data in bits ÷ Bits per target unit
+    </div>
+
+    <h3>Decimal storage formula</h3>
+
+    <p>
+      Decimal storage measurements use multiples of 1,000.
+      These are commonly used by storage manufacturers and in
+      many data transfer specifications.
+    </p>
+
+    <div class="formula">
+      1 kB = 1,000 bytes<br>
+      1 MB = 1,000,000 bytes<br>
+      1 GB = 1,000,000,000 bytes<br>
+      1 TB = 1,000,000,000,000 bytes
+    </div>
+
+    <h3>Binary storage formula</h3>
+
+    <p>
+      Binary measurements use multiples of 1,024. They are commonly
+      used in computing and memory-related contexts.
+    </p>
+
+    <div class="formula">
+      1 KiB = 1,024 bytes<br>
+      1 MiB = 1,048,576 bytes<br>
+      1 GiB = 1,073,741,824 bytes<br>
+      1 TiB = 1,099,511,627,776 bytes
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Complete data storage conversion reference</h2>
+
+    <p>
+      The following table explains the exact decimal and binary
+      relationships used by this calculator.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Unit</th>
+            <th>Symbol</th>
+            <th>Equivalent in bytes</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><td>Bit</td><td>bit</td><td>0.125 bytes</td></tr>
+          <tr><td>Byte</td><td>B</td><td>1 byte</td></tr>
+          <tr><td>Kilobyte</td><td>kB</td><td>1,000 bytes</td></tr>
+          <tr><td>Megabyte</td><td>MB</td><td>1,000,000 bytes</td></tr>
+          <tr><td>Gigabyte</td><td>GB</td><td>1,000,000,000 bytes</td></tr>
+          <tr><td>Terabyte</td><td>TB</td><td>1,000,000,000,000 bytes</td></tr>
+          <tr><td>Petabyte</td><td>PB</td><td>10<sup>15</sup> bytes</td></tr>
+          <tr><td>Exabyte</td><td>EB</td><td>10<sup>18</sup> bytes</td></tr>
+          <tr><td>Kibibyte</td><td>KiB</td><td>1,024 bytes</td></tr>
+          <tr><td>Mebibyte</td><td>MiB</td><td>1,048,576 bytes</td></tr>
+          <tr><td>Gibibyte</td><td>GiB</td><td>1,073,741,824 bytes</td></tr>
+          <tr><td>Tebibyte</td><td>TiB</td><td>1,099,511,627,776 bytes</td></tr>
+          <tr><td>Pebibyte</td><td>PiB</td><td>2<sup>50</sup> bytes</td></tr>
+          <tr><td>Exbibyte</td><td>EiB</td><td>2<sup>60</sup> bytes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The bit row is expressed as a fractional byte because eight bits
+      make one byte. The converter internally uses exact bit-based
+      factors for all calculations.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Popular data storage conversion examples</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Conversion</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><td>1 byte to bits</td><td>8 bits</td></tr>
+          <tr><td>1 kB to bytes</td><td>1,000 bytes</td></tr>
+          <tr><td>1 MB to kB</td><td>1,000 kB</td></tr>
+          <tr><td>1 GB to MB</td><td>1,000 MB</td></tr>
+          <tr><td>1 TB to GB</td><td>1,000 GB</td></tr>
+          <tr><td>1 KiB to bytes</td><td>1,024 bytes</td></tr>
+          <tr><td>1 MiB to KiB</td><td>1,024 KiB</td></tr>
+          <tr><td>1 GiB to MiB</td><td>1,024 MiB</td></tr>
+          <tr><td>1 GB to GiB</td><td>Approximately 0.931323 GiB</td></tr>
+          <tr><td>1 GiB to GB</td><td>Approximately 1.073742 GB</td></tr>
+          <tr><td>8 Mbit to MB</td><td>1 MB</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Understanding bits, bytes and storage capacity</h2>
+
+    <h3>What is a bit?</h3>
+
+    <p>
+      A bit is the smallest basic unit of digital information. It can
+      represent one of two values, commonly written as 0 or 1.
+      Computers use combinations of bits to represent numbers,
+      characters, images, sound and other digital information.
+    </p>
+
+    <h3>What is a byte?</h3>
+
+    <p>
+      A byte is a group of eight bits. Bytes are commonly used to
+      measure file sizes, memory capacity and storage space.
+      Text files, photographs, videos and software applications
+      are all stored using digital data measured in bytes.
+    </p>
+
+    <h3>What is a kilobyte and megabyte?</h3>
+
+    <p>
+      A kilobyte is a decimal storage unit equal to 1,000 bytes.
+      A megabyte equals 1,000,000 bytes. These units are commonly
+      used when describing documents, images, music files and
+      downloaded content.
+    </p>
+
+    <h3>What is a gigabyte and terabyte?</h3>
+
+    <p>
+      Gigabytes and terabytes are larger storage measurements.
+      A gigabyte is often used to describe phone storage, memory
+      cards and application sizes. Terabytes are commonly used
+      for computer drives, external hard drives and large backups.
+    </p>
+
+    <h3>Why are GB and GiB different?</h3>
+
+    <p>
+      GB is a decimal unit based on 1,000, while GiB is a binary
+      unit based on 1,024. One GB contains exactly 1,000,000,000
+      bytes, whereas one GiB contains 1,073,741,824 bytes.
+    </p>
+
+    <p>
+      This difference can make a storage device appear to have
+      a different capacity depending on how the operating system
+      reports its size. The device may also reserve some space
+      for formatting and system operations.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Data storage units vs data transfer speed</h2>
+
+    <p>
+      Data storage and internet speed are related concepts, but
+      they measure different things.
+    </p>
+
+    <ul>
+      <li><strong>MB:</strong> Megabyte, a quantity of stored data.</li>
+      <li><strong>GB:</strong> Gigabyte, a larger quantity of stored data.</li>
+      <li><strong>Mbps:</strong> Megabits per second, a data transfer rate.</li>
+      <li><strong>MB/s:</strong> Megabytes per second, another way to express a transfer rate.</li>
+    </ul>
+
+    <p>
+      Because one byte contains eight bits, 8 Mbps is theoretically
+      equal to 1 MB/s before accounting for network overhead and
+      other practical factors.
+    </p>
+
+    <div class="formula">
+      Megabytes per second = Megabits per second ÷ 8
+    </div>
+
+    <p>
+      For example, a theoretical 100 Mbps connection can transfer
+      approximately 12.5 MB of data per second under ideal conditions.
+      Actual download speeds may be lower.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <h3>1. How many bytes are in one kilobyte?</h3>
+      <p>
+        One decimal kilobyte (kB) contains 1,000 bytes.
+        One binary kibibyte (KiB) contains 1,024 bytes.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>2. What is the difference between GB and GiB?</h3>
+      <p>
+        One GB contains 1,000,000,000 bytes, while one GiB contains
+        1,073,741,824 bytes. GB uses decimal units and GiB uses binary units.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>3. How many bits are in one byte?</h3>
+      <p>One byte contains exactly eight bits.</p>
+    </div>
+
+    <div class="faq">
+      <h3>4. How many megabytes are in one gigabyte?</h3>
+      <p>
+        One decimal gigabyte contains 1,000 megabytes.
+        One binary gibibyte contains 1,024 mebibytes.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>5. Why does my hard drive show less storage than advertised?</h3>
+      <p>
+        Manufacturers generally advertise capacity using decimal units.
+        Some operating systems display binary-based values or use
+        different labels. Formatting and system-reserved space can
+        also reduce the capacity available for files.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>6. Is a megabit the same as a megabyte?</h3>
+      <p>
+        No. A megabit (Mbit) contains 1,000,000 bits, while a megabyte
+        (MB) contains 1,000,000 bytes or 8,000,000 bits.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>7. Does this calculator convert internet speed?</h3>
+      <p>
+        This calculator converts data quantities, not transfer rates.
+        Internet speed is usually measured in units such as Mbps
+        or MB/s.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>8. Is 1 TB equal to 1,024 GB?</h3>
+      <p>
+        In the decimal system, 1 TB equals 1,000 GB.
+        In the binary system, 1 TiB equals 1,024 GiB.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>9. How do I convert megabytes into gigabytes?</h3>
+      <p>
+        Divide the number of megabytes by 1,000 to get decimal gigabytes.
+        For example, 5,000 MB equals 5 GB.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>10. Is the CalcNest Data Storage Converter free?</h3>
+      <p>
+        Yes. It is free to use online and does not require registration
+        or payment.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Explore related CalcNest calculators</h2>
+
+    <p>
+      Explore other useful converters and calculators to make
+      everyday measurements easier.
+    </p>
+
+    <div class="related">
+      <a href="/calculators/unit-converters.html">All Unit Converters →</a>
+      <a href="/calculators/length-converter.html">Length Converter →</a>
+      <a href="/calculators/weight-converter.html">Weight Converter →</a>
+      <a href="/calculators/temperature-converter.html">Temperature Converter →</a>
+      <a href="/calculators/volume-converter.html">Volume Converter →</a>
+      <a href="/calculators/speed-converter.html">Speed Converter →</a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+    <div>
+      <a href="/">Home</a> ·
+      <a href="/#about">About</a> ·
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
 <script>
-const units={bit:{n:"Bit (bit)",f:1},B:{n:"Byte (B)",f:8},KB:{n:"Kilobyte (kB)",f:8000},MB:{n:"Megabyte (MB)",f:8e6},GB:{n:"Gigabyte (GB)",f:8e9},TB:{n:"Terabyte (TB)",f:8e12},PB:{n:"Petabyte (PB)",f:8e15},KiB:{n:"Kibibyte (KiB)",f:8192},MiB:{n:"Mebibyte (MiB)",f:8388608},GiB:{n:"Gibibyte (GiB)",f:8589934592},TiB:{n:"Tebibyte (TiB)",f:8796093022208}};
-const amount=document.getElementById("amount"),from=document.getElementById("from"),to=document.getElementById("to"),answer=document.getElementById("answer"),detail=document.getElementById("detail");
-function fill(s){s.innerHTML=Object.entries(units).map(([k,u])=>`<option value="${k}">${u.n}</option>`).join("")}fill(from);fill(to);from.value="GB";to.value="MB";
-function fmt(n){return Number(n).toLocaleString("en-US",{maximumFractionDigits:10})}
-function calc(){let v=Number(amount.value);if(amount.value.trim()===""||!Number.isFinite(v)){answer.textContent="Enter a valid number";detail.textContent="Please enter a numeric value.";return}let r=v*units[from.value].f/units[to.value].f;answer.textContent=`${fmt(v)} ${from.value} = ${fmt(r)} ${to.value}`;detail.textContent=`${fmt(v)} ${units[from.value].n} equals ${fmt(r)} ${units[to.value].n}.`}
-function setConversion(a,b){from.value=a;to.value=b;calc();document.getElementById("calculator").scrollIntoView({behavior:"smooth"})}window.setConversion=setConversion;
-amount.addEventListener("input",calc);from.addEventListener("change",calc);to.addEventListener("change",calc);
-document.getElementById("swap").onclick=()=>{let x=from.value;from.value=to.value;to.value=x;calc()};
-document.getElementById("reset").onclick=()=>{amount.value=1;from.value="GB";to.value="MB";calc()};
-document.getElementById("copy").onclick=async()=>{try{await navigator.clipboard.writeText(answer.textContent);document.getElementById("copy").textContent="Copied!"}catch(e){detail.textContent="Select and copy the result manually."}};
-document.querySelectorAll("[data-value]").forEach(b=>b.onclick=()=>{amount.value=b.dataset.value;calc()});
-document.getElementById("year").textContent=new Date().getFullYear();calc();
+(function(){
+  "use strict";
+
+  /*
+    All conversion factors are stored as bits.
+    Decimal prefixes use powers of 1000.
+    Binary prefixes use powers of 1024.
+  */
+
+  const units = {
+    bit: {
+      name:"bits",
+      symbol:"bit",
+      bits:1
+    },
+
+    byte: {
+      name:"bytes",
+      symbol:"B",
+      bits:8
+    },
+
+    kbit: {
+      name:"kilobits",
+      symbol:"kbit",
+      bits:1000
+    },
+
+    mbit: {
+      name:"megabits",
+      symbol:"Mbit",
+      bits:1000000
+    },
+
+    gbit: {
+      name:"gigabits",
+      symbol:"Gbit",
+      bits:1000000000
+    },
+
+    tbit: {
+      name:"terabits",
+      symbol:"Tbit",
+      bits:1000000000000
+    },
+
+    kb: {
+      name:"kilobytes",
+      symbol:"kB",
+      bits:8000
+    },
+
+    mb: {
+      name:"megabytes",
+      symbol:"MB",
+      bits:8000000
+    },
+
+    gb: {
+      name:"gigabytes",
+      symbol:"GB",
+      bits:8000000000
+    },
+
+    tb: {
+      name:"terabytes",
+      symbol:"TB",
+      bits:8000000000000
+    },
+
+    pb: {
+      name:"petabytes",
+      symbol:"PB",
+      bits:8000000000000000
+    },
+
+    eb: {
+      name:"exabytes",
+      symbol:"EB",
+      bits:8000000000000000000
+    },
+
+    kib: {
+      name:"kibibytes",
+      symbol:"KiB",
+      bits:8192
+    },
+
+    mib: {
+      name:"mebibytes",
+      symbol:"MiB",
+      bits:8388608
+    },
+
+    gib: {
+      name:"gibibytes",
+      symbol:"GiB",
+      bits:8589934592
+    },
+
+    tib: {
+      name:"tebibytes",
+      symbol:"TiB",
+      bits:8796093022208
+    },
+
+    pib: {
+      name:"pebibytes",
+      symbol:"PiB",
+      bits:9007199254740992
+    },
+
+    eib: {
+      name:"exbibytes",
+      symbol:"EiB",
+      bits:9223372036854776000
+    }
+  };
+
+  const amount = document.getElementById("amount");
+  const from = document.getElementById("fromUnit");
+  const to = document.getElementById("toUnit");
+
+  const resultValue = document.getElementById("resultValue");
+  const resultNote = document.getElementById("resultNote");
+  const copyBtn = document.getElementById("copyBtn");
+
+  let lastResultText = "";
+
+  function formatNumber(value){
+    if(!Number.isFinite(value)){
+      return "Value too large";
+    }
+
+    if(value === 0){
+      return "0";
+    }
+
+    const absolute = Math.abs(value);
+
+    if(absolute >= 1e15 || absolute < 1e-7){
+      return value.toExponential(9);
+    }
+
+    return Number(value.toPrecision(12)).toLocaleString("en-US",{
+      maximumFractionDigits:10
+    });
+  }
+
+  function convert(){
+    const raw = amount.value.trim();
+    const value = Number(raw);
+
+    if(
+      raw === "" ||
+      !Number.isFinite(value) ||
+      value < 0
+    ){
+      resultValue.textContent = "Enter a valid value";
+      resultNote.textContent =
+        "Please enter a number that is zero or greater.";
+
+      lastResultText = "";
+      return;
+    }
+
+    const source = units[from.value];
+    const target = units[to.value];
+
+    if(!source || !target){
+      resultValue.textContent = "Invalid unit selection";
+      resultNote.textContent = "Please choose valid storage units.";
+      lastResultText = "";
+      return;
+    }
+
+    const totalBits = value * source.bits;
+    const converted = totalBits / target.bits;
+
+    if(!Number.isFinite(converted)){
+      resultValue.textContent = "Value too large";
+      resultNote.textContent =
+        "Please enter a smaller amount to calculate this conversion.";
+
+      lastResultText = "";
+      return;
+    }
+
+    const formattedInput = formatNumber(value);
+    const formattedResult = formatNumber(converted);
+
+    resultValue.textContent =
+      formattedResult + " " + target.symbol;
+
+    resultNote.textContent =
+      formattedInput + " " + source.name +
+      " = " + formattedResult + " " + target.name + ".";
+
+    lastResultText =
+      formattedInput + " " + source.name +
+      " = " + formattedResult + " " + target.name;
+  }
+
+  document.getElementById("convertBtn")
+    .addEventListener("click",convert);
+
+  amount.addEventListener("input",convert);
+  from.addEventListener("change",convert);
+  to.addEventListener("change",convert);
+
+  document.getElementById("swapBtn")
+    .addEventListener("click",function(){
+      const oldFrom = from.value;
+
+      from.value = to.value;
+      to.value = oldFrom;
+
+      convert();
+    });
+
+  document.getElementById("resetBtn")
+    .addEventListener("click",function(){
+      amount.value = "1";
+      from.value = "byte";
+      to.value = "mb";
+
+      convert();
+    });
+
+  copyBtn.addEventListener("click",async function(){
+    if(!lastResultText){
+      resultNote.textContent =
+        "There is no valid result to copy.";
+      return;
+    }
+
+    try{
+      await navigator.clipboard.writeText(lastResultText);
+
+      copyBtn.textContent = "Copied!";
+
+      setTimeout(function(){
+        copyBtn.textContent = "Copy Result";
+      },1400);
+
+    }catch(error){
+      resultNote.textContent =
+        "Copy is unavailable in this browser. Select the result and copy it manually.";
+    }
+  });
+
+  document.querySelectorAll(".quick button")
+    .forEach(function(button){
+      button.addEventListener("click",function(){
+        amount.value = button.dataset.value;
+        from.value = button.dataset.from;
+        to.value = button.dataset.to;
+
+        convert();
+
+        document.getElementById("converter")
+          .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+      });
+    });
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  convert();
+
+})();
 </script>
-</body></html>
+
+</body>
+</html>
