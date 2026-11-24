@@ -1,0 +1,1430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Roofing Calculator - Roof Area, Shingles & Material Cost | CalcNest</title>
+  <meta name="description" content="Calculate roof area, roofing material quantities, shingle packages, roofing squares, waste allowance and estimated roofing costs with this free roofing calculator.">
+  <meta name="keywords" content="roofing calculator, roof area calculator, roof shingles calculator, roofing material calculator, roof cost estimator, roofing squares calculator">
+  <meta name="author" content="CalcNest">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/roofing-calculator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free Roofing Calculator - CalcNest">
+  <meta property="og:description" content="Estimate roof surface area, material quantities, roofing packages and project costs.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/roofing-calculator.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1635424710928-9b3a7c5c2b1a?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Roofing Calculator - CalcNest">
+  <meta name="twitter:description" content="Calculate roof area, materials and estimated roofing costs.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1635424710928-9b3a7c5c2b1a?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CalcNest Roofing Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "A free online calculator for estimating roof surface area, roofing materials, waste allowance and project costs."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate roof area?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the roof's horizontal footprint area by the roof pitch factor. The pitch factor is the square root of 1 plus the square of rise divided by 12."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a roofing square?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A roofing square is a common roofing measurement equal to 100 square feet of roof surface."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much roofing waste should I add?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A common planning allowance is around 10 percent, but the correct amount depends on roof shape, material, cuts, valleys and installation requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this calculator include labor costs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The calculator estimates material costs based on the package price you enter. Labor, removal, underlayment, flashing and other project expenses should be estimated separately."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+      --radius:18px;
+    }
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.65;
+    }
+
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+
+    .site-header {
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav {
+      max-width:1180px;
+      margin:auto;
+      padding:15px 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand {
+      font-size:25px;
+      font-weight:800;
+      letter-spacing:-1px;
+      color:var(--ink);
+    }
+
+    .brand span {
+      color:var(--blue);
+    }
+
+    .nav-links {
+      display:flex;
+      gap:23px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a {
+      color:#42516a;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .container {
+      max-width:1120px;
+      margin:auto;
+      padding:0 22px;
+    }
+
+    .hero {
+      padding:58px 0 35px;
+      background:linear-gradient(120deg,#f4f7ff,#f9f7ff);
+    }
+
+    .breadcrumb {
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:17px;
+    }
+
+    .breadcrumb a { color:var(--blue); }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:35px;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      background:#e8edff;
+      color:#3152c8;
+      border-radius:30px;
+      padding:6px 12px;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    h1 {
+      font-size:clamp(34px,5vw,52px);
+      line-height:1.12;
+      letter-spacing:-1.7px;
+      margin:0 0 17px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:17px;
+      max-width:650px;
+      margin:0;
+    }
+
+    .hero-image {
+      width:100%;
+      height:255px;
+      object-fit:cover;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .section {
+      padding:38px 0;
+    }
+
+    .section-heading {
+      font-size:27px;
+      letter-spacing:-.7px;
+      margin:0 0 10px;
+    }
+
+    .section-intro {
+      color:var(--muted);
+      margin:0 0 24px;
+    }
+
+    .calculator-layout {
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .panel {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:25px;
+      box-shadow:var(--shadow);
+    }
+
+    .panel h2 {
+      margin:0 0 7px;
+      font-size:22px;
+    }
+
+    .panel-subtitle {
+      color:var(--muted);
+      font-size:14px;
+      margin:0 0 22px;
+    }
+
+    .field-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field {
+      margin-bottom:17px;
+    }
+
+    .field.full {
+      grid-column:1/-1;
+    }
+
+    label {
+      display:block;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:7px;
+      color:#34435b;
+    }
+
+    input,select {
+      width:100%;
+      padding:12px 13px;
+      border:1px solid #dce3ef;
+      border-radius:10px;
+      font-size:15px;
+      color:var(--ink);
+      background:#fff;
+      outline:none;
+      min-height:46px;
+    }
+
+    input:focus,select:focus {
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.1);
+    }
+
+    .hint {
+      color:var(--muted);
+      font-size:12px;
+      margin-top:5px;
+    }
+
+    .input-note {
+      font-size:12px;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    .button-row {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+
+    button {
+      border:0;
+      border-radius:10px;
+      padding:12px 18px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    button:hover { transform:translateY(-1px); }
+
+    .primary-btn {
+      background:linear-gradient(120deg,var(--blue),var(--purple));
+      color:#fff;
+      flex:1;
+    }
+
+    .secondary-btn {
+      background:#eef2ff;
+      color:#3152c8;
+    }
+
+    .result-panel {
+      background:linear-gradient(145deg,#f8faff,#f8f6ff);
+      border:1px solid #e4e9fb;
+      border-radius:15px;
+      padding:20px;
+      margin-top:20px;
+    }
+
+    .result-label {
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .main-result {
+      font-size:37px;
+      font-weight:800;
+      letter-spacing:-1px;
+      color:var(--blue);
+      margin:2px 0 4px;
+      overflow-wrap:anywhere;
+    }
+
+    .result-unit {
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .result-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .result-item {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:14px;
+      min-width:0;
+    }
+
+    .result-item span {
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+
+    .result-item strong {
+      font-size:19px;
+      overflow-wrap:anywhere;
+    }
+
+    .result-note {
+      margin-top:15px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .error {
+      display:none;
+      color:#b42318;
+      background:#fff0ef;
+      border:1px solid #ffd4d0;
+      padding:11px 13px;
+      border-radius:9px;
+      margin-top:15px;
+      font-size:13px;
+    }
+
+    .success-message {
+      min-height:18px;
+      color:#237a4b;
+      font-size:12px;
+      margin-top:10px;
+    }
+
+    .quick-values {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:5px;
+    }
+
+    .quick-values button {
+      background:#f0f3fa;
+      color:#42516a;
+      padding:7px 11px;
+      font-size:12px;
+      border-radius:8px;
+    }
+
+    .info-card {
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px;
+      margin:20px 0;
+    }
+
+    .info-card h3 {
+      margin:0 0 8px;
+      font-size:17px;
+    }
+
+    .info-card p {
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .content-section {
+      padding:27px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .content-section h2 {
+      font-size:25px;
+      margin:0 0 13px;
+      letter-spacing:-.5px;
+    }
+
+    .content-section h3 {
+      font-size:18px;
+      margin:22px 0 8px;
+    }
+
+    .content-section p,
+    .content-section li {
+      color:#53627a;
+      font-size:15px;
+    }
+
+    .formula {
+      background:#f3f5fc;
+      padding:15px 17px;
+      border-radius:11px;
+      border:1px solid var(--line);
+      font-family:Arial,sans-serif;
+      font-weight:700;
+      color:#34435b;
+      margin:14px 0;
+      overflow-wrap:anywhere;
+    }
+
+    .example-table {
+      width:100%;
+      border-collapse:collapse;
+      margin:17px 0;
+      font-size:14px;
+    }
+
+    .example-table th,
+    .example-table td {
+      text-align:left;
+      padding:12px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .example-table th {
+      background:#f5f7fc;
+      color:#34435b;
+    }
+
+    .faq-item {
+      border-bottom:1px solid var(--line);
+      padding:17px 0;
+    }
+
+    .faq-item h3 {
+      margin:0 0 7px;
+      font-size:16px;
+    }
+
+    .faq-item p {
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .related-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:13px;
+    }
+
+    .related-card {
+      display:block;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:16px;
+      color:var(--ink);
+      background:#fff;
+      font-weight:700;
+    }
+
+    .related-card span {
+      display:block;
+      font-size:12px;
+      font-weight:400;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    .disclaimer {
+      background:#fff9e9;
+      border:1px solid #f4e5b8;
+      color:#78602a;
+      padding:15px;
+      border-radius:12px;
+      font-size:13px;
+      margin-top:20px;
+    }
+
+    footer {
+      background:#f7f8fc;
+      border-top:1px solid var(--line);
+      padding:28px 0;
+      margin-top:40px;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px) {
+      .hero-grid,.calculator-layout {
+        grid-template-columns:1fr;
+      }
+      .hero-image { height:220px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+    }
+
+    @media(max-width:560px) {
+      .nav {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+      }
+      .nav-links { gap:14px; }
+      .hero { padding:38px 0 25px; }
+      .field-grid,.result-grid { grid-template-columns:1fr; }
+      .panel { padding:18px; }
+      .related-grid { grid-template-columns:1fr; }
+      .main-result { font-size:31px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#categories">Calculators</a>
+      <a href="/#guides">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> /
+      <a href="/calculators/home-construction-calculators.html">Home &amp; Construction</a> /
+      Roofing Calculator
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">HOME &amp; CONSTRUCTION TOOL</span>
+        <h1>Free Roofing Calculator</h1>
+        <p>
+          Estimate your roof's surface area, roofing material requirements,
+          shingle packages, roofing squares and approximate material costs.
+          Enter your building dimensions and roof pitch to get started.
+        </p>
+      </div>
+
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1635424710928-9b3a7c5c2b1a?w=1200"
+        alt="Residential roof construction and roofing materials"
+        loading="eager"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="calculator-layout">
+
+      <div class="panel">
+        <h2>Roof Measurements</h2>
+        <p class="panel-subtitle">
+          Enter the building footprint, roof pitch and material details.
+        </p>
+
+        <div class="field-grid">
+
+          <div class="field">
+            <label for="length">Building Length</label>
+            <input type="number" id="length" min="0.01" step="any" value="40">
+            <div class="input-note">Length of the building footprint</div>
+          </div>
+
+          <div class="field">
+            <label for="width">Building Width</label>
+            <input type="number" id="width" min="0.01" step="any" value="30">
+            <div class="input-note">Width of the building footprint</div>
+          </div>
+
+          <div class="field">
+            <label for="dimensionUnit">Dimension Unit</label>
+            <select id="dimensionUnit">
+              <option value="ft">Feet (ft)</option>
+              <option value="m">Meters (m)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="overhang">Roof Overhang on Each Side</label>
+            <input type="number" id="overhang" min="0" step="any" value="1">
+            <div class="input-note">Use the same unit as building dimensions</div>
+          </div>
+
+          <div class="field">
+            <label for="pitch">Roof Pitch (Rise per 12)</label>
+            <input type="number" id="pitch" min="0" max="24" step="0.1" value="6">
+            <div class="input-note">Example: 6 means 6 units of rise per 12 horizontal units</div>
+          </div>
+
+          <div class="field">
+            <label for="roofType">Roof Structure</label>
+            <select id="roofType">
+              <option value="gable">Gable / Two-Slope Roof</option>
+              <option value="shed">Shed / Single-Slope Roof</option>
+              <option value="hip">Hip / Multi-Slope Roof (Footprint Estimate)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="waste">Material Waste Allowance</label>
+            <select id="waste">
+              <option value="5">5%</option>
+              <option value="10" selected>10% - Common Planning Allowance</option>
+              <option value="12">12%</option>
+              <option value="15">15%</option>
+              <option value="20">20%</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="areaUnit">Display Roof Area In</label>
+            <select id="areaUnit">
+              <option value="ft2">Square Feet (ft²)</option>
+              <option value="m2">Square Meters (m²)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="coverage">Material Coverage per Package</label>
+            <input type="number" id="coverage" min="0.01" step="any" value="33.3">
+            <div class="input-note">Area covered by one package, in the selected area unit</div>
+          </div>
+
+          <div class="field">
+            <label for="price">Price per Package</label>
+            <input type="number" id="price" min="0" step="any" value="45">
+          </div>
+
+          <div class="field full">
+            <label for="currency">Currency Symbol</label>
+            <select id="currency">
+              <option value="$">US Dollar ($)</option>
+              <option value="£">British Pound (£)</option>
+              <option value="€">Euro (€)</option>
+              <option value="PKR ">Pakistani Rupee (PKR)</option>
+              <option value="₹">Indian Rupee (₹)</option>
+              <option value="C$">Canadian Dollar (C$)</option>
+              <option value="A$">Australian Dollar (A$)</option>
+              <option value="AED ">UAE Dirham (AED)</option>
+              <option value="SAR ">Saudi Riyal (SAR)</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="button-row">
+          <button class="primary-btn" id="calculateBtn" type="button">Calculate Roofing Materials</button>
+          <button class="secondary-btn" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="error" id="errorBox" role="alert"></div>
+        <div class="success-message" id="message" aria-live="polite"></div>
+
+        <div class="quick-values">
+          <button type="button" data-length="30" data-width="20">Small roof</button>
+          <button type="button" data-length="40" data-width="30">Medium roof</button>
+          <button type="button" data-length="60" data-width="40">Large roof</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Your Roofing Estimate</h2>
+        <p class="panel-subtitle">
+          Results are calculated from your measurements and selected material coverage.
+        </p>
+
+        <div class="result-panel" id="resultPanel" aria-live="polite">
+          <div class="result-label">Estimated roof surface area</div>
+          <div class="main-result" id="roofArea">1,272.8</div>
+          <div class="result-unit" id="roofAreaUnit">square feet including waste</div>
+
+          <div class="result-grid">
+            <div class="result-item">
+              <span>Base roof area</span>
+              <strong id="baseArea">1,157.1 ft²</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Roofing squares</span>
+              <strong id="roofSquares">12.73</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Material packages</span>
+              <strong id="packages">39</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Extra material for waste</span>
+              <strong id="wasteArea">115.7 ft²</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Estimated material cost</span>
+              <strong id="totalCost">$1,755.00</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Pitch adjustment factor</span>
+              <strong id="pitchFactor">1.118</strong>
+            </div>
+          </div>
+
+          <p class="result-note" id="resultExplanation">
+            The estimate includes your selected waste allowance. Package quantities
+            are rounded up to whole packages.
+          </p>
+
+          <div class="button-row">
+            <button class="secondary-btn" id="copyBtn" type="button">Copy Results</button>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>What is a roofing square?</h3>
+          <p>
+            In common roofing practice, one roofing square equals 100 square feet
+            of roof surface. It is a measurement of area, not a physical square
+            of roofing material.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="disclaimer">
+      <strong>Important:</strong> This calculator provides a planning estimate for
+      a simple roof footprint. Complex hips, valleys, dormers, multiple roof levels,
+      unusual geometry, flashing, underlayment and installation details may change
+      the actual material requirement. Verify measurements with a qualified roofing
+      professional before ordering materials.
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="content-section">
+      <h2>How to Calculate Roofing Area</h2>
+      <p>
+        Roofing area is the actual sloped surface that will receive roofing
+        materials. It is usually larger than the building's flat footprint because
+        a pitched roof rises above the horizontal plane.
+      </p>
+
+      <p>
+        This calculator starts with the building footprint, adds the selected
+        overhang on each side, and adjusts the area using the roof pitch.
+        For a simple symmetrical gable roof, the combined area of both roof
+        slopes can be estimated from the full adjusted footprint and pitch factor.
+      </p>
+
+      <div class="formula">
+        Pitch Factor = √(1 + (Roof Rise ÷ 12)²)
+      </div>
+
+      <div class="formula">
+        Adjusted Length = Building Length + (2 × Overhang)
+      </div>
+
+      <div class="formula">
+        Adjusted Width = Building Width + (2 × Overhang)
+      </div>
+
+      <div class="formula">
+        Roof Surface Area = Adjusted Length × Adjusted Width × Pitch Factor
+      </div>
+
+      <div class="formula">
+        Material Area = Roof Surface Area × (1 + Waste Percentage ÷ 100)
+      </div>
+
+      <p>
+        The pitch adjustment converts the horizontal footprint into an estimated
+        sloped surface area. A steeper roof has a larger surface area than a flat
+        roof with the same footprint.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Roofing Calculator Example</h2>
+      <p>
+        Suppose a building is 40 feet long and 30 feet wide. It has a 1-foot
+        overhang on every side and a roof pitch of 6:12.
+      </p>
+
+      <table class="example-table">
+        <thead>
+          <tr>
+            <th>Measurement</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Building length</td>
+            <td>40 ft</td>
+          </tr>
+          <tr>
+            <td>Building width</td>
+            <td>30 ft</td>
+          </tr>
+          <tr>
+            <td>Adjusted length</td>
+            <td>42 ft</td>
+          </tr>
+          <tr>
+            <td>Adjusted width</td>
+            <td>32 ft</td>
+          </tr>
+          <tr>
+            <td>Roof pitch</td>
+            <td>6:12</td>
+          </tr>
+          <tr>
+            <td>Pitch factor</td>
+            <td>Approximately 1.118</td>
+          </tr>
+          <tr>
+            <td>Estimated roof area</td>
+            <td>Approximately 1,502 ft²</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        With a 10% waste allowance, the material planning area becomes approximately
+        1,652 square feet. Actual results depend on the dimensions and selections
+        entered into the calculator.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>What Is Roof Pitch?</h2>
+      <p>
+        Roof pitch describes how much a roof rises vertically over a horizontal
+        distance of 12 units. For example, a 6:12 pitch rises 6 inches for every
+        12 inches of horizontal run when using inches as the measurement.
+      </p>
+
+      <ul>
+        <li><strong>2:12:</strong> A low-slope roof.</li>
+        <li><strong>4:12:</strong> A relatively gentle roof slope.</li>
+        <li><strong>6:12:</strong> A common moderate roof pitch.</li>
+        <li><strong>8:12:</strong> A steeper roof slope.</li>
+        <li><strong>12:12:</strong> A steep roof with a 45-degree slope.</li>
+      </ul>
+
+      <p>
+        Roofing material suitability depends on the manufacturer's specifications
+        and local building requirements. Do not assume every roofing product is
+        suitable for every roof pitch.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Understanding Roofing Squares and Packages</h2>
+      <p>
+        Contractors often use roofing squares to estimate large roof projects.
+        One square represents 100 square feet of roof surface. For example,
+        a roof measuring 1,500 square feet has an area of 15 roofing squares.
+      </p>
+
+      <p>
+        Roofing products are sold in different package sizes. Shingles, metal
+        panels, tiles and other materials may have different coverage rates.
+        Always use the coverage information printed on the actual product packaging.
+      </p>
+
+      <ul>
+        <li>Check the manufacturer's stated coverage per package.</li>
+        <li>Account for overlapping panels or shingles where required.</li>
+        <li>Include starter strips, ridge caps and accessories separately.</li>
+        <li>Round package quantities up because partial packages may not be sold.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>How Much Roofing Waste Should You Allow?</h2>
+      <p>
+        Roofing waste accounts for material lost during cutting, fitting and
+        installation. The required allowance depends on roof complexity, material
+        type, installation pattern and the experience of the installer.
+      </p>
+
+      <ul>
+        <li><strong>5%:</strong> May suit some simple layouts with efficient cutting.</li>
+        <li><strong>10%:</strong> A common starting estimate for straightforward projects.</li>
+        <li><strong>12–15%:</strong> May be appropriate for more complicated layouts.</li>
+        <li><strong>20%:</strong> May be considered for particularly complex roofs or material layouts.</li>
+      </ul>
+
+      <p>
+        These are planning examples, not universal installation rules. Follow the
+        material manufacturer's instructions and your roofer's recommendation.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>What This Roofing Estimate Does Not Include</h2>
+      <p>
+        The calculator estimates the main roof surface area and package quantities.
+        A complete roofing quotation may also include:
+      </p>
+
+      <ul>
+        <li>Roof removal and disposal of old materials.</li>
+        <li>Underlayment and waterproofing membranes.</li>
+        <li>Roof decking repairs or replacement.</li>
+        <li>Ridge caps, hip caps, valleys and flashing.</li>
+        <li>Drip edges, starter strips and ventilation components.</li>
+        <li>Fasteners, adhesives and installation accessories.</li>
+        <li>Labor, scaffolding, transport and equipment.</li>
+        <li>Taxes, permits and local inspection requirements.</li>
+      </ul>
+
+      <p>
+        The material cost shown by this tool is based only on the package coverage
+        and package price entered by the user. It is not a complete contractor quote.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>1. How accurate is this roofing calculator?</h3>
+        <p>
+          It provides a useful estimate for a simple rectangular roof footprint.
+          Complex roof shapes and installation details require more detailed
+          measurements and professional assessment.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>2. Does the calculator support meters and feet?</h3>
+        <p>
+          Yes. You can enter building dimensions in feet or meters. The roof area
+          can then be displayed in square feet or square meters.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>3. Does roof pitch increase the calculated area?</h3>
+        <p>
+          Yes. A pitched roof has more surface area than its horizontal footprint.
+          The calculator uses a pitch factor to estimate this difference.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>4. How is roof overhang calculated?</h3>
+        <p>
+          The overhang value is added to both ends of the building length and
+          both sides of the building width before calculating the roof area.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>5. What is the difference between a gable and shed roof?</h3>
+        <p>
+          A gable roof usually has two sloping sides meeting at a ridge. A shed
+          roof generally has one continuous slope. The calculator estimates
+          total surface area from the adjusted footprint for these basic forms.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>6. Can I calculate metal roofing materials?</h3>
+        <p>
+          Yes, if you know the coverage area of each panel or package. Enter
+          that coverage in the material coverage field. Panel overlap and
+          cutting requirements should be checked separately.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>7. How many square feet are in one roofing square?</h3>
+        <p>
+          One roofing square equals 100 square feet of roof surface.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>8. Does this tool calculate labor costs?</h3>
+        <p>
+          No. It calculates estimated material costs from the package price.
+          Labor and other project expenses must be added separately.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>9. Should I include a waste allowance?</h3>
+        <p>
+          Usually, yes. Cutting, overlapping and roof complexity can increase
+          the amount of material required. The appropriate allowance should
+          be confirmed for the particular project.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>10. Can I use this estimate to order roofing materials?</h3>
+        <p>
+          Use it for initial planning only. Confirm the roof measurements,
+          product coverage, accessories and installation requirements with
+          a qualified roofing professional before placing an order.
+        </p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Home &amp; Construction Calculators</h2>
+      <p class="section-intro">
+        Explore more tools to estimate materials and plan construction projects.
+      </p>
+
+      <div class="related-grid">
+        <a class="related-card" href="/calculators/home-construction-calculators.html">
+          Home &amp; Construction Calculators
+          <span>Explore construction tools</span>
+        </a>
+
+        <a class="related-card" href="/calculators/concrete-calculator.html">
+          Concrete Calculator
+          <span>Estimate concrete volume</span>
+        </a>
+
+        <a class="related-card" href="/calculators/cement-sand-aggregate-calculator.html">
+          Cement, Sand &amp; Aggregate
+          <span>Estimate concrete mix materials</span>
+        </a>
+
+        <a class="related-card" href="/calculators/paint-calculator.html">
+          Paint Calculator
+          <span>Estimate paint requirements</span>
+        </a>
+
+        <a class="related-card" href="/calculators/flooring-calculator.html">
+          Flooring Calculator
+          <span>Estimate flooring material</span>
+        </a>
+
+        <a class="related-card" href="/calculators/tile-calculator.html">
+          Tile Calculator
+          <span>Calculate tiles and wastage</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div><strong>CalcNest</strong> — Free Online Calculators</div>
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const fields = [
+    "length", "width", "dimensionUnit", "overhang", "pitch",
+    "roofType", "waste", "areaUnit", "coverage", "price", "currency"
+  ];
+
+  let latestResults = null;
+
+  function number(value) {
+    return Number(value);
+  }
+
+  function format(value, decimals = 2) {
+    return Number(value).toLocaleString("en-US", {
+      maximumFractionDigits:decimals,
+      minimumFractionDigits:0
+    });
+  }
+
+  function showError(message) {
+    $("errorBox").textContent = message;
+    $("errorBox").style.display = "block";
+  }
+
+  function clearError() {
+    $("errorBox").textContent = "";
+    $("errorBox").style.display = "none";
+  }
+
+  function areaUnitLabel(unit) {
+    return unit === "ft2" ? "ft²" : "m²";
+  }
+
+  function calculate() {
+    clearError();
+    $("message").textContent = "";
+
+    const length = number($("length").value);
+    const width = number($("width").value);
+    const overhang = number($("overhang").value);
+    const pitch = number($("pitch").value);
+    const wastePercent = number($("waste").value);
+    const coverage = number($("coverage").value);
+    const packagePrice = number($("price").value);
+
+    const dimensionUnit = $("dimensionUnit").value;
+    const areaUnit = $("areaUnit").value;
+    const roofType = $("roofType").value;
+    const currency = $("currency").value;
+
+    if (!Number.isFinite(length) || length <= 0) {
+      showError("Enter a building length greater than zero.");
+      return;
+    }
+
+    if (!Number.isFinite(width) || width <= 0) {
+      showError("Enter a building width greater than zero.");
+      return;
+    }
+
+    if (!Number.isFinite(overhang) || overhang < 0) {
+      showError("Enter a valid overhang. It cannot be negative.");
+      return;
+    }
+
+    if (!Number.isFinite(pitch) || pitch < 0 || pitch > 24) {
+      showError("Enter a roof pitch rise between 0 and 24 per 12.");
+      return;
+    }
+
+    if (!Number.isFinite(coverage) || coverage <= 0) {
+      showError("Enter a material package coverage greater than zero.");
+      return;
+    }
+
+    if (!Number.isFinite(packagePrice) || packagePrice < 0) {
+      showError("Enter a valid package price. It cannot be negative.");
+      return;
+    }
+
+    const adjustedLength = length + (2 * overhang);
+    const adjustedWidth = width + (2 * overhang);
+
+    const footprintArea = adjustedLength * adjustedWidth;
+
+    // Convert the entered footprint area to square meters.
+    const footprintM2 = dimensionUnit === "ft"
+      ? footprintArea * 0.09290304
+      : footprintArea;
+
+    // Roof pitch factor for a simple roof with a consistent slope.
+    const pitchFactor = Math.sqrt(1 + Math.pow(pitch / 12, 2));
+
+    const baseRoofM2 = footprintM2 * pitchFactor;
+
+    // Convert the actual sloped roof area to the selected display unit.
+    const baseRoofArea = areaUnit === "ft2"
+      ? baseRoofM2 / 0.09290304
+      : baseRoofM2;
+
+    const wasteArea = baseRoofArea * (wastePercent / 100);
+    const materialArea = baseRoofArea + wasteArea;
+
+    const packagesExact = materialArea / coverage;
+    const packagesNeeded = Math.ceil(packagesExact);
+
+    const actualPackageCoverage = packagesNeeded * coverage;
+    const unusedMaterial = actualPackageCoverage - materialArea;
+
+    const totalCost = packagesNeeded * packagePrice;
+
+    // One roofing square is 100 square feet.
+    const roofingSquares = areaUnit === "ft2"
+      ? materialArea / 100
+      : (materialArea / 0.09290304) / 100;
+
+    const unitLabel = areaUnitLabel(areaUnit);
+    const baseText = format(baseRoofArea) + " " + unitLabel;
+    const wasteText = format(wasteArea) + " " + unitLabel;
+    const materialText = format(materialArea) + " " + unitLabel;
+
+    $("roofArea").textContent = format(materialArea);
+    $("roofAreaUnit").textContent = "square " + (areaUnit === "ft2" ? "feet" : "meters") + " including waste";
+
+    $("baseArea").textContent = baseText;
+    $("roofSquares").textContent = format(roofingSquares, 2);
+    $("packages").textContent = format(packagesNeeded, 0);
+    $("wasteArea").textContent = wasteText;
+    $("totalCost").textContent = currency + format(totalCost, 2);
+    $("pitchFactor").textContent = format(pitchFactor, 3);
+
+    const structureLabel = {
+      gable:"Gable / two-slope",
+      shed:"Shed / single-slope",
+      hip:"Hip / multi-slope"
+    }[roofType];
+
+    $("resultExplanation").textContent =
+      "Estimated " + structureLabel.toLowerCase() +
+      " roof using a " + pitch + ":12 pitch. Material planning area: " +
+      materialText + ". " + wastePercent +
+      "% waste allowance included. " +
+      packagesNeeded + " whole packages are required based on " +
+      format(coverage) + " " + unitLabel +
+      " coverage per package. Estimated cost excludes labor and accessories.";
+
+    latestResults = {
+      structure:structureLabel,
+      baseArea:baseText,
+      waste:wasteText,
+      materialArea:materialText,
+      roofingSquares:format(roofingSquares,2),
+      packages:packagesNeeded,
+      coverage:format(coverage) + " " + unitLabel,
+      unusedMaterial:format(unusedMaterial) + " " + unitLabel,
+      pitch:pitch + ":12",
+      pitchFactor:format(pitchFactor,3),
+      wastePercent:wastePercent + "%",
+      cost:currency + format(totalCost,2)
+    };
+  }
+
+  function resetCalculator() {
+    $("length").value = 40;
+    $("width").value = 30;
+    $("dimensionUnit").value = "ft";
+    $("overhang").value = 1;
+    $("pitch").value = 6;
+    $("roofType").value = "gable";
+    $("waste").value = 10;
+    $("areaUnit").value = "ft2";
+    $("coverage").value = 33.3;
+    $("price").value = 45;
+    $("currency").value = "$";
+
+    clearError();
+    $("message").textContent = "";
+    calculate();
+  }
+
+  function copyResults() {
+    if (!latestResults) {
+      calculate();
+    }
+
+    if (!latestResults) return;
+
+    const text = [
+      "CalcNest Roofing Calculator Results",
+      "Roof type: " + latestResults.structure,
+      "Roof pitch: " + latestResults.pitch,
+      "Pitch factor: " + latestResults.pitchFactor,
+      "Base roof area: " + latestResults.baseArea,
+      "Waste allowance: " + latestResults.wastePercent,
+      "Additional waste area: " + latestResults.waste,
+      "Total material area: " + latestResults.materialArea,
+      "Roofing squares: " + latestResults.roofingSquares,
+      "Material coverage per package: " + latestResults.coverage,
+      "Required packages: " + latestResults.packages,
+      "Estimated unused package coverage: " + latestResults.unusedMaterial,
+      "Estimated material cost: " + latestResults.cost,
+      "",
+      "Estimate only. Confirm measurements and material requirements before ordering."
+    ].join("\n");
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          $("message").textContent = "Results copied to clipboard.";
+        })
+        .catch(() => fallbackCopy(text));
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function fallbackCopy(text) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+      const successful = document.execCommand("copy");
+      $("message").textContent = successful
+        ? "Results copied to clipboard."
+        : "Copy was not available on this device.";
+    } catch (error) {
+      $("message").textContent = "Copy was not available on this device.";
+    }
+
+    area.remove();
+  }
+
+  $("calculateBtn").addEventListener("click", calculate);
+  $("resetBtn").addEventListener("click", resetCalculator);
+  $("copyBtn").addEventListener("click", copyResults);
+
+  fields.forEach(id => {
+    $(id).addEventListener("input", () => {
+      clearError();
+      $("message").textContent = "";
+    });
+
+    $(id).addEventListener("change", () => {
+      clearError();
+      $("message").textContent = "";
+    });
+  });
+
+  document.querySelectorAll(".quick-values button").forEach(button => {
+    button.addEventListener("click", () => {
+      $("length").value = button.dataset.length;
+      $("width").value = button.dataset.width;
+      $("dimensionUnit").value = "ft";
+      calculate();
+    });
+  });
+
+  $("year").textContent = new Date().getFullYear();
+
+  calculate();
+})();
+</script>
+
+</body>
+</html>
