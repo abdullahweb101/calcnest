@@ -1,0 +1,1300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CPA Calculator - Cost Per Acquisition Calculator | CalcNest</title>
+<meta name="description" content="Calculate cost per acquisition (CPA), advertising budget and customer acquisitions with this free CPA calculator. Analyze campaign costs and marketing performance.">
+<meta name="keywords" content="CPA calculator, cost per acquisition calculator, cost per action calculator, customer acquisition cost, advertising cost calculator, marketing campaign calculator, target CPA calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/cpa-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free CPA Calculator - Cost Per Acquisition | CalcNest">
+<meta property="og:description" content="Calculate advertising cost per acquisition, campaign budget and estimated conversions.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/cpa-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CPA Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate cost per acquisition and evaluate advertising campaign costs.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"CPA Calculator",
+  "url":"https://calcnest-7s6.pages.dev/calculators/cpa-calculator.html",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "description":"Free online calculator for cost per acquisition, advertising budgets and campaign conversions.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What does CPA mean in marketing?",
+      "acceptedAnswer":{"@type":"Answer","text":"CPA stands for Cost Per Acquisition or Cost Per Action. It measures the average cost of generating a specified conversion or acquisition through a marketing campaign."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate CPA?",
+      "acceptedAnswer":{"@type":"Answer","text":"Divide the total campaign cost by the number of acquisitions or conversions attributed to that campaign. For example, a $500 campaign generating 25 acquisitions has a CPA of $20."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is a good CPA?",
+      "acceptedAnswer":{"@type":"Answer","text":"A good CPA depends on product margins, customer lifetime value, business expenses, conversion quality and revenue. A CPA that works for one business may be too high for another."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is the difference between CPA and CAC?",
+      "acceptedAnswer":{"@type":"Answer","text":"CPA often measures the cost of a specific campaign action or conversion. Customer Acquisition Cost (CAC) generally measures the broader cost of acquiring a new customer and may include sales and marketing expenses across channels."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can CPA be calculated without conversions?",
+      "acceptedAnswer":{"@type":"Answer","text":"You need at least one acquisition to calculate an actual CPA. Without conversions, you can estimate a required budget or expected acquisitions if you provide a target CPA."}
+    },
+    {
+      "@type":"Question",
+      "name":"Is CPA the same as CPC?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. CPC measures the average cost of an advertising click, while CPA measures the average cost of a completed acquisition or defined action."}
+    },
+    {
+      "@type":"Question",
+      "name":"Does CPA include all business expenses?",
+      "acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The result includes only the campaign costs entered into the calculator. Include relevant agency, creative, software or other costs if you want a broader campaign-cost estimate."}
+    },
+    {
+      "@type":"Question",
+      "name":"How can I reduce my CPA?",
+      "acceptedAnswer":{"@type":"Answer","text":"You can investigate audience targeting, landing page experience, conversion rate, creative quality, offer relevance and campaign optimization. Changes should be tested against conversion quality and profitability."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is target CPA?",
+      "acceptedAnswer":{"@type":"Answer","text":"Target CPA is the maximum or preferred average cost per acquisition that a business aims to achieve for a campaign."}
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#17243a;
+  --muted:#65738b;
+  --blue:#315eea;
+  --purple:#7659e8;
+  --line:#e8edf5;
+  --soft:#f6f8fd;
+  --white:#fff;
+  --green:#14865c;
+  --red:#c43e50;
+  --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:Arial,sans-serif;
+  line-height:1.65;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;
+  top:0;
+  z-index:30;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.nav{
+  min-height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo{
+  color:var(--ink);
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+.nav-links{
+  display:flex;
+  gap:24px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.nav-links a{
+  color:var(--ink);
+  font-size:14px;
+  font-weight:700;
+}
+.breadcrumb{
+  padding:22px 0 8px;
+  color:var(--muted);
+  font-size:13px;
+}
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:35px;
+  align-items:center;
+  padding:25px 0 40px;
+}
+.eyebrow{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:30px;
+  background:#edf1ff;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+}
+h1{
+  font-size:clamp(34px,5vw,51px);
+  line-height:1.12;
+  letter-spacing:-1.8px;
+  margin:17px 0;
+}
+.hero p{
+  color:var(--muted);
+  font-size:17px;
+  max-width:650px;
+}
+.hero img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+.hero-points{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+.hero-points span{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:7px 12px;
+  font-size:12px;
+  font-weight:700;
+}
+.calculator-section{padding:20px 0 55px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{
+  font-size:29px;
+  margin:0 0 7px;
+  letter-spacing:-.7px;
+}
+.section-heading p{color:var(--muted);margin:0}
+.calc-layout{
+  display:grid;
+  grid-template-columns:1.35fr .65fr;
+  gap:22px;
+  align-items:start;
+}
+.panel{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+.panel h2,.panel h3{margin-top:0}
+.mode-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:23px;
+}
+.mode-btn{
+  border:1px solid var(--line);
+  background:var(--soft);
+  padding:12px 8px;
+  border-radius:10px;
+  cursor:pointer;
+  color:var(--ink);
+  font-weight:700;
+  font-size:13px;
+}
+.mode-btn.active{
+  background:#edf1ff;
+  border-color:var(--blue);
+  color:var(--blue);
+}
+.field-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+}
+.field{margin-bottom:17px}
+.field label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+.field input,.field select{
+  width:100%;
+  min-height:47px;
+  border:1px solid #dce3ef;
+  border-radius:10px;
+  padding:11px 12px;
+  font:inherit;
+  color:var(--ink);
+  background:#fff;
+  outline:none;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.field small{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:11px;
+}
+.currency-field{max-width:240px}
+.primary-btn,.secondary-btn{
+  border:0;
+  border-radius:10px;
+  padding:13px 19px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:14px;
+}
+.primary-btn{
+  color:#fff;
+  background:linear-gradient(110deg,var(--blue),var(--purple));
+}
+.secondary-btn{
+  background:#edf1ff;
+  color:var(--blue);
+  border:1px solid #dfe5ff;
+}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:7px}
+.error{
+  display:none;
+  padding:11px 13px;
+  margin:14px 0;
+  border-radius:9px;
+  background:#fff0f1;
+  color:var(--red);
+  font-size:13px;
+}
+.results{
+  margin-top:23px;
+  padding:20px;
+  border-radius:15px;
+  background:linear-gradient(135deg,#f0f4ff,#f8f5ff);
+  border:1px solid #e4e9ff;
+}
+.results-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+.results-top h3{margin:0;font-size:16px}
+.result-main{
+  padding:17px 0;
+  border-bottom:1px solid #dfe5f5;
+}
+.result-main small{color:var(--muted);font-weight:700}
+.result-value{
+  display:block;
+  color:var(--blue);
+  font-size:clamp(32px,5vw,43px);
+  font-weight:800;
+  letter-spacing:-1px;
+  line-height:1.3;
+  overflow-wrap:anywhere;
+}
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding-top:15px;
+}
+.result-item{
+  background:rgba(255,255,255,.8);
+  border:1px solid #e5e9f5;
+  border-radius:10px;
+  padding:12px;
+}
+.result-item small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+}
+.result-item strong{font-size:18px;overflow-wrap:anywhere}
+.result-note{
+  color:var(--muted);
+  font-size:12px;
+  margin:13px 0 0;
+}
+.side-panel{background:var(--soft)}
+.side-panel h3{font-size:19px}
+.side-stat{
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+.side-stat:last-child{border:0}
+.side-stat strong{display:block;color:var(--blue);font-size:20px}
+.side-stat span{font-size:12px;color:var(--muted)}
+.quick-section{margin-top:22px}
+.quick-section h3{font-size:15px;margin-bottom:10px}
+.quick-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.quick-btn{
+  padding:8px 11px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+  color:var(--ink);
+  font-size:12px;
+  font-weight:700;
+}
+.content-section{padding:30px 0}
+.content-section h2{
+  font-size:27px;
+  letter-spacing:-.5px;
+  margin:0 0 13px;
+}
+.content-section h3{font-size:19px;margin:23px 0 8px}
+.content-section p,.content-section li{color:#526179}
+.content-section ul{padding-left:22px}
+.info-card{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:20px;
+  margin:18px 0;
+}
+.formula{
+  display:block;
+  padding:15px;
+  background:#17243a;
+  color:#fff;
+  border-radius:10px;
+  font-weight:700;
+  overflow-wrap:anywhere;
+  margin:12px 0;
+}
+.table-wrap{overflow-x:auto;margin:17px 0}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:540px;
+}
+th,td{
+  border:1px solid var(--line);
+  padding:12px;
+  text-align:left;
+  font-size:14px;
+}
+th{background:var(--soft)}
+tr:nth-child(even) td{background:#fcfdff}
+.faq-list{display:grid;gap:11px}
+details{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:15px 17px;
+  background:#fff;
+}
+summary{cursor:pointer;font-weight:700}
+details p{margin-bottom:0}
+.related-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+}
+.related-card{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
+}
+.related-card strong{display:block;margin-bottom:5px}
+.related-card span{font-size:12px;color:var(--muted)}
+footer{
+  margin-top:40px;
+  padding:30px 0;
+  background:#f7f9fd;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+}
+footer a{margin-right:13px}
+@media(max-width:850px){
+  .hero,.calc-layout{grid-template-columns:1fr}
+  .hero img{height:230px}
+}
+@media(max-width:600px){
+  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+  .nav-links{gap:13px}
+  .nav-links a{font-size:12px}
+  .field-grid{grid-template-columns:1fr}
+  .panel{padding:17px}
+  .mode-tabs{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .hero{padding-top:15px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="/">Calc<span>Nest</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a> ›
+    <a href="/calculators/business-marketing-calculators.html">Business &amp; Marketing</a> ›
+    CPA Calculator
+  </div>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">FREE BUSINESS &amp; MARKETING TOOL</span>
+      <h1>CPA Calculator</h1>
+      <p>
+        Calculate Cost Per Acquisition (CPA) to understand how much your
+        advertising campaign spends to generate a customer, lead, sale,
+        signup or another measurable conversion. Estimate campaign budgets
+        and evaluate acquisition costs with simple calculations.
+      </p>
+      <div class="hero-points">
+        <span>✓ 3 Calculation Modes</span>
+        <span>✓ Multiple Currencies</span>
+        <span>✓ Instant Results</span>
+        <span>✓ Free to Use</span>
+      </div>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200"
+      alt="Digital marketing analytics and campaign performance dashboard"
+      fetchpriority="high">
+  </section>
+
+  <section class="calculator-section" id="calculator">
+    <div class="section-heading">
+      <h2>Calculate Your Cost Per Acquisition</h2>
+      <p>Select a calculation mode and enter your campaign information.</p>
+    </div>
+
+    <div class="calc-layout">
+
+      <div class="panel">
+        <div class="mode-tabs" role="group" aria-label="Calculation mode">
+          <button class="mode-btn active" data-mode="cpa" type="button">Find CPA</button>
+          <button class="mode-btn" data-mode="budget" type="button">Find Budget</button>
+          <button class="mode-btn" data-mode="acquisitions" type="button">Find Acquisitions</button>
+        </div>
+
+        <div class="field currency-field">
+          <label for="currency">Currency</label>
+          <select id="currency">
+            <option value="USD">USD - US Dollar ($)</option>
+            <option value="EUR">EUR - Euro (€)</option>
+            <option value="GBP">GBP - British Pound (£)</option>
+            <option value="PKR">PKR - Pakistani Rupee (Rs)</option>
+            <option value="INR">INR - Indian Rupee (₹)</option>
+            <option value="CAD">CAD - Canadian Dollar (C$)</option>
+            <option value="AUD">AUD - Australian Dollar (A$)</option>
+            <option value="AED">AED - UAE Dirham</option>
+            <option value="SAR">SAR - Saudi Riyal</option>
+            <option value="JPY">JPY - Japanese Yen (¥)</option>
+          </select>
+        </div>
+
+        <div id="fieldsCPA">
+          <div class="field-grid">
+            <div class="field">
+              <label for="campaignCost">Total Campaign Cost</label>
+              <input type="number" id="campaignCost" min="0" step="any" value="1000">
+              <small>Enter the total cost being measured.</small>
+            </div>
+            <div class="field">
+              <label for="acquisitionCount">Number of Acquisitions</label>
+              <input type="number" id="acquisitionCount" min="1" step="1" value="50">
+              <small>Enter completed conversions or acquisitions.</small>
+            </div>
+          </div>
+        </div>
+
+        <div id="fieldsBudget" hidden>
+          <div class="field-grid">
+            <div class="field">
+              <label for="targetAcquisitions">Target Acquisitions</label>
+              <input type="number" id="targetAcquisitions" min="1" step="1" value="100">
+              <small>How many conversions do you want?</small>
+            </div>
+            <div class="field">
+              <label for="targetCPA">Target CPA</label>
+              <input type="number" id="targetCPA" min="0" step="any" value="20">
+              <small>Your planned cost for each acquisition.</small>
+            </div>
+          </div>
+        </div>
+
+        <div id="fieldsAcquisitions" hidden>
+          <div class="field-grid">
+            <div class="field">
+              <label for="availableBudget">Available Campaign Budget</label>
+              <input type="number" id="availableBudget" min="0" step="any" value="2000">
+              <small>Total money available for the campaign.</small>
+            </div>
+            <div class="field">
+              <label for="expectedCPA">Expected CPA</label>
+              <input type="number" id="expectedCPA" min="0.000001" step="any" value="25">
+              <small>Expected cost for one acquisition.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="primary-btn" id="calculateBtn" type="button">Calculate CPA</button>
+          <button class="secondary-btn" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="error" id="errorBox" role="alert" aria-live="polite"></div>
+
+        <div class="results" id="results" aria-live="polite">
+          <div class="results-top">
+            <h3 id="resultHeading">Your CPA Results</h3>
+            <span class="eyebrow">CALCULATED</span>
+          </div>
+          <div class="result-main">
+            <small id="mainResultLabel">Cost Per Acquisition</small>
+            <strong class="result-value" id="mainResult">$20.00</strong>
+          </div>
+          <div class="result-grid">
+            <div class="result-item">
+              <small id="secondaryLabel1">Campaign Cost</small>
+              <strong id="secondaryResult1">$1,000.00</strong>
+            </div>
+            <div class="result-item">
+              <small id="secondaryLabel2">Acquisitions</small>
+              <strong id="secondaryResult2">50</strong>
+            </div>
+            <div class="result-item">
+              <small>Cost per 10 Acquisitions</small>
+              <strong id="costPerTen">$200.00</strong>
+            </div>
+            <div class="result-item">
+              <small>Acquisitions per 1,000</small>
+              <strong id="acqPerThousand">50</strong>
+            </div>
+          </div>
+          <p class="result-note" id="resultNote">
+            Your campaign spends $20.00 for each acquisition.
+          </p>
+          <div class="action-row">
+            <button class="secondary-btn" id="copyBtn" type="button">Copy Results</button>
+          </div>
+        </div>
+
+        <div class="quick-section">
+          <h3>Try a Sample Calculation</h3>
+          <div class="quick-buttons">
+            <button class="quick-btn" data-cost="500" data-acq="25" type="button">$500 / 25</button>
+            <button class="quick-btn" data-cost="1000" data-acq="50" type="button">$1,000 / 50</button>
+            <button class="quick-btn" data-cost="2500" data-acq="100" type="button">$2,500 / 100</button>
+            <button class="quick-btn" data-cost="5000" data-acq="200" type="button">$5,000 / 200</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel side-panel">
+        <h3>Understanding CPA</h3>
+        <p style="color:var(--muted);font-size:13px">
+          CPA measures the average campaign cost required to generate one
+          defined conversion or acquisition.
+        </p>
+
+        <div class="side-stat">
+          <strong>Campaign Cost ÷ Acquisitions</strong>
+          <span>Basic CPA formula</span>
+        </div>
+        <div class="side-stat">
+          <strong>Lower is not always better</strong>
+          <span>Conversion quality and customer value matter.</span>
+        </div>
+        <div class="side-stat">
+          <strong>Compare like with like</strong>
+          <span>Use consistent attribution windows and conversion definitions.</span>
+        </div>
+
+        <div class="info-card">
+          <strong>Important</strong>
+          <p style="font-size:12px;margin-bottom:0">
+            The result depends on the campaign costs and conversion count
+            you enter. It does not automatically include every business
+            expense or determine profitability.
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>What Is Cost Per Acquisition (CPA)?</h2>
+    <p>
+      Cost Per Acquisition, commonly shortened to CPA, is a digital
+      marketing metric that measures how much a business spends to generate
+      one specified action. Depending on the campaign, that action could be
+      a completed purchase, qualified lead, app installation, registration,
+      subscription or another conversion.
+    </p>
+    <p>
+      Businesses use CPA to evaluate paid advertising campaigns, compare
+      marketing channels, plan campaign budgets and understand the cost
+      associated with generating new customers or leads.
+    </p>
+
+    <div class="info-card">
+      <strong>Example:</strong>
+      <p>
+        Suppose an advertising campaign costs $1,000 and generates 50
+        completed acquisitions. Its average CPA is $20. This means the
+        campaign spent an average of $20 for each recorded acquisition.
+      </p>
+    </div>
+
+    <h2>CPA Calculator Formula</h2>
+    <p>The standard formula for calculating cost per acquisition is:</p>
+    <span class="formula">CPA = Total Campaign Cost ÷ Number of Acquisitions</span>
+
+    <p>For example:</p>
+    <span class="formula">CPA = $1,000 ÷ 50 = $20</span>
+
+    <p>
+      The result is an average. Individual conversions may have different
+      costs, but the formula divides the total measured campaign cost by
+      the total number of acquisitions.
+    </p>
+
+    <h3>Calculate a Campaign Budget</h3>
+    <p>
+      If you know your target CPA and the number of acquisitions you want,
+      you can estimate the required campaign budget.
+    </p>
+    <span class="formula">Required Budget = Target CPA × Target Acquisitions</span>
+    <p>
+      Example: If your target CPA is $20 and you want 100 acquisitions,
+      the estimated budget is $2,000.
+    </p>
+
+    <h3>Estimate Acquisitions From a Budget</h3>
+    <span class="formula">Estimated Acquisitions = Available Budget ÷ Expected CPA</span>
+    <p>
+      Example: A $2,000 budget at an expected CPA of $25 could generate
+      approximately 80 acquisitions if the expected average cost is achieved.
+    </p>
+
+    <h2>Worked CPA Examples</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Campaign Cost</th>
+            <th>Acquisitions</th>
+            <th>CPA</th>
+            <th>Interpretation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$500</td><td>25</td><td>$20</td><td>$20 per acquisition</td></tr>
+          <tr><td>$1,000</td><td>50</td><td>$20</td><td>$20 per acquisition</td></tr>
+          <tr><td>$2,500</td><td>100</td><td>$25</td><td>$25 per acquisition</td></tr>
+          <tr><td>$3,000</td><td>200</td><td>$15</td><td>$15 per acquisition</td></tr>
+          <tr><td>$5,000</td><td>100</td><td>$50</td><td>$50 per acquisition</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to Use This CPA Calculator</h2>
+    <ol>
+      <li>Select the currency you want to use for your campaign.</li>
+      <li>Choose whether you want to find CPA, campaign budget or acquisitions.</li>
+      <li>Enter the relevant campaign cost, acquisition target or expected CPA.</li>
+      <li>Click the Calculate CPA button.</li>
+      <li>Review the main result and the additional campaign metrics.</li>
+      <li>Use Copy Results if you want to save or share the calculation.</li>
+    </ol>
+
+    <h2>CPA vs CPC vs CPM vs ROAS</h2>
+    <p>
+      These metrics measure different parts of advertising performance.
+      They should not be treated as interchangeable.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>What It Measures</th><th>Basic Formula</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CPA</td>
+            <td>Average cost per acquisition</td>
+            <td>Campaign Cost ÷ Acquisitions</td>
+          </tr>
+          <tr>
+            <td>CPC</td>
+            <td>Average cost per click</td>
+            <td>Ad Spend ÷ Clicks</td>
+          </tr>
+          <tr>
+            <td>CPM</td>
+            <td>Cost per 1,000 impressions</td>
+            <td>Ad Spend ÷ Impressions × 1,000</td>
+          </tr>
+          <tr>
+            <td>ROAS</td>
+            <td>Revenue relative to advertising spend</td>
+            <td>Attributed Revenue ÷ Ad Spend</td>
+          </tr>
+          <tr>
+            <td>CTR</td>
+            <td>Click-through rate</td>
+            <td>Clicks ÷ Impressions × 100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>What Affects Your Cost Per Acquisition?</h2>
+
+    <h3>1. Audience Targeting</h3>
+    <p>
+      Campaigns shown to audiences with little interest in your offer may
+      generate fewer conversions. Relevant targeting can improve the
+      likelihood that clicks turn into meaningful actions.
+    </p>
+
+    <h3>2. Landing Page Experience</h3>
+    <p>
+      A slow, confusing or poorly designed landing page can cause visitors
+      to leave without completing the intended action. Clear information,
+      mobile usability and a straightforward conversion process are
+      important.
+    </p>
+
+    <h3>3. Advertising Creative</h3>
+    <p>
+      Images, videos, headlines and calls to action influence whether
+      people engage with an advertisement and continue to the conversion
+      stage.
+    </p>
+
+    <h3>4. Offer and Pricing</h3>
+    <p>
+      Your product, pricing, discounts, shipping terms and overall value
+      proposition can influence how many visitors become customers.
+    </p>
+
+    <h3>5. Conversion Tracking</h3>
+    <p>
+      Incorrect tracking, duplicate events or inconsistent attribution
+      windows can distort CPA calculations. Make sure your conversion
+      definition and reporting method are consistent.
+    </p>
+
+    <h3>6. Competition and Advertising Costs</h3>
+    <p>
+      Competition, audience demand, placement, seasonality and platform
+      bidding conditions can change the cost of reaching potential
+      customers.
+    </p>
+
+    <h2>CPA and Customer Acquisition Cost (CAC)</h2>
+    <p>
+      CPA and Customer Acquisition Cost (CAC) are related, but their
+      definitions can differ between businesses.
+    </p>
+    <p>
+      CPA is often used for a specific campaign and a defined action,
+      such as a lead or purchase. CAC usually represents the broader cost
+      of acquiring a new customer and may include advertising, sales
+      salaries, agency fees, software and other acquisition-related costs.
+    </p>
+    <p>
+      For a complete business analysis, make sure you know which costs
+      are included in each metric and whether the conversion represents
+      a new paying customer or another action.
+    </p>
+
+    <h2>How to Evaluate Whether Your CPA Is Sustainable</h2>
+    <p>
+      A low CPA does not automatically mean a campaign is profitable.
+      Compare acquisition costs with the value and quality of the
+      customers being acquired.
+    </p>
+    <ul>
+      <li>Compare CPA with the gross profit generated by a sale.</li>
+      <li>Consider refunds, cancellations and customer retention.</li>
+      <li>Include relevant sales and marketing expenses where appropriate.</li>
+      <li>Compare customer lifetime value with acquisition cost.</li>
+      <li>Check whether leads become qualified prospects or paying customers.</li>
+      <li>Use consistent attribution methods when comparing campaigns.</li>
+    </ul>
+
+    <div class="info-card">
+      <strong>Business reminder</strong>
+      <p>
+        A campaign with a higher CPA can sometimes be more valuable if it
+        attracts customers who spend more, stay longer or generate greater
+        profit. Evaluate acquisition cost alongside customer quality and
+        business economics.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <details>
+        <summary>1. What does CPA stand for?</summary>
+        <p>
+          CPA stands for Cost Per Acquisition or Cost Per Action. It measures
+          the average cost of generating a defined conversion through a
+          marketing campaign.
+        </p>
+      </details>
+
+      <details>
+        <summary>2. How do I calculate CPA manually?</summary>
+        <p>
+          Divide the total campaign cost by the number of completed
+          acquisitions. For example, $600 divided by 30 acquisitions gives
+          a CPA of $20.
+        </p>
+      </details>
+
+      <details>
+        <summary>3. What is a good CPA for advertising?</summary>
+        <p>
+          There is no universal good CPA. It depends on your margins,
+          product price, customer lifetime value, business expenses and
+          the quality of the conversions.
+        </p>
+      </details>
+
+      <details>
+        <summary>4. Is CPA the same as customer acquisition cost?</summary>
+        <p>
+          Not always. CPA often measures a specific campaign action,
+          while CAC generally includes the broader costs of acquiring
+          a new customer.
+        </p>
+      </details>
+
+      <details>
+        <summary>5. What is the difference between CPA and CPC?</summary>
+        <p>
+          CPC measures the cost of an advertising click. CPA measures
+          the cost of a completed acquisition or other defined conversion.
+        </p>
+      </details>
+
+      <details>
+        <summary>6. Can I calculate a required advertising budget?</summary>
+        <p>
+          Yes. Multiply your target CPA by the number of acquisitions
+          you want. This provides a simple estimated budget, assuming
+          the target CPA is achieved.
+        </p>
+      </details>
+
+      <details>
+        <summary>7. Can CPA be higher than the price of a product?</summary>
+        <p>
+          Yes. CPA can exceed the selling price. Whether this is sustainable
+          depends on margins, repeat purchases, customer lifetime value
+          and other revenue sources.
+        </p>
+      </details>
+
+      <details>
+        <summary>8. Does CPA include agency and creative costs?</summary>
+        <p>
+          Only if those costs are included in the campaign cost you enter.
+          You can include relevant expenses to calculate a broader
+          campaign-level CPA.
+        </p>
+      </details>
+
+      <details>
+        <summary>9. How can I lower my CPA?</summary>
+        <p>
+          Test more relevant audiences, improve landing pages, refine
+          advertising creative, review your offer and improve conversion
+          tracking. Measure the quality of conversions as well as their cost.
+        </p>
+      </details>
+
+      <details>
+        <summary>10. Why is my CPA different across advertising platforms?</summary>
+        <p>
+          Platforms may use different attribution windows, conversion
+          definitions, reporting methods and campaign costs. Compare
+          results only after checking that the measurement methods are
+          reasonably consistent.
+        </p>
+      </details>
+
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Explore More Business &amp; Marketing Calculators</h2>
+    <p>
+      Use these related tools to evaluate advertising performance,
+      marketing efficiency and campaign results.
+    </p>
+
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/cpc-calculator.html">
+        <strong>CPC Calculator</strong>
+        <span>Calculate average cost per click.</span>
+      </a>
+      <a class="related-card" href="/calculators/ctr-calculator.html">
+        <strong>CTR Calculator</strong>
+        <span>Calculate click-through rate.</span>
+      </a>
+      <a class="related-card" href="/calculators/conversion-rate-calculator.html">
+        <strong>Conversion Rate Calculator</strong>
+        <span>Measure visitor-to-conversion performance.</span>
+      </a>
+      <a class="related-card" href="/calculators/roas-calculator.html">
+        <strong>ROAS Calculator</strong>
+        <span>Measure advertising revenue against ad spend.</span>
+      </a>
+      <a class="related-card" href="/calculators/finance-calculators.html">
+        <strong>Finance Calculators</strong>
+        <span>Explore financial planning and business tools.</span>
+      </a>
+      <a class="related-card" href="/calculators/business-marketing-calculators.html">
+        <strong>All Business Calculators</strong>
+        <span>Browse the Business &amp; Marketing collection.</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>CalcNest</strong>
+      <p>Free online calculators for everyday decisions and smarter planning.</p>
+    </div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container">
+    <p>© <span id="year"></span> CalcNest. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const currencySymbols = {
+    USD:"$", EUR:"€", GBP:"£", PKR:"Rs ", INR:"₹",
+    CAD:"C$", AUD:"A$", AED:"AED ", SAR:"SAR ", JPY:"¥"
+  };
+
+  let currentMode = "cpa";
+  let lastResultText = "";
+
+  function numberValue(id){
+    return Number($(id).value);
+  }
+
+  function isValidNumber(value){
+    return Number.isFinite(value);
+  }
+
+  function formatNumber(value, digits=2){
+    return new Intl.NumberFormat("en-US",{
+      maximumFractionDigits:digits,
+      minimumFractionDigits:0
+    }).format(value);
+  }
+
+  function money(value){
+    const currency = $("currency").value;
+    const symbol = currencySymbols[currency] || currency + " ";
+    return symbol + formatNumber(value,2);
+  }
+
+  function showError(message){
+    $("errorBox").textContent = message;
+    $("errorBox").style.display = "block";
+  }
+
+  function clearError(){
+    $("errorBox").textContent = "";
+    $("errorBox").style.display = "none";
+  }
+
+  function showFields(){
+    $("fieldsCPA").hidden = currentMode !== "cpa";
+    $("fieldsBudget").hidden = currentMode !== "budget";
+    $("fieldsAcquisitions").hidden = currentMode !== "acquisitions";
+
+    document.querySelectorAll(".mode-btn").forEach(button=>{
+      button.classList.toggle("active",button.dataset.mode===currentMode);
+    });
+
+    const labels = {
+      cpa:["Calculate CPA","Your CPA Results","Cost Per Acquisition"],
+      budget:["Calculate Budget","Your Budget Estimate","Estimated Campaign Budget"],
+      acquisitions:["Calculate Acquisitions","Your Acquisition Estimate","Estimated Acquisitions"]
+    };
+
+    $("calculateBtn").textContent = labels[currentMode][0];
+    $("resultHeading").textContent = labels[currentMode][1];
+    $("mainResultLabel").textContent = labels[currentMode][2];
+
+    clearError();
+    calculate();
+  }
+
+  function displayResults(main,mainLabel,firstLabel,firstValue,
+                          secondLabel,secondValue,costPerTen,
+                          acquisitionsPerThousand,note){
+    $("mainResultLabel").textContent = mainLabel;
+    $("mainResult").textContent = main;
+    $("secondaryLabel1").textContent = firstLabel;
+    $("secondaryResult1").textContent = firstValue;
+    $("secondaryLabel2").textContent = secondLabel;
+    $("secondaryResult2").textContent = secondValue;
+    $("costPerTen").textContent = costPerTen;
+    $("acqPerThousand").textContent = acquisitionsPerThousand;
+    $("resultNote").textContent = note;
+
+    lastResultText =
+      "CPA Calculator Results\n" +
+      mainLabel + ": " + main + "\n" +
+      firstLabel + ": " + firstValue + "\n" +
+      secondLabel + ": " + secondValue + "\n" +
+      "Cost per 10 acquisitions: " + costPerTen + "\n" +
+      "Acquisitions per 1,000: " + acquisitionsPerThousand + "\n" +
+      note;
+  }
+
+  function calculate(){
+    clearError();
+
+    if(currentMode==="cpa"){
+      const cost = numberValue("campaignCost");
+      const acquisitions = numberValue("acquisitionCount");
+
+      if(!isValidNumber(cost) || cost<0){
+        showError("Enter a valid campaign cost of zero or more.");
+        return;
+      }
+      if(!Number.isInteger(acquisitions) || acquisitions<=0){
+        showError("Enter at least one whole-number acquisition.");
+        return;
+      }
+
+      const cpa = cost/acquisitions;
+
+      displayResults(
+        money(cpa),
+        "Cost Per Acquisition",
+        "Total Campaign Cost",
+        money(cost),
+        "Acquisitions",
+        formatNumber(acquisitions,0),
+        money(cpa*10),
+        formatNumber(acquisitions/cost*1000,2),
+        "Your campaign spends an average of "+money(cpa)+" for each acquisition."
+      );
+
+      if(cost===0){
+        $("acqPerThousand").textContent="Not applicable";
+      }
+      return;
+    }
+
+    if(currentMode==="budget"){
+      const acquisitions = numberValue("targetAcquisitions");
+      const targetCPA = numberValue("targetCPA");
+
+      if(!Number.isInteger(acquisitions) || acquisitions<=0){
+        showError("Enter a positive whole number of target acquisitions.");
+        return;
+      }
+      if(!isValidNumber(targetCPA) || targetCPA<=0){
+        showError("Enter a target CPA greater than zero.");
+        return;
+      }
+
+      const budget = acquisitions*targetCPA;
+
+      displayResults(
+        money(budget),
+        "Estimated Campaign Budget",
+        "Target CPA",
+        money(targetCPA),
+        "Target Acquisitions",
+        formatNumber(acquisitions,0),
+        money(targetCPA*10),
+        formatNumber(acquisitions/budget*1000,2),
+        "At a target CPA of "+money(targetCPA)+", the estimated budget for "+
+        formatNumber(acquisitions,0)+" acquisitions is "+money(budget)+"."
+      );
+      return;
+    }
+
+    if(currentMode==="acquisitions"){
+      const budget = numberValue("availableBudget");
+      const expectedCPA = numberValue("expectedCPA");
+
+      if(!isValidNumber(budget) || budget<0){
+        showError("Enter a valid budget of zero or more.");
+        return;
+      }
+      if(!isValidNumber(expectedCPA) || expectedCPA<=0){
+        showError("Enter an expected CPA greater than zero.");
+        return;
+      }
+
+      const estimated = budget/expectedCPA;
+      const whole = Math.floor(estimated);
+      const remainder = estimated-whole;
+
+      displayResults(
+        formatNumber(estimated,2),
+        "Estimated Acquisitions",
+        "Available Budget",
+        money(budget),
+        "Expected CPA",
+        money(expectedCPA),
+        money(expectedCPA*10),
+        formatNumber(estimated/ budget*1000,2),
+        "Your budget could generate approximately "+formatNumber(estimated,2)+
+        " acquisitions. At whole-conversion level, that is about "+
+        formatNumber(whole,0)+" complete acquisitions."
+      );
+
+      if(budget===0){
+        $("acqPerThousand").textContent="Not applicable";
+      }
+    }
+  }
+
+  document.querySelectorAll(".mode-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+      currentMode = button.dataset.mode;
+      showFields();
+    });
+  });
+
+  $("calculateBtn").addEventListener("click",calculate);
+  $("currency").addEventListener("change",calculate);
+
+  $("resetBtn").addEventListener("click",()=>{
+    $("campaignCost").value=1000;
+    $("acquisitionCount").value=50;
+    $("targetAcquisitions").value=100;
+    $("targetCPA").value=20;
+    $("availableBudget").value=2000;
+    $("expectedCPA").value=25;
+    $("currency").value="USD";
+    currentMode="cpa";
+    showFields();
+  });
+
+  document.querySelectorAll(".quick-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+      currentMode="cpa";
+      $("campaignCost").value=button.dataset.cost;
+      $("acquisitionCount").value=button.dataset.acq;
+      showFields();
+      $("calculator").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
+
+  $("copyBtn").addEventListener("click",async()=>{
+    if(!lastResultText)return;
+    const button=$("copyBtn");
+    try{
+      await navigator.clipboard.writeText(lastResultText);
+      button.textContent="Copied!";
+    }catch(error){
+      button.textContent="Copy unavailable";
+    }
+    setTimeout(()=>button.textContent="Copy Results",1600);
+  });
+
+  document.querySelectorAll(
+    "#campaignCost,#acquisitionCount,#targetAcquisitions,#targetCPA,#availableBudget,#expectedCPA"
+  ).forEach(input=>{
+    input.addEventListener("keydown",event=>{
+      if(event.key==="Enter")calculate();
+    });
+  });
+
+  $("year").textContent=new Date().getFullYear();
+  showFields();
+})();
+</script>
+
+</body>
+</html>
