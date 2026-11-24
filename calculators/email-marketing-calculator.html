@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Email Marketing Metrics Calculator - Open Rate, CTR & More | CalcNest</title>
+<meta name="description" content="Free email marketing metrics calculator. Calculate email open rate, click-through rate, click-to-open rate, bounce rate, unsubscribe rate, conversion rate and revenue per email campaign.">
+<meta name="keywords" content="email marketing calculator, email open rate calculator, email CTR calculator, click to open rate, email bounce rate calculator, email conversion rate, email campaign metrics">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/email-marketing-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Email Marketing Metrics Calculator | CalcNest">
+<meta property="og:description" content="Measure email campaign performance with open rate, click rate, bounce rate, conversions and revenue metrics.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/email-marketing-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Email Marketing Metrics Calculator">
+<meta name="twitter:description" content="Calculate important email marketing campaign metrics for free.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=1200">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Email Marketing Metrics Calculator",
+  "url":"https://calcnest-7s6.pages.dev/calculators/email-marketing-calculator.html",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "description":"A free email marketing calculator for open rates, click rates, bounce rates, conversions and campaign revenue.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is email open rate?",
+      "acceptedAnswer":{"@type":"Answer","text":"Email open rate is the percentage of delivered emails recorded as opened. It is generally calculated by dividing recorded unique opens by delivered emails and multiplying by 100."}
+    },
+    {
+      "@type":"Question",
+      "name":"How is email click-through rate calculated?",
+      "acceptedAnswer":{"@type":"Answer","text":"Email click-through rate is calculated by dividing unique email clicks by delivered emails and multiplying by 100."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is click-to-open rate?",
+      "acceptedAnswer":{"@type":"Answer","text":"Click-to-open rate compares unique clicks with unique opens. It is calculated by dividing unique clicks by unique opens and multiplying by 100."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate email bounce rate?",
+      "acceptedAnswer":{"@type":"Answer","text":"Email bounce rate is the percentage of sent emails that could not be delivered. It is calculated by dividing bounced emails by total sent emails and multiplying by 100."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate unsubscribe rate?",
+      "acceptedAnswer":{"@type":"Answer","text":"Unsubscribe rate is commonly calculated by dividing the number of unsubscribes by delivered emails and multiplying by 100. Reporting conventions can vary by platform."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is email conversion rate?",
+      "acceptedAnswer":{"@type":"Answer","text":"Email conversion rate measures the percentage of delivered emails that lead to a defined conversion, such as a purchase, signup or registration. Businesses should state their attribution method clearly."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is a good email open rate?",
+      "acceptedAnswer":{"@type":"Answer","text":"There is no universal good open rate. Results vary by industry, audience, email type, privacy protections, tracking methods and campaign platform. Compare campaigns using consistent measurement methods."}
+    },
+    {
+      "@type":"Question",
+      "name":"Why can email open rates be inaccurate?",
+      "acceptedAnswer":{"@type":"Answer","text":"Email privacy features, image proxying, automated security systems and blocked tracking pixels can affect recorded opens. Open rate should be interpreted alongside clicks and conversions."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is revenue per email?",
+      "acceptedAnswer":{"@type":"Answer","text":"Revenue per email is campaign revenue divided by the number of emails sent or delivered, depending on the reporting definition used."}
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#17243a;
+  --muted:#65738b;
+  --blue:#315eea;
+  --purple:#7659e8;
+  --line:#e8edf5;
+  --soft:#f6f8fd;
+  --green:#14865c;
+  --red:#c43e50;
+  --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:Arial,sans-serif;line-height:1.65;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.nav{
+  min-height:72px;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;
+}
+.logo{color:var(--ink);font-size:25px;font-weight:800;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:700}
+.breadcrumb{padding:22px 0 8px;color:var(--muted);font-size:13px}
+.hero{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:35px;align-items:center;padding:25px 0 40px;
+}
+.eyebrow{
+  display:inline-block;padding:7px 12px;border-radius:30px;
+  background:#edf1ff;color:var(--blue);font-size:12px;font-weight:800;
+}
+h1{font-size:clamp(34px,5vw,51px);line-height:1.12;letter-spacing:-1.8px;margin:17px 0}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{width:100%;height:280px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero-points span{
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:30px;padding:7px 12px;font-size:12px;font-weight:700;
+}
+.section{padding:20px 0 45px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{font-size:29px;margin:0 0 7px;letter-spacing:-.7px}
+.section-heading p{color:var(--muted);margin:0}
+.calc-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:start}
+.panel{
+  background:#fff;border:1px solid var(--line);border-radius:19px;
+  padding:25px;box-shadow:var(--shadow);
+}
+.panel h2,.panel h3{margin-top:0}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.field input,.field select{
+  width:100%;min-height:47px;border:1px solid #dce3ef;
+  border-radius:10px;padding:11px 12px;font:inherit;
+  color:var(--ink);background:#fff;outline:none;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.field small{display:block;margin-top:5px;color:var(--muted);font-size:11px}
+.mode-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:22px}
+.mode-btn{
+  border:1px solid var(--line);background:var(--soft);
+  padding:12px 8px;border-radius:10px;cursor:pointer;
+  color:var(--ink);font-weight:700;font-size:13px;
+}
+.mode-btn.active{background:#edf1ff;border-color:var(--blue);color:var(--blue)}
+.primary-btn,.secondary-btn{
+  border:0;border-radius:10px;padding:13px 19px;
+  cursor:pointer;font-weight:800;font-size:14px;
+}
+.primary-btn{color:#fff;background:linear-gradient(110deg,var(--blue),var(--purple))}
+.secondary-btn{background:#edf1ff;color:var(--blue);border:1px solid #dfe5ff}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.error{
+  display:none;padding:11px 13px;margin:14px 0;
+  border-radius:9px;background:#fff0f1;color:var(--red);font-size:13px;
+}
+.results{
+  margin-top:23px;padding:20px;border-radius:15px;
+  background:linear-gradient(135deg,#f0f4ff,#f8f5ff);
+  border:1px solid #e4e9ff;
+}
+.results-top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.results-top h3{margin:0;font-size:16px}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:15px}
+.result-item{
+  background:rgba(255,255,255,.85);border:1px solid #e5e9f5;
+  border-radius:10px;padding:13px;
+}
+.result-item small{display:block;color:var(--muted);font-size:11px}
+.result-item strong{font-size:23px;color:var(--blue);overflow-wrap:anywhere}
+.result-item .description{font-size:11px;color:var(--muted);display:block;margin-top:4px}
+.result-note{color:var(--muted);font-size:12px;margin:13px 0 0}
+.side-panel{background:var(--soft)}
+.side-panel h3{font-size:19px}
+.side-stat{padding:14px 0;border-bottom:1px solid var(--line)}
+.side-stat:last-child{border:0}
+.side-stat strong{display:block;color:var(--blue);font-size:17px}
+.side-stat span{font-size:12px;color:var(--muted)}
+.info-card{
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:15px;padding:20px;margin:18px 0;
+}
+.content-section{padding:28px 0}
+.content-section h2{font-size:27px;letter-spacing:-.5px;margin:0 0 13px}
+.content-section h3{font-size:19px;margin:23px 0 8px}
+.content-section p,.content-section li{color:#526179}
+.content-section ul,.content-section ol{padding-left:22px}
+.formula{
+  display:block;padding:15px;background:#17243a;color:#fff;
+  border-radius:10px;font-weight:700;overflow-wrap:anywhere;margin:12px 0;
+}
+.table-wrap{overflow-x:auto;margin:17px 0}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;font-size:14px}
+th{background:var(--soft)}
+tr:nth-child(even) td{background:#fcfdff}
+.faq-list{display:grid;gap:11px}
+details{border:1px solid var(--line);border-radius:12px;padding:15px 17px;background:#fff}
+summary{cursor:pointer;font-weight:700}
+details p{margin-bottom:0}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.related-card{padding:17px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.related-card strong{display:block;margin-bottom:5px}
+.related-card span{font-size:12px;color:var(--muted)}
+footer{
+  margin-top:40px;padding:30px 0;background:#f7f9fd;
+  border-top:1px solid var(--line);color:var(--muted);font-size:13px;
+}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px}
+footer a{margin-right:13px}
+@media(max-width:850px){.hero,.calc-layout{grid-template-columns:1fr}.hero img{height:230px}}
+@media(max-width:600px){
+  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+  .nav-links{gap:13px}.nav-links a{font-size:12px}
+  .field-grid{grid-template-columns:1fr}
+  .panel{padding:17px}
+  .mode-tabs{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
+  .hero{padding-top:15px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="/">Calc<span>Nest</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="breadcrumb">
+    <a href="/">Home</a> ›
+    <a href="/calculators/business-marketing-calculators.html">Business &amp; Marketing</a> ›
+    Email Marketing Metrics Calculator
+  </div>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">FREE EMAIL CAMPAIGN TOOL</span>
+      <h1>Email Marketing Metrics Calculator</h1>
+      <p>
+        Measure email campaign performance with essential marketing metrics.
+        Calculate open rate, click-through rate, click-to-open rate, bounce
+        rate, unsubscribe rate, conversions and revenue per email.
+      </p>
+      <div class="hero-points">
+        <span>✓ Open &amp; Click Rates</span>
+        <span>✓ Bounce &amp; Unsubscribe</span>
+        <span>✓ Conversion Metrics</span>
+        <span>✓ Campaign Revenue</span>
+      </div>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=1200"
+      alt="Email marketing campaign displayed on a laptop"
+      fetchpriority="high">
+  </section>
+
+  <section class="section" id="calculator">
+    <div class="section-heading">
+      <h2>Calculate Your Email Campaign Metrics</h2>
+      <p>Enter campaign statistics to calculate key email marketing performance indicators.</p>
+    </div>
+
+    <div class="calc-layout">
+      <div class="panel">
+        <div class="mode-tabs" role="group" aria-label="Calculator mode">
+          <button type="button" class="mode-btn active" data-mode="campaign">Campaign Metrics</button>
+          <button type="button" class="mode-btn" data-mode="revenue">Revenue Metrics</button>
+          <button type="button" class="mode-btn" data-mode="compare">Compare Campaigns</button>
+        </div>
+
+        <div id="campaignFields">
+          <h3>Campaign Delivery and Engagement</h3>
+          <div class="field-grid">
+            <div class="field">
+              <label for="sent">Emails Sent</label>
+              <input id="sent" type="number" min="0" step="1" value="10000">
+              <small>Total emails submitted for delivery.</small>
+            </div>
+            <div class="field">
+              <label for="bounced">Bounced Emails</label>
+              <input id="bounced" type="number" min="0" step="1" value="200">
+              <small>Emails that could not be delivered.</small>
+            </div>
+            <div class="field">
+              <label for="opens">Unique Opens</label>
+              <input id="opens" type="number" min="0" step="1" value="3500">
+              <small>Distinct recipients recorded as opening.</small>
+            </div>
+            <div class="field">
+              <label for="clicks">Unique Clicks</label>
+              <input id="clicks" type="number" min="0" step="1" value="700">
+              <small>Distinct recipients who clicked at least one link.</small>
+            </div>
+            <div class="field">
+              <label for="unsubscribes">Unsubscribes</label>
+              <input id="unsubscribes" type="number" min="0" step="1" value="25">
+              <small>Recipients who unsubscribed.</small>
+            </div>
+            <div class="field">
+              <label for="conversions">Conversions</label>
+              <input id="conversions" type="number" min="0" step="1" value="120">
+              <small>Conversions attributed to this campaign.</small>
+            </div>
+          </div>
+        </div>
+
+        <div id="revenueFields" hidden>
+          <h3>Campaign Revenue and Cost</h3>
+          <div class="field-grid">
+            <div class="field">
+              <label for="revenue">Campaign Revenue</label>
+              <input id="revenue" type="number" min="0" step="any" value="6000">
+              <small>Total revenue attributed to the campaign.</small>
+            </div>
+            <div class="field">
+              <label for="cost">Campaign Cost</label>
+              <input id="cost" type="number" min="0" step="any" value="500">
+              <small>Platform, creative and campaign expenses.</small>
+            </div>
+            <div class="field">
+              <label for="revenueSent">Emails Sent</label>
+              <input id="revenueSent" type="number" min="0" step="1" value="10000">
+              <small>Total emails sent for the campaign.</small>
+            </div>
+            <div class="field">
+              <label for="revenueDelivered">Emails Delivered</label>
+              <input id="revenueDelivered" type="number" min="0" step="1" value="9800">
+              <small>Emails successfully delivered.</small>
+            </div>
+            <div class="field">
+              <label for="revenueConversions">Conversions</label>
+              <input id="revenueConversions" type="number" min="0" step="1" value="120">
+              <small>Attributed purchases or other defined actions.</small>
+            </div>
+            <div class="field">
+              <label for="averageOrder">Average Order Value</label>
+              <input id="averageOrder" type="number" min="0" step="any" value="50">
+              <small>Optional reference value for order analysis.</small>
+            </div>
+          </div>
+          <div class="field">
+            <label for="revenueCurrency">Currency</label>
+            <select id="revenueCurrency">
+              <option value="USD">USD - US Dollar ($)</option>
+              <option value="EUR">EUR - Euro (€)</option>
+              <option value="GBP">GBP - British Pound (£)</option>
+              <option value="PKR">PKR - Pakistani Rupee (Rs)</option>
+              <option value="INR">INR - Indian Rupee (₹)</option>
+              <option value="CAD">CAD - Canadian Dollar (C$)</option>
+              <option value="AUD">AUD - Australian Dollar (A$)</option>
+              <option value="AED">AED - UAE Dirham</option>
+              <option value="SAR">SAR - Saudi Riyal</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="compareFields" hidden>
+          <h3>Compare Two Email Campaigns</h3>
+          <p style="color:var(--muted);font-size:13px">
+            Compare campaigns using the same measurement definitions.
+            Enter sent emails, delivered emails and unique clicks.
+          </p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="aName">Campaign A Name</label>
+              <input id="aName" type="text" maxlength="35" value="Campaign A">
+            </div>
+            <div class="field">
+              <label for="bName">Campaign B Name</label>
+              <input id="bName" type="text" maxlength="35" value="Campaign B">
+            </div>
+            <div class="field">
+              <label for="aSent">Campaign A - Emails Sent</label>
+              <input id="aSent" type="number" min="0" step="1" value="10000">
+            </div>
+            <div class="field">
+              <label for="bSent">Campaign B - Emails Sent</label>
+              <input id="bSent" type="number" min="0" step="1" value="12000">
+            </div>
+            <div class="field">
+              <label for="aBounced">Campaign A - Bounced</label>
+              <input id="aBounced" type="number" min="0" step="1" value="200">
+            </div>
+            <div class="field">
+              <label for="bBounced">Campaign B - Bounced</label>
+              <input id="bBounced" type="number" min="0" step="1" value="180">
+            </div>
+            <div class="field">
+              <label for="aClicks">Campaign A - Unique Clicks</label>
+              <input id="aClicks" type="number" min="0" step="1" value="700">
+            </div>
+            <div class="field">
+              <label for="bClicks">Campaign B - Unique Clicks</label>
+              <input id="bClicks" type="number" min="0" step="1" value="1050">
+            </div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button type="button" class="primary-btn" id="calculateBtn">Calculate Metrics</button>
+          <button type="button" class="secondary-btn" id="resetBtn">Reset</button>
+        </div>
+
+        <div class="error" id="errorBox" role="alert" aria-live="polite"></div>
+
+        <div class="results" aria-live="polite">
+          <div class="results-top">
+            <h3 id="resultHeading">Campaign Performance Results</h3>
+            <span class="eyebrow">CALCULATED</span>
+          </div>
+          <div class="result-grid" id="resultGrid">
+            <div class="result-item">
+              <small>Open Rate</small>
+              <strong id="r1">35.71%</strong>
+              <span class="description">Unique opens ÷ delivered</span>
+            </div>
+            <div class="result-item">
+              <small>Click-Through Rate</small>
+              <strong id="r2">7.14%</strong>
+              <span class="description">Unique clicks ÷ delivered</span>
+            </div>
+            <div class="result-item">
+              <small>Click-to-Open Rate</small>
+              <strong id="r3">20.00%</strong>
+              <span class="description">Unique clicks ÷ unique opens</span>
+            </div>
+            <div class="result-item">
+              <small>Bounce Rate</small>
+              <strong id="r4">2.00%</strong>
+              <span class="description">Bounced ÷ sent</span>
+            </div>
+            <div class="result-item">
+              <small>Unsubscribe Rate</small>
+              <strong id="r5">0.26%</strong>
+              <span class="description">Unsubscribes ÷ delivered</span>
+            </div>
+            <div class="result-item">
+              <small>Conversion Rate</small>
+              <strong id="r6">1.22%</strong>
+              <span class="description">Conversions ÷ delivered</span>
+            </div>
+          </div>
+          <p class="result-note" id="resultNote">
+            Metrics use unique opens and clicks, with delivered emails as the denominator where applicable.
+          </p>
+          <div class="action-row">
+            <button type="button" class="secondary-btn" id="copyBtn">Copy Results</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel side-panel">
+        <h3>Key Email Marketing Metrics</h3>
+        <div class="side-stat">
+          <strong>Open Rate</strong>
+          <span>Shows the percentage of delivered emails recorded as opened.</span>
+        </div>
+        <div class="side-stat">
+          <strong>Click-Through Rate</strong>
+          <span>Measures the percentage of delivered emails generating unique clicks.</span>
+        </div>
+        <div class="side-stat">
+          <strong>Click-to-Open Rate</strong>
+          <span>Measures clicks relative to recorded unique opens.</span>
+        </div>
+        <div class="side-stat">
+          <strong>Bounce Rate</strong>
+          <span>Shows the share of sent emails that could not be delivered.</span>
+        </div>
+        <div class="side-stat">
+          <strong>Conversion Rate</strong>
+          <span>Measures attributed conversions relative to delivered emails.</span>
+        </div>
+        <div class="info-card">
+          <strong>Measurement Note</strong>
+          <p style="font-size:12px;margin-bottom:0">
+            Email privacy protections and automated security systems can
+            affect open and click tracking. Use consistent definitions
+            when comparing campaigns.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>What Are Email Marketing Metrics?</h2>
+    <p>
+      Email marketing metrics are measurements used to understand how
+      recipients respond to email campaigns. They help businesses evaluate
+      delivery, engagement, audience quality, conversions and revenue.
+    </p>
+    <p>
+      A campaign can have a large number of opens but few clicks, or many
+      clicks but very few purchases. Looking at multiple metrics provides
+      a more useful picture than relying on one number alone.
+    </p>
+
+    <h2>Email Marketing Formulas</h2>
+
+    <h3>1. Email Open Rate</h3>
+    <span class="formula">Open Rate = (Unique Opens ÷ Delivered Emails) × 100</span>
+    <p>
+      Open rate measures the proportion of delivered emails recorded as
+      opened. It is an engagement indicator, but tracking technology and
+      privacy features can affect its accuracy.
+    </p>
+
+    <h3>2. Email Click-Through Rate (CTR)</h3>
+    <span class="formula">Email CTR = (Unique Clicks ÷ Delivered Emails) × 100</span>
+    <p>
+      Click-through rate measures the percentage of delivered emails
+      that generated at least one recorded unique click. It helps assess
+      whether email content and calls to action encourage recipients
+      to visit a website or landing page.
+    </p>
+
+    <h3>3. Click-to-Open Rate (CTOR)</h3>
+    <span class="formula">CTOR = (Unique Clicks ÷ Unique Opens) × 100</span>
+    <p>
+      Click-to-open rate compares clicks with recorded opens. It can help
+      evaluate how effectively the email content encourages action among
+      recipients whose opens were recorded.
+    </p>
+
+    <h3>4. Email Bounce Rate</h3>
+    <span class="formula">Bounce Rate = (Bounced Emails ÷ Emails Sent) × 100</span>
+    <p>
+      Bounce rate measures emails that could not be delivered. A hard
+      bounce is generally a permanent delivery failure, while a soft
+      bounce is often temporary.
+    </p>
+
+    <h3>5. Unsubscribe Rate</h3>
+    <span class="formula">Unsubscribe Rate = (Unsubscribes ÷ Delivered Emails) × 100</span>
+    <p>
+      Unsubscribe rate measures the percentage of delivered recipients
+      who opted out. Consistent reporting definitions are important
+      because platforms may use different denominators.
+    </p>
+
+    <h3>6. Email Conversion Rate</h3>
+    <span class="formula">Conversion Rate = (Attributed Conversions ÷ Delivered Emails) × 100</span>
+    <p>
+      A conversion may be a purchase, registration, download, booking
+      or another action defined by the business. The result depends
+      on the attribution window and tracking rules used.
+    </p>
+
+    <h3>7. Revenue Per Email Sent</h3>
+    <span class="formula">Revenue Per Email Sent = Campaign Revenue ÷ Emails Sent</span>
+
+    <h3>8. Revenue Per Email Delivered</h3>
+    <span class="formula">Revenue Per Email Delivered = Campaign Revenue ÷ Delivered Emails</span>
+
+    <h3>9. Email Campaign Return on Investment</h3>
+    <span class="formula">Campaign ROI = ((Campaign Revenue − Campaign Cost) ÷ Campaign Cost) × 100</span>
+    <p>
+      This simplified ROI formula uses revenue and campaign cost. It
+      does not account for product costs or all other business expenses.
+      For a profit-based ROI, use the relevant profit figure instead
+      of revenue.
+    </p>
+
+    <h2>Worked Email Campaign Example</h2>
+    <p>Imagine a business sends 10,000 emails and receives the following results:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Campaign Metric</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Emails sent</td><td>10,000</td></tr>
+          <tr><td>Bounced emails</td><td>200</td></tr>
+          <tr><td>Delivered emails</td><td>9,800</td></tr>
+          <tr><td>Unique opens</td><td>3,500</td></tr>
+          <tr><td>Unique clicks</td><td>700</td></tr>
+          <tr><td>Unsubscribes</td><td>25</td></tr>
+          <tr><td>Conversions</td><td>120</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <span class="formula">Delivered = 10,000 − 200 = 9,800</span>
+    <span class="formula">Open Rate = (3,500 ÷ 9,800) × 100 = 35.71%</span>
+    <span class="formula">CTR = (700 ÷ 9,800) × 100 = 7.14%</span>
+    <span class="formula">CTOR = (700 ÷ 3,500) × 100 = 20%</span>
+    <span class="formula">Bounce Rate = (200 ÷ 10,000) × 100 = 2%</span>
+    <span class="formula">Unsubscribe Rate = (25 ÷ 9,800) × 100 = 0.26%</span>
+    <span class="formula">Conversion Rate = (120 ÷ 9,800) × 100 = 1.22%</span>
+
+    <h2>How to Use This Email Marketing Calculator</h2>
+    <ol>
+      <li>Select Campaign Metrics to calculate engagement and delivery performance.</li>
+      <li>Enter total emails sent and bounced emails.</li>
+      <li>Enter unique opens, unique clicks, unsubscribes and conversions.</li>
+      <li>Click Calculate Metrics to view the results.</li>
+      <li>Select Revenue Metrics to calculate campaign revenue and ROI.</li>
+      <li>Enter campaign revenue, cost, sent emails and delivered emails.</li>
+      <li>Select Compare Campaigns to compare delivery and click-through performance.</li>
+      <li>Use Copy Results to copy your calculated figures.</li>
+    </ol>
+
+    <h2>Understanding Campaign Revenue Metrics</h2>
+    <p>
+      Engagement metrics explain how recipients interact with emails.
+      Revenue metrics help connect campaign activity with business outcomes.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Formula</th><th>What It Measures</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Revenue Per Email Sent</td>
+            <td>Revenue ÷ Sent</td>
+            <td>Revenue generated per email submitted.</td>
+          </tr>
+          <tr>
+            <td>Revenue Per Email Delivered</td>
+            <td>Revenue ÷ Delivered</td>
+            <td>Revenue generated per successfully delivered email.</td>
+          </tr>
+          <tr>
+            <td>Average Order Value</td>
+            <td>Revenue ÷ Orders</td>
+            <td>Average value of attributed orders.</td>
+          </tr>
+          <tr>
+            <td>Campaign ROI</td>
+            <td>(Revenue − Cost) ÷ Cost × 100</td>
+            <td>Return relative to campaign cost.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>What Is a Good Email Marketing Rate?</h2>
+    <p>
+      There is no single performance benchmark that applies to every
+      business. Email results can vary by industry, audience, list age,
+      campaign purpose, sending frequency, season and tracking method.
+    </p>
+    <p>
+      Instead of treating a universal percentage as a guaranteed target,
+      compare campaigns with similar audiences and objectives. Monitor
+      trends over time and focus on conversions and business outcomes
+      as well as engagement.
+    </p>
+
+    <h2>How to Improve Email Campaign Performance</h2>
+
+    <h3>Build a Relevant Email List</h3>
+    <p>
+      Use permission-based signup methods and send messages that match
+      subscriber interests. Avoid purchased or scraped lists.
+    </p>
+
+    <h3>Write Clear Subject Lines</h3>
+    <p>
+      Subject lines should accurately describe the email and help
+      recipients understand why the message matters to them.
+    </p>
+
+    <h3>Segment Your Audience</h3>
+    <p>
+      Group subscribers by relevant characteristics such as interests,
+      purchase history or engagement. Send content that is useful
+      for each segment.
+    </p>
+
+    <h3>Improve Calls to Action</h3>
+    <p>
+      Use clear links and buttons that explain the next step. Make
+      sure the landing page matches the promise made in the email.
+    </p>
+
+    <h3>Test Mobile Layouts</h3>
+    <p>
+      Many recipients read email on mobile devices. Use readable text,
+      accessible buttons and a layout that works on smaller screens.
+    </p>
+
+    <h3>Maintain List Quality</h3>
+    <p>
+      Monitor hard bounces, remove invalid addresses and follow
+      applicable consent and unsubscribe requirements.
+    </p>
+
+    <h2>Important Limitations of Email Tracking</h2>
+    <ul>
+      <li>Email privacy features may automatically load tracking pixels and affect recorded open rates.</li>
+      <li>Some email clients block images, so genuine opens may not be recorded.</li>
+      <li>Security systems may automatically scan links and generate clicks that are not human engagement.</li>
+      <li>Different platforms may define delivered emails, unique clicks and unsubscribes differently.</li>
+      <li>Attribution windows can change the number of conversions credited to an email campaign.</li>
+      <li>Revenue attributed to email does not always mean the email caused the entire purchase.</li>
+    </ul>
+    <p>
+      For better decisions, use a combination of clicks, verified website
+      sessions, conversions, revenue and customer behavior rather than
+      relying on open rate alone.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>1. What is email open rate?</summary>
+        <p>
+          Open rate is the percentage of delivered emails recorded as
+          opened. It is calculated by dividing unique opens by delivered
+          emails and multiplying by 100.
+        </p>
+      </details>
+
+      <details>
+        <summary>2. What is a good email click-through rate?</summary>
+        <p>
+          A good CTR depends on the industry, campaign type, audience
+          and offer. Compare similar campaigns over time instead of
+          relying on one universal benchmark.
+        </p>
+      </details>
+
+      <details>
+        <summary>3. What is the difference between CTR and CTOR?</summary>
+        <p>
+          CTR compares unique clicks with delivered emails. CTOR
+          compares unique clicks with recorded unique opens.
+        </p>
+      </details>
+
+      <details>
+        <summary>4. How is email bounce rate calculated?</summary>
+        <p>
+          Divide bounced emails by total emails sent and multiply
+          by 100. This calculator uses total sent emails as the
+          bounce-rate denominator.
+        </p>
+      </details>
+
+      <details>
+        <summary>5. What does a high unsubscribe rate mean?</summary>
+        <p>
+          It may indicate that recipients find the email frequency,
+          content or relevance unsuitable. Review audience expectations,
+          signup consent and campaign segmentation.
+        </p>
+      </details>
+
+      <details>
+        <summary>6. How do I calculate email conversion rate?</summary>
+        <p>
+          Divide conversions attributed to the campaign by delivered
+          emails and multiply by 100. Define the conversion event
+          and attribution window before comparing results.
+        </p>
+      </details>
+
+      <details>
+        <summary>7. Why are email open rates sometimes inaccurate?</summary>
+        <p>
+          Privacy features, image proxying, blocked tracking pixels
+          and automated systems can change how opens are recorded.
+          Treat open rates as an approximate engagement indicator.
+        </p>
+      </details>
+
+      <details>
+        <summary>8. What is revenue per email?</summary>
+        <p>
+          It is campaign revenue divided by the number of emails sent
+          or delivered. Always state which denominator is being used.
+        </p>
+      </details>
+
+      <details>
+        <summary>9. Does email campaign ROI equal profit margin?</summary>
+        <p>
+          No. The simplified campaign ROI formula compares revenue
+          with campaign cost. Profit margin uses a different
+          calculation and should account for the relevant costs.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Explore Related Business &amp; Marketing Calculators</h2>
+    <p>Explore more tools for advertising, customer acquisition and campaign performance.</p>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/cpc-calculator.html">
+        <strong>CPC Calculator</strong>
+        <span>Calculate cost per advertising click.</span>
+      </a>
+      <a class="related-card" href="/calculators/ctr-calculator.html">
+        <strong>CTR Calculator</strong>
+        <span>Measure click-through rate for campaigns.</span>
+      </a>
+      <a class="related-card" href="/calculators/conversion-rate-calculator.html">
+        <strong>Conversion Rate Calculator</strong>
+        <span>Measure the percentage of visitors who convert.</span>
+      </a>
+      <a class="related-card" href="/calculators/cpa-calculator.html">
+        <strong>CPA Calculator</strong>
+        <span>Calculate cost per acquisition.</span>
+      </a>
+      <a class="related-card" href="/calculators/roas-calculator.html">
+        <strong>ROAS Calculator</strong>
+        <span>Compare advertising revenue with ad spend.</span>
+      </a>
+      <a class="related-card" href="/calculators/business-marketing-calculators.html">
+        <strong>Business &amp; Marketing</strong>
+        <span>Explore the complete calculator collection.</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>CalcNest</strong>
+      <p>Free online calculators for everyday decisions and smarter planning.</p>
+    </div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container">
+    <p>© <span id="year"></span> CalcNest. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const $=id=>document.getElementById(id);
+  let mode="campaign";
+  let lastText="";
+
+  const currencySymbols={
+    USD:"$",EUR:"€",GBP:"£",PKR:"Rs ",INR:"₹",
+    CAD:"C$",AUD:"A$",AED:"AED ",SAR:"SAR "
+  };
+
+  function number(id){
+    return Number($(id).value);
+  }
+
+  function integer(id){
+    const value=number(id);
+    return Number.isSafeInteger(value)&&value>=0;
+  }
+
+  function validNonNegative(id){
+    const value=number(id);
+    return Number.isFinite(value)&&value>=0;
+  }
+
+  function fmt(value,digits=2){
+    return new Intl.NumberFormat("en-US",{
+      maximumFractionDigits:digits,
+      minimumFractionDigits:0
+    }).format(value);
+  }
+
+  function percent(numerator,denominator){
+    return denominator>0?(numerator/denominator)*100:null;
+  }
+
+  function money(value){
+    const currency=$("revenueCurrency").value;
+    const symbol=currencySymbols[currency]||currency+" ";
+    return symbol+fmt(value,2);
+  }
+
+  function showError(message){
+    $("errorBox").textContent=message;
+    $("errorBox").style.display="block";
+  }
+
+  function clearError(){
+    $("errorBox").textContent="";
+    $("errorBox").style.display="none";
+  }
+
+  function setResults(title,items,note){
+    $("resultHeading").textContent=title;
+
+    const grid=$("resultGrid");
+    grid.innerHTML="";
+
+    items.forEach((item,index)=>{
+      const card=document.createElement("div");
+      card.className="result-item";
+
+      const label=document.createElement("small");
+      label.textContent=item.label;
+
+      const value=document.createElement("strong");
+      value.textContent=item.value;
+
+      const description=document.createElement("span");
+      description.className="description";
+      description.textContent=item.description||"";
+
+      card.append(label,value,description);
+      grid.appendChild(card);
+    });
+
+    $("resultNote").textContent=note;
+
+    lastText=title+"\n"+
+      items.map(item=>item.label+": "+item.value).join("\n")+
+      "\n"+note;
+  }
+
+  function showMode(){
+    $("campaignFields").hidden=mode!=="campaign";
+    $("revenueFields").hidden=mode!=="revenue";
+    $("compareFields").hidden=mode!=="compare";
+
+    document.querySelectorAll(".mode-btn").forEach(button=>{
+      button.classList.toggle("active",button.dataset.mode===mode);
+    });
+
+    const names={
+      campaign:"Calculate Metrics",
+      revenue:"Calculate Revenue",
+      compare:"Compare Campaigns"
+    };
+
+    $("calculateBtn").textContent=names[mode];
+    clearError();
+    calculate();
+  }
+
+  function campaignCalculation(){
+    const sent=number("sent");
+    const bounced=number("bounced");
+    const opens=number("opens");
+    const clicks=number("clicks");
+    const unsubscribes=number("unsubscribes");
+    const conversions=number("conversions");
+
+    const fields=["sent","bounced","opens","clicks","unsubscribes","conversions"];
+
+    if(!fields.every(integer)){
+      showError("All campaign counts must be valid non-negative whole numbers.");
+      return;
+    }
+
+    if(bounced>sent){
+      showError("Bounced emails cannot exceed emails sent.");
+      return;
+    }
+
+    const delivered=sent-bounced;
+
+    if(opens>delivered){
+      showError("Unique opens cannot exceed delivered emails.");
+      return;
+    }
+
+    if(clicks>delivered){
+      showError("Unique clicks cannot exceed delivered emails.");
+      return;
+    }
+
+    if(clicks>opens){
+      showError("Unique clicks cannot exceed unique opens. Check that all figures use the same campaign and tracking definitions.");
+      return;
+    }
+
+    if(unsubscribes>delivered){
+      showError("Unsubscribes cannot exceed delivered emails.");
+      return;
+    }
+
+    if(conversions>delivered){
+      showError("Conversions cannot exceed delivered emails in this simplified recipient-based calculation.");
+      return;
+    }
+
+    const openRate=percent(opens,delivered);
+    const ctr=percent(clicks,delivered);
+    const ctor=percent(clicks,opens);
+    const bounceRate=percent(bounced,sent);
+    const unsubscribeRate=percent(unsubscribes,delivered);
+    const conversionRate=percent(conversions,delivered);
+
+    const results=[
+      {
+        label:"Delivered Emails",
+        value:fmt(delivered,0),
+        description:"Sent emails minus bounced emails"
+      },
+      {
+        label:"Open Rate",
+        value:openRate===null?"N/A":fmt(openRate)+"%",
+        description:"Unique opens ÷ delivered emails"
+      },
+      {
+        label:"Click-Through Rate",
+        value:ctr===null?"N/A":fmt(ctr)+"%",
+        description:"Unique clicks ÷ delivered emails"
+      },
+      {
+        label:"Click-to-Open Rate",
+        value:ctor===null?"N/A":fmt(ctor)+"%",
+        description:"Unique clicks ÷ unique opens"
+      },
+      {
+        label:"Bounce Rate",
+        value:bounceRate===null?"N/A":fmt(bounceRate)+"%",
+        description:"Bounced emails ÷ emails sent"
+      },
+      {
+        label:"Unsubscribe Rate",
+        value:unsubscribeRate===null?"N/A":fmt(unsubscribeRate)+"%",
+        description:"Unsubscribes ÷ delivered emails"
+      },
+      {
+        label:"Conversion Rate",
+        value:conversionRate===null?"N/A":fmt(conversionRate)+"%",
+        description:"Conversions ÷ delivered emails"
+      }
+    ];
+
+    setResults(
+      "Campaign Performance Results",
+      results,
+      "Delivered emails: "+fmt(delivered,0)+". Rates use unique opens and clicks. Open tracking can be affected by email privacy and automated systems."
+    );
+  }
+
+  function revenueCalculation(){
+    const revenue=number("revenue");
+    const cost=number("cost");
+    const sent=number("revenueSent");
+    const delivered=number("revenueDelivered");
+    const conversions=number("revenueConversions");
+    const averageOrder=number("averageOrder");
+
+    if(!validNonNegative("revenue")||
+       !validNonNegative("cost")||
+       !integer("revenueSent")||
+       !integer("revenueDelivered")||
+       !integer("revenueConversions")||
+       !validNonNegative("averageOrder")){
+      showError("Enter valid non-negative revenue, cost and whole-number email and conversion counts.");
+      return;
+    }
+
+    if(delivered>sent){
+      showError("Delivered emails cannot exceed emails sent.");
+      return;
+    }
+
+    if(conversions>delivered){
+      showError("Conversions cannot exceed delivered emails for this recipient-based calculation.");
+      return;
+    }
+
+    const roi=cost>0?((revenue-cost)/cost)*100:null;
+    const revenuePerSent=sent>0?revenue/sent:null;
+    const revenuePerDelivered=delivered>0?revenue/delivered:null;
+    const conversionRate=percent(conversions,delivered);
+    const calculatedAOV=conversions>0?revenue/conversions:null;
+
+    const results=[
+      {
+        label:"Campaign Revenue",
+        value:money(revenue),
+        description:"Attributed campaign revenue"
+      },
+      {
+        label:"Campaign ROI",
+        value:roi===null?"N/A":fmt(roi)+"%",
+        description:cost===0?"Campaign cost is zero": "(Revenue − cost) ÷ cost"
+      },
+      {
+        label:"Revenue Per Email Sent",
+        value:revenuePerSent===null?"N/A":money(revenuePerSent),
+        description:"Revenue ÷ emails sent"
+      },
+      {
+        label:"Revenue Per Email Delivered",
+        value:revenuePerDelivered===null?"N/A":money(revenuePerDelivered),
+        description:"Revenue ÷ delivered emails"
+      },
+      {
+        label:"Conversion Rate",
+        value:conversionRate===null?"N/A":fmt(conversionRate)+"%",
+        description:"Conversions ÷ delivered emails"
+      },
+      {
+        label:"Revenue Per Conversion",
+        value:calculatedAOV===null?"N/A":money(calculatedAOV),
+        description:"Revenue ÷ attributed conversions"
+      },
+      {
+        label:"Entered Average Order Value",
+        value:money(averageOrder),
+        description:"Optional reference figure supplied by you"
+      }
+    ];
+
+    setResults(
+      "Email Revenue and ROI Results",
+      results,
+      "Revenue attribution depends on the tracking model and attribution window. The ROI shown uses campaign revenue minus campaign cost, not net business profit."
+    );
+  }
+
+  function compareCalculation(){
+    const fields=["aSent","bSent","aBounced","bBounced","aClicks","bClicks"];
+
+    if(!fields.every(integer)){
+      showError("All campaign comparison counts must be valid non-negative whole numbers.");
+      return;
+    }
+
+    const aSent=number("aSent");
+    const bSent=number("bSent");
+    const aBounce=number("aBounced");
+    const bBounce=number("bBounced");
+    const aClicks=number("aClicks");
+    const bClicks=number("bClicks");
+
+    const aDelivered=aSent-aBounce;
+    const bDelivered=bSent-bBounce;
+
+    if(aBounce>aSent||bBounce>bSent){
+      showError("Bounced emails cannot exceed emails sent in either campaign.");
+      return;
+    }
+
+    if(aClicks>aDelivered||bClicks>bDelivered){
+      showError("Unique clicks cannot exceed delivered emails.");
+      return;
+    }
+
+    const aCTR=percent(aClicks,aDelivered);
+    const bCTR=percent(bClicks,bDelivered);
+    const difference=(aCTR===null||bCTR===null)?null:bCTR-aCTR;
+
+    const aName=$("aName").value.trim()||"Campaign A";
+    const bName=$("bName").value.trim()||"Campaign B";
+
+    const winner=
+      difference===null?"Not enough delivery data":
+      Math.abs(difference)<0.0000001?"Both campaigns have the same CTR":
+      difference>0?bName+" has the higher CTR":aName+" has the higher CTR";
+
+    const results=[
+      {
+        label:aName+" Delivered",
+        value:fmt(aDelivered,0),
+        description:"Emails successfully delivered"
+      },
+      {
+        label:bName+" Delivered",
+        value:fmt(bDelivered,0),
+        description:"Emails successfully delivered"
+      },
+      {
+        label:aName+" CTR",
+        value:aCTR===null?"N/A":fmt(aCTR)+"%",
+        description:"Unique clicks ÷ delivered emails"
+      },
+      {
+        label:bName+" CTR",
+        value:bCTR===null?"N/A":fmt(bCTR)+"%",
+        description:"Unique clicks ÷ delivered emails"
+      },
+      {
+        label:"CTR Difference",
+        value:difference===null?"N/A":(difference>0?"+":"")+fmt(difference)+" percentage points",
+        description:"Campaign B CTR minus Campaign A CTR"
+      },
+      {
+        label:"Higher CTR",
+        value:winner,
+        description:"Based on the supplied unique click figures"
+      }
+    ];
+
+    setResults(
+      "Campaign Comparison Results",
+      results,
+      "A higher CTR does not automatically mean a campaign generated more revenue or profit. Compare audience quality and downstream conversions as well."
+    );
+  }
+
+  function calculate(){
+    clearError();
+
+    if(mode==="campaign")campaignCalculation();
+    if(mode==="revenue")revenueCalculation();
+    if(mode==="compare")compareCalculation();
+  }
+
+  document.querySelectorAll(".mode-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+      mode=button.dataset.mode;
+      showMode();
+    });
+  });
+
+  $("calculateBtn").addEventListener("click",calculate);
+
+  $("resetBtn").addEventListener("click",()=>{
+    const defaults={
+      sent:10000,
+      bounced:200,
+      opens:3500,
+      clicks:700,
+      unsubscribes:25,
+      conversions:120,
+      revenue:6000,
+      cost:500,
+      revenueSent:10000,
+      revenueDelivered:9800,
+      revenueConversions:120,
+      averageOrder:50,
+      aName:"Campaign A",
+      bName:"Campaign B",
+      aSent:10000,
+      bSent:12000,
+      aBounced:200,
+      bBounced:180,
+      aClicks:700,
+      bClicks:1050
+    };
+
+    Object.entries(defaults).forEach(([id,value])=>$(id).value=value);
+    $("revenueCurrency").value="USD";
+    mode="campaign";
+    showMode();
+  });
+
+  $("copyBtn").addEventListener("click",async()=>{
+    if(!lastText)return;
+
+    const button=$("copyBtn");
+    try{
+      await navigator.clipboard.writeText(lastText);
+      button.textContent="Copied!";
+    }catch(error){
+      button.textContent="Copy unavailable";
+    }
+    setTimeout(()=>button.textContent="Copy Results",1600);
+  });
+
+  document.querySelectorAll("input").forEach(input=>{
+    input.addEventListener("keydown",event=>{
+      if(event.key==="Enter")calculate();
+    });
+  });
+
+  $("revenueCurrency").addEventListener("change",calculate);
+  $("year").textContent=new Date().getFullYear();
+
+  showMode();
+})();
+</script>
+</body>
+</html>
