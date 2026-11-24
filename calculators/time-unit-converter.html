@@ -2,64 +2,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Time Converter - Seconds, Minutes, Hours, Days & Years | CalcNest</title>
-<meta name="description" content="Convert seconds, minutes, hours, days, weeks, months and years with this free online time unit converter.">
-<meta name="keywords" content="time converter, seconds to minutes, minutes to hours, hours to days, days to weeks, time unit calculator">
-<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/time-unit-converter.html">
-<meta name="robots" content="index,follow">
-<meta property="og:title" content="Time Unit Converter | CalcNest"><meta property="og:description" content="Convert common time units instantly."><meta property="og:type" content="website">
-<style>
-:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--line:#e8edf5;--soft:#f6f8fd}
-*{box-sizing:border-box}body{margin:0;font:16px/1.65 Arial,sans-serif;color:var(--ink)}a{text-decoration:none;color:inherit}
-header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#ffffffed;z-index:5}.nav,.container{width:min(1080px,calc(100% - 32px));margin:auto}.nav{padding:15px 0;display:flex;justify-content:space-between;gap:15px;align-items:center}.brand{font-size:25px;font-weight:800}.brand span{color:var(--blue)}nav{display:flex;gap:17px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}
-.hero{padding:40px 0 22px}.tag{color:var(--blue);background:#edf2ff;padding:5px 12px;border-radius:30px;font-size:12px;font-weight:bold}h1{font-size:clamp(32px,5vw,46px);line-height:1.15;margin:14px 0}.hero p,.section p,.section li{color:var(--muted)}.panel{padding:25px;border:1px solid var(--line);border-radius:17px;box-shadow:0 12px 35px #192d550d;margin:18px 0}.grid{display:grid;grid-template-columns:1fr 55px 1fr;gap:13px;align-items:end}label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:10px;font:inherit;color:var(--ink);background:white}.swap{height:47px;border:0;border-radius:10px;background:#edf2ff;color:var(--blue);font-size:22px;cursor:pointer}.result{margin-top:18px;padding:19px;border-radius:12px;background:linear-gradient(120deg,#edf2ff,#f5f1ff)}.result small{font-weight:bold;color:#596987}.result strong{display:block;font-size:clamp(23px,4vw,34px);color:#254fd0;overflow-wrap:anywhere}.result p{font-size:13px;color:var(--muted);margin:4px 0}.actions,.quick,.links{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}.btn.alt,.quick button{background:#edf2ff;color:var(--blue)}.quick button{border:1px solid var(--line);border-radius:20px;padding:7px 12px;cursor:pointer}.section{padding:22px 0;border-bottom:1px solid var(--line)}h2{font-size:25px;margin:0 0 9px}h3{font-size:18px;margin:18px 0 6px}.formula,.note{padding:14px;background:#f2f5ff;border-left:4px solid var(--blue);border-radius:8px;margin:13px 0;color:#34486e}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{border:1px solid var(--line);background:#fbfcff;border-radius:11px;padding:14px}.card a{color:var(--blue);font-weight:bold}.faq{padding:13px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.links a{border:1px solid var(--line);padding:9px 12px;border-radius:8px;color:var(--blue);font-size:13px;font-weight:bold}footer{margin-top:30px;padding:23px 0;background:#f7f9fd;color:var(--muted);font-size:13px}
-@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.swap{height:39px}.cards{grid-template-columns:1fr 1fr}.panel{padding:17px}}@media(max-width:430px){.cards{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Time Unit Converter - Convert Seconds, Minutes, Hours, Days & More | CalcNest</title>
+  <meta name="description" content="Convert time units instantly with the free CalcNest Time Unit Converter. Convert milliseconds, seconds, minutes, hours, days, weeks, months and years with formulas and examples.">
+  <meta name="keywords" content="time unit converter, seconds to minutes, minutes to hours, hours to days, days to weeks, weeks to months, time conversion calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/time-unit-converter.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Time Unit Converter | CalcNest">
+  <meta property="og:description" content="Convert milliseconds, seconds, minutes, hours, days, weeks and more with a free time conversion calculator.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/time-unit-converter.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Time Unit Converter | CalcNest">
+  <meta name="twitter:description" content="Convert common time units quickly and accurately.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"CalcNest Time Unit Converter",
+    "url":"https://calcnest-7s6.pages.dev/calculators/time-unit-converter.html",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "description":"A free online tool for converting milliseconds, seconds, minutes, hours, days, weeks, months and years.",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
+
+  <style>
+    :root{
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#fff;
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.7;
+    }
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1120px,calc(100% - 36px));margin:auto}
+    .topbar{border-bottom:1px solid var(--line);background:#fff}
+    .nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-size:23px;font-weight:800;color:var(--ink);letter-spacing:-.7px}
+    .brand span{color:var(--blue)}
+    .navlinks{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;font-weight:700}
+    .navlinks a{color:#42516a}
+    .breadcrumbs{font-size:13px;color:var(--muted);padding:20px 0 8px}
+    .breadcrumbs a{color:var(--muted)}
+    .hero{padding:26px 0 22px}
+    .eyebrow{color:var(--blue);font-weight:800;font-size:12px;letter-spacing:1.2px;text-transform:uppercase}
+    h1{font-size:clamp(31px,5vw,48px);line-height:1.12;letter-spacing:-1.5px;margin:9px 0 13px}
+    .hero p{max-width:780px;color:var(--muted);font-size:17px;margin:0}
+    .hero-image{width:100%;height:270px;object-fit:cover;border-radius:var(--radius);margin-top:24px;display:block}
+    .layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);gap:24px;align-items:start;margin:24px 0 42px}
+    .panel,.side-card,.content-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .panel{padding:26px}
+    .panel h2,.content-card h2{margin:0 0 8px;font-size:23px;line-height:1.3}
+    .sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+    label{display:block;font-size:13px;font-weight:800;margin:0 0 7px}
+    input,select{
+      width:100%;min-height:48px;border:1px solid #dce3ef;border-radius:11px;
+      padding:11px 13px;background:#fff;color:var(--ink);font:inherit;outline:none;
+    }
+    input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.12)}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{min-width:0}
+    .swapline{display:flex;align-items:center;justify-content:center;margin:15px 0}
+    .swapbtn,.action,.quick button{
+      border:0;border-radius:10px;cursor:pointer;font-weight:800;font:inherit;
+    }
+    .swapbtn{background:#edf1ff;color:var(--blue);padding:9px 16px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .action{padding:11px 17px;background:var(--blue);color:#fff}
+    .action.secondary{background:#edf1ff;color:var(--blue)}
+    .action.gray{background:#f0f2f6;color:#42516a}
+    .result{
+      margin-top:22px;padding:20px;border-radius:14px;
+      background:linear-gradient(135deg,#eef3ff,#f5f1ff);
+      border:1px solid #e0e7ff;
+    }
+    .result-label{font-size:12px;font-weight:800;color:#5b6680;text-transform:uppercase;letter-spacing:.7px}
+    .result-value{font-size:clamp(25px,4vw,36px);font-weight:800;line-height:1.25;overflow-wrap:anywhere;margin:7px 0}
+    .result-note{font-size:13px;color:var(--muted)}
+    .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}
+    .quick button{padding:8px 11px;background:#f1f4fa;color:#42516a;font-size:12px}
+    .quick button:hover{background:#e6ecff;color:var(--blue)}
+    .side-card{padding:20px;margin-bottom:18px}
+    .side-card h3{font-size:17px;margin:0 0 10px}
+    .side-card p,.side-card li{font-size:13px;color:var(--muted)}
+    .side-card ul{padding-left:19px;margin:8px 0}
+    .content-card{padding:26px;margin:20px 0}
+    .content-card p,.content-card li{color:#526078}
+    .content-card h3{font-size:18px;margin:22px 0 7px}
+    .formula{padding:14px 16px;background:var(--soft);border-left:4px solid var(--purple);border-radius:9px;font-weight:700;overflow-wrap:anywhere}
+    .table-wrap{overflow-x:auto;margin-top:14px}
+    table{width:100%;border-collapse:collapse;min-width:480px}
+    th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:14px}
+    th{background:var(--soft)}
+    .faq{padding:15px 0;border-bottom:1px solid var(--line)}
+    .faq:last-child{border:0}
+    .faq h3{margin:0 0 5px;font-size:16px}
+    .faq p{margin:0}
+    .related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .related a{padding:14px;border:1px solid var(--line);border-radius:12px;font-weight:700;font-size:14px}
+    footer{margin-top:45px;background:#f7f9fd;border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
+    .footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:800px){.layout{grid-template-columns:1fr}.hero-image{height:220px}}
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1120px)}
+      .nav{align-items:flex-start;flex-direction:column;padding:14px 0}
+      .navlinks{gap:13px}
+      .panel,.content-card{padding:19px}
+      .fields{grid-template-columns:1fr}
+      .related{grid-template-columns:1fr}
+      .hero-image{height:185px}
+    }
+  </style>
 </head>
+
 <body>
-<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main class="container">
-<section class="hero"><span class="tag">Free Time Measurement Tool</span><h1>Time Unit Converter</h1><p>Convert seconds, minutes, hours, days, weeks, months and years instantly. This free time converter is useful for study, work schedules, project planning, science and everyday calculations.</p></section>
-<section class="panel" id="calculator"><h2>Convert Time Units</h2><p class="hero">Enter a value and select the units you want to convert.</p>
-<div class="grid"><div><label for="amount">Time value</label><input id="amount" type="number" step="any" min="0" value="1"></div><button class="swap" id="swap" type="button" aria-label="Swap units">⇄</button><div><label for="from">From</label><select id="from"></select></div></div>
-<div style="margin-top:13px"><label for="to">Convert to</label><select id="to"></select></div>
-<div class="result" aria-live="polite"><small>CONVERSION RESULT</small><strong id="answer"></strong><p id="detail"></p></div>
-<div class="actions"><button class="btn" id="copy">Copy Result</button><button class="btn alt" id="reset">Reset</button></div>
-<div class="quick"><button data-value="1">1</button><button data-value="15">15</button><button data-value="30">30</button><button data-value="60">60</button><button data-value="24">24</button><button data-value="365">365</button></div></section>
-<section class="section"><h2>Popular Time Conversions</h2><div class="cards">
-<div class="card"><b>Minutes to Hours</b><p>Convert durations into hours.</p><a href="#calculator" onclick="setConversion('min','h')">Convert →</a></div>
-<div class="card"><b>Hours to Minutes</b><p>Convert work and study hours.</p><a href="#calculator" onclick="setConversion('h','min')">Convert →</a></div>
-<div class="card"><b>Days to Hours</b><p>Calculate hours in multiple days.</p><a href="#calculator" onclick="setConversion('d','h')">Convert →</a></div>
-<div class="card"><b>Seconds to Minutes</b><p>Convert short time intervals.</p><a href="#calculator" onclick="setConversion('s','min')">Convert →</a></div>
-<div class="card"><b>Weeks to Days</b><p>Convert weeks into days.</p><a href="#calculator" onclick="setConversion('wk','d')">Convert →</a></div>
-<div class="card"><b>Days to Weeks</b><p>Convert days into weeks.</p><a href="#calculator" onclick="setConversion('d','wk')">Convert →</a></div>
-</div></section>
-<section class="section"><h2>Time Conversion Reference</h2><table><tr><th>Unit</th><th>Standard equivalent</th></tr><tr><td>1 minute</td><td>60 seconds</td></tr><tr><td>1 hour</td><td>60 minutes</td></tr><tr><td>1 day</td><td>24 hours</td></tr><tr><td>1 week</td><td>7 days</td></tr><tr><td>1 average month</td><td>30.436875 days</td></tr><tr><td>1 average year</td><td>365.2425 days</td></tr></table></section>
-<section class="section"><h2>Time Conversion Formula</h2><p>The converter uses seconds as its base unit. Each input value is multiplied by its unit's number of seconds, then divided by the destination unit's number of seconds.</p><div class="formula"><b>Result = Value × Source factor ÷ Destination factor</b></div><h3>Examples</h3><p>2 hours to minutes:</p><div class="formula">2 × 60 = 120 minutes</div><p>3 days to hours:</p><div class="formula">3 × 24 = 72 hours</div><p>120 seconds to minutes:</p><div class="formula">120 ÷ 60 = 2 minutes</div><h3>Important note about months and years</h3><p>Calendar months have different lengths, from 28 to 31 days. This converter uses an average Gregorian month of 30.436875 days and an average Gregorian year of 365.2425 days. For an exact calendar date calculation, use a date calculator instead.</p></section>
-<section class="section"><h2>Frequently Asked Questions</h2>
-<div class="faq"><h3>How many seconds are in one minute?</h3><p>One minute contains exactly 60 seconds.</p></div>
-<div class="faq"><h3>How many minutes are in an hour?</h3><p>One hour contains exactly 60 minutes.</p></div>
-<div class="faq"><h3>How many hours are in a day?</h3><p>A standard day contains 24 hours.</p></div>
-<div class="faq"><h3>How many days are in a week?</h3><p>One week contains exactly 7 days.</p></div>
-<div class="faq"><h3>Does every month have 30 days?</h3><p>No. Calendar months have 28, 29, 30 or 31 days. This converter uses an average month for general unit conversion.</p></div>
-<div class="faq"><h3>Is this time converter free?</h3><p>Yes. It is free to use without registration.</p></div>
-</section>
-<section class="section"><h2>Explore More Calculators</h2><div class="links"><a href="/calculators/unit-converters.html">All Unit Converters</a><a href="/calculators/time-calculator.html">Time Calculator</a><a href="/calculators/time-duration-calculator.html">Time Duration</a><a href="/calculators/date-difference-calculator.html">Date Difference</a><a href="/calculators/">All Calculators</a></div></section>
-<p class="note">For exact calendar intervals, daylight-saving changes or time-zone calculations, use a dedicated date and time tool. Month and year conversions here are averages.</p>
-</main><footer><div class="container">© <span id="year"></span> CalcNest. Free online calculators.</div></footer>
+  <div class="breadcrumbs">
+    <a href="/">Home</a> ›
+    <a href="/calculators/unit-converters.html">Unit Converters</a> ›
+    Time Unit Converter
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Free online conversion tool</div>
+    <h1>Time Unit Converter</h1>
+    <p>Convert milliseconds, seconds, minutes, hours, days, weeks, months and years in seconds. Get accurate results, explore common conversions and understand the formulas behind time units.</p>
+    <img class="hero-image"
+      src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200"
+      alt="Clock representing time measurement and time unit conversion"
+      fetchpriority="high">
+  </section>
+
+  <section class="layout" id="converter">
+    <div class="panel">
+      <h2>Convert Time Units</h2>
+      <p class="sub">Enter a value, choose the starting and target units, and get an instant conversion.</p>
+
+      <div class="fields">
+        <div class="field">
+          <label for="amount">Enter value</label>
+          <input id="amount" type="number" min="0" step="any" value="1" inputmode="decimal">
+        </div>
+        <div class="field">
+          <label for="fromUnit">Convert from</label>
+          <select id="fromUnit">
+            <option value="ms">Milliseconds (ms)</option>
+            <option value="s" selected>Seconds (s)</option>
+            <option value="min">Minutes (min)</option>
+            <option value="h">Hours (h)</option>
+            <option value="day">Days (d)</option>
+            <option value="week">Weeks (wk)</option>
+            <option value="month">Average months</option>
+            <option value="year">Average years</option>
+            <option value="decade">Decades</option>
+            <option value="century">Centuries</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="swapline">
+        <button class="swapbtn" id="swapBtn" type="button" aria-label="Swap units">⇅ Swap units</button>
+      </div>
+
+      <div class="field">
+        <label for="toUnit">Convert to</label>
+        <select id="toUnit">
+          <option value="ms">Milliseconds (ms)</option>
+          <option value="s">Seconds (s)</option>
+          <option value="min">Minutes (min)</option>
+          <option value="h" selected>Hours (h)</option>
+          <option value="day">Days (d)</option>
+          <option value="week">Weeks (wk)</option>
+          <option value="month">Average months</option>
+          <option value="year">Average years</option>
+          <option value="decade">Decades</option>
+          <option value="century">Centuries</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button class="action" id="convertBtn" type="button">Convert Time</button>
+        <button class="action secondary" id="copyBtn" type="button">Copy Result</button>
+        <button class="action gray" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="result-label">Converted result</div>
+        <div class="result-value" id="resultValue">0.0000115741 days</div>
+        <div class="result-note" id="resultNote">1 second is equal to 0.0000115741 days.</div>
+      </div>
+
+      <div class="quick">
+        <button type="button" data-value="60" data-from="s" data-to="min">60 seconds to minutes</button>
+        <button type="button" data-value="90" data-from="min" data-to="h">90 minutes to hours</button>
+        <button type="button" data-value="24" data-from="h" data-to="day">24 hours to days</button>
+        <button type="button" data-value="7" data-from="day" data-to="week">7 days to weeks</button>
+        <button type="button" data-value="365" data-from="day" data-to="year">365 days to years</button>
+        <button type="button" data-value="1000" data-from="ms" data-to="s">1000 ms to seconds</button>
+      </div>
+    </div>
+
+    <aside>
+      <div class="side-card">
+        <h3>Common time conversions</h3>
+        <ul>
+          <li>1 minute = 60 seconds</li>
+          <li>1 hour = 60 minutes</li>
+          <li>1 day = 24 hours</li>
+          <li>1 week = 7 days</li>
+          <li>1 year = 365 days (standard estimate)</li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>Important note</h3>
+        <p>Months and years are not all the same length. This converter uses an average Gregorian month of 30.436875 days and an average Gregorian year of 365.2425 days. Calendar dates can produce different results.</p>
+      </div>
+      <div class="side-card">
+        <h3>Who can use this tool?</h3>
+        <p>Students, teachers, programmers, researchers, project managers and anyone who needs to convert time measurements for study, work or everyday calculations.</p>
+      </div>
+    </aside>
+  </section>
+
+  <section class="content-card">
+    <h2>How to use the Time Unit Converter</h2>
+    <ol>
+      <li>Enter the time value you want to convert.</li>
+      <li>Choose the original unit, such as seconds, minutes or hours.</li>
+      <li>Select the unit you want to convert into.</li>
+      <li>Read the converted result in the result panel.</li>
+      <li>Use Copy Result to copy the displayed conversion.</li>
+    </ol>
+    <p>The converter updates automatically when you change a value or unit. You can also use the swap button to reverse the conversion.</p>
+  </section>
+
+  <section class="content-card">
+    <h2>Time conversion formulas</h2>
+    <p>All supported units are converted through a common base unit: seconds. The converter first changes your input into seconds and then divides by the number of seconds in the target unit.</p>
+
+    <div class="formula">Value in seconds = Input value × Seconds per source unit</div>
+    <br>
+    <div class="formula">Converted value = Value in seconds ÷ Seconds per target unit</div>
+
+    <h3>Standard conversion values used</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Time unit</th><th>Equivalent in seconds</th></tr></thead>
+        <tbody>
+          <tr><td>1 millisecond</td><td>0.001 seconds</td></tr>
+          <tr><td>1 second</td><td>1 second</td></tr>
+          <tr><td>1 minute</td><td>60 seconds</td></tr>
+          <tr><td>1 hour</td><td>3,600 seconds</td></tr>
+          <tr><td>1 day</td><td>86,400 seconds</td></tr>
+          <tr><td>1 week</td><td>604,800 seconds</td></tr>
+          <tr><td>1 average month</td><td>2,629,746 seconds</td></tr>
+          <tr><td>1 average year</td><td>31,556,952 seconds</td></tr>
+          <tr><td>1 decade</td><td>315,569,520 seconds</td></tr>
+          <tr><td>1 century</td><td>3,155,695,200 seconds</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Note:</strong> The month and year values are average Gregorian time periods, not fixed calendar-month or calendar-year lengths. A calendar year may contain 365 or 366 days.</p>
+  </section>
+
+  <section class="content-card">
+    <h2>Popular time conversion examples</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Conversion</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>60 seconds to minutes</td><td>1 minute</td></tr>
+          <tr><td>120 seconds to minutes</td><td>2 minutes</td></tr>
+          <tr><td>90 minutes to hours</td><td>1.5 hours</td></tr>
+          <tr><td>2 hours to minutes</td><td>120 minutes</td></tr>
+          <tr><td>24 hours to days</td><td>1 day</td></tr>
+          <tr><td>14 days to weeks</td><td>2 weeks</td></tr>
+          <tr><td>1,000 milliseconds to seconds</td><td>1 second</td></tr>
+          <tr><td>3,600 seconds to hours</td><td>1 hour</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="content-card">
+    <h2>Understanding different time units</h2>
+    <h3>Milliseconds and seconds</h3>
+    <p>A millisecond is one-thousandth of a second. Milliseconds are commonly used to measure computer response times, short delays, electronic signals and fast events. Seconds are a standard unit for measuring everyday durations.</p>
+
+    <h3>Minutes and hours</h3>
+    <p>Minutes and hours are widely used for meetings, lessons, travel, work schedules, exercise sessions and everyday planning. One hour contains 60 minutes, or 3,600 seconds.</p>
+
+    <h3>Days and weeks</h3>
+    <p>Days and weeks are useful for planning deadlines, projects, holidays, routines and schedules. A standard day contains 24 hours, while a week contains seven days.</p>
+
+    <h3>Months and years</h3>
+    <p>Months vary from 28 to 31 days. Years normally contain 365 days, while leap years contain 366 days. For that reason, this tool uses average Gregorian values when converting months and years into smaller units. For exact calendar-date calculations, use a date calculator instead.</p>
+  </section>
+
+  <section class="content-card">
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <h3>1. How many seconds are in one minute?</h3>
+      <p>One minute contains exactly 60 seconds.</p>
+    </div>
+    <div class="faq">
+      <h3>2. How many minutes are in one hour?</h3>
+      <p>One hour contains 60 minutes, which is equal to 3,600 seconds.</p>
+    </div>
+    <div class="faq">
+      <h3>3. How many seconds are in one day?</h3>
+      <p>A standard 24-hour day contains 86,400 seconds.</p>
+    </div>
+    <div class="faq">
+      <h3>4. How do I convert minutes into hours?</h3>
+      <p>Divide the number of minutes by 60. For example, 90 minutes divided by 60 equals 1.5 hours.</p>
+    </div>
+    <div class="faq">
+      <h3>5. How do I convert hours into seconds?</h3>
+      <p>Multiply the number of hours by 3,600. For example, 2 hours equals 7,200 seconds.</p>
+    </div>
+    <div class="faq">
+      <h3>6. How many days are in a week?</h3>
+      <p>One standard week contains seven days.</p>
+    </div>
+    <div class="faq">
+      <h3>7. Does this calculator use 30 days for every month?</h3>
+      <p>No. It uses an average Gregorian month of 30.436875 days. Actual calendar months vary in length, so a calendar-date calculation may give a different result.</p>
+    </div>
+    <div class="faq">
+      <h3>8. Does a year always have 365 days?</h3>
+      <p>No. A common year has 365 days and a leap year has 366 days. This converter uses an average Gregorian year of 365.2425 days for general unit conversion.</p>
+    </div>
+    <div class="faq">
+      <h3>9. Can I convert milliseconds into hours?</h3>
+      <p>Yes. Select milliseconds as the starting unit and hours as the target unit. The calculator will perform the conversion automatically.</p>
+    </div>
+    <div class="faq">
+      <h3>10. Is the CalcNest Time Unit Converter free?</h3>
+      <p>Yes. It is free to use online and does not require registration or payment.</p>
+    </div>
+  </section>
+
+  <section class="content-card">
+    <h2>Explore related calculators</h2>
+    <p>Use these CalcNest tools for date calculations and other common unit conversions.</p>
+    <div class="related">
+      <a href="/calculators/date-time-calculators.html">Date &amp; Time Calculators →</a>
+      <a href="/calculators/time-calculator.html">Time Calculator →</a>
+      <a href="/calculators/time-duration-calculator.html">Time Duration Calculator →</a>
+      <a href="/calculators/business-days-calculator.html">Business Days Calculator →</a>
+      <a href="/calculators/length-converter.html">Length Converter →</a>
+      <a href="/calculators/weight-converter.html">Weight Converter →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+    <div><a href="/">Home</a> · <a href="/#about">About</a> · <a href="/#contact">Contact</a></div>
+  </div>
+</footer>
+
 <script>
-const units={ms:{n:"Millisecond (ms)",f:.001},s:{n:"Second (s)",f:1},min:{n:"Minute (min)",f:60},h:{n:"Hour (h)",f:3600},d:{n:"Day (d)",f:86400},wk:{n:"Week (wk)",f:604800},mo:{n:"Average month",f:2629746},yr:{n:"Average Gregorian year",f:31556952}};
-const amount=document.getElementById("amount"),from=document.getElementById("from"),to=document.getElementById("to"),answer=document.getElementById("answer"),detail=document.getElementById("detail");
-function fill(s){s.innerHTML=Object.entries(units).map(([k,u])=>`<option value="${k}">${u.n}</option>`).join("")}fill(from);fill(to);from.value="h";to.value="min";
-function fmt(n){return Number(n).toLocaleString("en-US",{maximumFractionDigits:10})}
-function calc(){let v=Number(amount.value);if(amount.value.trim()===""||!Number.isFinite(v)){answer.textContent="Enter a valid number";detail.textContent="Please enter a numeric value.";return}let r=v*units[from.value].f/units[to.value].f;answer.textContent=`${fmt(v)} ${from.value} = ${fmt(r)} ${to.value}`;detail.textContent=`${fmt(v)} ${units[from.value].n} equals ${fmt(r)} ${units[to.value].n}.`}
-function setConversion(a,b){from.value=a;to.value=b;calc();document.getElementById("calculator").scrollIntoView({behavior:"smooth"})}window.setConversion=setConversion;
-amount.addEventListener("input",calc);from.addEventListener("change",calc);to.addEventListener("change",calc);
-document.getElementById("swap").onclick=()=>{let x=from.value;from.value=to.value;to.value=x;calc()};
-document.getElementById("reset").onclick=()=>{amount.value=1;from.value="h";to.value="min";calc()};
-document.getElementById("copy").onclick=async()=>{try{await navigator.clipboard.writeText(answer.textContent);document.getElementById("copy").textContent="Copied!"}catch(e){detail.textContent="Select and copy the result manually."}};
-document.querySelectorAll("[data-value]").forEach(b=>b.onclick=()=>{amount.value=b.dataset.value;calc()});
-document.getElementById("year").textContent=new Date().getFullYear();calc();
+(function(){
+  "use strict";
+
+  // Each factor represents the number of seconds in one selected unit.
+  const units = {
+    ms:      {name:"milliseconds", short:"ms", seconds:0.001},
+    s:       {name:"seconds", short:"s", seconds:1},
+    min:     {name:"minutes", short:"min", seconds:60},
+    h:       {name:"hours", short:"h", seconds:3600},
+    day:     {name:"days", short:"days", seconds:86400},
+    week:    {name:"weeks", short:"weeks", seconds:604800},
+    month:   {name:"average months", short:"months", seconds:2629746},
+    year:    {name:"average years", short:"years", seconds:31556952},
+    decade:  {name:"decades", short:"decades", seconds:315569520},
+    century: {name:"centuries", short:"centuries", seconds:3155695200}
+  };
+
+  const amount = document.getElementById("amount");
+  const from = document.getElementById("fromUnit");
+  const to = document.getElementById("toUnit");
+  const resultValue = document.getElementById("resultValue");
+  const resultNote = document.getElementById("resultNote");
+  const copyBtn = document.getElementById("copyBtn");
+
+  let lastResultText = "";
+
+  function formatNumber(value){
+    if(!Number.isFinite(value)) return "Value too large";
+    if(value === 0) return "0";
+    const abs = Math.abs(value);
+    if(abs >= 1e12 || abs < 1e-7) {
+      return value.toExponential(8).replace(/\.?0+e/,"e");
+    }
+    return Number(value.toPrecision(12)).toLocaleString("en-US",{
+      maximumFractionDigits:10
+    });
+  }
+
+  function convert(){
+    const raw = amount.value.trim();
+    const value = Number(raw);
+
+    if(raw === "" || !Number.isFinite(value) || value < 0){
+      resultValue.textContent = "Enter a valid value";
+      resultNote.textContent = "Please enter a number that is zero or greater.";
+      lastResultText = "";
+      return;
+    }
+
+    const source = units[from.value];
+    const target = units[to.value];
+
+    const seconds = value * source.seconds;
+    const converted = seconds / target.seconds;
+
+    if(!Number.isFinite(converted)){
+      resultValue.textContent = "Value too large";
+      resultNote.textContent = "Try entering a smaller number.";
+      lastResultText = "";
+      return;
+    }
+
+    const formatted = formatNumber(converted);
+    const inputFormatted = formatNumber(value);
+
+    resultValue.textContent = formatted + " " + target.short;
+    resultNote.textContent =
+      inputFormatted + " " + source.name + " = " + formatted + " " + target.name + ".";
+
+    lastResultText =
+      inputFormatted + " " + source.name + " = " + formatted + " " + target.name;
+  }
+
+  document.getElementById("convertBtn").addEventListener("click",convert);
+
+  amount.addEventListener("input",convert);
+  from.addEventListener("change",convert);
+  to.addEventListener("change",convert);
+
+  document.getElementById("swapBtn").addEventListener("click",function(){
+    const previousFrom = from.value;
+    from.value = to.value;
+    to.value = previousFrom;
+    convert();
+  });
+
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    amount.value = "1";
+    from.value = "s";
+    to.value = "h";
+    convert();
+  });
+
+  copyBtn.addEventListener("click",async function(){
+    if(!lastResultText){
+      resultNote.textContent = "There is no valid result to copy.";
+      return;
+    }
+
+    try{
+      await navigator.clipboard.writeText(lastResultText);
+      copyBtn.textContent = "Copied!";
+      setTimeout(()=>copyBtn.textContent="Copy Result",1400);
+    }catch(error){
+      resultNote.textContent = "Copy is unavailable in this browser. You can select the result and copy it manually.";
+    }
+  });
+
+  document.querySelectorAll(".quick button").forEach(function(button){
+    button.addEventListener("click",function(){
+      amount.value = button.dataset.value;
+      from.value = button.dataset.from;
+      to.value = button.dataset.to;
+      convert();
+      document.getElementById("converter").scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  convert();
+})();
 </script>
-</body></html>
+</body>
+</html>
