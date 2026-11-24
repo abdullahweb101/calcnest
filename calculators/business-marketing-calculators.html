@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Business & Marketing Calculators - Free Online Tools | CalcNest</title>
+  <meta name="description" content="Free business and digital marketing calculators for CTR, conversion rate, CPC, CPM, CPA, ROAS, customer acquisition cost, customer lifetime value and email marketing metrics.">
+  <meta name="keywords" content="business calculators, marketing calculators, digital marketing calculator, CTR calculator, conversion rate calculator, CPC calculator, CPM calculator, CPA calculator, ROAS calculator, CAC calculator, LTV calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/business-marketing-calculators.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Business & Marketing Calculators | CalcNest">
+  <meta property="og:description" content="Free online calculators for digital marketing campaigns, advertising performance, customer acquisition and business growth.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/business-marketing-calculators.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Business & Marketing Calculators | CalcNest">
+  <meta name="twitter:description" content="Calculate advertising costs, campaign performance, conversion rates and customer value with free CalcNest tools.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Business & Marketing Calculators",
+    "url":"https://calcnest-7s6.pages.dev/calculators/business-marketing-calculators.html",
+    "description":"A collection of free business and digital marketing calculators for campaign measurement, advertising costs, conversions and customer value.",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"CalcNest",
+      "url":"https://calcnest-7s6.pages.dev/"
+    }
+  }
+  </script>
+
+  <style>
+    :root{
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.7;
+    }
+
+    a{
+      color:var(--blue);
+      text-decoration:none;
+    }
+
+    a:hover{text-decoration:underline}
+
+    button,input{font:inherit}
+
+    .container{
+      width:min(1120px,calc(100% - 36px));
+      margin:auto;
+    }
+
+    .topbar{
+      border-bottom:1px solid var(--line);
+      background:#fff;
+    }
+
+    .nav{
+      min-height:68px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand{
+      color:var(--ink);
+      font-size:23px;
+      font-weight:800;
+      letter-spacing:-.7px;
+    }
+
+    .brand span{color:var(--blue)}
+
+    .navlinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .navlinks a{color:#42516a}
+
+    .breadcrumb{
+      padding:20px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .breadcrumb a{color:var(--muted)}
+
+    .hero{
+      padding:26px 0 30px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:35px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      color:var(--blue);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:10px 0 14px;
+      font-size:clamp(32px,5vw,49px);
+      line-height:1.12;
+      letter-spacing:-1.5px;
+    }
+
+    .hero p{
+      margin:0;
+      max-width:680px;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .hero-image{
+      width:100%;
+      height:275px;
+      display:block;
+      object-fit:cover;
+      border-radius:19px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .stat{
+      padding:13px;
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:12px;
+    }
+
+    .stat strong{
+      display:block;
+      color:var(--blue);
+      font-size:20px;
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .search-section{
+      margin:15px 0 25px;
+      padding:23px;
+      border:1px solid var(--line);
+      border-radius:17px;
+      background:var(--soft);
+    }
+
+    .search-section h2{
+      margin:0 0 5px;
+      font-size:20px;
+    }
+
+    .search-section p{
+      margin:0 0 15px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .searchbox{
+      position:relative;
+    }
+
+    .searchbox input{
+      width:100%;
+      min-height:52px;
+      padding:13px 16px 13px 45px;
+      border:1px solid #dce3ef;
+      border-radius:12px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+    }
+
+    .searchbox input:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.11);
+    }
+
+    .search-icon{
+      position:absolute;
+      left:16px;
+      top:11px;
+      color:var(--muted);
+      font-size:20px;
+    }
+
+    .section-heading{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:15px;
+      margin:34px 0 17px;
+    }
+
+    .section-heading h2{
+      margin:0;
+      font-size:25px;
+      line-height:1.3;
+    }
+
+    .section-heading p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .tool-count{
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    .tool-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:17px;
+    }
+
+    .tool-card{
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      transition:transform .2s ease,border-color .2s ease;
+    }
+
+    .tool-card:hover{
+      transform:translateY(-4px);
+      border-color:#cbd6ff;
+      text-decoration:none;
+    }
+
+    .tool-icon{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:46px;
+      height:46px;
+      margin-bottom:13px;
+      border-radius:13px;
+      background:#edf1ff;
+      color:var(--blue);
+      font-size:22px;
+      font-weight:800;
+    }
+
+    .tool-card h3{
+      margin:0 0 8px;
+      color:var(--ink);
+      font-size:17px;
+      line-height:1.35;
+    }
+
+    .tool-card p{
+      flex:1;
+      margin:0 0 15px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .card-link{
+      padding-top:12px;
+      border-top:1px solid var(--line);
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .empty-state{
+      display:none;
+      padding:25px;
+      border:1px dashed #cbd5e1;
+      border-radius:14px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .content-section{
+      margin:35px 0;
+      padding:27px;
+      border:1px solid var(--line);
+      border-radius:17px;
+      background:#fff;
+    }
+
+    .content-section h2{
+      margin:0 0 12px;
+      font-size:23px;
+    }
+
+    .content-section h3{
+      margin:22px 0 7px;
+      font-size:17px;
+    }
+
+    .content-section p,
+    .content-section li{
+      color:#526078;
+    }
+
+    .content-section ul{
+      padding-left:21px;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .info-card{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:var(--soft);
+    }
+
+    .info-card h3{
+      margin:0 0 7px;
+    }
+
+    .info-card p{
+      margin:0;
+      font-size:14px;
+    }
+
+    .related-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .related-grid a{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:11px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .disclaimer{
+      margin-top:20px;
+      padding:15px;
+      border:1px solid #e5e8f7;
+      border-radius:12px;
+      background:#f7f8ff;
+      color:#526078;
+      font-size:13px;
+    }
+
+    footer{
+      margin-top:45px;
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      background:#f7f9fd;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    @media(max-width:850px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-image{height:240px}
+      .tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1120px)}
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:14px 0;
+      }
+      .navlinks{gap:13px}
+      .tool-grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .info-grid,.related-grid{grid-template-columns:1fr}
+      .content-section{padding:19px}
+      .section-heading{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+      .hero-image{height:195px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="breadcrumb">
+    <a href="/">Home</a> ›
+    <a href="/calculators/">Calculators</a> ›
+    Business & Marketing
+  </div>
+
+  <section class="hero">
+
+    <div class="hero-grid">
+
+      <div>
+        <div class="eyebrow">Free online business tools</div>
+
+        <h1>Business & Marketing Calculators</h1>
+
+        <p>
+          Make smarter business and marketing decisions with free
+          online calculators. Measure advertising performance,
+          understand customer acquisition costs, evaluate campaign
+          results and calculate important digital marketing metrics.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>10</strong>
+            <span>Planned calculators</span>
+          </div>
+
+          <div class="stat">
+            <strong>Free</strong>
+            <span>No registration</span>
+          </div>
+
+          <div class="stat">
+            <strong>Global</strong>
+            <span>Useful worldwide</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200"
+          alt="Business analytics dashboard with marketing performance charts"
+          fetchpriority="high">
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="search-section">
+
+    <h2>Find a Business or Marketing Calculator</h2>
+
+    <p>
+      Search by calculator name, advertising metric or business topic.
+    </p>
+
+    <div class="searchbox">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+
+      <input
+        type="search"
+        id="toolSearch"
+        placeholder="Search CTR, CPC, ROAS, customer acquisition..."
+        aria-label="Search business and marketing calculators">
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="section-heading">
+      <div>
+        <h2>Explore Business & Marketing Tools</h2>
+        <p>Practical calculators for measuring performance and growing a business.</p>
+      </div>
+
+      <div class="tool-count" id="toolCount">10 calculators</div>
+    </div>
+
+    <div class="tool-grid" id="toolGrid">
+
+      <a class="tool-card"
+         href="/calculators/ctr-calculator.html"
+         data-search="ctr click through rate impressions clicks advertising campaign">
+        <div class="tool-icon">%</div>
+        <h3>CTR Calculator</h3>
+        <p>
+          Calculate click-through rate from ad impressions and clicks.
+          Measure how effectively your ads or links attract attention.
+        </p>
+        <div class="card-link">Open CTR Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/conversion-rate-calculator.html"
+         data-search="conversion rate visitors leads customers purchases sales">
+        <div class="tool-icon">↗</div>
+        <h3>Conversion Rate Calculator</h3>
+        <p>
+          Find the percentage of visitors, leads or prospects
+          who complete a desired action.
+        </p>
+        <div class="card-link">Open Conversion Rate Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/cpc-calculator.html"
+         data-search="cpc cost per click advertising spend clicks">
+        <div class="tool-icon">$</div>
+        <h3>CPC Calculator</h3>
+        <p>
+          Calculate cost per click using your advertising spend
+          and the number of clicks generated by a campaign.
+        </p>
+        <div class="card-link">Open CPC Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/cpm-calculator.html"
+         data-search="cpm cost per thousand impressions advertising">
+        <div class="tool-icon">▤</div>
+        <h3>CPM Calculator</h3>
+        <p>
+          Calculate cost per thousand ad impressions and compare
+          advertising campaign delivery costs.
+        </p>
+        <div class="card-link">Open CPM Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/cpa-calculator.html"
+         data-search="cpa cost per acquisition action conversion advertising">
+        <div class="tool-icon">◎</div>
+        <h3>CPA Calculator</h3>
+        <p>
+          Calculate cost per acquisition using campaign spending
+          and completed customer actions or conversions.
+        </p>
+        <div class="card-link">Open CPA Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/roas-calculator.html"
+         data-search="roas return on ad spend revenue advertising profit">
+        <div class="tool-icon">↗</div>
+        <h3>ROAS Calculator</h3>
+        <p>
+          Measure revenue generated for every unit of advertising
+          spend and evaluate paid campaign performance.
+        </p>
+        <div class="card-link">Open ROAS Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/customer-acquisition-cost-calculator.html"
+         data-search="customer acquisition cost cac sales marketing expenses customers">
+        <div class="tool-icon">♙</div>
+        <h3>Customer Acquisition Cost (CAC)</h3>
+        <p>
+          Calculate the average cost of acquiring a new customer
+          using marketing and sales expenses.
+        </p>
+        <div class="card-link">Open CAC Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/customer-lifetime-value-calculator.html"
+         data-search="customer lifetime value ltv clv revenue retention customer value">
+        <div class="tool-icon">♧</div>
+        <h3>Customer Lifetime Value (LTV)</h3>
+        <p>
+          Estimate the revenue a business may generate from
+          a customer over the relationship period.
+        </p>
+        <div class="card-link">Open LTV Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/email-marketing-metrics-calculator.html"
+         data-search="email marketing open rate click rate click to open bounce unsubscribe">
+        <div class="tool-icon">✉</div>
+        <h3>Email Marketing Metrics Calculator</h3>
+        <p>
+          Measure email open rate, click-through rate,
+          click-to-open rate and other important campaign metrics.
+        </p>
+        <div class="card-link">Open Email Metrics Calculator →</div>
+      </a>
+
+      <a class="tool-card"
+         href="/calculators/marketing-roi-calculator.html"
+         data-search="marketing roi return on investment campaign revenue cost profit">
+        <div class="tool-icon">%</div>
+        <h3>Marketing ROI Calculator</h3>
+        <p>
+          Compare marketing investment with the return generated
+          to evaluate campaign performance.
+        </p>
+        <div class="card-link">Open Marketing ROI Calculator →</div>
+      </a>
+
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      No matching calculators found. Try a different search term.
+    </div>
+
+  </section>
+
+  <section class="content-section">
+
+    <h2>What Are Business & Marketing Calculators?</h2>
+
+    <p>
+      Business and marketing calculators are online tools that help
+      business owners, marketers, freelancers and entrepreneurs
+      calculate important performance indicators. They turn basic
+      campaign and business data into useful measurements that
+      support planning, comparison and decision-making.
+    </p>
+
+    <p>
+      Whether you run paid advertising, manage an online store,
+      operate a service business or send email campaigns,
+      these tools can help you understand costs, customer behavior
+      and marketing performance.
+    </p>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <h3>Advertising Performance</h3>
+        <p>
+          Measure impressions, clicks, click-through rates,
+          cost per click and cost per thousand impressions.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Customer Acquisition</h3>
+        <p>
+          Understand how much your business spends to attract
+          and acquire new customers.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Campaign Returns</h3>
+        <p>
+          Evaluate advertising revenue, return on ad spend
+          and marketing investment.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Email Marketing</h3>
+        <p>
+          Review email opens, clicks and engagement
+          to understand campaign performance.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="content-section">
+
+    <h2>Why Are Marketing Metrics Important?</h2>
+
+    <p>
+      Marketing metrics help businesses understand whether their
+      campaigns are reaching the right audience and generating
+      meaningful results. Without measurement, it can be difficult
+      to compare campaigns, identify expensive acquisition channels
+      or understand how customers interact with advertisements.
+    </p>
+
+    <h3>Measure advertising efficiency</h3>
+
+    <p>
+      Metrics such as CPC, CPM and CTR help advertisers understand
+      the relationship between spending, impressions and clicks.
+      These measurements can help identify campaigns that may
+      need adjustments.
+    </p>
+
+    <h3>Understand customer conversion</h3>
+
+    <p>
+      Conversion rate measures the proportion of visitors or
+      prospects who complete a defined action. This action may
+      be a purchase, registration, enquiry, download or subscription.
+    </p>
+
+    <h3>Evaluate customer value</h3>
+
+    <p>
+      Customer acquisition cost and customer lifetime value
+      provide useful perspectives on customer economics.
+      Businesses can compare acquisition spending with the
+      expected value of customer relationships.
+    </p>
+
+    <h3>Evaluate campaign returns</h3>
+
+    <p>
+      ROAS and marketing ROI help businesses review the financial
+      outcomes associated with their campaigns. However, revenue
+      return and profit return are not the same measurement.
+    </p>
+
+  </section>
+
+  <section class="content-section">
+
+    <h2>Common Business & Marketing Metrics</h2>
+
+    <h3>Click-through rate (CTR)</h3>
+
+    <p>
+      CTR is the percentage of impressions that result in clicks.
+      It is commonly used to evaluate how frequently people click
+      an advertisement or link after seeing it.
+    </p>
+
+    <h3>Cost per click (CPC)</h3>
+
+    <p>
+      CPC is the average advertising cost associated with
+      each click. It is calculated by dividing advertising
+      spend by the number of clicks.
+    </p>
+
+    <h3>Cost per thousand impressions (CPM)</h3>
+
+    <p>
+      CPM represents the cost of one thousand advertising
+      impressions. It is commonly used when evaluating
+      impression-based advertising campaigns.
+    </p>
+
+    <h3>Cost per acquisition (CPA)</h3>
+
+    <p>
+      CPA measures the average cost associated with generating
+      a defined acquisition or conversion. The exact meaning
+      of an acquisition depends on the campaign objective.
+    </p>
+
+    <h3>Return on ad spend (ROAS)</h3>
+
+    <p>
+      ROAS compares advertising-attributed revenue with
+      advertising spending. It is usually expressed as
+      a ratio or percentage.
+    </p>
+
+    <h3>Customer acquisition cost (CAC)</h3>
+
+    <p>
+      CAC estimates the average sales and marketing cost
+      required to acquire a new customer over a defined period.
+    </p>
+
+    <h3>Customer lifetime value (LTV)</h3>
+
+    <p>
+      LTV estimates the value associated with a customer
+      relationship over time. The result depends on the
+      revenue, margin, retention and calculation method used.
+    </p>
+
+  </section>
+
+  <section class="content-section">
+
+    <h2>Business & Marketing Calculators for Different Users</h2>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <h3>Digital Marketers</h3>
+        <p>
+          Evaluate paid advertising, campaign engagement,
+          acquisition costs and marketing returns.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Small Business Owners</h3>
+        <p>
+          Understand customer costs, campaign performance
+          and the financial impact of marketing activities.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>E-commerce Businesses</h3>
+        <p>
+          Review advertising results, customer value,
+          purchase conversions and acquisition efficiency.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Freelancers & Agencies</h3>
+        <p>
+          Calculate campaign metrics and present
+          understandable performance measurements to clients.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="content-section">
+
+    <h2>How to Use CalcNest Business Calculators</h2>
+
+    <ol>
+      <li>Choose the calculator that matches your business question.</li>
+      <li>Enter the required campaign or business figures.</li>
+      <li>Review the calculated result and its measurement unit.</li>
+      <li>Read the explanation to understand what the result means.</li>
+      <li>Use the result alongside your business reports and other relevant data.</li>
+    </ol>
+
+    <p>
+      Each calculator is designed for a specific metric.
+      Check the definitions and time period of your input data
+      before comparing results from different campaigns.
+    </p>
+
+    <div class="disclaimer">
+      <strong>Important:</strong> CalcNest calculators provide
+      mathematical estimates based on the figures entered.
+      They do not guarantee advertising performance, business
+      profitability or future customer behavior. Actual results
+      depend on campaign attribution, operating costs, market
+      conditions and the assumptions used.
+    </div>
+
+  </section>
+
+  <section class="content-section">
+
+    <h2>Explore Other Calculator Categories</h2>
+
+    <p>
+      Discover more free calculators for finance, health,
+      mathematics, dates and measurements.
+    </p>
+
+    <div class="related-grid">
+      <a href="/calculators/finance-calculators.html">Financial Calculators →</a>
+      <a href="/calculators/health-calculators.html">Health & Fitness →</a>
+      <a href="/calculators/date-time-calculators.html">Date & Time →</a>
+      <a href="/calculators/unit-converters.html">Unit Converters →</a>
+      <a href="/calculators/">Math & Percentage →</a>
+      <a href="/">All CalcNest Tools →</a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+
+    <div>
+      <a href="/">Home</a> ·
+      <a href="/#about">About</a> ·
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  "use strict";
+
+  const searchInput = document.getElementById("toolSearch");
+  const cards = Array.from(document.querySelectorAll(".tool-card"));
+  const count = document.getElementById("toolCount");
+  const emptyState = document.getElementById("emptyState");
+
+  function filterTools(){
+
+    const query = searchInput.value
+      .trim()
+      .toLowerCase();
+
+    let visible = 0;
+
+    cards.forEach(function(card){
+
+      const title = card.querySelector("h3").textContent.toLowerCase();
+
+      const description = card.querySelector("p").textContent.toLowerCase();
+
+      const keywords = (card.dataset.search || "").toLowerCase();
+
+      const matches =
+        title.includes(query) ||
+        description.includes(query) ||
+        keywords.includes(query);
+
+      card.style.display = matches ? "flex" : "none";
+
+      if(matches){
+        visible++;
+      }
+
+    });
+
+    count.textContent =
+      visible + (visible === 1 ? " calculator" : " calculators");
+
+    emptyState.style.display =
+      visible === 0 ? "block" : "none";
+
+  }
+
+  searchInput.addEventListener("input",filterTools);
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
