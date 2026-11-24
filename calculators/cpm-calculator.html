@@ -1,0 +1,1374 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CPM Calculator - Cost Per 1,000 Impressions & Ad Cost | CalcNest</title>
+<meta name="description" content="Calculate CPM, advertising cost, impressions, and effective CPM for digital advertising campaigns. Free CPM calculator with formulas, examples and marketing guides.">
+<meta name="keywords" content="CPM calculator, cost per mille calculator, cost per thousand impressions, advertising cost calculator, eCPM calculator, impressions calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/cpm-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free CPM Calculator - CalcNest">
+<meta property="og:description" content="Calculate cost per thousand impressions, total ad spend and campaign impressions.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/cpm-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CPM Calculator - CalcNest">
+<meta name="twitter:description" content="Calculate CPM, impressions and advertising costs for your campaigns.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"CPM Calculator",
+  "url":"https://calcnest-7s6.pages.dev/calculators/cpm-calculator.html",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "description":"Free CPM calculator for cost per thousand impressions, total campaign cost and estimated advertising impressions.",
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What does CPM mean?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"CPM means Cost Per Mille, or cost per one thousand advertising impressions. It is used to measure the cost of displaying ads."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate CPM?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Divide the total advertising cost by the number of impressions and multiply by 1,000."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is a good CPM?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"A good CPM depends on the advertising platform, audience, country, placement, campaign objective, season and competition. There is no universal ideal CPM."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is the difference between CPM and CPC?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"CPM measures the cost of one thousand impressions, while CPC measures the cost of a click."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is eCPM?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Effective CPM is the revenue or cost normalized to one thousand impressions. Publishers commonly use it to compare monetization performance."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Does an impression mean a click?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"No. An impression generally records an ad display according to the platform's measurement rules. It does not mean the viewer clicked the ad."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"Can CPM be used for social media advertising?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Yes. CPM is commonly used to evaluate display, video and social media advertising campaigns."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How much does 100,000 impressions cost at a $5 CPM?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"At a $5 CPM, 100,000 impressions cost $500, calculated as 100,000 divided by 1,000 and multiplied by $5."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#17243a;
+  --muted:#65738b;
+  --blue:#315eea;
+  --purple:#7659e8;
+  --line:#e8edf5;
+  --soft:#f6f8fd;
+  --white:#fff;
+  --green:#14865c;
+  --red:#d64a55;
+  --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.65;
+}
+
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.container{
+  width:min(1160px,92%);
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:-1px;
+  color:var(--ink);
+}
+
+.logo span{color:var(--blue)}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.nav-links a{
+  color:var(--ink);
+  font-size:14px;
+  font-weight:700;
+}
+
+.breadcrumb{
+  color:var(--muted);
+  font-size:13px;
+  padding:23px 0 10px;
+}
+
+.breadcrumb a{color:var(--blue)}
+
+.hero{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:35px;
+  padding:30px 0 40px;
+}
+
+.eyebrow{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:30px;
+  background:#edf1ff;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+
+h1{
+  font-size:clamp(34px,5vw,51px);
+  line-height:1.12;
+  letter-spacing:-1.8px;
+  margin:17px 0;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:17px;
+  max-width:650px;
+}
+
+.hero img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:var(--shadow);
+}
+
+.main-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.5fr) minmax(260px,.7fr);
+  gap:25px;
+  align-items:start;
+  padding:15px 0 45px;
+}
+
+.panel{
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--white);
+  padding:27px;
+  box-shadow:var(--shadow);
+}
+
+.panel h2{
+  margin:0 0 8px;
+  font-size:25px;
+}
+
+.subtext{
+  color:var(--muted);
+  margin:0 0 22px;
+  font-size:14px;
+}
+
+.mode-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-bottom:22px;
+}
+
+.mode-btn{
+  padding:11px 8px;
+  background:var(--soft);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font-size:12px;
+}
+
+.mode-btn.active{
+  background:#edf1ff;
+  border-color:#aebfff;
+  color:var(--blue);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.field input,.field select{
+  width:100%;
+  min-height:48px;
+  border:1px solid #dce3ef;
+  border-radius:10px;
+  padding:11px 13px;
+  background:#fff;
+  color:var(--ink);
+  font-size:15px;
+  outline:none;
+}
+
+.field input:focus,.field select:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+
+.hint{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:5px;
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:12px 19px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+button:hover{transform:translateY(-1px)}
+
+.primary{
+  background:linear-gradient(110deg,var(--blue),var(--purple));
+  color:#fff;
+}
+
+.secondary{
+  background:#edf1ff;
+  color:var(--blue);
+}
+
+.light{
+  background:var(--soft);
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+
+.result{
+  margin-top:24px;
+  padding:22px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#f0f4ff,#f8f5ff);
+  border:1px solid #e3e8ff;
+  display:none;
+}
+
+.result.show{display:block}
+
+.result-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.result-label{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+.main-value{
+  font-size:clamp(34px,5vw,46px);
+  line-height:1.2;
+  font-weight:900;
+  color:var(--blue);
+  margin:5px 0;
+}
+
+.status{
+  display:inline-block;
+  border-radius:30px;
+  padding:6px 11px;
+  background:#e2f6ed;
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.metric{
+  background:#fff;
+  border:1px solid #e9edf6;
+  padding:14px;
+  border-radius:12px;
+}
+
+.metric span{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:4px;
+}
+
+.metric strong{
+  font-size:19px;
+  overflow-wrap:anywhere;
+}
+
+.result-note{
+  color:var(--muted);
+  font-size:12px;
+  margin:15px 0 0;
+}
+
+.error{
+  display:none;
+  color:#b42332;
+  background:#fff1f2;
+  padding:11px 13px;
+  border-radius:9px;
+  font-size:13px;
+  margin-top:15px;
+}
+
+.error.show{display:block}
+
+.quick{
+  margin-top:24px;
+  border-top:1px solid var(--line);
+  padding-top:20px;
+}
+
+.quick h3{font-size:14px;margin:0 0 12px}
+
+.quick-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.quick-buttons button{
+  padding:8px 11px;
+  font-size:12px;
+}
+
+.side-card{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:17px;
+  padding:21px;
+  margin-bottom:17px;
+}
+
+.side-card h3{margin:0 0 10px;font-size:17px}
+.side-card p,.side-card li{color:var(--muted);font-size:13px}
+.side-card ul{padding-left:19px;margin-bottom:0}
+
+.content-section{padding:24px 0}
+
+.content-section h2{
+  font-size:27px;
+  line-height:1.25;
+  margin:0 0 14px;
+}
+
+.content-section h3{
+  font-size:19px;
+  margin:25px 0 8px;
+}
+
+.content-section p,.content-section li{color:#53627a}
+
+.formula{
+  background:#f1f4ff;
+  border-left:4px solid var(--blue);
+  border-radius:9px;
+  padding:17px;
+  margin:15px 0;
+  font-weight:700;
+  overflow-wrap:anywhere;
+}
+
+.table-wrap{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:13px;
+  margin:18px 0;
+}
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  min-width:480px;
+}
+
+th,td{
+  text-align:left;
+  padding:13px 15px;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+}
+
+th{background:var(--soft)}
+tr:last-child td{border-bottom:0}
+
+.example-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin:18px 0;
+}
+
+.example{
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:17px;
+}
+
+.example strong{color:var(--blue)}
+
+.faq-item{
+  border-bottom:1px solid var(--line);
+  padding:17px 0;
+}
+
+.faq-item h3{margin:0 0 7px;font-size:17px}
+.faq-item p{margin:0}
+
+.related{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  margin:18px 0 35px;
+}
+
+.related a{
+  display:block;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:15px;
+  font-weight:700;
+  background:#fff;
+}
+
+footer{
+  background:#f7f9fd;
+  border-top:1px solid var(--line);
+  padding:28px 0;
+  margin-top:35px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+@media(max-width:850px){
+  .hero,.main-grid{grid-template-columns:1fr}
+  .hero img{height:230px}
+}
+
+@media(max-width:600px){
+  .nav{align-items:flex-start;flex-direction:column;padding:14px 0}
+  .nav-links{gap:13px}
+  .nav-links a{font-size:12px}
+  .form-grid,.result-grid,.example-grid{grid-template-columns:1fr}
+  .panel{padding:19px}
+  .related{grid-template-columns:1fr}
+  .mode-tabs{grid-template-columns:1fr}
+  h1{font-size:35px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="/">Calc<span>Nest</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="breadcrumb">
+  <a href="/">Home</a> /
+  <a href="/calculators/business-marketing-calculators.html">Business & Marketing</a> /
+  CPM Calculator
+</div>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow">Free Marketing Calculator</span>
+    <h1>CPM Calculator</h1>
+    <p>
+      Calculate Cost Per Mille (CPM), total advertising cost and the number
+      of impressions your budget can generate. Compare campaign costs and
+      estimate advertising delivery with this free online CPM calculator.
+    </p>
+  </div>
+  <img
+    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200"
+    alt="Digital advertising analytics and marketing campaign performance"
+    fetchpriority="high">
+</section>
+
+<section class="main-grid">
+
+<div class="panel" id="calculator">
+  <h2>Calculate CPM and Advertising Cost</h2>
+  <p class="subtext">
+    Choose what you want to calculate, then enter the two known values.
+  </p>
+
+  <div class="mode-tabs">
+    <button class="mode-btn active" type="button" data-mode="cpm">Find CPM</button>
+    <button class="mode-btn" type="button" data-mode="cost">Find Total Cost</button>
+    <button class="mode-btn" type="button" data-mode="impressions">Find Impressions</button>
+  </div>
+
+  <div class="form-grid">
+
+    <div class="field" id="costField">
+      <label for="cost">Total advertising cost</label>
+      <input id="cost" type="number" min="0" step="any" value="500" placeholder="e.g. 500">
+      <span class="hint">Total amount paid for the advertising campaign.</span>
+    </div>
+
+    <div class="field" id="impressionsField">
+      <label for="impressions">Number of impressions</label>
+      <input id="impressions" type="number" min="0" step="1" value="100000" placeholder="e.g. 100000">
+      <span class="hint">Total recorded ad impressions, not clicks.</span>
+    </div>
+
+    <div class="field" id="cpmField" style="display:none">
+      <label for="cpm">CPM rate</label>
+      <input id="cpm" type="number" min="0" step="any" value="5" placeholder="e.g. 5">
+      <span class="hint">Cost per 1,000 impressions.</span>
+    </div>
+
+    <div class="field">
+      <label for="currency">Currency symbol</label>
+      <select id="currency">
+        <option value="$">$ - USD</option>
+        <option value="€">€ - EUR</option>
+        <option value="£">£ - GBP</option>
+        <option value="Rs ">Rs - PKR</option>
+        <option value="₹">₹ - INR</option>
+        <option value="A$">A$ - AUD</option>
+        <option value="C$">C$ - CAD</option>
+        <option value="¥">¥ - JPY / CNY</option>
+        <option value="د.إ ">د.إ - AED</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <button class="primary" id="calculateBtn" type="button">Calculate CPM</button>
+    <button class="secondary" id="copyBtn" type="button">Copy Results</button>
+    <button class="light" id="resetBtn" type="button">Reset</button>
+  </div>
+
+  <div class="error" id="error" role="alert"></div>
+
+  <div class="result" id="result" aria-live="polite">
+    <div class="result-top">
+      <div>
+        <div class="result-label" id="mainLabel">Cost Per 1,000 Impressions</div>
+        <div class="main-value" id="mainValue">$5.00</div>
+        <div class="result-label" id="mainDescription">Cost for every 1,000 ad impressions</div>
+      </div>
+      <span class="status" id="status">Calculation complete</span>
+    </div>
+
+    <div class="result-grid">
+      <div class="metric">
+        <span>Total Advertising Cost</span>
+        <strong id="outCost">$500.00</strong>
+      </div>
+      <div class="metric">
+        <span>Total Impressions</span>
+        <strong id="outImpressions">100,000</strong>
+      </div>
+      <div class="metric">
+        <span>Calculated CPM</span>
+        <strong id="outCpm">$5.00</strong>
+      </div>
+      <div class="metric">
+        <span>Cost Per 100 Impressions</span>
+        <strong id="outHundred">$0.50</strong>
+      </div>
+      <div class="metric">
+        <span>Cost Per Impression</span>
+        <strong id="outSingle">$0.0050</strong>
+      </div>
+      <div class="metric">
+        <span>Impressions Per Currency Unit</span>
+        <strong id="outPerCurrency">200</strong>
+      </div>
+    </div>
+
+    <p class="result-note">
+      Results are mathematical estimates. Actual billed impressions and costs
+      depend on the advertising platform, its reporting rules and campaign settings.
+    </p>
+  </div>
+
+  <div class="quick">
+    <h3>Try common CPM examples</h3>
+    <div class="quick-buttons">
+      <button class="light sample" type="button" data-cost="100" data-impressions="10000">$10 CPM</button>
+      <button class="light sample" type="button" data-cost="500" data-impressions="100000">$5 CPM</button>
+      <button class="light sample" type="button" data-cost="1000" data-impressions="500000">$2 CPM</button>
+      <button class="light sample" type="button" data-cost="250" data-impressions="25000">$10 CPM / 25K</button>
+    </div>
+  </div>
+</div>
+
+<aside>
+  <div class="side-card">
+    <h3>What is CPM?</h3>
+    <p>
+      CPM means Cost Per Mille. Mille is the Latin word for one thousand.
+      It measures how much an advertiser pays for 1,000 ad impressions.
+    </p>
+  </div>
+
+  <div class="side-card">
+    <h3>CPM Formula</h3>
+    <p><strong>CPM = (Total Cost ÷ Impressions) × 1,000</strong></p>
+    <p>Example: ($500 ÷ 100,000) × 1,000 = $5 CPM.</p>
+  </div>
+
+  <div class="side-card">
+    <h3>Important distinction</h3>
+    <ul>
+      <li>Impressions are not clicks.</li>
+      <li>CPM is not the same as CPC.</li>
+      <li>A lower CPM does not guarantee better results.</li>
+      <li>Check reach and frequency as well.</li>
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <h3>Related calculators</h3>
+    <ul>
+      <li><a href="/calculators/roas-calculator.html">ROAS Calculator</a></li>
+      <li><a href="/calculators/roi-calculator.html">ROI Calculator</a></li>
+      <li><a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator</a></li>
+    </ul>
+  </div>
+</aside>
+
+</section>
+
+<section class="content-section">
+<h2>What Is CPM in Digital Marketing?</h2>
+
+<p>
+  CPM stands for Cost Per Mille, commonly described as cost per thousand
+  impressions. It is a pricing and performance metric used in online
+  advertising, including display ads, video campaigns, social media
+  advertising, programmatic media buying and other impression-based campaigns.
+</p>
+
+<p>
+  An impression is generally recorded when an advertisement is displayed
+  according to the platform's measurement rules. It does not necessarily
+  mean that a person clicked, watched the entire video or interacted with
+  the advertisement.
+</p>
+
+<p>
+  Advertisers use CPM to understand the cost of delivering advertising
+  exposure. Publishers and ad networks can also use an effective CPM
+  calculation to compare revenue generated from ad impressions.
+</p>
+
+<h3>CPM Calculator Formula</h3>
+<div class="formula">
+  CPM = (Total Advertising Cost ÷ Total Impressions) × 1,000
+</div>
+
+<h3>Formula to Calculate Total Advertising Cost</h3>
+<div class="formula">
+  Total Cost = (Impressions ÷ 1,000) × CPM
+</div>
+
+<h3>Formula to Calculate Required Impressions</h3>
+<div class="formula">
+  Impressions = (Total Budget ÷ CPM) × 1,000
+</div>
+
+<h3>Cost Per Single Impression</h3>
+<div class="formula">
+  Cost Per Impression = Total Advertising Cost ÷ Total Impressions
+</div>
+
+<p>
+  The CPM formula converts the cost of a single impression into a standardized
+  cost per thousand impressions. This makes campaigns with different delivery
+  volumes easier to compare.
+</p>
+</section>
+
+<section class="content-section">
+<h2>CPM Calculation Examples</h2>
+
+<div class="example-grid">
+  <div class="example">
+    <h3>Example 1: Find CPM</h3>
+    <p>Advertising cost: $500</p>
+    <p>Impressions: 100,000</p>
+    <p><strong>($500 ÷ 100,000) × 1,000 = $5 CPM</strong></p>
+  </div>
+
+  <div class="example">
+    <h3>Example 2: Find Campaign Cost</h3>
+    <p>CPM: $8</p>
+    <p>Impressions: 50,000</p>
+    <p><strong>(50,000 ÷ 1,000) × $8 = $400</strong></p>
+  </div>
+
+  <div class="example">
+    <h3>Example 3: Find Impressions</h3>
+    <p>Budget: $600</p>
+    <p>CPM: $4</p>
+    <p><strong>($600 ÷ $4) × 1,000 = 150,000 impressions</strong></p>
+  </div>
+
+  <div class="example">
+    <h3>Example 4: Cost Per Impression</h3>
+    <p>Advertising cost: $100</p>
+    <p>Impressions: 20,000</p>
+    <p><strong>$100 ÷ 20,000 = $0.005 per impression</strong></p>
+  </div>
+</div>
+</section>
+
+<section class="content-section">
+<h2>CPM Reference Table</h2>
+<p>
+  The following table shows estimated advertising costs at different CPM
+  rates for common impression volumes.
+</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th>Impressions</th>
+  <th>$2 CPM</th>
+  <th>$5 CPM</th>
+  <th>$10 CPM</th>
+  <th>$20 CPM</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1,000</td><td>$2</td><td>$5</td><td>$10</td><td>$20</td></tr>
+<tr><td>5,000</td><td>$10</td><td>$25</td><td>$50</td><td>$100</td></tr>
+<tr><td>10,000</td><td>$20</td><td>$50</td><td>$100</td><td>$200</td></tr>
+<tr><td>25,000</td><td>$50</td><td>$125</td><td>$250</td><td>$500</td></tr>
+<tr><td>50,000</td><td>$100</td><td>$250</td><td>$500</td><td>$1,000</td></tr>
+<tr><td>100,000</td><td>$200</td><td>$500</td><td>$1,000</td><td>$2,000</td></tr>
+<tr><td>250,000</td><td>$500</td><td>$1,250</td><td>$2,500</td><td>$5,000</td></tr>
+<tr><td>500,000</td><td>$1,000</td><td>$2,500</td><td>$5,000</td><td>$10,000</td></tr>
+<tr><td>1,000,000</td><td>$2,000</td><td>$5,000</td><td>$10,000</td><td>$20,000</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="content-section">
+<h2>CPM vs CPC vs CPA vs CTR</h2>
+
+<p>
+  CPM is one of several advertising metrics. It should be evaluated alongside
+  clicks, conversions, cost per acquisition and campaign revenue.
+</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th>Metric</th>
+  <th>Full Form</th>
+  <th>What It Measures</th>
+  <th>Basic Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>CPM</td>
+  <td>Cost Per Mille</td>
+  <td>Cost per 1,000 impressions</td>
+  <td>(Cost ÷ Impressions) × 1,000</td>
+</tr>
+<tr>
+  <td>CPC</td>
+  <td>Cost Per Click</td>
+  <td>Average cost per click</td>
+  <td>Cost ÷ Clicks</td>
+</tr>
+<tr>
+  <td>CPA</td>
+  <td>Cost Per Acquisition</td>
+  <td>Cost per desired acquisition</td>
+  <td>Cost ÷ Acquisitions</td>
+</tr>
+<tr>
+  <td>CTR</td>
+  <td>Click-Through Rate</td>
+  <td>Share of impressions generating clicks</td>
+  <td>(Clicks ÷ Impressions) × 100</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>
+  A campaign can have a low CPM but poor click-through rate or conversion
+  performance. Similarly, a higher CPM can still be worthwhile if it reaches
+  a more relevant audience and produces valuable customers.
+</p>
+
+<h3>What Is eCPM?</h3>
+<p>
+  Effective CPM (eCPM) expresses revenue or cost per thousand impressions.
+  Publishers commonly use it to compare the revenue efficiency of different
+  ad placements, formats or traffic sources.
+</p>
+
+<div class="formula">
+  eCPM = (Total Advertising Revenue ÷ Total Impressions) × 1,000
+</div>
+
+<p>
+  For example, if a publisher earns $120 from 40,000 ad impressions,
+  the effective CPM is $3.
+</p>
+</section>
+
+<section class="content-section">
+<h2>What Affects Advertising CPM?</h2>
+
+<h3>1. Target Audience</h3>
+<p>
+  Audience location, demographics, interests, purchasing intent and
+  competition can influence the price advertisers pay to reach people.
+</p>
+
+<h3>2. Advertising Platform</h3>
+<p>
+  Different platforms and advertising formats use different auction systems,
+  inventory and pricing models. CPM values should be compared carefully
+  rather than assuming every platform measures campaigns identically.
+</p>
+
+<h3>3. Industry and Competition</h3>
+<p>
+  Advertisers competing for the same audience or placement can influence
+  auction prices. Highly competitive markets may experience higher CPMs.
+</p>
+
+<h3>4. Seasonality</h3>
+<p>
+  Shopping seasons, holidays, major events and annual budget cycles can
+  affect advertising demand and impression prices.
+</p>
+
+<h3>5. Ad Quality and Placement</h3>
+<p>
+  Creative quality, placement type, format, viewability and campaign
+  optimization may influence delivery and advertising efficiency.
+</p>
+
+<h3>6. Campaign Objective</h3>
+<p>
+  Awareness, reach, traffic and conversion campaigns may optimize for
+  different outcomes. Their CPM values are not always directly comparable.
+</p>
+</section>
+
+<section class="content-section">
+<h2>How to Use the CalcNest CPM Calculator</h2>
+<ol>
+  <li>Select whether you want to calculate CPM, total advertising cost or impressions.</li>
+  <li>Enter the two known values required for the selected calculation.</li>
+  <li>Choose the currency symbol for your results.</li>
+  <li>Click Calculate CPM to see the result and additional metrics.</li>
+  <li>Use the sample buttons to test common advertising scenarios.</li>
+  <li>Click Copy Results to copy the calculation summary.</li>
+</ol>
+
+<h3>When Should You Use a CPM Calculator?</h3>
+<ul>
+  <li>Estimating the cost of a display advertising campaign.</li>
+  <li>Planning budgets for video and social media impressions.</li>
+  <li>Comparing advertising proposals with different CPM rates.</li>
+  <li>Estimating how many impressions a fixed advertising budget may buy.</li>
+  <li>Comparing publisher monetization using effective CPM.</li>
+  <li>Reviewing historical campaign delivery and advertising costs.</li>
+</ul>
+</section>
+
+<section class="content-section">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<h3>1. What does CPM stand for in advertising?</h3>
+<p>CPM stands for Cost Per Mille, meaning the cost of one thousand advertising impressions.</p>
+</div>
+
+<div class="faq-item">
+<h3>2. How do I calculate CPM manually?</h3>
+<p>Divide total advertising cost by total impressions, then multiply the answer by 1,000.</p>
+</div>
+
+<div class="faq-item">
+<h3>3. What is a good CPM rate?</h3>
+<p>It depends on the platform, audience, country, campaign objective, format and competition. Compare similar campaigns rather than relying on a universal benchmark.</p>
+</div>
+
+<div class="faq-item">
+<h3>4. What is the difference between CPM and CPC?</h3>
+<p>CPM measures the cost of one thousand impressions. CPC measures the average cost of an individual click.</p>
+</div>
+
+<div class="faq-item">
+<h3>5. Does one impression mean one person saw my advertisement?</h3>
+<p>Not necessarily. Impressions count recorded ad displays according to platform measurement rules. One person may generate multiple impressions.</p>
+</div>
+
+<div class="faq-item">
+<h3>6. What is eCPM in advertising?</h3>
+<p>Effective CPM expresses advertising revenue or cost per thousand impressions and is often used to compare monetization performance.</p>
+</div>
+
+<div class="faq-item">
+<h3>7. How much does 100,000 impressions cost at a $5 CPM?</h3>
+<p>The estimated cost is $500: 100,000 divided by 1,000, multiplied by $5.</p>
+</div>
+
+<div class="faq-item">
+<h3>8. Can I use CPM for YouTube and social media campaigns?</h3>
+<p>Yes. CPM-style metrics are used across many digital advertising formats. Always check the platform's specific definition and reporting method.</p>
+</div>
+
+<div class="faq-item">
+<h3>9. Is CPM the same as cost per reach?</h3>
+<p>No. Impressions count ad displays, while reach generally refers to the number of unique people or accounts reached. One person can generate multiple impressions.</p>
+</div>
+
+<div class="faq-item">
+<h3>10. Can a campaign have a low CPM but still perform badly?</h3>
+<p>Yes. A low CPM does not guarantee clicks, conversions, sales or profit. Evaluate campaign outcomes alongside impression costs.</p>
+</div>
+</section>
+
+<section class="content-section">
+<h2>Explore More Business & Marketing Calculators</h2>
+<p>
+  Continue evaluating advertising costs, campaign performance and business results
+  with these related CalcNest tools.
+</p>
+
+<div class="related">
+  <a href="/calculators/roas-calculator.html">ROAS Calculator →</a>
+  <a href="/calculators/roi-calculator.html">ROI Calculator →</a>
+  <a href="/calculators/profit-margin-calculator.html">Profit Margin Calculator →</a>
+  <a href="/calculators/commission-calculator.html">Commission Calculator →</a>
+  <a href="/calculators/break-even-calculator.html">Break-Even Calculator →</a>
+  <a href="/calculators/business-marketing-calculators.html">All Business & Marketing Calculators →</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+  <strong>CalcNest</strong>
+  <p>
+    Free online calculators for business, marketing, finance, mathematics,
+    health and everyday calculations.
+  </p>
+  <p>
+    CPM calculations are estimates. Actual advertising billing, impression
+    definitions and campaign delivery depend on the advertising platform.
+  </p>
+  <p>© <span id="year"></span> CalcNest. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const costInput = $("cost");
+  const impressionsInput = $("impressions");
+  const cpmInput = $("cpm");
+  const currencyInput = $("currency");
+
+  const costField = $("costField");
+  const impressionsField = $("impressionsField");
+  const cpmField = $("cpmField");
+
+  const resultBox = $("result");
+  const errorBox = $("error");
+
+  let mode = "cpm";
+  let lastSummary = "";
+
+  function money(value, digits = 2){
+    const symbol = currencyInput.value;
+    return symbol + Number(value).toLocaleString("en-US",{
+      minimumFractionDigits:digits,
+      maximumFractionDigits:digits
+    });
+  }
+
+  function whole(value){
+    return Number(value).toLocaleString("en-US",{
+      maximumFractionDigits:0
+    });
+  }
+
+  function decimal(value,digits=2){
+    return Number(value).toLocaleString("en-US",{
+      minimumFractionDigits:digits,
+      maximumFractionDigits:digits
+    });
+  }
+
+  function showError(message){
+    errorBox.textContent = message;
+    errorBox.classList.add("show");
+    resultBox.classList.remove("show");
+    lastSummary = "";
+  }
+
+  function clearError(){
+    errorBox.textContent = "";
+    errorBox.classList.remove("show");
+  }
+
+  function setMode(nextMode){
+    mode = nextMode;
+
+    document.querySelectorAll(".mode-btn").forEach(button=>{
+      button.classList.toggle("active",button.dataset.mode===mode);
+    });
+
+    if(mode==="cpm"){
+      costField.style.display="";
+      impressionsField.style.display="";
+      cpmField.style.display="none";
+      $("calculateBtn").textContent="Calculate CPM";
+    }
+
+    if(mode==="cost"){
+      costField.style.display="none";
+      impressionsField.style.display="";
+      cpmField.style.display="";
+      $("calculateBtn").textContent="Calculate Total Cost";
+    }
+
+    if(mode==="impressions"){
+      costField.style.display="";
+      impressionsField.style.display="none";
+      cpmField.style.display="";
+      $("calculateBtn").textContent="Calculate Impressions";
+    }
+
+    resultBox.classList.remove("show");
+    clearError();
+    lastSummary="";
+  }
+
+  function readPositive(input,label,allowZero=false){
+    if(input.value.trim()===""){
+      throw new Error("Please enter "+label+".");
+    }
+
+    const value=Number(input.value);
+
+    if(!Number.isFinite(value)){
+      throw new Error("Please enter a valid number for "+label+".");
+    }
+
+    if(allowZero ? value<0 : value<=0){
+      throw new Error(allowZero
+        ? label+" cannot be negative."
+        : label+" must be greater than zero.");
+    }
+
+    return value;
+  }
+
+  function calculate(){
+    clearError();
+
+    try{
+      let cost;
+      let impressions;
+      let cpm;
+
+      if(mode==="cpm"){
+        cost=readPositive(costInput,"advertising cost",true);
+        impressions=readPositive(impressionsInput,"impressions");
+
+        cpm=(cost/impressions)*1000;
+      }
+
+      if(mode==="cost"){
+        impressions=readPositive(impressionsInput,"impressions",true);
+        cpm=readPositive(cpmInput,"CPM",true);
+
+        cost=(impressions/1000)*cpm;
+      }
+
+      if(mode==="impressions"){
+        cost=readPositive(costInput,"advertising cost",true);
+        cpm=readPositive(cpmInput,"CPM");
+
+        impressions=(cost/cpm)*1000;
+      }
+
+      if(!Number.isFinite(cost) ||
+         !Number.isFinite(impressions) ||
+         !Number.isFinite(cpm)){
+        throw new Error("The calculation is outside the supported numeric range.");
+      }
+
+      const costPerSingle=impressions>0 ? cost/impressions : 0;
+      const costPerHundred=costPerSingle*100;
+      const impressionsPerUnit=cost>0 ? impressions/cost : null;
+
+      let mainLabel;
+      let mainValue;
+      let description;
+
+      if(mode==="cpm"){
+        mainLabel="Cost Per 1,000 Impressions";
+        mainValue=money(cpm);
+        description="Your campaign's calculated CPM";
+      }
+
+      if(mode==="cost"){
+        mainLabel="Estimated Total Advertising Cost";
+        mainValue=money(cost);
+        description="Estimated cost for the selected impressions";
+      }
+
+      if(mode==="impressions"){
+        mainLabel="Estimated Impressions";
+        mainValue=whole(impressions);
+        description="Estimated ad impressions for your budget";
+      }
+
+      $("mainLabel").textContent=mainLabel;
+      $("mainValue").textContent=mainValue;
+      $("mainDescription").textContent=description;
+
+      $("outCost").textContent=money(cost);
+      $("outImpressions").textContent=whole(impressions);
+      $("outCpm").textContent=money(cpm);
+      $("outHundred").textContent=money(costPerHundred,4);
+      $("outSingle").textContent=money(costPerSingle,6);
+      $("outPerCurrency").textContent=impressionsPerUnit===null
+        ? "Not defined"
+        : whole(impressionsPerUnit);
+
+      $("status").textContent="Calculation complete";
+
+      lastSummary=[
+        "CalcNest CPM Calculator Results",
+        "Calculation mode: "+mode,
+        "Total advertising cost: "+money(cost),
+        "Total impressions: "+whole(impressions),
+        "CPM: "+money(cpm),
+        "Cost per 100 impressions: "+money(costPerHundred,4),
+        "Cost per single impression: "+money(costPerSingle,6),
+        "Impressions per currency unit: "+
+          (impressionsPerUnit===null?"Not defined":whole(impressionsPerUnit)),
+        "Note: Estimates depend on platform measurement and billing rules."
+      ].join("\n");
+
+      resultBox.classList.add("show");
+
+    }catch(error){
+      showError(error.message);
+    }
+  }
+
+  document.querySelectorAll(".mode-btn").forEach(button=>{
+    button.addEventListener("click",()=>{
+      setMode(button.dataset.mode);
+    });
+  });
+
+  $("calculateBtn").addEventListener("click",calculate);
+
+  $("resetBtn").addEventListener("click",()=>{
+    costInput.value="500";
+    impressionsInput.value="100000";
+    cpmInput.value="5";
+    currencyInput.value="$";
+
+    setMode("cpm");
+    resultBox.classList.remove("show");
+    lastSummary="";
+  });
+
+  $("copyBtn").addEventListener("click",async()=>{
+    if(!lastSummary){
+      showError("Calculate a result first, then copy it.");
+      return;
+    }
+
+    try{
+      await navigator.clipboard.writeText(lastSummary);
+      $("copyBtn").textContent="Copied!";
+      setTimeout(()=>$("copyBtn").textContent="Copy Results",1600);
+    }catch(error){
+      showError("Copy is unavailable in this browser. You can manually select and copy the displayed results.");
+    }
+  });
+
+  document.querySelectorAll(".sample").forEach(button=>{
+    button.addEventListener("click",()=>{
+      costInput.value=button.dataset.cost;
+      impressionsInput.value=button.dataset.impressions;
+      setMode("cpm");
+      calculate();
+      $("calculator").scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  });
+
+  [costInput,impressionsInput,cpmInput,currencyInput].forEach(input=>{
+    input.addEventListener("change",()=>{
+      if(resultBox.classList.contains("show")) calculate();
+    });
+  });
+
+  $("year").textContent=new Date().getFullYear();
+
+  calculate();
+})();
+</script>
+
+</body>
+</html>
