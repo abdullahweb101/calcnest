@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Time Calculator - Add and Subtract Hours, Minutes & Seconds | CalcNest</title>
+<meta name="description" content="Add or subtract hours, minutes and seconds with this free online time calculator. Calculate total time, convert durations and solve everyday time arithmetic.">
+<meta name="keywords" content="time calculator, add hours and minutes, subtract time calculator, hours minutes seconds calculator, time addition calculator, time subtraction calculator">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/time-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Time Calculator | CalcNest">
+<meta property="og:description" content="Add and subtract time durations in hours, minutes and seconds.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/time-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Time Calculator","url":"https://calcnest-7s6.pages.dev/calculators/time-calculator.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"A free time calculator for adding and subtracting hours, minutes and seconds.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I add hours and minutes?","acceptedAnswer":{"@type":"Answer","text":"Enter the hours, minutes and seconds in the first and second duration fields, select Add, and calculate the combined time."}},
+{"@type":"Question","name":"Can I subtract one time duration from another?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select Subtract to calculate the difference between the two entered durations. The result cannot be negative in this calculator."}},
+{"@type":"Question","name":"How many seconds are in an hour?","acceptedAnswer":{"@type":"Answer","text":"One hour contains 60 minutes or 3,600 seconds."}},
+{"@type":"Question","name":"How many minutes are in a day?","acceptedAnswer":{"@type":"Answer","text":"A standard 24-hour day contains 1,440 minutes."}},
+{"@type":"Question","name":"Can the result exceed 24 hours?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator displays total hours and does not reset the result at 24 hours."}}
+]}
+</script>
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;--shadow:0 12px 35px rgba(25,45,85,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.65}a{color:var(--blue);text-decoration:none}button,input,select{font:inherit}
+header{position:sticky;top:0;background:#ffffffef;border-bottom:1px solid var(--line);z-index:5}.nav{max-width:1100px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{font-size:25px;font-weight:800;color:var(--ink)}.brand span{color:var(--blue)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}
+.container{width:min(1050px,calc(100% - 32px));margin:auto}.crumb{padding:20px 0 5px;font-size:13px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:25px 0 38px}.tag{background:#edf2ff;color:var(--blue);padding:7px 12px;border-radius:25px;font-size:12px;font-weight:bold}h1{font-size:clamp(34px,5vw,48px);line-height:1.12;margin:17px 0;letter-spacing:-1px}.hero p{color:var(--muted);font-size:17px}.hero img{width:100%;height:250px;object-fit:cover;border-radius:17px;box-shadow:var(--shadow)}
+.card{border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow);margin-bottom:48px}.duration{padding:18px;background:#f8faff;border:1px solid var(--line);border-radius:13px;margin:17px 0}.duration h3{margin:0 0 13px;font-size:17px}.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}.field input{width:100%;height:48px;border:1px solid #dce3ef;border-radius:9px;padding:10px;background:white;color:var(--ink)}.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.operation{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0}.operation label{display:flex;align-items:center;gap:7px;font-weight:bold;font-size:14px}.operation input{accent-color:var(--blue)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:9px;padding:12px 20px;font-weight:bold;cursor:pointer}.primary{background:linear-gradient(110deg,var(--blue),var(--purple));color:white}.secondary{background:#edf1f8;color:#42516b}
+.error{display:none;background:#fff0f1;color:#a51e2b;padding:12px;border-radius:9px;margin-top:14px}.results{display:none;border-top:1px solid var(--line);margin-top:25px;padding-top:22px}.results.show{display:block}.main-result{background:linear-gradient(120deg,var(--blue),var(--purple));color:white;padding:23px;border-radius:14px;margin-bottom:14px}.main-result small{display:block;color:#e4e8ff}.main-result strong{display:block;font-size:clamp(30px,5vw,43px);line-height:1.2}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{background:#f8faff;border:1px solid var(--line);padding:17px;border-radius:12px}.tile strong{display:block;font-size:23px;overflow-wrap:anywhere}.tile span{font-size:12px;color:var(--muted)}
+.content{border-top:1px solid var(--line);padding:32px 0}.content p,.content li{color:#52617a;font-size:15px}.content h2{font-size:26px}.content h3{font-size:19px;margin:23px 0 7px}.formula{padding:15px;background:#f2f5ff;border-left:4px solid var(--blue);margin:15px 0;font-weight:bold;color:#263c70}.faq{padding:14px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.related{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related a{padding:15px;border:1px solid var(--line);border-radius:10px;color:var(--ink)}.related span{display:block;font-size:13px;color:var(--muted)}.note{padding:15px;background:#f8faff;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
+footer{margin-top:30px;background:#f7f9fd;padding:25px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.hero img{height:210px}.card{padding:19px}.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fields,.related{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.btn{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+<main class="container">
+<div class="crumb"><a href="/">Home</a> / <a href="/calculators/date-time-calculators.html">Date &amp; Time</a> / Time Calculator</div>
+<section class="hero"><div><span class="tag">Free Time Arithmetic Tool</span><h1>Time Calculator</h1><p>Add or subtract two time durations in hours, minutes and seconds. Get the total time, decimal hours, minutes and seconds instantly with this free online calculator.</p></div><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1000" alt="Clock showing the passage and calculation of time" width="1000" height="600" fetchpriority="high"></section>
+
+<section class="card">
+<h2>Add or Subtract Time</h2>
+<p class="hint">Enter two durations below. Values can be greater than 24 hours.</p>
+<div class="duration">
+<h3>First Duration</h3>
+<div class="fields">
+<div class="field"><label for="h1">Hours</label><input id="h1" type="number" min="0" max="1000000" value="2"></div>
+<div class="field"><label for="m1">Minutes</label><input id="m1" type="number" min="0" max="59" value="45"></div>
+<div class="field"><label for="s1">Seconds</label><input id="s1" type="number" min="0" max="59" value="0"></div>
+</div>
+</div>
+<div class="duration">
+<h3>Second Duration</h3>
+<div class="fields">
+<div class="field"><label for="h2">Hours</label><input id="h2" type="number" min="0" max="1000000" value="1"></div>
+<div class="field"><label for="m2">Minutes</label><input id="m2" type="number" min="0" max="59" value="30"></div>
+<div class="field"><label for="s2">Seconds</label><input id="s2" type="number" min="0" max="59" value="0"></div>
+</div>
+</div>
+<div class="operation">
+<label><input type="radio" name="operation" value="add" checked> Add (+)</label>
+<label><input type="radio" name="operation" value="subtract"> Subtract (−)</label>
+</div>
+<div class="actions"><button class="btn primary" id="calc">Calculate Time</button><button class="btn secondary" id="reset">Reset</button></div>
+<div class="error" id="error" role="alert"></div>
+<div class="results" id="results" aria-live="polite">
+<h2>Calculation Result</h2>
+<div class="main-result"><small id="operationLabel">Combined duration</small><strong id="resultHMS">—</strong><small id="resultNote">—</small></div>
+<div class="tiles">
+<div class="tile"><strong id="decimalHours">—</strong><span>Total decimal hours</span></div>
+<div class="tile"><strong id="totalMinutes">—</strong><span>Total minutes</span></div>
+<div class="tile"><strong id="totalSeconds">—</strong><span>Total seconds</span></div>
+<div class="tile"><strong id="days">—</strong><span>Equivalent 24-hour days</span></div>
+<div class="tile"><strong id="remainder">—</strong><span>Minutes and seconds remainder</span></div>
+<div class="tile"><strong id="durationWords">—</strong><span>Readable duration</span></div>
+</div>
+<div class="actions"><button class="btn secondary" id="copy">Copy Results</button></div>
+</div>
+</section>
+
+<section class="content">
+<h2>What Is a Time Calculator?</h2>
+<p>A time calculator performs arithmetic using hours, minutes and seconds. It can combine two durations or find the difference between them. Unlike a clock, which displays a time of day, this calculator works with elapsed durations.</p>
+<p>It is useful for adding video or audio clip lengths, combining study sessions, tracking exercise time, calculating project durations, reviewing timesheets and solving everyday time arithmetic.</p>
+<h2>How to Use This Time Calculator</h2>
+<ol><li>Enter the hours, minutes and seconds for the first duration.</li><li>Enter the second duration.</li><li>Select Add or Subtract.</li><li>Click Calculate Time.</li><li>Review the result in hours, minutes, seconds and decimal hours.</li></ol>
+<h2>Time Calculation Formulas</h2>
+<p>For reliable arithmetic, each duration is first converted into seconds.</p>
+<div class="formula">Total seconds = (Hours × 3,600) + (Minutes × 60) + Seconds</div>
+<p>For addition, the two totals are combined:</p>
+<div class="formula">Result = First duration + Second duration</div>
+<p>For subtraction, the second duration is deducted from the first:</p>
+<div class="formula">Result = First duration − Second duration</div>
+<p>The result is then converted back into hours, minutes and seconds. This calculator does not allow a negative result.</p>
+<h2>Examples of Time Addition and Subtraction</h2>
+<h3>Adding two durations</h3>
+<p>2 hours 45 minutes + 1 hour 30 minutes = 4 hours 15 minutes.</p>
+<h3>Subtracting time</h3>
+<p>5 hours 20 minutes − 2 hours 10 minutes = 3 hours 10 minutes.</p>
+<h3>Converting minutes into hours</h3>
+<p>150 minutes equals 2 hours and 30 minutes, or 2.5 decimal hours.</p>
+<h2>Understanding Time Units</h2>
+<ul><li>1 minute = 60 seconds.</li><li>1 hour = 60 minutes.</li><li>1 hour = 3,600 seconds.</li><li>1 day = 24 hours.</li><li>1 day = 1,440 minutes.</li><li>1 day = 86,400 seconds.</li></ul>
+<h2>What Are Decimal Hours?</h2>
+<p>Decimal hours express a duration as a decimal number. They are useful in time tracking, project reporting and some billing systems.</p>
+<div class="formula">Decimal hours = Total seconds ÷ 3,600</div>
+<p>For example, 3 hours and 15 minutes equals 3.25 decimal hours. Decimal hours should not be confused with hours and minutes: 3.15 decimal hours is not the same as 3 hours and 15 minutes.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><h3>1. How do I add hours and minutes?</h3><p>Enter both durations, select Add and calculate. The tool converts each value into seconds before adding them.</p></div>
+<div class="faq"><h3>2. Can I subtract one duration from another?</h3><p>Yes. Select Subtract. The first duration must be equal to or greater than the second duration.</p></div>
+<div class="faq"><h3>3. How many seconds are in an hour?</h3><p>There are 3,600 seconds in one hour because an hour contains 60 minutes and each minute contains 60 seconds.</p></div>
+<div class="faq"><h3>4. Can the result be more than 24 hours?</h3><p>Yes. The result displays total hours and does not reset at midnight or stop at 24 hours.</p></div>
+<div class="faq"><h3>5. What is the difference between decimal hours and hours and minutes?</h3><p>Hours and minutes use base-60 time units. Decimal hours use a fraction of 100 in the displayed decimal number. For example, 1 hour 30 minutes is 1.5 decimal hours.</p></div>
+<div class="faq"><h3>6. Can I enter more than 59 minutes?</h3><p>Enter minutes from 0 to 59 in the minutes field. If you have a larger number of minutes, convert the extra minutes into hours first.</p></div>
+<div class="faq"><h3>7. Does this calculate a clock time?</h3><p>No. It adds or subtracts durations. To calculate the elapsed time between two clock readings, use the Time Duration Calculator.</p></div>
+<div class="faq"><h3>8. Is the calculator free?</h3><p>Yes. It is free to use without registration.</p></div>
+</section>
+
+<section class="content"><h2>Related Date &amp; Time Calculators</h2><div class="related">
+<a href="/calculators/time-duration-calculator.html"><strong>Time Duration Calculator</strong><span>Find the duration between two clock times.</span></a>
+<a href="/calculators/date-difference-calculator.html"><strong>Date Difference Calculator</strong><span>Calculate days between two dates.</span></a>
+<a href="/calculators/business-days-calculator.html"><strong>Business Days Calculator</strong><span>Count working days between dates.</span></a>
+<a href="/calculators/date-time-calculators.html"><strong>All Date &amp; Time Calculators</strong><span>Explore the complete category.</span></a>
+</div></section>
+<section class="content"><h2>Calculation Note</h2><div class="note">This tool performs duration arithmetic only. It does not calculate payroll, overtime, time-zone changes, daylight-saving transitions or employment entitlements.</div></section>
+</main>
+<footer><div class="container foot"><strong>CalcNest — Free Online Calculators</strong><span><a href="/">Home</a> · <a href="/calculators/">Calculators</a></span><span>© <span id="year"></span> CalcNest</span></div></footer>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+function getVal(id,max){let raw=$(id).value;if(raw==="")return null;let n=Number(raw);if(!Number.isSafeInteger(n)||n<0||n>max)return null;return n}
+function run(){
+ $("error").style.display="none";$("results").classList.remove("show");
+ let h1=getVal("h1",1000000),m1=getVal("m1",59),s1=getVal("s1",59);
+ let h2=getVal("h2",1000000),m2=getVal("m2",59),s2=getVal("s2",59);
+ if([h1,m1,s1,h2,m2,s2].some(v=>v===null)){
+  $("error").textContent="Please enter valid whole numbers. Hours must be 0–1,000,000 and minutes/seconds must be 0–59.";
+  $("error").style.display="block";return;
+ }
+ let first=h1*3600+m1*60+s1,second=h2*3600+m2*60+s2;
+ let op=document.querySelector('input[name="operation"]:checked').value;
+ if(op==="subtract"&&second>first){
+  $("error").textContent="The second duration is greater than the first. The result would be negative. Please adjust the values.";
+  $("error").style.display="block";return;
+ }
+ let total=op==="add"?first+second:first-second;
+ if(!Number.isSafeInteger(total)){
+  $("error").textContent="The result is too large to calculate safely. Please use smaller values.";
+  $("error").style.display="block";return;
+ }
+ let hours=Math.floor(total/3600),minutes=Math.floor((total%3600)/60),seconds=total%60;
+ let readable=hours+"h "+minutes+"m "+seconds+"s";
+ $("operationLabel").textContent=op==="add"?"Combined duration":"Difference between durations";
+ $("resultHMS").textContent=readable;
+ $("resultNote").textContent=total.toLocaleString()+" seconds in total";
+ $("decimalHours").textContent=(total/3600).toFixed(4);
+ $("totalMinutes").textContent=(total/60).toFixed(2);
+ $("totalSeconds").textContent=total.toLocaleString();
+ $("days").textContent=(total/86400).toFixed(4);
+ $("remainder").textContent=minutes+"m "+seconds+"s";
+ $("durationWords").textContent=readable;
+ $("results").classList.add("show");
+}
+$("calc").addEventListener("click",run);
+$("reset").addEventListener("click",()=>{
+ $("h1").value=2;$("m1").value=45;$("s1").value=0;
+ $("h2").value=1;$("m2").value=30;$("s2").value=0;
+ document.querySelector('input[name="operation"][value="add"]').checked=true;
+ $("results").classList.remove("show");$("error").style.display="none";
+});
+$("copy").addEventListener("click",async()=>{
+ let t="CalcNest Time Calculator\nOperation: "+document.querySelector('input[name="operation"]:checked').value+
+ "\nFirst duration: "+$("h1").value+"h "+$("m1").value+"m "+$("s1").value+"s"+
+ "\nSecond duration: "+$("h2").value+"h "+$("m2").value+"m "+$("s2").value+"s"+
+ "\nResult: "+$("resultHMS").textContent+"\nDecimal hours: "+$("decimalHours").textContent;
+ try{await navigator.clipboard.writeText(t);$("copy").textContent="Copied!"}catch(e){$("copy").textContent="Copy unavailable"}
+ setTimeout(()=>$("copy").textContent="Copy Results",1500);
+});
+$("year").textContent=new Date().getFullYear();run();
+})();
+</script>
+</body>
+</html>
