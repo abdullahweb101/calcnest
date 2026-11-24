@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Ovulation Calculator - Fertile Window & Ovulation Date | CalcNest</title>
+<meta name="description" content="Estimate your ovulation date, fertile window and next period using your last menstrual period and average cycle length. Free online ovulation calculator.">
+<meta name="keywords" content="ovulation calculator, fertile window calculator, ovulation date calculator, fertility calculator, next period calculator, fertile days">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/ovulation-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ovulation Calculator - Fertile Window | CalcNest">
+<meta property="og:description" content="Estimate your ovulation date, fertile days and next expected period.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/ovulation-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ovulation Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate estimated ovulation dates and fertile windows.">
+
+<style>
+:root{
+ --ink:#17243a;
+ --muted:#65738b;
+ --blue:#315eea;
+ --purple:#7659e8;
+ --line:#e8edf5;
+ --soft:#f6f8fd;
+ --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fff}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:25px;font-weight:800;color:var(--ink);letter-spacing:-1px}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:14px;font-weight:700}
+.hero{padding:55px 0 35px;background:linear-gradient(120deg,#f4f7ff,#f8f6ff)}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}
+.eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+h1{font-size:clamp(32px,5vw,49px);line-height:1.12;letter-spacing:-1.7px;margin:12px 0 17px}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{width:100%;height:300px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow)}
+main{padding:38px 0 65px}
+.section-title{font-size:27px;line-height:1.25;margin:0 0 12px}
+.section-intro{color:var(--muted);margin:0 0 24px}
+.calculator-layout{display:grid;grid-template-columns:1fr .85fr;gap:24px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:var(--shadow)}
+.panel h2{font-size:22px;margin:0 0 7px}
+.panel-sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field{margin-bottom:18px}
+label{display:block;font-size:14px;font-weight:700;margin-bottom:7px}
+input,select{width:100%;min-height:48px;padding:12px 13px;border:1px solid #dce3ef;border-radius:10px;font:inherit;color:var(--ink);background:#fff;outline:none}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.1)}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+button{border:0;border-radius:10px;background:linear-gradient(100deg,var(--blue),var(--purple));color:#fff;font-size:15px;font-weight:800;padding:14px 20px;cursor:pointer;width:100%}
+button:hover{opacity:.93}
+button.secondary{background:#eef2ff;color:var(--blue);border:1px solid #dce4ff}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.error{display:none;color:#b42318;background:#fff0ef;border:1px solid #ffd1cc;border-radius:9px;padding:10px 12px;font-size:13px;margin:12px 0}
+.result-panel{background:linear-gradient(145deg,#f1f5ff,#f8f5ff);border:1px solid #e2e8ff;border-radius:16px;padding:22px}
+.result-label{color:var(--muted);font-size:13px;font-weight:700}
+.result-date{font-size:clamp(25px,4vw,35px);line-height:1.25;font-weight:900;color:var(--blue);margin:8px 0;overflow-wrap:anywhere}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.mini-result{background:#fff;border:1px solid var(--line);border-radius:11px;padding:13px}
+.mini-result span{display:block;font-size:12px;color:var(--muted)}
+.mini-result strong{font-size:17px;overflow-wrap:anywhere}
+.result-note{font-size:13px;color:var(--muted);margin:15px 0 0}
+.placeholder{color:var(--muted);background:var(--soft);border:1px dashed #cbd5e5;border-radius:13px;padding:28px 18px;text-align:center}
+.sub-panel{margin-top:15px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.sub-panel h3{margin:0 0 10px;font-size:16px}
+.metric-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #edf0f6;font-size:14px}
+.metric-row:last-child{border-bottom:0}
+.metric-row strong{color:var(--blue);text-align:right}
+.calendar-box{margin-top:16px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.calendar-box h3{font-size:16px;margin:0 0 10px}
+.day-list{display:flex;flex-wrap:wrap;gap:8px}
+.day-pill{font-size:12px;border-radius:20px;padding:6px 10px;background:#f0f3ff;color:#4058ae}
+.day-pill.fertile{background:#e7f7ef;color:#16734a}
+.day-pill.peak{background:#7659e8;color:#fff}
+.content-section{margin-top:48px}
+.content-section h2{font-size:26px;line-height:1.3}
+.content-section h3{font-size:19px;margin:24px 0 8px}
+.content-section p,.content-section li{color:#536178}
+.formula{background:#f5f7ff;border-left:4px solid var(--blue);padding:15px 18px;border-radius:8px;margin:14px 0;overflow-wrap:anywhere}
+.example-table{width:100%;border-collapse:collapse;margin:17px 0;font-size:14px}
+.example-table th,.example-table td{padding:12px;border:1px solid var(--line);text-align:left}
+.example-table th{background:#f5f7fc}
+.note{background:#fff9e9;border:1px solid #f4e3b5;border-radius:12px;padding:15px;color:#765b20;margin:18px 0;font-size:14px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.related-card{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.related-card a{font-weight:800}
+.related-card p{font-size:13px;margin:6px 0 0}
+.faq-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.faq-item h3{font-size:17px;margin:0 0 7px}
+.faq-item p{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);background:#fafbfe;padding:30px 0;color:var(--muted);font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+footer a{margin-right:13px}
+@media(max-width:800px){.hero-grid,.calculator-layout{grid-template-columns:1fr}.hero img{height:230px}.related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){nav{gap:10px}nav a{font-size:12px}.logo{font-size:22px}.panel{padding:18px}.related-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Ovulation Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/ovulation-calculator.html",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "description":"Estimate ovulation date, fertile window and next expected period from menstrual cycle information.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"How is ovulation estimated?",
+   "acceptedAnswer":{"@type":"Answer","text":"A common calendar estimate places ovulation about 14 days before the next expected period. Actual ovulation timing varies."}
+  },
+  {
+   "@type":"Question",
+   "name":"How long is the fertile window?",
+   "acceptedAnswer":{"@type":"Answer","text":"The fertile window is commonly described as the five days before ovulation and the day of ovulation, although timing can vary."}
+  },
+  {
+   "@type":"Question",
+   "name":"Can an ovulation calculator confirm ovulation?",
+   "acceptedAnswer":{"@type":"Answer","text":"No. A calendar calculator provides estimates and cannot confirm that ovulation has occurred."}
+  }
+ ]
+}
+</script>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <nav>
+   <a href="/">Home</a>
+   <a href="/calculators/">Calculators</a>
+   <a href="/#guides">Guides</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="container">
+  <div class="breadcrumb">
+   <a href="/">Home</a> /
+   <a href="/calculators/health-calculators.html">Health & Fitness</a> /
+   Ovulation Calculator
+  </div>
+  <div class="hero-grid">
+   <div>
+    <div class="eyebrow">Free Fertility Calendar Tool</div>
+    <h1>Ovulation Calculator</h1>
+    <p>Estimate your ovulation date, fertile window and next expected period using your last menstrual period and average cycle length. Understand your approximate menstrual cycle timeline with this free calculator.</p>
+   </div>
+   <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1000" alt="Family holding a newborn baby" fetchpriority="high">
+  </div>
+ </div>
+</section>
+
+<main class="container">
+ <h2 class="section-title">Calculate Your Estimated Ovulation Date</h2>
+ <p class="section-intro">Enter the first day of your most recent period and your usual cycle length.</p>
+
+ <div class="calculator-layout">
+  <section class="panel">
+   <h2>Menstrual Cycle Details</h2>
+   <p class="panel-sub">Provide your cycle information to estimate your fertile window.</p>
+
+   <div class="field">
+    <label for="period-date">First day of last menstrual period</label>
+    <input id="period-date" type="date">
+    <div class="hint">Enter the first day bleeding started, not the last day of your period.</div>
+   </div>
+
+   <div class="field">
+    <label for="cycle-length">Average menstrual cycle length</label>
+    <select id="cycle-length">
+     <option value="21">21 days</option>
+     <option value="22">22 days</option>
+     <option value="23">23 days</option>
+     <option value="24">24 days</option>
+     <option value="25">25 days</option>
+     <option value="26">26 days</option>
+     <option value="27">27 days</option>
+     <option value="28" selected>28 days</option>
+     <option value="29">29 days</option>
+     <option value="30">30 days</option>
+     <option value="31">31 days</option>
+     <option value="32">32 days</option>
+     <option value="33">33 days</option>
+     <option value="34">34 days</option>
+     <option value="35">35 days</option>
+     <option value="36">36 days</option>
+     <option value="37">37 days</option>
+     <option value="38">38 days</option>
+     <option value="39">39 days</option>
+     <option value="40">40 days</option>
+     <option value="41">41 days</option>
+     <option value="42">42 days</option>
+    </select>
+    <div class="hint">Count from the first day of one period to the first day of the next period.</div>
+   </div>
+
+   <div id="error" class="error" role="alert"></div>
+
+   <button id="calculate" type="button">Calculate Ovulation & Fertile Window</button>
+   <div class="actions">
+    <button class="secondary" id="reset" type="button">Reset</button>
+    <button class="secondary" id="sample" type="button">Try Example</button>
+   </div>
+  </section>
+
+  <section class="panel" aria-live="polite">
+   <h2>Your Estimated Fertility Calendar</h2>
+   <p class="panel-sub">Your estimated cycle dates will appear here.</p>
+
+   <div id="placeholder" class="placeholder">
+    <strong>Your ovulation estimate will appear here.</strong>
+    <p>Enter your cycle details and click Calculate.</p>
+   </div>
+
+   <div id="result" style="display:none">
+    <div class="result-panel">
+     <div class="result-label">Estimated Ovulation Date</div>
+     <div class="result-date" id="ovulation-date">—</div>
+     <div class="result-sub">Calendar-based estimate, not a confirmed ovulation date.</div>
+
+     <div class="result-grid">
+      <div class="mini-result">
+       <span>Fertile window starts</span>
+       <strong id="fertile-start">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Fertile window ends</span>
+       <strong id="fertile-end">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Most fertile estimate</span>
+       <strong id="peak-days">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Next expected period</span>
+       <strong id="next-period">—</strong>
+      </div>
+     </div>
+     <p class="result-note">Dates are estimates based on the cycle length entered.</p>
+    </div>
+
+    <div class="calendar-box">
+     <h3>Estimated Fertile Days</h3>
+     <div class="day-list" id="fertile-days"></div>
+    </div>
+
+    <div class="sub-panel">
+     <h3>Cycle Summary</h3>
+     <div id="summary"></div>
+    </div>
+   </div>
+  </section>
+ </div>
+
+ <section class="content-section">
+  <h2>What Is an Ovulation Calculator?</h2>
+  <p>An ovulation calculator is a calendar-based tool that estimates when ovulation may occur during a menstrual cycle. It uses the first day of the last menstrual period and the average cycle length to estimate the next period and a possible ovulation date.</p>
+  <p>Ovulation is the release of an egg from an ovary. The fertile window is the period when pregnancy is more likely if sperm and an egg meet. Because sperm can survive for several days in the reproductive tract and an egg generally remains fertilizable for a relatively short time after ovulation, the days before ovulation are important in fertility timing.</p>
+
+  <h2>How to Use This Ovulation Calculator</h2>
+  <ol>
+   <li>Enter the first day of your most recent menstrual period.</li>
+   <li>Select your average menstrual cycle length.</li>
+   <li>Click Calculate Ovulation & Fertile Window.</li>
+   <li>Review the estimated ovulation date and fertile window.</li>
+   <li>Check the next expected period date and cycle summary.</li>
+  </ol>
+
+  <h2>How Is Ovulation Calculated?</h2>
+  <p>This calculator uses a simplified calendar method. It estimates ovulation approximately 14 days before the next expected period.</p>
+  <div class="formula">
+   <strong>Estimated Next Period = First Day of Last Period + Cycle Length</strong>
+   <br><br>
+   <strong>Estimated Ovulation = Next Expected Period − 14 Days</strong>
+  </div>
+  <p>The fertile window is estimated as the five days before ovulation plus the estimated ovulation day.</p>
+  <div class="formula">
+   <strong>Estimated Fertile Window = Ovulation Day − 5 Days through Ovulation Day</strong>
+  </div>
+  <p>This is a simplified calendar estimate. It does not detect hormonal changes, confirm egg release or account for every variation in an individual's cycle.</p>
+
+  <h2>Example of an Ovulation Calculation</h2>
+  <p>Suppose the first day of the last period was January 1 and the average cycle length is 28 days.</p>
+  <table class="example-table">
+   <thead><tr><th>Cycle event</th><th>Illustrative date</th></tr></thead>
+   <tbody>
+    <tr><td>First day of last period</td><td>January 1</td></tr>
+    <tr><td>Estimated next period</td><td>January 29</td></tr>
+    <tr><td>Estimated ovulation</td><td>January 15</td></tr>
+    <tr><td>Estimated fertile window</td><td>January 10–15</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Understanding the Fertile Window</h2>
+  <p>The fertile window is commonly described as the five days before ovulation and the day of ovulation. This is because sperm may survive in the reproductive tract for several days under favorable conditions, while the egg is usually viable for a much shorter period after release.</p>
+
+  <h3>Days Before Ovulation</h3>
+  <p>Intercourse in the days leading up to ovulation can result in pregnancy because sperm may remain viable until an egg is released.</p>
+
+  <h3>Estimated Ovulation Day</h3>
+  <p>The ovulation day is the estimated day an ovary releases an egg. The actual day may differ from the calendar prediction.</p>
+
+  <h3>After Ovulation</h3>
+  <p>The egg generally remains capable of fertilization for around 12–24 hours after ovulation. Calendar estimates cannot identify the exact moment ovulation occurs.</p>
+
+  <h2>What Can Affect Ovulation Timing?</h2>
+  <ul>
+   <li>Natural variation in menstrual cycle length.</li>
+   <li>Stress and changes in sleep patterns.</li>
+   <li>Illness or significant changes in routine.</li>
+   <li>Hormonal conditions and reproductive health factors.</li>
+   <li>Breastfeeding or recent pregnancy.</li>
+   <li>Changes in weight or exercise patterns.</li>
+   <li>Irregular or unpredictable menstrual cycles.</li>
+  </ul>
+
+  <h2>Calendar Tracking vs Other Ovulation Tracking Methods</h2>
+  <table class="example-table">
+   <thead><tr><th>Method</th><th>What it can help with</th></tr></thead>
+   <tbody>
+    <tr><td>Calendar tracking</td><td>Estimates cycle dates based on previous periods.</td></tr>
+    <tr><td>Ovulation predictor kits</td><td>Detect a rise in luteinizing hormone (LH) that often occurs before ovulation.</td></tr>
+    <tr><td>Cervical mucus tracking</td><td>Observes changes in mucus that may occur around the fertile window.</td></tr>
+    <tr><td>Basal body temperature</td><td>Can help identify a temperature pattern after ovulation.</td></tr>
+    <tr><td>Ultrasound monitoring</td><td>Can help healthcare professionals assess follicle development and ovulation.</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Important Limitations</h2>
+  <p>Calendar-based ovulation estimates are less dependable when periods are irregular or cycle lengths vary significantly. Even people with usually regular cycles may ovulate earlier or later than expected.</p>
+  <div class="note">
+   <strong>Important health notice:</strong> This calculator cannot confirm ovulation, diagnose fertility problems, prevent pregnancy or guarantee conception. Do not use calendar predictions alone as contraception. If you are trying to conceive, have irregular periods or have concerns about your cycle, consider speaking with a qualified healthcare professional.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+   <h3>1. What is ovulation?</h3>
+   <p>Ovulation is the release of an egg from an ovary during the menstrual cycle. It is an important part of the reproductive process.</p>
+  </div>
+  <div class="faq-item">
+   <h3>2. How many days before ovulation is the fertile window?</h3>
+   <p>The commonly described fertile window includes the five days before ovulation and the estimated ovulation day.</p>
+  </div>
+  <div class="faq-item">
+   <h3>3. Can this calculator tell me the exact ovulation date?</h3>
+   <p>No. It estimates ovulation using cycle averages. Actual ovulation timing can vary from one cycle to another.</p>
+  </div>
+  <div class="faq-item">
+   <h3>4. Can I use this calculator with irregular periods?</h3>
+   <p>You can enter an average cycle length, but the estimate may be unreliable when cycle lengths vary. Other tracking methods or professional guidance may be more useful.</p>
+  </div>
+  <div class="faq-item">
+   <h3>5. Does ovulation always happen on day 14?</h3>
+   <p>No. Day 14 is often associated with an illustrative 28-day cycle. Ovulation timing depends on the individual and the length of the cycle.</p>
+  </div>
+  <div class="faq-item">
+   <h3>6. What is the difference between ovulation and the fertile window?</h3>
+   <p>Ovulation is the release of an egg. The fertile window includes several days before ovulation and the estimated ovulation day when conception may be possible.</p>
+  </div>
+  <div class="faq-item">
+   <h3>7. Can I use this calculator to avoid pregnancy?</h3>
+   <p>No. Calendar estimates are not reliable contraception. Consult a qualified healthcare professional about effective contraceptive methods.</p>
+  </div>
+  <div class="faq-item">
+   <h3>8. What does a 28-day cycle mean?</h3>
+   <p>A 28-day cycle means approximately 28 days from the first day of one period to the first day of the next period.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Related Health & Fitness Calculators</h2>
+  <p class="section-intro">Explore more free calculators for health, fitness and everyday planning.</p>
+  <div class="related-grid">
+   <div class="related-card">
+    <a href="/calculators/pregnancy-due-date-calculator.html">Pregnancy Due Date Calculator</a>
+    <p>Estimate a pregnancy due date from the last menstrual period.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/age-calculator.html">Age Calculator</a>
+    <p>Calculate your exact age in years, months and days.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/sleep-calculator.html">Sleep Calculator</a>
+    <p>Explore suggested sleep and wake-up times.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/healthy-weight-calculator.html">Healthy Weight Calculator</a>
+    <p>Explore formula-based weight estimates.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+    <p>Calculate body mass index using height and weight.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/health-calculators.html">All Health Calculators</a>
+    <p>Browse the complete Health & Fitness collection.</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <div>© 2026 CalcNest. Free online calculators for everyday decisions.</div>
+  <div>
+   <a href="/">Home</a>
+   <a href="/calculators/health-calculators.html">Health Calculators</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ const $ = id => document.getElementById(id);
+
+ function parseDate(value){
+  if(!value) return null;
+  const parts = value.split("-").map(Number);
+  if(parts.length !== 3 || parts.some(n=>!Number.isFinite(n))) return null;
+  const date = new Date(Date.UTC(parts[0],parts[1]-1,parts[2]));
+  if(
+   date.getUTCFullYear() !== parts[0] ||
+   date.getUTCMonth() !== parts[1]-1 ||
+   date.getUTCDate() !== parts[2]
+  ) return null;
+  return date;
+ }
+
+ function addDays(date,days){
+  const result = new Date(date.getTime());
+  result.setUTCDate(result.getUTCDate()+days);
+  return result;
+ }
+
+ function formatDate(date){
+  return new Intl.DateTimeFormat("en-US",{
+   year:"numeric",
+   month:"long",
+   day:"numeric",
+   timeZone:"UTC"
+  }).format(date);
+ }
+
+ function formatShort(date){
+  return new Intl.DateTimeFormat("en-US",{
+   month:"short",
+   day:"numeric",
+   timeZone:"UTC"
+  }).format(date);
+ }
+
+ function showError(message){
+  $("error").textContent = message;
+  $("error").style.display = "block";
+ }
+
+ function clearError(){
+  $("error").textContent = "";
+  $("error").style.display = "none";
+ }
+
+ function calculate(){
+  clearError();
+
+  const lastPeriod = parseDate($("period-date").value);
+  const cycleLength = Number($("cycle-length").value);
+
+  if(!lastPeriod){
+   showError("Please enter a valid first day of your last menstrual period.");
+   $("period-date").focus();
+   return;
+  }
+
+  if(!Number.isInteger(cycleLength) || cycleLength < 21 || cycleLength > 42){
+   showError("Please select a cycle length between 21 and 42 days.");
+   return;
+  }
+
+  const today = new Date();
+  const todayUTC = new Date(Date.UTC(
+   today.getFullYear(),
+   today.getMonth(),
+   today.getDate()
+  ));
+
+  if(lastPeriod > todayUTC){
+   showError("The last menstrual period date cannot be in the future.");
+   return;
+  }
+
+  const daysSincePeriod = Math.floor(
+   (todayUTC.getTime()-lastPeriod.getTime())/86400000
+  );
+
+  if(daysSincePeriod > 180){
+   showError("This calculator is designed for a recent menstrual cycle. For a period date more than 180 days ago, please seek professional medical advice.");
+   return;
+  }
+
+  const nextPeriod = addDays(lastPeriod,cycleLength);
+  const ovulation = addDays(nextPeriod,-14);
+  const fertileStart = addDays(ovulation,-5);
+  const fertileEnd = ovulation;
+  const peakStart = addDays(ovulation,-2);
+
+  const fertileDays = [];
+  for(let i=0;i<=5;i++){
+   fertileDays.push(addDays(fertileStart,i));
+  }
+
+  $("placeholder").style.display = "none";
+  $("result").style.display = "block";
+
+  $("ovulation-date").textContent = formatDate(ovulation);
+  $("fertile-start").textContent = formatShort(fertileStart);
+  $("fertile-end").textContent = formatShort(fertileEnd);
+  $("peak-days").textContent = formatShort(peakStart) + " – " + formatShort(ovulation);
+  $("next-period").textContent = formatShort(nextPeriod);
+
+  $("fertile-days").innerHTML = fertileDays.map((day,index)=>{
+   let className = "day-pill fertile";
+   let label = formatShort(day);
+
+   if(index === 5){
+    className = "day-pill peak";
+    label += " · Ovulation";
+   }else if(index >= 3){
+    label += " · Fertile";
+   }
+
+   return "<span class='" + className + "'>" + label + "</span>";
+  }).join("");
+
+  const rows = [
+   ["First day of last period",formatDate(lastPeriod)],
+   ["Average cycle length",cycleLength + " days"],
+   ["Estimated cycle day of ovulation",Math.max(1,cycleLength-14)],
+   ["Estimated fertile window",formatDate(fertileStart) + " to " + formatDate(fertileEnd)],
+   ["Next expected period",formatDate(nextPeriod)]
+  ];
+
+  $("summary").innerHTML = rows.map(row=>
+   "<div class='metric-row'><span>" + row[0] +
+   "</span><strong>" + row[1] + "</strong></div>"
+  ).join("");
+
+  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+ }
+
+ $("calculate").addEventListener("click",calculate);
+
+ $("reset").addEventListener("click",function(){
+  $("period-date").value = "";
+  $("cycle-length").value = "28";
+  $("result").style.display = "none";
+  $("placeholder").style.display = "block";
+  clearError();
+ });
+
+ $("sample").addEventListener("click",function(){
+  const now = new Date();
+  const sample = new Date(Date.UTC(
+   now.getFullYear(),
+   now.getMonth(),
+   now.getDate()
+  ));
+  sample.setUTCDate(sample.getUTCDate()-10);
+
+  $("period-date").value =
+   sample.getUTCFullYear() + "-" +
+   String(sample.getUTCMonth()+1).padStart(2,"0") + "-" +
+   String(sample.getUTCDate()).padStart(2,"0");
+
+  $("cycle-length").value = "28";
+  calculate();
+ });
+})();
+</script>
+</body>
+</html>
