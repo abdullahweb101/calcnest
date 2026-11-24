@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Time Duration Calculator - Calculate Hours and Minutes | CalcNest</title>
+<meta name="description" content="Calculate the time between two clock times with this free time duration calculator. Find total hours, minutes, seconds and decimal hours, including overnight shifts.">
+<meta name="keywords" content="time duration calculator, hours between times, time difference calculator, calculate hours and minutes, overnight time calculator, shift hours calculator">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/time-duration-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Time Duration Calculator | CalcNest">
+<meta property="og:description" content="Find the duration between two times, including overnight shifts.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/time-duration-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Time Duration Calculator","url":"https://calcnest-7s6.pages.dev/calculators/time-duration-calculator.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Calculate hours, minutes and seconds between two times, including overnight periods.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I calculate the duration between two times?","acceptedAnswer":{"@type":"Answer","text":"Enter a start time and an end time. The calculator subtracts the start time from the end time and displays the duration in hours, minutes and seconds."}},
+{"@type":"Question","name":"Can I calculate an overnight shift?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable the overnight option when the end time occurs on the following day."}},
+{"@type":"Question","name":"What are decimal hours?","acceptedAnswer":{"@type":"Answer","text":"Decimal hours express a duration as a number of hours with a decimal fraction. For example, 2 hours and 30 minutes equals 2.5 hours."}},
+{"@type":"Question","name":"Can I subtract a break from the duration?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter the unpaid or excluded break duration in minutes to calculate net time."}},
+{"@type":"Question","name":"Does this calculate dates as well as times?","acceptedAnswer":{"@type":"Answer","text":"This tool calculates time-of-day durations. For intervals spanning multiple dates, use the date and time details carefully or calculate each interval separately."}}
+]}
+</script>
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;--shadow:0 12px 35px rgba(25,45,85,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.65}a{color:var(--blue);text-decoration:none}button,input{font:inherit}
+header{position:sticky;top:0;background:#ffffffef;border-bottom:1px solid var(--line);z-index:5}.nav{max-width:1100px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{font-size:25px;font-weight:800;color:var(--ink)}.brand span{color:var(--blue)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}
+.container{width:min(1050px,calc(100% - 32px));margin:auto}.crumb{padding:20px 0 5px;font-size:13px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:25px 0 38px}.tag{background:#edf2ff;color:var(--blue);padding:7px 12px;border-radius:25px;font-size:12px;font-weight:bold}h1{font-size:clamp(34px,5vw,48px);line-height:1.12;margin:17px 0;letter-spacing:-1px}.hero p{color:var(--muted);font-size:17px}.hero img{width:100%;height:250px;object-fit:cover;border-radius:17px;box-shadow:var(--shadow)}
+.card{border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow);margin-bottom:48px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}.field input{width:100%;height:52px;padding:11px;border:1px solid #dce3ef;border-radius:9px;background:white;color:var(--ink)}.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.check{display:flex;gap:10px;align-items:flex-start;background:var(--soft);padding:13px;border:1px solid var(--line);border-radius:10px;margin:17px 0}.check input{margin-top:5px;accent-color:var(--blue)}.check label{font-size:13px;color:var(--muted)}.check strong{display:block;color:var(--ink)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:9px;padding:12px 20px;font-weight:bold;cursor:pointer}.primary{background:linear-gradient(110deg,var(--blue),var(--purple));color:white}.secondary{background:#edf1f8;color:#42516b}
+.error{display:none;background:#fff0f1;color:#a51e2b;padding:12px;border-radius:9px;margin-top:14px}.results{display:none;border-top:1px solid var(--line);margin-top:25px;padding-top:22px}.results.show{display:block}.main-result{background:linear-gradient(120deg,var(--blue),var(--purple));color:white;padding:22px;border-radius:14px;margin-bottom:14px}.main-result strong{display:block;font-size:clamp(30px,5vw,43px);line-height:1.2}.main-result span{font-size:13px;color:#e4e8ff}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{background:#f8faff;border:1px solid var(--line);padding:17px;border-radius:12px}.tile strong{display:block;font-size:24px}.tile span{font-size:12px;color:var(--muted)}.summary{margin-top:15px;padding:15px;background:var(--soft);border-radius:10px;font-size:14px;color:#42516b}
+.content{border-top:1px solid var(--line);padding:32px 0}.content p,.content li{color:#52617a;font-size:15px}.content h2{font-size:26px}.content h3{font-size:19px;margin:23px 0 7px}.formula{padding:15px;background:#f2f5ff;border-left:4px solid var(--blue);margin:15px 0;font-weight:bold;color:#263c70}.faq{padding:14px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.related{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related a{padding:15px;border:1px solid var(--line);border-radius:10px;color:var(--ink)}.related span{display:block;font-size:13px;color:var(--muted)}.note{padding:15px;background:#f8faff;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
+footer{margin-top:30px;background:#f7f9fd;padding:25px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.hero img{height:210px}.card{padding:19px}.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.grid,.related{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.btn{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+<main class="container">
+<div class="crumb"><a href="/">Home</a> / <a href="/calculators/date-time-calculators.html">Date &amp; Time</a> / Time Duration Calculator</div>
+<section class="hero"><div><span class="tag">Free Time Calculator</span><h1>Time Duration Calculator</h1><p>Calculate the exact duration between a start time and an end time. Find total hours, minutes, seconds and decimal hours, with support for overnight shifts and break deductions.</p></div><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1000" alt="Clock representing time measurement and duration" width="1000" height="600" fetchpriority="high"></section>
+
+<section class="card">
+<h2>Calculate Time Between Two Times</h2>
+<p class="hint">Enter your start and end times. Use the overnight option when the end time is on the next day.</p>
+<div class="grid">
+<div class="field"><label for="start">Start Time</label><input type="time" id="start" value="09:00"></div>
+<div class="field"><label for="end">End Time</label><input type="time" id="end" value="17:30"></div>
+<div class="field"><label for="break">Break to Exclude (minutes)</label><input type="number" id="break" min="0" max="100000" step="1" value="0"><div class="hint">Optional unpaid break or excluded time.</div></div>
+</div>
+<div class="check"><input type="checkbox" id="overnight"><label for="overnight"><strong>End time is on the following day</strong>Enable this for overnight shifts, such as 10:00 PM to 6:00 AM.</label></div>
+<div class="actions"><button class="btn primary" id="calc">Calculate Duration</button><button class="btn secondary" id="reset">Reset</button></div>
+<div class="error" id="error" role="alert"></div>
+<div class="results" id="results" aria-live="polite">
+<h2>Time Duration Results</h2>
+<div class="main-result"><span>Net duration after break</span><strong id="hms">—</strong><span id="detail">—</span></div>
+<div class="tiles">
+<div class="tile"><strong id="totalHours">—</strong><span>Net decimal hours</span></div>
+<div class="tile"><strong id="totalMinutes">—</strong><span>Net total minutes</span></div>
+<div class="tile"><strong id="totalSeconds">—</strong><span>Net total seconds</span></div>
+<div class="tile"><strong id="gross">—</strong><span>Duration before break</span></div>
+<div class="tile"><strong id="breakText">—</strong><span>Break deducted</span></div>
+<div class="tile"><strong id="days">—</strong><span>Equivalent 24-hour days</span></div>
+</div>
+<div class="summary" id="summary"></div>
+<div class="actions"><button class="btn secondary" id="copy">Copy Results</button></div>
+</div>
+</section>
+
+<section class="content">
+<h2>What Is a Time Duration Calculator?</h2>
+<p>A time duration calculator finds the amount of time between two clock readings. It is useful for calculating work shifts, study sessions, travel time, meeting lengths, exercise sessions, breaks and other activities.</p>
+<p>This tool calculates the difference between two times and can subtract a break period to show net duration. It also supports overnight periods, where the end time occurs after midnight on the next day.</p>
+<h2>How to Use the Time Duration Calculator</h2>
+<ol><li>Enter the start time.</li><li>Enter the end time.</li><li>Enable the overnight option if the end time is on the following day.</li><li>Enter any break duration you want to exclude.</li><li>Click Calculate Duration to view the results.</li></ol>
+<h2>Time Duration Formula</h2>
+<div class="formula">Duration = End time − Start time</div>
+<p>Times are converted into minutes after midnight. If overnight mode is enabled and the end time is earlier than the start time, 24 hours are added to the end time before the difference is calculated.</p>
+<div class="formula">Net duration = Gross duration − Break duration</div>
+<p>The calculator reports net duration after the entered break. If the break is longer than the measured time, the calculator asks you to correct the input.</p>
+<h2>Examples of Time Duration</h2>
+<ul><li><strong>9:00 AM to 5:00 PM:</strong> 8 hours.</li><li><strong>9:00 AM to 5:30 PM:</strong> 8 hours and 30 minutes.</li><li><strong>10:00 PM to 6:00 AM next day:</strong> 8 hours with overnight mode enabled.</li><li><strong>9:00 AM to 5:30 PM with a 30-minute break:</strong> 8 net hours.</li></ul>
+<h2>What Are Decimal Hours?</h2>
+<p>Decimal hours express time as a single number rather than separate hours and minutes. They are often used in timesheets, payroll calculations, project tracking and billing.</p>
+<div class="formula">Decimal hours = Total minutes ÷ 60</div>
+<p>For example, 2 hours and 30 minutes equals 150 minutes. Dividing 150 by 60 gives 2.5 decimal hours. This is a mathematical conversion, not a wage or payroll calculation.</p>
+<h2>Gross Time vs. Net Time</h2>
+<p>Gross duration is the full elapsed time between the start and end. Net duration is the gross duration after subtracting breaks or other excluded periods. Whether a break is paid or unpaid depends on the employer, contract and local rules.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><h3>1. How do I calculate hours between two times?</h3><p>Enter the start and end times. The calculator finds their difference and displays hours, minutes and seconds.</p></div>
+<div class="faq"><h3>2. Can I calculate an overnight shift?</h3><p>Yes. Enable the overnight option when your end time occurs on the following day, such as a shift from 10 PM to 6 AM.</p></div>
+<div class="faq"><h3>3. How do I convert minutes into decimal hours?</h3><p>Divide the total minutes by 60. For example, 90 minutes equals 1.5 hours.</p></div>
+<div class="faq"><h3>4. Can I subtract a lunch break?</h3><p>Yes. Enter the break length in minutes. The calculator deducts it from the gross duration.</p></div>
+<div class="faq"><h3>5. What if my start and end times are the same?</h3><p>Without overnight mode, the duration is zero. With overnight mode enabled, the calculator treats the period as 24 hours.</p></div>
+<div class="faq"><h3>6. Does this calculate payroll?</h3><p>No. It calculates elapsed time only. Payroll may also depend on rates, overtime rules, rounding policies and local employment laws.</p></div>
+<div class="faq"><h3>7. Can I use 24-hour time?</h3><p>Yes. The time fields use your browser's standard time input, commonly displayed in either 12-hour or 24-hour format depending on your device.</p></div>
+<div class="faq"><h3>8. Is it free?</h3><p>Yes. This CalcNest calculator is free to use without registration.</p></div>
+</section>
+
+<section class="content"><h2>Related Date &amp; Time Calculators</h2><div class="related">
+<a href="/calculators/time-calculator.html"><strong>Time Calculator</strong><span>Add or subtract hours, minutes and seconds.</span></a>
+<a href="/calculators/date-difference-calculator.html"><strong>Date Difference Calculator</strong><span>Calculate the interval between two dates.</span></a>
+<a href="/calculators/business-days-calculator.html"><strong>Business Days Calculator</strong><span>Count weekdays between dates.</span></a>
+<a href="/calculators/date-time-calculators.html"><strong>All Date &amp; Time Calculators</strong><span>Explore the complete category.</span></a>
+</div></section>
+<section class="content"><h2>Important Note</h2><div class="note">This calculator measures clock-time duration. It does not determine paid working time, overtime entitlement, payroll amounts or legal break requirements. Verify employment and payroll rules separately.</div></section>
+</main>
+<footer><div class="container foot"><strong>CalcNest — Free Online Calculators</strong><span><a href="/">Home</a> · <a href="/calculators/">Calculators</a></span><span>© <span id="year"></span> CalcNest</span></div></footer>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+function run(){
+ $("error").style.display="none";$("results").classList.remove("show");
+ const a=$("start").value,b=$("end").value,br=Number($("break").value);
+ if(!a||!b){$("error").textContent="Please enter both start and end times.";$("error").style.display="block";return}
+ if($("break").value===""||!Number.isInteger(br)||br<0||br>100000){$("error").textContent="Enter a valid whole-number break duration in minutes.";$("error").style.display="block";return}
+ let [ah,am]=a.split(":").map(Number),[bh,bm]=b.split(":").map(Number);
+ let start=ah*60+am,end=bh*60+bm;
+ if($("overnight").checked&&end<=start)end+=1440;
+ else if(end<start){$("error").textContent="End time is earlier than start time. Enable overnight mode if the end is on the next day.";$("error").style.display="block";return}
+ let gross=end-start,net=gross-br;
+ if(net<0){$("error").textContent="Break duration cannot be longer than the total elapsed time.";$("error").style.display="block";return}
+ let h=Math.floor(net/60),m=net%60,sec=net*60;
+ const hms=h+"h "+m+"m";
+ $("hms").textContent=hms;$("detail").textContent=sec.toLocaleString()+" seconds in total";
+ $("totalHours").textContent=(net/60).toFixed(2);
+ $("totalMinutes").textContent=net.toLocaleString();
+ $("totalSeconds").textContent=sec.toLocaleString();
+ $("gross").textContent=Math.floor(gross/60)+"h "+gross%60+"m";
+ $("breakText").textContent=br+" min";
+ $("days").textContent=(net/1440).toFixed(3);
+ $("summary").innerHTML="<p><strong>Start time:</strong> "+a+"</p><p><strong>End time:</strong> "+b+($("overnight").checked?" (following day if required)":"")+"</p><p><strong>Gross duration:</strong> "+gross+" minutes</p><p><strong>Break deducted:</strong> "+br+" minutes</p><p><strong>Net duration:</strong> "+hms+"</p>";
+ $("results").classList.add("show");
+}
+$("calc").addEventListener("click",run);
+$("reset").addEventListener("click",()=>{$("start").value="09:00";$("end").value="17:30";$("break").value=0;$("overnight").checked=false;$("results").classList.remove("show");$("error").style.display="none"});
+$("copy").addEventListener("click",async()=>{let t="CalcNest Time Duration\nStart: "+$("start").value+"\nEnd: "+$("end").value+"\nNet duration: "+$("hms").textContent+"\nDecimal hours: "+$("totalHours").textContent+"\nTotal minutes: "+$("totalMinutes").textContent;try{await navigator.clipboard.writeText(t);$("copy").textContent="Copied!"}catch(e){$("copy").textContent="Copy unavailable"}setTimeout(()=>$("copy").textContent="Copy Results",1500)});
+$("year").textContent=new Date().getFullYear();run();
+})();
+</script>
+</body>
+</html>
