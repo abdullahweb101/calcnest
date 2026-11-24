@@ -2,52 +2,1453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Energy Converter - Joules, Calories, kWh & BTU | CalcNest</title>
-<meta name="description" content="Convert joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU and electronvolts with this free energy converter.">
-<meta name="keywords" content="energy converter, joules to calories, kWh to joules, calories to joules, BTU converter, energy unit calculator">
-<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/energy-converter.html"><meta name="robots" content="index,follow">
-<meta property="og:title" content="Energy Converter | CalcNest"><meta property="og:description" content="Convert energy units instantly."><meta property="og:type" content="website">
-<style>
-:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--line:#e8edf5}*{box-sizing:border-box}body{margin:0;font:16px/1.65 Arial;color:var(--ink)}a{text-decoration:none;color:inherit}header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#ffffffed;z-index:5}.nav,.container{width:min(1080px,calc(100% - 32px));margin:auto}.nav{padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-size:25px;font-weight:800}.brand span{color:var(--blue)}nav{display:flex;gap:17px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}.hero{padding:40px 0 22px}.tag{background:#edf2ff;color:var(--blue);padding:5px 12px;border-radius:30px;font-size:12px;font-weight:bold}h1{font-size:clamp(32px,5vw,46px);line-height:1.15;margin:14px 0}.hero p,.section p,.section li{color:var(--muted)}.panel{padding:25px;border:1px solid var(--line);border-radius:17px;box-shadow:0 12px 35px #192d550d;margin:18px 0}.grid{display:grid;grid-template-columns:1fr 55px 1fr;gap:13px;align-items:end}label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:10px;font:inherit;color:var(--ink);background:white}.swap{height:47px;border:0;border-radius:10px;background:#edf2ff;color:var(--blue);font-size:22px;cursor:pointer}.result{margin-top:18px;padding:19px;border-radius:12px;background:linear-gradient(120deg,#edf2ff,#f5f1ff)}.result small{font-weight:bold;color:#596987}.result strong{display:block;font-size:clamp(23px,4vw,34px);color:#254fd0;overflow-wrap:anywhere}.result p{font-size:13px;color:var(--muted);margin:4px 0}.actions,.quick,.links{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}.btn.alt,.quick button{background:#edf2ff;color:var(--blue)}.quick button{border:1px solid var(--line);border-radius:20px;padding:7px 12px;cursor:pointer}.section{padding:22px 0;border-bottom:1px solid var(--line)}h2{font-size:25px;margin:0 0 9px}h3{font-size:18px;margin:18px 0 6px}.formula,.note{padding:14px;background:#f2f5ff;border-left:4px solid var(--blue);border-radius:8px;margin:13px 0;color:#34486e}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{border:1px solid var(--line);background:#fbfcff;border-radius:11px;padding:14px}.card a{color:var(--blue);font-weight:bold}.faq{padding:13px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.links a{border:1px solid var(--line);padding:9px 12px;border-radius:8px;color:var(--blue);font-size:13px;font-weight:bold}footer{margin-top:30px;padding:23px 0;background:#f7f9fd;color:var(--muted);font-size:13px}table{border-collapse:collapse;width:100%;margin:15px 0}td,th{padding:10px;border:1px solid var(--line);text-align:left}th{background:#f5f7fc}@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.swap{height:39px}.cards{grid-template-columns:1fr 1fr}.panel{padding:17px}}@media(max-width:430px){.cards{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Energy Converter - Joules, Calories, kWh, BTU & More | CalcNest</title>
+  <meta name="description" content="Convert energy units instantly with the free CalcNest Energy Converter. Convert joules, kilojoules, calories, kcal, watt-hours, kWh, MWh, BTU, electronvolts and more.">
+  <meta name="keywords" content="energy converter, joules to calories, kWh converter, joules to kWh, calories to joules, BTU converter, energy unit conversion, watt hour converter">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/energy-converter.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Energy Converter - Joules, Calories, kWh & BTU | CalcNest">
+  <meta property="og:description" content="Convert Joules, calories, kilowatt-hours, BTU and other common energy units with this free online calculator.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/energy-converter.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Energy Converter | CalcNest">
+  <meta name="twitter:description" content="Free online energy conversion for Joules, calories, kWh, BTU and more.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"CalcNest Energy Converter",
+    "url":"https://calcnest-7s6.pages.dev/calculators/energy-converter.html",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "description":"A free online energy unit converter for joules, calories, watt-hours, kilowatt-hours, BTU, electronvolts and more.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How many joules are in one kilojoule?",
+        "acceptedAnswer":{"@type":"Answer","text":"One kilojoule (kJ) equals exactly 1,000 joules (J)."}
+      },
+      {
+        "@type":"Question",
+        "name":"How many joules are in one calorie?",
+        "acceptedAnswer":{"@type":"Answer","text":"One thermochemical calorie equals exactly 4.184 joules."}
+      },
+      {
+        "@type":"Question",
+        "name":"How many joules are in one kilowatt-hour?",
+        "acceptedAnswer":{"@type":"Answer","text":"One kilowatt-hour equals exactly 3,600,000 joules, or 3.6 megajoules."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is the difference between a calorie and a kilocalorie?",
+        "acceptedAnswer":{"@type":"Answer","text":"One kilocalorie (kcal) equals 1,000 small calories. Food labels often use the word Calories with a capital C to mean kilocalories."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you convert kWh to joules?",
+        "acceptedAnswer":{"@type":"Answer","text":"Multiply kilowatt-hours by 3,600,000. For example, 2 kWh equals 7,200,000 joules."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is BTU used for?",
+        "acceptedAnswer":{"@type":"Answer","text":"British thermal units are used to describe heat energy and are commonly seen in heating, cooling, air-conditioning and energy specifications."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is an electronvolt?",
+        "acceptedAnswer":{"@type":"Answer","text":"An electronvolt (eV) is a small unit of energy used in atomic, particle and solid-state physics. One electronvolt is approximately 1.602176634 × 10⁻¹⁹ joules."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the CalcNest Energy Converter free?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. The CalcNest Energy Converter is free to use online and does not require registration."}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.7;
+    }
+
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    button,input,select{font:inherit}
+
+    .container{
+      width:min(1120px,calc(100% - 36px));
+      margin:auto;
+    }
+
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      color:var(--ink);
+      font-size:23px;
+      font-weight:800;
+      letter-spacing:-.7px;
+    }
+
+    .brand span{color:var(--blue)}
+
+    .navlinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .navlinks a{color:#42516a}
+
+    .breadcrumbs{
+      padding:20px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .breadcrumbs a{color:var(--muted)}
+
+    .hero{padding:26px 0 22px}
+
+    .eyebrow{
+      color:var(--blue);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:9px 0 13px;
+      font-size:clamp(31px,5vw,48px);
+      line-height:1.12;
+      letter-spacing:-1.5px;
+    }
+
+    .hero p{
+      max-width:800px;
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .hero-image{
+      display:block;
+      width:100%;
+      height:270px;
+      margin-top:24px;
+      border-radius:var(--radius);
+      object-fit:cover;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);
+      gap:24px;
+      align-items:start;
+      margin:24px 0 42px;
+    }
+
+    .panel,.side-card,.content-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .panel{padding:26px}
+
+    .panel h2,.content-card h2{
+      margin:0 0 8px;
+      font-size:23px;
+      line-height:1.3;
+    }
+
+    .sub{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    label{
+      display:block;
+      margin:0 0 7px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    input,select{
+      width:100%;
+      min-height:48px;
+      padding:11px 13px;
+      border:1px solid #dce3ef;
+      border-radius:11px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+    }
+
+    input:focus,select:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.12);
+    }
+
+    .fields{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{min-width:0}
+
+    .swapline{
+      display:flex;
+      justify-content:center;
+      margin:15px 0;
+    }
+
+    .swapbtn,.action,.quick button{
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    .swapbtn{
+      padding:9px 16px;
+      background:#edf1ff;
+      color:var(--blue);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .action{padding:11px 17px}
+
+    .action.primary{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .action.secondary{
+      background:#edf1ff;
+      color:var(--blue);
+    }
+
+    .action.gray{
+      background:#f0f2f6;
+      color:#42516a;
+    }
+
+    .result{
+      margin-top:22px;
+      padding:20px;
+      border:1px solid #e0e7ff;
+      border-radius:14px;
+      background:linear-gradient(135deg,#eef3ff,#f5f1ff);
+    }
+
+    .result-label{
+      color:#5b6680;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+    }
+
+    .result-value{
+      margin:7px 0;
+      font-size:clamp(25px,4vw,36px);
+      font-weight:800;
+      line-height:1.3;
+      overflow-wrap:anywhere;
+    }
+
+    .result-note{
+      color:var(--muted);
+      font-size:13px;
+      overflow-wrap:anywhere;
+    }
+
+    .quick-title{
+      margin:20px 0 9px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .quick{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .quick button{
+      padding:8px 11px;
+      background:#f1f4fa;
+      color:#42516a;
+      font-size:12px;
+    }
+
+    .quick button:hover{
+      background:#e6ecff;
+      color:var(--blue);
+    }
+
+    .side-card{
+      padding:20px;
+      margin-bottom:18px;
+    }
+
+    .side-card h3{
+      margin:0 0 10px;
+      font-size:17px;
+    }
+
+    .side-card p,.side-card li{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .side-card ul{
+      margin:8px 0;
+      padding-left:19px;
+    }
+
+    .notice{
+      padding:14px 16px;
+      border:1px solid #e5e8f7;
+      border-radius:12px;
+      background:#f7f8ff;
+      color:#526078;
+      font-size:13px;
+    }
+
+    .content-card{
+      padding:26px;
+      margin:20px 0;
+    }
+
+    .content-card p,.content-card li{color:#526078}
+
+    .content-card h3{
+      margin:22px 0 7px;
+      font-size:18px;
+    }
+
+    .formula{
+      padding:14px 16px;
+      border-left:4px solid var(--purple);
+      border-radius:9px;
+      background:var(--soft);
+      font-weight:700;
+      overflow-wrap:anywhere;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      margin-top:14px;
+    }
+
+    table{
+      width:100%;
+      min-width:510px;
+      border-collapse:collapse;
+    }
+
+    th,td{
+      padding:12px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      font-size:14px;
+    }
+
+    th{background:var(--soft)}
+
+    .faq{
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .faq:last-child{border:0}
+
+    .faq h3{
+      margin:0 0 5px;
+      font-size:16px;
+    }
+
+    .faq p{margin:0}
+
+    .related{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .related a{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    footer{
+      margin-top:45px;
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      background:#f7f9fd;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    @media(max-width:800px){
+      .layout{grid-template-columns:1fr}
+      .hero-image{height:220px}
+    }
+
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1120px)}
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:14px 0;
+      }
+      .navlinks{gap:13px}
+      .panel,.content-card{padding:19px}
+      .fields{grid-template-columns:1fr}
+      .related{grid-template-columns:1fr}
+      .hero-image{height:185px}
+    }
+  </style>
 </head>
+
 <body>
-<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main class="container">
-<section class="hero"><span class="tag">Science, Electricity &amp; Energy Tool</span><h1>Energy Converter</h1><p>Convert joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU and electronvolts. A useful free converter for science, electrical energy, nutrition and engineering measurements.</p></section>
-<section class="panel" id="calculator"><h2>Convert Energy Units</h2><p class="hero">Enter an energy value and choose your conversion units.</p><div class="grid"><div><label for="amount">Energy value</label><input id="amount" type="number" step="any" value="1"></div><button class="swap" id="swap" type="button" aria-label="Swap units">⇄</button><div><label for="from">From</label><select id="from"></select></div></div><div style="margin-top:13px"><label for="to">Convert to</label><select id="to"></select></div>
-<div class="result" aria-live="polite"><small>CONVERSION RESULT</small><strong id="answer"></strong><p id="detail"></p></div><div class="actions"><button class="btn" id="copy">Copy Result</button><button class="btn alt" id="reset">Reset</button></div><div class="quick"><button data-value="1">1</button><button data-value="10">10</button><button data-value="100">100</button><button data-value="500">500</button><button data-value="1000">1,000</button><button data-value="3600">3,600</button></div></section>
-<section class="section"><h2>Popular Energy Conversions</h2><div class="cards">
-<div class="card"><b>Joules to Calories</b><p>Convert energy into small calories.</p><a href="#calculator" onclick="setConversion('J','cal')">Convert →</a></div>
-<div class="card"><b>Calories to Joules</b><p>Convert calories into joules.</p><a href="#calculator" onclick="setConversion('cal','J')">Convert →</a></div>
-<div class="card"><b>kWh to Joules</b><p>Convert electrical energy into joules.</p><a href="#calculator" onclick="setConversion('kWh','J')">Convert →</a></div>
-<div class="card"><b>kWh to BTU</b><p>Convert electricity and heating energy.</p><a href="#calculator" onclick="setConversion('kWh','BTU')">Convert →</a></div>
-<div class="card"><b>kJ to kcal</b><p>Convert food energy units.</p><a href="#calculator" onclick="setConversion('kJ','kcal')">Convert →</a></div>
-<div class="card"><b>Wh to kWh</b><p>Convert watt-hours into kilowatt-hours.</p><a href="#calculator" onclick="setConversion('Wh','kWh')">Convert →</a></div>
-</div></section>
-<section class="section"><h2>Energy Conversion Reference</h2><table><tr><th>Unit</th><th>Equivalent in joules</th></tr><tr><td>1 joule (J)</td><td>1 J</td></tr><tr><td>1 kilojoule (kJ)</td><td>1,000 J</td></tr><tr><td>1 small calorie (cal)</td><td>4.184 J</td></tr><tr><td>1 kilocalorie (kcal)</td><td>4,184 J</td></tr><tr><td>1 watt-hour (Wh)</td><td>3,600 J</td></tr><tr><td>1 kilowatt-hour (kWh)</td><td>3,600,000 J</td></tr><tr><td>1 thermochemical BTU</td><td>1,054.35 J</td></tr><tr><td>1 electronvolt (eV)</td><td>1.602176634 × 10⁻¹⁹ J</td></tr></table></section>
-<section class="section"><h2>How Energy Conversion Works</h2><p>Energy is the capacity to do work or transfer heat. The joule is the SI unit of energy. Other units are used in electricity, nutrition, heating and particle physics.</p><div class="formula"><b>Result = Value × Source factor ÷ Destination factor</b></div><p>All supported units are converted through joules as a common base unit.</p><h3>Examples</h3><div class="formula">1 kWh = 3,600,000 joules</div><div class="formula">1 kcal = 4,184 joules</div><div class="formula">1 Wh = 3,600 joules</div><h3>Calories and food Calories</h3><p>In nutrition, a food Calorie (capital C) usually means one kilocalorie (kcal), equal to 1,000 small scientific calories. This converter labels both units separately to avoid confusion.</p></section>
-<section class="section"><h2>Frequently Asked Questions</h2>
-<div class="faq"><h3>How many joules are in one kilojoule?</h3><p>One kilojoule equals 1,000 joules.</p></div>
-<div class="faq"><h3>How many joules are in one kilowatt-hour?</h3><p>One kilowatt-hour equals exactly 3,600,000 joules.</p></div>
-<div class="faq"><h3>How many calories are in one kilocalorie?</h3><p>One kilocalorie equals 1,000 small calories. A food Calorie generally means one kilocalorie.</p></div>
-<div class="faq"><h3>What is the SI unit of energy?</h3><p>The joule (J) is the SI unit of energy.</p></div>
-<div class="faq"><h3>Is kWh a unit of power?</h3><p>No. A kilowatt-hour is a unit of energy. A kilowatt (kW) is a unit of power.</p></div>
-<div class="faq"><h3>Is this energy converter free?</h3><p>Yes. You can use it without registration or payment.</p></div>
-</section>
-<section class="section"><h2>Explore More Calculators</h2><div class="links"><a href="/calculators/unit-converters.html">All Unit Converters</a><a href="/calculators/power-converter.html">Power Converter</a><a href="/calculators/data-storage-converter.html">Data Storage Converter</a><a href="/calculators/pressure-converter.html">Pressure Converter</a><a href="/calculators/">All Calculators</a></div></section>
-<p class="note">Note: Calorie and BTU definitions can vary by context. This converter uses the thermochemical calorie (4.184 J), kilocalorie (4,184 J) and thermochemical BTU (1,054.35 J).</p>
-</main><footer><div class="container">© <span id="year"></span> CalcNest. Free online calculators.</div></footer>
+
+  <div class="breadcrumbs">
+    <a href="/">Home</a> ›
+    <a href="/calculators/unit-converters.html">Unit Converters</a> ›
+    Energy Converter
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Free energy conversion tool</div>
+
+    <h1>Energy Converter</h1>
+
+    <p>
+      Convert energy measurements between joules, kilojoules,
+      calories, kilocalories, watt-hours, kilowatt-hours, megawatt-hours,
+      BTU and other widely used units. Get instant results for
+      electricity, physics, nutrition, engineering and everyday calculations.
+    </p>
+
+    <img
+      class="hero-image"
+      src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200"
+      alt="Electricity transmission infrastructure representing energy production and consumption"
+      fetchpriority="high">
+  </section>
+
+  <section class="layout" id="converter">
+
+    <div class="panel">
+
+      <h2>Convert Energy Units</h2>
+
+      <p class="sub">
+        Enter an energy value, select its original unit and choose
+        the unit you want to convert it into.
+      </p>
+
+      <div class="fields">
+
+        <div class="field">
+          <label for="amount">Enter energy value</label>
+          <input
+            id="amount"
+            type="number"
+            step="any"
+            value="1"
+            inputmode="decimal"
+            placeholder="Enter a number">
+        </div>
+
+        <div class="field">
+          <label for="fromUnit">Convert from</label>
+
+          <select id="fromUnit">
+
+            <optgroup label="SI energy units">
+              <option value="j">Joule (J)</option>
+              <option value="kj" selected>Kilojoule (kJ)</option>
+              <option value="mj">Megajoule (MJ)</option>
+              <option value="gj">Gigajoule (GJ)</option>
+            </optgroup>
+
+            <optgroup label="Calories and heat energy">
+              <option value="cal">Calorie (cal)</option>
+              <option value="kcal">Kilocalorie (kcal)</option>
+              <option value="btu">British thermal unit (BTU)</option>
+              <option value="therm">US therm</option>
+            </optgroup>
+
+            <optgroup label="Electrical energy">
+              <option value="wh">Watt-hour (Wh)</option>
+              <option value="kwh">Kilowatt-hour (kWh)</option>
+              <option value="mwh">Megawatt-hour (MWh)</option>
+              <option value="gwh">Gigawatt-hour (GWh)</option>
+            </optgroup>
+
+            <optgroup label="Scientific and mechanical energy">
+              <option value="ev">Electronvolt (eV)</option>
+              <option value="kev">Kiloelectronvolt (keV)</option>
+              <option value="mev">Megaelectronvolt (MeV)</option>
+              <option value="erg">Erg</option>
+              <option value="ftlb">Foot-pound force (ft·lbf)</option>
+            </optgroup>
+
+          </select>
+        </div>
+
+      </div>
+
+      <div class="swapline">
+        <button
+          class="swapbtn"
+          id="swapBtn"
+          type="button"
+          aria-label="Swap energy units">
+          ⇅ Swap units
+        </button>
+      </div>
+
+      <div class="field">
+        <label for="toUnit">Convert to</label>
+
+        <select id="toUnit">
+
+          <optgroup label="SI energy units">
+            <option value="j">Joule (J)</option>
+            <option value="kj">Kilojoule (kJ)</option>
+            <option value="mj">Megajoule (MJ)</option>
+            <option value="gj">Gigajoule (GJ)</option>
+          </optgroup>
+
+          <optgroup label="Calories and heat energy">
+            <option value="cal">Calorie (cal)</option>
+            <option value="kcal">Kilocalorie (kcal)</option>
+            <option value="btu">British thermal unit (BTU)</option>
+            <option value="therm">US therm</option>
+          </optgroup>
+
+          <optgroup label="Electrical energy">
+            <option value="wh">Watt-hour (Wh)</option>
+            <option value="kwh" selected>Kilowatt-hour (kWh)</option>
+            <option value="mwh">Megawatt-hour (MWh)</option>
+            <option value="gwh">Gigawatt-hour (GWh)</option>
+          </optgroup>
+
+          <optgroup label="Scientific and mechanical energy">
+            <option value="ev">Electronvolt (eV)</option>
+            <option value="kev">Kiloelectronvolt (keV)</option>
+            <option value="mev">Megaelectronvolt (MeV)</option>
+            <option value="erg">Erg</option>
+            <option value="ftlb">Foot-pound force (ft·lbf)</option>
+          </optgroup>
+
+        </select>
+      </div>
+
+      <div class="actions">
+        <button class="action primary" id="convertBtn" type="button">
+          Convert Energy
+        </button>
+
+        <button class="action secondary" id="copyBtn" type="button">
+          Copy Result
+        </button>
+
+        <button class="action gray" id="resetBtn" type="button">
+          Reset
+        </button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="result-label">Converted result</div>
+        <div class="result-value" id="resultValue">0.000277777778 kWh</div>
+        <div class="result-note" id="resultNote">
+          1 kilojoule = 0.000277777778 kilowatt-hours.
+        </div>
+      </div>
+
+      <div class="quick-title">Popular energy conversions</div>
+
+      <div class="quick">
+
+        <button type="button" data-value="1" data-from="kwh" data-to="j">
+          1 kWh to Joules
+        </button>
+
+        <button type="button" data-value="1000" data-from="j" data-to="kcal">
+          1,000 J to kcal
+        </button>
+
+        <button type="button" data-value="1" data-from="kcal" data-to="kj">
+          1 kcal to kJ
+        </button>
+
+        <button type="button" data-value="100" data-from="wh" data-to="kwh">
+          100 Wh to kWh
+        </button>
+
+        <button type="button" data-value="1" data-from="btu" data-to="j">
+          1 BTU to Joules
+        </button>
+
+        <button type="button" data-value="1" data-from="mwh" data-to="kwh">
+          1 MWh to kWh
+        </button>
+
+        <button type="button" data-value="1" data-from="mj" data-to="kwh">
+          1 MJ to kWh
+        </button>
+
+        <button type="button" data-value="1" data-from="kwh" data-to="btu">
+          1 kWh to BTU
+        </button>
+
+      </div>
+
+    </div>
+
+    <aside>
+
+      <div class="side-card">
+        <h3>Quick energy facts</h3>
+        <ul>
+          <li>1 kJ = 1,000 J</li>
+          <li>1 kcal = 4,184 J</li>
+          <li>1 kWh = 3,600,000 J</li>
+          <li>1 Wh = 3,600 J</li>
+          <li>1 MJ = 1,000,000 J</li>
+          <li>1 eV ≈ 1.60218 × 10⁻¹⁹ J</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>Where is energy measured?</h3>
+        <p>
+          Electricity consumption, food energy, heating and cooling,
+          mechanical work, fuel energy, scientific experiments and
+          industrial energy systems.
+        </p>
+      </div>
+
+      <div class="side-card">
+        <h3>Energy vs power</h3>
+        <p>
+          Energy measures the amount of work or heat transferred.
+          Power measures how quickly energy is transferred or used.
+          A kilowatt is power; a kilowatt-hour is energy.
+        </p>
+      </div>
+
+      <div class="notice">
+        <strong>Unit note:</strong> This converter uses the
+        thermochemical calorie and the international-table BTU.
+        Food Calories are generally expressed as kilocalories (kcal).
+      </div>
+
+    </aside>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>How to use the Energy Converter</h2>
+
+    <ol>
+      <li>Enter the energy amount in the input field.</li>
+      <li>Select the unit of your original measurement.</li>
+      <li>Choose the target energy unit.</li>
+      <li>Read the converted value in the result panel.</li>
+      <li>Use Copy Result to copy the conversion for your work.</li>
+    </ol>
+
+    <p>
+      You can change the value or either unit to calculate a new
+      result instantly. The Swap Units button reverses the direction
+      of your conversion.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Energy conversion formulas</h2>
+
+    <p>
+      The calculator converts every supported unit through joules (J),
+      the SI derived unit of energy. It first converts the input value
+      into joules and then converts that energy into the selected
+      destination unit.
+    </p>
+
+    <div class="formula">
+      Energy in joules = Input value × Source unit factor
+    </div>
+
+    <br>
+
+    <div class="formula">
+      Converted energy = Energy in joules ÷ Target unit factor
+    </div>
+
+    <h3>Useful energy conversion formulas</h3>
+
+    <div class="formula">
+      kJ to J = kJ × 1,000
+    </div>
+
+    <br>
+
+    <div class="formula">
+      kcal to kJ = kcal × 4.184
+    </div>
+
+    <br>
+
+    <div class="formula">
+      kWh to J = kWh × 3,600,000
+    </div>
+
+    <br>
+
+    <div class="formula">
+      Wh to J = Wh × 3,600
+    </div>
+
+    <br>
+
+    <div class="formula">
+      MJ to kWh = MJ ÷ 3.6
+    </div>
+
+    <p>
+      These formulas allow you to compare energy measurements
+      from electrical, mechanical, scientific and nutritional
+      applications.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Energy unit conversion reference table</h2>
+
+    <p>
+      This table shows how much energy each supported unit represents
+      in joules. These factors are used by the calculator.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Energy unit</th>
+            <th>Symbol</th>
+            <th>Equivalent in joules</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><td>Joule</td><td>J</td><td>1 J</td></tr>
+          <tr><td>Kilojoule</td><td>kJ</td><td>1,000 J</td></tr>
+          <tr><td>Megajoule</td><td>MJ</td><td>1,000,000 J</td></tr>
+          <tr><td>Gigajoule</td><td>GJ</td><td>1,000,000,000 J</td></tr>
+          <tr><td>Calorie (thermochemical)</td><td>cal</td><td>4.184 J</td></tr>
+          <tr><td>Kilocalorie</td><td>kcal</td><td>4,184 J</td></tr>
+          <tr><td>Watt-hour</td><td>Wh</td><td>3,600 J</td></tr>
+          <tr><td>Kilowatt-hour</td><td>kWh</td><td>3,600,000 J</td></tr>
+          <tr><td>Megawatt-hour</td><td>MWh</td><td>3,600,000,000 J</td></tr>
+          <tr><td>Gigawatt-hour</td><td>GWh</td><td>3,600,000,000,000 J</td></tr>
+          <tr><td>British thermal unit (international table)</td><td>BTU</td><td>1,055.05585262 J</td></tr>
+          <tr><td>US therm</td><td>therm</td><td>105,505,585.262 J</td></tr>
+          <tr><td>Electronvolt</td><td>eV</td><td>1.602176634 × 10⁻¹⁹ J</td></tr>
+          <tr><td>Kiloelectronvolt</td><td>keV</td><td>1.602176634 × 10⁻¹⁶ J</td></tr>
+          <tr><td>Megaelectronvolt</td><td>MeV</td><td>1.602176634 × 10⁻¹³ J</td></tr>
+          <tr><td>Erg</td><td>erg</td><td>0.0000001 J</td></tr>
+          <tr><td>Foot-pound force</td><td>ft·lbf</td><td>1.355817948 J approximately</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      BTU has several historical definitions. This calculator uses
+      the international-table BTU. Thermochemical calories are
+      used consistently for calorie-based conversions.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Popular energy conversion examples</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Conversion</th>
+            <th>Approximate result</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><td>1 kJ to J</td><td>1,000 J</td></tr>
+          <tr><td>1 kcal to kJ</td><td>4.184 kJ</td></tr>
+          <tr><td>1 kWh to J</td><td>3,600,000 J</td></tr>
+          <tr><td>1 kWh to MJ</td><td>3.6 MJ</td></tr>
+          <tr><td>1 Wh to J</td><td>3,600 J</td></tr>
+          <tr><td>1 MJ to kWh</td><td>0.2777778 kWh</td></tr>
+          <tr><td>1 BTU to J</td><td>1,055.0559 J</td></tr>
+          <tr><td>1 MWh to kWh</td><td>1,000 kWh</td></tr>
+          <tr><td>100 cal to J</td><td>418.4 J</td></tr>
+          <tr><td>1,000 J to kcal</td><td>0.239006 kcal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Understanding common energy units</h2>
+
+    <h3>Joule (J)</h3>
+
+    <p>
+      The joule is the SI derived unit of energy. It is used in
+      physics, engineering and scientific calculations. One joule
+      is the work done when a force of one newton moves an object
+      one meter in the direction of the force.
+    </p>
+
+    <h3>Kilojoule (kJ), megajoule (MJ) and gigajoule (GJ)</h3>
+
+    <p>
+      These units represent larger amounts of energy. A kilojoule
+      equals 1,000 joules, a megajoule equals one million joules,
+      and a gigajoule equals one billion joules. They are useful
+      for comparing fuel energy, heat output and industrial energy.
+    </p>
+
+    <h3>Calorie and kilocalorie</h3>
+
+    <p>
+      Calories are units of energy often associated with food,
+      nutrition and heat. One thermochemical calorie equals
+      4.184 joules. One kilocalorie equals 1,000 calories.
+      On many food labels, the term Calories with a capital C
+      refers to kilocalories.
+    </p>
+
+    <h3>Watt-hour and kilowatt-hour</h3>
+
+    <p>
+      Watt-hours and kilowatt-hours are widely used for electrical
+      energy. One watt-hour is the energy transferred by a power
+      of one watt over one hour. One kilowatt-hour equals
+      1,000 watt-hours and is commonly used on electricity bills.
+    </p>
+
+    <h3>British thermal unit (BTU)</h3>
+
+    <p>
+      BTU is a traditional unit of heat energy. It is frequently
+      used in heating, ventilation and air-conditioning equipment
+      specifications. Air conditioners and heating systems may
+      use BTU-based ratings to describe heating or cooling capacity.
+    </p>
+
+    <h3>Electronvolt (eV)</h3>
+
+    <p>
+      Electronvolt is a very small energy unit used in atomic,
+      particle and solid-state physics. It is particularly useful
+      when describing the energy of electrons, photons and
+      subatomic particles.
+    </p>
+
+    <h3>Foot-pound force</h3>
+
+    <p>
+      Foot-pound force is a unit of mechanical work or energy
+      used in some engineering and mechanical contexts.
+      It represents the work done by a force of one pound-force
+      acting through a distance of one foot.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Energy conversion in everyday applications</h2>
+
+    <h3>Electricity consumption</h3>
+
+    <p>
+      Electricity providers commonly measure household and
+      commercial energy consumption in kilowatt-hours.
+      Converting kWh into joules or megajoules can help students,
+      engineers and energy professionals compare measurements
+      across different systems.
+    </p>
+
+    <h3>Food and nutrition</h3>
+
+    <p>
+      Food energy is commonly shown in kilocalories and kilojoules.
+      Converting between these units helps compare nutrition
+      information displayed using different measurement systems.
+      This tool only converts energy units and does not provide
+      dietary or medical recommendations.
+    </p>
+
+    <h3>Heating and cooling systems</h3>
+
+    <p>
+      Heating and cooling equipment often uses BTU-based
+      specifications. Energy conversions help users understand
+      heat-energy values expressed in joules, kilojoules or BTU.
+      Remember that BTU is an energy unit, while BTU per hour
+      is a power or heating/cooling rate.
+    </p>
+
+    <h3>Science and engineering</h3>
+
+    <p>
+      Scientific work may use joules, electronvolts and other
+      specialized units. Engineers may compare mechanical work,
+      electrical energy and heat using consistent SI measurements.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <h3>1. How many joules are in one kilojoule?</h3>
+      <p>
+        One kilojoule equals exactly 1,000 joules.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>2. How many joules are in one calorie?</h3>
+      <p>
+        One thermochemical calorie equals exactly 4.184 joules.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>3. How many joules are in one kilowatt-hour?</h3>
+      <p>
+        One kilowatt-hour equals exactly 3,600,000 joules,
+        or 3.6 megajoules.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>4. What is the difference between a calorie and a kilocalorie?</h3>
+      <p>
+        One kilocalorie equals 1,000 small calories. Food labels
+        often use Calories with a capital C to mean kilocalories.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>5. How do you convert kWh to joules?</h3>
+      <p>
+        Multiply the kWh value by 3,600,000. For example,
+        2 kWh equals 7,200,000 joules.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>6. What is BTU used for?</h3>
+      <p>
+        BTU is used to describe heat energy and commonly appears
+        in heating, cooling and air-conditioning specifications.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>7. What is an electronvolt?</h3>
+      <p>
+        An electronvolt is a small energy unit used in atomic
+        and particle physics. One eV is approximately
+        1.602176634 × 10⁻¹⁹ joules.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>8. Is a kilowatt the same as a kilowatt-hour?</h3>
+      <p>
+        No. A kilowatt (kW) measures power, while a kilowatt-hour
+        (kWh) measures energy. One kilowatt-hour is the energy
+        used by a 1 kW device operating for one hour.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>9. What is the SI unit of energy?</h3>
+      <p>
+        The joule (J) is the SI derived unit of energy.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>10. Is the CalcNest Energy Converter free?</h3>
+      <p>
+        Yes. It is free to use online and does not require
+        registration or payment.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Explore related CalcNest calculators</h2>
+
+    <p>
+      Explore more useful conversion tools for measurements,
+      engineering, electricity and everyday calculations.
+    </p>
+
+    <div class="related">
+      <a href="/calculators/unit-converters.html">All Unit Converters →</a>
+      <a href="/calculators/length-converter.html">Length Converter →</a>
+      <a href="/calculators/weight-converter.html">Weight Converter →</a>
+      <a href="/calculators/temperature-converter.html">Temperature Converter →</a>
+      <a href="/calculators/volume-converter.html">Volume Converter →</a>
+      <a href="/calculators/speed-converter.html">Speed Converter →</a>
+      <a href="/calculators/pressure-converter.html">Pressure Converter →</a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+    <div>
+      <a href="/">Home</a> ·
+      <a href="/#about">About</a> ·
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
 <script>
-const units={J:{n:"Joule (J)",f:1},kJ:{n:"Kilojoule (kJ)",f:1000},cal:{n:"Small calorie (cal)",f:4.184},kcal:{n:"Kilocalorie (kcal)",f:4184},Wh:{n:"Watt-hour (Wh)",f:3600},kWh:{n:"Kilowatt-hour (kWh)",f:3600000},MWh:{n:"Megawatt-hour (MWh)",f:3600000000},BTU:{n:"Thermochemical BTU",f:1054.35},eV:{n:"Electronvolt (eV)",f:1.602176634e-19}};
-const amount=document.getElementById("amount"),from=document.getElementById("from"),to=document.getElementById("to"),answer=document.getElementById("answer"),detail=document.getElementById("detail");
-function fill(s){s.innerHTML=Object.entries(units).map(([k,u])=>`<option value="${k}">${u.n}</option>`).join("")}fill(from);fill(to);from.value="kWh";to.value="J";
-function fmt(n){return Number(n).toLocaleString("en-US",{maximumFractionDigits:10})}
-function calc(){let v=Number(amount.value);if(amount.value.trim()===""||!Number.isFinite(v)){answer.textContent="Enter a valid number";detail.textContent="Please enter a valid energy value.";return}let r=v*units[from.value].f/units[to.value].f;answer.textContent=`${fmt(v)} ${from.value} = ${fmt(r)} ${to.value}`;detail.textContent=`${fmt(v)} ${units[from.value].n} equals ${fmt(r)} ${units[to.value].n}.`}
-function setConversion(a,b){from.value=a;to.value=b;calc();document.getElementById("calculator").scrollIntoView({behavior:"smooth"})}window.setConversion=setConversion;
-amount.addEventListener("input",calc);from.addEventListener("change",calc);to.addEventListener("change",calc);document.getElementById("swap").onclick=()=>{let x=from.value;from.value=to.value;to.value=x;calc()};document.getElementById("reset").onclick=()=>{amount.value=1;from.value="kWh";to.value="J";calc()};
-document.getElementById("copy").onclick=async()=>{try{await navigator.clipboard.writeText(answer.textContent);document.getElementById("copy").textContent="Copied!"}catch(e){detail.textContent="Select and copy the result manually."}};
-document.querySelectorAll("[data-value]").forEach(b=>b.onclick=()=>{amount.value=b.dataset.value;calc()});document.getElementById("year").textContent=new Date().getFullYear();calc();
+(function(){
+  "use strict";
+
+  /*
+    All energy values are converted through Joules (J).
+
+    Factors represent the number of joules in one unit.
+    BTU uses the international-table definition.
+    Calorie uses the thermochemical definition.
+  */
+
+  const units = {
+
+    j:{
+      name:"joules",
+      symbol:"J",
+      factor:1
+    },
+
+    kj:{
+      name:"kilojoules",
+      symbol:"kJ",
+      factor:1000
+    },
+
+    mj:{
+      name:"megajoules",
+      symbol:"MJ",
+      factor:1000000
+    },
+
+    gj:{
+      name:"gigajoules",
+      symbol:"GJ",
+      factor:1000000000
+    },
+
+    cal:{
+      name:"calories",
+      symbol:"cal",
+      factor:4.184
+    },
+
+    kcal:{
+      name:"kilocalories",
+      symbol:"kcal",
+      factor:4184
+    },
+
+    wh:{
+      name:"watt-hours",
+      symbol:"Wh",
+      factor:3600
+    },
+
+    kwh:{
+      name:"kilowatt-hours",
+      symbol:"kWh",
+      factor:3600000
+    },
+
+    mwh:{
+      name:"megawatt-hours",
+      symbol:"MWh",
+      factor:3600000000
+    },
+
+    gwh:{
+      name:"gigawatt-hours",
+      symbol:"GWh",
+      factor:3600000000000
+    },
+
+    btu:{
+      name:"British thermal units",
+      symbol:"BTU",
+      factor:1055.05585262
+    },
+
+    therm:{
+      name:"US therms",
+      symbol:"therm",
+      factor:105505585.262
+    },
+
+    ev:{
+      name:"electronvolts",
+      symbol:"eV",
+      factor:1.602176634e-19
+    },
+
+    kev:{
+      name:"kiloelectronvolts",
+      symbol:"keV",
+      factor:1.602176634e-16
+    },
+
+    mev:{
+      name:"megaelectronvolts",
+      symbol:"MeV",
+      factor:1.602176634e-13
+    },
+
+    erg:{
+      name:"ergs",
+      symbol:"erg",
+      factor:1e-7
+    },
+
+    ftlb:{
+      name:"foot-pound force",
+      symbol:"ft·lbf",
+      factor:1.3558179483314
+    }
+
+  };
+
+  const amount = document.getElementById("amount");
+  const from = document.getElementById("fromUnit");
+  const to = document.getElementById("toUnit");
+
+  const resultValue = document.getElementById("resultValue");
+  const resultNote = document.getElementById("resultNote");
+  const copyBtn = document.getElementById("copyBtn");
+
+  let lastResultText = "";
+
+  function formatNumber(value){
+
+    if(!Number.isFinite(value)){
+      return "Value too large";
+    }
+
+    if(value === 0){
+      return "0";
+    }
+
+    const absolute = Math.abs(value);
+
+    /*
+      Scientific notation prevents very small or very large
+      values from being displayed as misleading rounded zeros.
+    */
+
+    if(absolute >= 1e15 || absolute < 1e-7){
+      return value.toExponential(10);
+    }
+
+    return Number(value.toPrecision(12)).toLocaleString("en-US",{
+      maximumFractionDigits:10
+    });
+
+  }
+
+  function convert(){
+
+    const raw = amount.value.trim();
+    const value = Number(raw);
+
+    if(
+      raw === "" ||
+      !Number.isFinite(value)
+    ){
+
+      resultValue.textContent = "Enter a valid value";
+
+      resultNote.textContent =
+        "Please enter a valid numerical energy value.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    const source = units[from.value];
+    const target = units[to.value];
+
+    if(!source || !target){
+
+      resultValue.textContent = "Invalid unit selection";
+
+      resultNote.textContent =
+        "Please select valid energy units.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    /*
+      Step 1: Convert source value into joules.
+      Step 2: Convert joules into the target unit.
+    */
+
+    const energyJoules = value * source.factor;
+    const converted = energyJoules / target.factor;
+
+    if(!Number.isFinite(converted)){
+
+      resultValue.textContent = "Value too large";
+
+      resultNote.textContent =
+        "Please enter a smaller value.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    const inputFormatted = formatNumber(value);
+    const outputFormatted = formatNumber(converted);
+
+    resultValue.textContent =
+      outputFormatted + " " + target.symbol;
+
+    resultNote.textContent =
+      inputFormatted + " " + source.name +
+      " = " + outputFormatted + " " + target.name + ".";
+
+    lastResultText =
+      inputFormatted + " " + source.name +
+      " = " + outputFormatted + " " + target.name;
+
+  }
+
+  document.getElementById("convertBtn")
+    .addEventListener("click",convert);
+
+  amount.addEventListener("input",convert);
+  from.addEventListener("change",convert);
+  to.addEventListener("change",convert);
+
+  document.getElementById("swapBtn")
+    .addEventListener("click",function(){
+
+      const oldFrom = from.value;
+
+      from.value = to.value;
+      to.value = oldFrom;
+
+      convert();
+
+    });
+
+  document.getElementById("resetBtn")
+    .addEventListener("click",function(){
+
+      amount.value = "1";
+      from.value = "kj";
+      to.value = "kwh";
+
+      convert();
+
+    });
+
+  copyBtn.addEventListener("click",async function(){
+
+    if(!lastResultText){
+
+      resultNote.textContent =
+        "There is no valid result to copy.";
+
+      return;
+
+    }
+
+    try{
+
+      await navigator.clipboard.writeText(lastResultText);
+
+      copyBtn.textContent = "Copied!";
+
+      setTimeout(function(){
+        copyBtn.textContent = "Copy Result";
+      },1400);
+
+    }catch(error){
+
+      resultNote.textContent =
+        "Copy is unavailable in this browser. Select the result and copy it manually.";
+
+    }
+
+  });
+
+  document.querySelectorAll(".quick button")
+    .forEach(function(button){
+
+      button.addEventListener("click",function(){
+
+        amount.value = button.dataset.value;
+        from.value = button.dataset.from;
+        to.value = button.dataset.to;
+
+        convert();
+
+        document.getElementById("converter")
+          .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+
+      });
+
+    });
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  convert();
+
+})();
 </script>
-</body></html>
+
+</body>
+</html>
