@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Length Converter - Convert Meters, Feet, Inches, Miles & More | CalcNest</title>
+<meta name="description" content="Free length converter to convert meters, kilometers, centimeters, millimeters, inches, feet, yards and miles. Get instant accurate results with conversion formulas and examples.">
+<meta name="keywords" content="length converter, distance converter, meter to feet, feet to meters, inches to cm, km to miles, miles to km, metric conversion">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/length-converter.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Length Converter | CalcNest">
+<meta property="og:description" content="Convert meters, feet, inches, miles, kilometers and other length units instantly.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/length-converter.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1503387762-592dea58ef23?w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Length Converter","url":"https://calcnest-7s6.pages.dev/calculators/length-converter.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Free online length and distance conversion calculator."}
+</script>
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;--white:#fff;--shadow:0 12px 35px rgba(25,45,85,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.65}a{text-decoration:none;color:inherit}
+header{background:#ffffffed;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;backdrop-filter:blur(10px)}
+.nav,.container{width:min(1120px,calc(100% - 32px));margin:auto}.nav{padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.brand{font-size:25px;font-weight:800}.brand span{color:var(--blue)}nav{display:flex;gap:19px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}
+.hero{padding:42px 0 25px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.tag{display:inline-block;padding:5px 12px;border-radius:30px;background:#edf2ff;color:var(--blue);font-size:12px;font-weight:bold}
+h1{font-size:clamp(34px,5vw,48px);line-height:1.13;letter-spacing:-1.3px;margin:13px 0}
+.hero p{color:var(--muted);font-size:16px}.hero img{width:100%;height:260px;object-fit:cover;border-radius:17px;box-shadow:var(--shadow)}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:var(--shadow);margin:20px 0}
+.panel h2{margin:0 0 5px;font-size:23px}.sub{color:var(--muted);font-size:14px;margin:0 0 20px}
+.converter-grid{display:grid;grid-template-columns:1fr 55px 1fr;gap:13px;align-items:end}
+label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
+input,select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:10px;background:#fff;color:var(--ink);font:inherit;outline:none}
+input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #315eea18}
+.swap{height:47px;border:0;border-radius:10px;background:#edf2ff;color:var(--blue);font-size:23px;cursor:pointer}
+.result{margin-top:20px;background:linear-gradient(120deg,#edf2ff,#f5f1ff);border:1px solid #e1e6ff;border-radius:13px;padding:20px}
+.result small{color:#596987;font-weight:bold}.result strong{display:block;font-size:clamp(25px,4vw,36px);color:#254fd0;overflow-wrap:anywhere;line-height:1.3;margin:5px 0}
+.result p{margin:0;color:var(--muted);font-size:13px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.btn{border:0;border-radius:9px;padding:11px 17px;font-weight:bold;cursor:pointer;background:var(--blue);color:white}
+.btn.secondary{background:#edf2ff;color:var(--blue)}
+.quick{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.quick button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:7px 12px;font-size:12px;cursor:pointer;color:#40516d}
+.section{padding:23px 0;border-bottom:1px solid var(--line)}.section:last-child{border:0}
+h2{font-size:25px;margin:0 0 10px}h3{font-size:18px;margin:20px 0 7px}
+.section p,.section li{color:#52617a;font-size:15px}
+.formula{background:#f2f5ff;border-left:4px solid var(--blue);padding:14px 17px;border-radius:0 9px 9px 0;color:#263c70;margin:14px 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:17px}
+.info{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fbfcff}.info strong{display:block;margin-bottom:5px}.info span{font-size:13px;color:var(--muted)}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:15px 0}th,td{padding:11px;border:1px solid var(--line);text-align:left}th{background:#f5f7fc}
+.related{display:flex;gap:10px;flex-wrap:wrap}.related a{padding:10px 14px;border:1px solid var(--line);border-radius:9px;color:var(--blue);font-weight:bold;font-size:13px}
+.faq{padding:13px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}
+.note{padding:15px;background:#f8faff;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
+footer{margin-top:35px;background:#f7f9fd;border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero img{height:210px}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.nav{align-items:flex-start;flex-direction:column}nav{gap:12px}.converter-grid{grid-template-columns:1fr}.swap{width:100%;height:40px}.cards{grid-template-columns:1fr}.panel{padding:17px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="brand" href="/">Calc<span>Nest</span></a>
+<nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav>
+</div></header>
+
+<main class="container">
+<section class="hero">
+<div>
+<span class="tag">Free Measurement Calculator</span>
+<h1>Length Converter</h1>
+<p>Convert length and distance measurements between metric, imperial and US customary units. Quickly change meters to feet, inches to centimeters, kilometers to miles and much more.</p>
+<p>Useful for students, engineers, builders, travellers, designers, shoppers and anyone working with measurements.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?w=1100" alt="Architectural measuring and building design workspace" width="1100" height="700" fetchpriority="high">
+</section>
+
+<section class="panel" aria-label="Length conversion calculator">
+<h2>Convert Length Units</h2>
+<p class="sub">Enter a value, choose your units and get an instant conversion.</p>
+<div class="converter-grid">
+<div><label for="amount">Value to convert</label><input id="amount" type="number" min="0" step="any" value="1" placeholder="Enter a number"></div>
+<div><label>&nbsp;</label><button class="swap" id="swap" type="button" aria-label="Swap units">⇄</button></div>
+<div><label for="from">From unit</label><select id="from"></select></div>
+</div>
+<div style="margin-top:14px"><label for="to">Convert to</label><select id="to"></select></div>
+<div class="result" aria-live="polite">
+<small>CONVERSION RESULT</small>
+<strong id="answer">1 meter = 3.280839895 feet</strong>
+<p id="detail">Conversion calculated using standard unit definitions.</p>
+</div>
+<div class="actions"><button class="btn" id="copy" type="button">Copy Result</button><button class="btn secondary" id="reset" type="button">Reset</button></div>
+<div class="quick">
+<button type="button" data-value="1">1</button><button type="button" data-value="5">5</button><button type="button" data-value="10">10</button><button type="button" data-value="100">100</button><button type="button" data-value="1000">1,000</button>
+</div>
+</section>
+
+<section class="section">
+<h2>Popular Length Conversions</h2>
+<p>Choose common conversions to quickly load the correct units into the calculator.</p>
+<div class="cards">
+<div class="info"><strong>Meters to Feet</strong><span>Convert meters into feet for building, room measurements and height calculations.</span><p><a href="#calculator" onclick="setConversion('m','ft')">Use conversion →</a></p></div>
+<div class="info"><strong>Feet to Meters</strong><span>Convert feet into meters for international measurements and construction.</span><p><a href="#calculator" onclick="setConversion('ft','m')">Use conversion →</a></p></div>
+<div class="info"><strong>Inches to Centimeters</strong><span>Convert product dimensions, screen sizes and personal measurements.</span><p><a href="#calculator" onclick="setConversion('in','cm')">Use conversion →</a></p></div>
+<div class="info"><strong>Kilometers to Miles</strong><span>Convert road distances, running distances and travel measurements.</span><p><a href="#calculator" onclick="setConversion('km','mi')">Use conversion →</a></p></div>
+<div class="info"><strong>Miles to Kilometers</strong><span>Change miles into kilometers for travel and distance comparisons.</span><p><a href="#calculator" onclick="setConversion('mi','km')">Use conversion →</a></p></div>
+<div class="info"><strong>Centimeters to Inches</strong><span>Convert clothing, furniture and product measurements.</span><p><a href="#calculator" onclick="setConversion('cm','in')">Use conversion →</a></p></div>
+</div>
+</section>
+
+<section class="section">
+<h2>Length Conversion Table</h2>
+<p>These reference values show how common length units relate to each other.</p>
+<table>
+<thead><tr><th>Unit</th><th>Equivalent in meters</th></tr></thead>
+<tbody>
+<tr><td>1 kilometer (km)</td><td>1,000 m</td></tr>
+<tr><td>1 meter (m)</td><td>1 m</td></tr>
+<tr><td>1 centimeter (cm)</td><td>0.01 m</td></tr>
+<tr><td>1 millimeter (mm)</td><td>0.001 m</td></tr>
+<tr><td>1 inch (in)</td><td>0.0254 m</td></tr>
+<tr><td>1 foot (ft)</td><td>0.3048 m</td></tr>
+<tr><td>1 yard (yd)</td><td>0.9144 m</td></tr>
+<tr><td>1 mile (mi)</td><td>1,609.344 m</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="section">
+<h2>How Does Length Conversion Work?</h2>
+<p>Length conversion changes a measurement from one unit to another while preserving the same physical distance. The calculator first converts the entered value into meters, which act as the common reference unit, and then converts that value into the selected destination unit.</p>
+<h3>Length conversion formula</h3>
+<div class="formula"><strong>Result = Input value × Source unit factor ÷ Destination unit factor</strong></div>
+<p>For example, one foot equals exactly 0.3048 meters. To convert 10 feet into meters:</p>
+<div class="formula">10 × 0.3048 = 3.048 meters</div>
+<p>To convert meters into feet, divide the meter value by 0.3048. For example, 5 meters is approximately 16.4042 feet.</p>
+<h3>Metric and imperial units</h3>
+<p>The metric system uses meters and decimal-based multiples such as kilometers, centimeters and millimeters. Imperial and US customary measurements commonly use inches, feet, yards and miles. The two systems can be converted using internationally defined conversion factors.</p>
+<h3>When should you use a length converter?</h3>
+<ul>
+<li>Converting room, furniture and property dimensions.</li>
+<li>Checking product sizes and clothing measurements.</li>
+<li>Converting road distances and travel information.</li>
+<li>Working with architectural plans and construction measurements.</li>
+<li>Solving school, college and engineering measurement problems.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><h3>How many feet are in one meter?</h3><p>One meter equals approximately 3.28084 feet.</p></div>
+<div class="faq"><h3>How many centimeters are in one inch?</h3><p>One inch is exactly 2.54 centimeters.</p></div>
+<div class="faq"><h3>How many kilometers are in one mile?</h3><p>One international mile equals 1.609344 kilometers.</p></div>
+<div class="faq"><h3>What is the difference between length and distance?</h3><p>Length usually describes the size of an object or the measurement between two points. Distance commonly describes how far apart two locations are or how far something travels.</p></div>
+<div class="faq"><h3>Is this length converter free?</h3><p>Yes. The CalcNest length converter is free to use in your browser and does not require an account.</p></div>
+<div class="faq"><h3>Are the conversion results accurate?</h3><p>The calculator uses standard conversion factors. Results are displayed with appropriate decimal precision; for critical technical work, follow the precision and standards required by your application.</p></div>
+<div class="faq"><h3>Can I convert inches to feet?</h3><p>Yes. Select inches as the source unit and feet as the destination unit. The calculator will convert the value instantly.</p></div>
+</section>
+
+<section class="section">
+<h2>Explore More Calculators</h2>
+<div class="related">
+<a href="/calculators/unit-converters.html">All Unit Converters</a>
+<a href="/calculators/weight-converter.html">Weight Converter</a>
+<a href="/calculators/temperature-converter.html">Temperature Converter</a>
+<a href="/calculators/area-converter.html">Area Converter</a>
+<a href="/calculators/speed-converter.html">Speed Converter</a>
+<a href="/calculators/">All Calculators</a>
+</div>
+</section>
+<p class="note">Disclaimer: This calculator is intended for general educational and everyday measurement conversions. For surveying, engineering, manufacturing or other precision-critical work, verify the required standards, tolerances and measurement conventions.</p>
+</main>
+
+<footer><div class="container">© <span id="year"></span> CalcNest. Free online calculators and conversion tools.</div></footer>
+
+<script>
+const units={
+ km:{name:"Kilometer (km)",factor:1000},
+ m:{name:"Meter (m)",factor:1},
+ cm:{name:"Centimeter (cm)",factor:.01},
+ mm:{name:"Millimeter (mm)",factor:.001},
+ um:{name:"Micrometer (µm)",factor:.000001},
+ nm:{name:"Nanometer (nm)",factor:.000000001},
+ in:{name:"Inch (in)",factor:.0254},
+ ft:{name:"Foot (ft)",factor:.3048},
+ yd:{name:"Yard (yd)",factor:.9144},
+ mi:{name:"Mile (mi)",factor:1609.344},
+ nmi:{name:"Nautical mile (nmi)",factor:1852}
+};
+const amount=document.getElementById("amount"),from=document.getElementById("from"),to=document.getElementById("to"),answer=document.getElementById("answer"),detail=document.getElementById("detail");
+function fillSelect(select){select.innerHTML=Object.entries(units).map(([key,u])=>`<option value="${key}">${u.name}</option>`).join("");}
+fillSelect(from);fillSelect(to);from.value="m";to.value="ft";
+function format(n){return Number(n).toLocaleString("en-US",{maximumFractionDigits:10});}
+function calculate(){
+ const value=Number(amount.value),a=units[from.value],b=units[to.value];
+ if(amount.value.trim()===""||!Number.isFinite(value)){answer.textContent="Enter a valid number";detail.textContent="Please enter a numeric value to convert.";return;}
+ const result=value*a.factor/b.factor;
+ answer.textContent=`${format(value)} ${from.value} = ${format(result)} ${to.value}`;
+ detail.textContent=`${format(value)} ${a.name} equals ${format(result)} ${b.name}.`;
+}
+function setConversion(a,b){from.value=a;to.value=b;calculate();document.querySelector(".panel").scrollIntoView({behavior:"smooth"});}
+window.setConversion=setConversion;
+amount.addEventListener("input",calculate);from.addEventListener("change",calculate);to.addEventListener("change",calculate);
+document.getElementById("swap").addEventListener("click",()=>{const old=from.value;from.value=to.value;to.value=old;calculate();});
+document.getElementById("reset").addEventListener("click",()=>{amount.value=1;from.value="m";to.value="ft";calculate();});
+document.getElementById("copy").addEventListener("click",async()=>{const text=answer.textContent;try{await navigator.clipboard.writeText(text);document.getElementById("copy").textContent="Copied!";setTimeout(()=>document.getElementById("copy").textContent="Copy Result",1500);}catch(e){detail.textContent="Copy is unavailable in this browser. You can select and copy the result manually."; }});
+document.querySelectorAll("[data-value]").forEach(btn=>btn.addEventListener("click",()=>{amount.value=btn.dataset.value;calculate();}));
+document.getElementById("year").textContent=new Date().getFullYear();
+calculate();
+</script>
+</body>
+</html>
