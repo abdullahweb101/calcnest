@@ -1,0 +1,930 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Exercise Calories Calculator - Calories Burned by Activity | CalcNest</title>
+<meta name="description" content="Calculate estimated calories burned during running, cycling, swimming, walking, gym workouts, yoga and other activities. Enter your weight and exercise duration for personalized estimates.">
+<meta name="keywords" content="exercise calories calculator, calories burned calculator, workout calorie calculator, gym calories calculator, running calories, cycling calories, swimming calories, MET calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/exercise-calorie-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Exercise Calories Calculator | CalcNest">
+<meta property="og:description" content="Estimate calories burned during different workouts and physical activities.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/exercise-calorie-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exercise Calories Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate estimated calories burned during exercise and workouts.">
+
+<style>
+:root{
+ --ink:#17243a;
+ --muted:#65738b;
+ --blue:#315eea;
+ --purple:#7659e8;
+ --line:#e8edf5;
+ --soft:#f6f8fd;
+ --white:#fff;
+ --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:var(--ink);
+ background:#fff;
+ line-height:1.7;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{
+ background:#fff;
+ border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:20;
+}
+.nav{
+ min-height:70px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.logo{
+ font-size:25px;
+ font-weight:800;
+ color:var(--ink);
+ letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:14px;font-weight:700}
+.hero{
+ padding:55px 0 35px;
+ background:linear-gradient(120deg,#f4f7ff,#f8f6ff);
+}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--blue)}
+.hero-grid{
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ gap:35px;
+ align-items:center;
+}
+.eyebrow{
+ color:var(--blue);
+ font-size:12px;
+ font-weight:800;
+ letter-spacing:1.5px;
+ text-transform:uppercase;
+}
+h1{
+ font-size:clamp(32px,5vw,49px);
+ line-height:1.12;
+ letter-spacing:-1.7px;
+ margin:12px 0 17px;
+}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{
+ width:100%;
+ height:300px;
+ object-fit:cover;
+ border-radius:20px;
+ box-shadow:var(--shadow);
+}
+main{padding:38px 0 65px}
+.section-title{font-size:27px;line-height:1.25;margin:0 0 12px}
+.section-intro{color:var(--muted);margin:0 0 24px}
+.calculator-layout{
+ display:grid;
+ grid-template-columns:1fr .85fr;
+ gap:24px;
+ align-items:start;
+}
+.panel{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:25px;
+ box-shadow:var(--shadow);
+}
+.panel h2{font-size:22px;margin:0 0 7px}
+.panel-sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field{margin-bottom:18px}
+label{
+ display:block;
+ font-size:14px;
+ font-weight:700;
+ margin-bottom:7px;
+}
+input,select{
+ width:100%;
+ min-height:48px;
+ padding:12px 13px;
+ border:1px solid #dce3ef;
+ border-radius:10px;
+ font:inherit;
+ color:var(--ink);
+ background:#fff;
+ outline:none;
+}
+input:focus,select:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.input-row{display:grid;grid-template-columns:1fr 125px;gap:10px}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+button{
+ border:0;
+ border-radius:10px;
+ background:linear-gradient(100deg,var(--blue),var(--purple));
+ color:#fff;
+ font-size:15px;
+ font-weight:800;
+ padding:14px 20px;
+ cursor:pointer;
+ width:100%;
+}
+button:hover{opacity:.93}
+button.secondary{
+ background:#eef2ff;
+ color:var(--blue);
+ border:1px solid #dce4ff;
+}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.error{
+ display:none;
+ color:#b42318;
+ background:#fff0ef;
+ border:1px solid #ffd1cc;
+ border-radius:9px;
+ padding:10px 12px;
+ font-size:13px;
+ margin:12px 0;
+}
+.result-panel{
+ background:linear-gradient(145deg,#f1f5ff,#f8f5ff);
+ border:1px solid #e2e8ff;
+ border-radius:16px;
+ padding:22px;
+}
+.result-label{color:var(--muted);font-size:13px;font-weight:700}
+.result-number{
+ font-size:43px;
+ line-height:1.2;
+ font-weight:900;
+ color:var(--blue);
+ margin:5px 0;
+ overflow-wrap:anywhere;
+}
+.result-unit{font-size:14px;color:var(--muted)}
+.result-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:20px;
+}
+.mini-result{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:11px;
+ padding:13px;
+}
+.mini-result span{display:block;font-size:12px;color:var(--muted)}
+.mini-result strong{font-size:19px;overflow-wrap:anywhere}
+.result-note{font-size:13px;color:var(--muted);margin:15px 0 0}
+.placeholder{
+ color:var(--muted);
+ background:var(--soft);
+ border:1px dashed #cbd5e5;
+ border-radius:13px;
+ padding:28px 18px;
+ text-align:center;
+}
+.sub-panel{
+ margin-top:15px;
+ padding:16px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:12px;
+}
+.sub-panel h3{margin:0 0 10px;font-size:16px}
+.metric-row{
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ padding:9px 0;
+ border-bottom:1px solid #edf0f6;
+ font-size:14px;
+}
+.metric-row:last-child{border-bottom:0}
+.metric-row strong{color:var(--blue);text-align:right}
+.content-section{margin-top:48px}
+.content-section h2{font-size:26px;line-height:1.3}
+.content-section h3{font-size:19px;margin:24px 0 8px}
+.content-section p,.content-section li{color:#536178}
+.formula{
+ background:#f5f7ff;
+ border-left:4px solid var(--blue);
+ padding:15px 18px;
+ border-radius:8px;
+ margin:14px 0;
+ overflow-wrap:anywhere;
+}
+.example-table{
+ width:100%;
+ border-collapse:collapse;
+ margin:17px 0;
+ font-size:14px;
+}
+.example-table th,.example-table td{
+ padding:12px;
+ border:1px solid var(--line);
+ text-align:left;
+}
+.example-table th{background:#f5f7fc}
+.note{
+ background:#fff9e9;
+ border:1px solid #f4e3b5;
+ border-radius:12px;
+ padding:15px;
+ color:#765b20;
+ margin:18px 0;
+ font-size:14px;
+}
+.related-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:14px;
+}
+.related-card{
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:16px;
+ background:#fff;
+}
+.related-card a{font-weight:800}
+.related-card p{font-size:13px;margin:6px 0 0}
+.faq-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.faq-item h3{font-size:17px;margin:0 0 7px}
+.faq-item p{margin:0;color:var(--muted)}
+footer{
+ border-top:1px solid var(--line);
+ background:#fafbfe;
+ padding:30px 0;
+ color:var(--muted);
+ font-size:13px;
+}
+.footer-inner{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ flex-wrap:wrap;
+}
+footer a{margin-right:13px}
+@media(max-width:800px){
+ .hero-grid,.calculator-layout{grid-template-columns:1fr}
+ .hero img{height:230px}
+ .related-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ nav{gap:10px}
+ nav a{font-size:12px}
+ .logo{font-size:22px}
+ .panel{padding:18px}
+ .input-row{grid-template-columns:1fr 105px}
+ .related-grid{grid-template-columns:1fr}
+ .result-number{font-size:36px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Exercise Calories Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/exercise-calorie-calculator.html",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "description":"Estimate calories burned during different exercises and physical activities using MET-based calculations.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"How do I calculate calories burned during exercise?",
+   "acceptedAnswer":{"@type":"Answer","text":"A common estimation method uses metabolic equivalent (MET), body weight in kilograms and exercise duration in minutes."}
+  },
+  {
+   "@type":"Question",
+   "name":"What does MET mean in exercise?",
+   "acceptedAnswer":{"@type":"Answer","text":"MET stands for metabolic equivalent of task. It describes the energy cost of an activity relative to resting."}
+  },
+  {
+   "@type":"Question",
+   "name":"Are exercise calorie estimates exact?",
+   "acceptedAnswer":{"@type":"Answer","text":"No. MET-based calorie estimates are approximate and actual energy expenditure varies with fitness, intensity, technique and individual physiology."}
+  }
+ ]
+}
+</script>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <nav>
+   <a href="/">Home</a>
+   <a href="/calculators/">Calculators</a>
+   <a href="/#guides">Guides</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="container">
+  <div class="breadcrumb">
+   <a href="/">Home</a> / <a href="/calculators/health-calculators.html">Health & Fitness</a> / Exercise Calories Calculator
+  </div>
+  <div class="hero-grid">
+   <div>
+    <div class="eyebrow">Free Workout Calculator</div>
+    <h1>Exercise Calories Calculator</h1>
+    <p>Estimate calories burned during running, cycling, swimming, gym workouts, walking, yoga and more. Enter your body weight, activity and workout duration to calculate estimated energy expenditure.</p>
+   </div>
+   <img
+    src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1000"
+    alt="Person performing a strength training workout in a gym"
+    fetchpriority="high">
+  </div>
+ </div>
+</section>
+
+<main class="container">
+ <h2 class="section-title">Calculate Calories Burned During Exercise</h2>
+ <p class="section-intro">Select an activity and enter your workout details for an estimated calorie result.</p>
+
+ <div class="calculator-layout">
+  <section class="panel">
+   <h2>Workout Details</h2>
+   <p class="panel-sub">Choose your activity, body weight and workout duration.</p>
+
+   <div class="field">
+    <label for="weight">Body weight</label>
+    <div class="input-row">
+     <input id="weight" type="number" min="1" step="any" placeholder="e.g. 70">
+     <select id="weight-unit" aria-label="Weight unit">
+      <option value="kg">Kilograms</option>
+      <option value="lb">Pounds</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="field">
+    <label for="category">Activity category</label>
+    <select id="category">
+     <option value="cardio">Cardio</option>
+     <option value="strength">Strength Training</option>
+     <option value="sports">Sports</option>
+     <option value="mindbody">Mind & Body</option>
+     <option value="daily">Other Activities</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="activity">Exercise activity</label>
+    <select id="activity"></select>
+    <div class="hint" id="activity-hint">Select an activity to see its estimated intensity.</div>
+   </div>
+
+   <div class="field">
+    <label for="duration">Workout duration</label>
+    <div class="input-row">
+     <input id="duration" type="number" min="1" step="any" placeholder="e.g. 45">
+     <select id="duration-unit" aria-label="Duration unit">
+      <option value="min">Minutes</option>
+      <option value="hr">Hours</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="field">
+    <label for="intensity">Workout intensity</label>
+    <select id="intensity">
+     <option value="light">Light</option>
+     <option value="moderate" selected>Moderate</option>
+     <option value="vigorous">Vigorous</option>
+    </select>
+    <div class="hint">Intensity changes the estimate using an illustrative adjustment. Actual MET values depend on the activity and effort.</div>
+   </div>
+
+   <div class="field">
+    <label for="calorie-type">Calorie result</label>
+    <select id="calorie-type">
+     <option value="gross" selected>Total calories (gross)</option>
+     <option value="net">Activity calories above resting level (net)</option>
+    </select>
+   </div>
+
+   <div id="error" class="error" role="alert"></div>
+
+   <button id="calculate" type="button">Calculate Exercise Calories</button>
+   <div class="actions">
+    <button class="secondary" id="reset" type="button">Reset</button>
+    <button class="secondary" id="sample" type="button">Try Example</button>
+   </div>
+  </section>
+
+  <section class="panel" aria-live="polite">
+   <h2>Your Exercise Results</h2>
+   <p class="panel-sub">Estimated energy expenditure and workout summary.</p>
+
+   <div id="placeholder" class="placeholder">
+    <strong>Your exercise results will appear here.</strong>
+    <p>Enter your workout information and click Calculate.</p>
+   </div>
+
+   <div id="result" style="display:none">
+    <div class="result-panel">
+     <div class="result-label" id="calorie-label">Estimated Calories Burned</div>
+     <div class="result-number" id="calories">—</div>
+     <div class="result-unit">kilocalories (kcal)</div>
+
+     <div class="result-grid">
+      <div class="mini-result">
+       <span>Calories per hour</span>
+       <strong id="hourly-calories">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Activity MET</span>
+       <strong id="met-value">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Workout duration</span>
+       <strong id="duration-result">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Energy estimate</span>
+       <strong id="energy-kj">—</strong>
+      </div>
+     </div>
+     <p class="result-note" id="result-note"></p>
+    </div>
+
+    <div class="sub-panel">
+     <h3>Workout Summary</h3>
+     <div id="summary"></div>
+    </div>
+   </div>
+  </section>
+ </div>
+
+ <section class="content-section">
+  <h2>What Is an Exercise Calories Calculator?</h2>
+  <p>An exercise calories calculator estimates how much energy your body uses during physical activity. It can help you compare different workouts, understand the relationship between exercise duration and energy expenditure, and track general activity patterns.</p>
+  <p>This calculator uses metabolic equivalent of task (MET) values as an estimation method. MET represents the energy cost of an activity relative to resting. Different activities and intensity levels have different approximate MET values.</p>
+  <p>Results are estimates, not direct measurements. Individual energy use can differ based on fitness, movement efficiency, age, environment and other factors.</p>
+
+  <h2>How to Use This Exercise Calories Calculator</h2>
+  <ol>
+   <li>Enter your body weight in kilograms or pounds.</li>
+   <li>Select an activity category, such as cardio, strength training or sports.</li>
+   <li>Choose the specific exercise you performed.</li>
+   <li>Enter the workout duration in minutes or hours.</li>
+   <li>Select the intensity that best describes your session.</li>
+   <li>Choose gross or net calories and click Calculate Exercise Calories.</li>
+  </ol>
+
+  <h2>Exercise Calories Formula</h2>
+  <p>A commonly used MET-based equation estimates gross calories using body weight and activity duration.</p>
+  <div class="formula">
+   <strong>Gross Calories = MET × 3.5 × Weight (kg) ÷ 200 × Duration (minutes)</strong>
+  </div>
+  <p>Net activity calories estimate energy expenditure above resting level:</p>
+  <div class="formula">
+   <strong>Net Calories = (MET − 1) × 3.5 × Weight (kg) ÷ 200 × Duration (minutes)</strong>
+  </div>
+  <p>The calculator applies illustrative MET estimates for selected activities and adjusts them for the chosen intensity. These adjustments are simplified assumptions, not laboratory measurements.</p>
+
+  <h2>Example: Calories Burned During Running</h2>
+  <p>Suppose a person weighs 70 kg and runs for 30 minutes. For an illustrative running MET value of 8.3:</p>
+  <div class="formula">
+   Gross calories = 8.3 × 3.5 × 70 ÷ 200 × 30<br>
+   <strong>Estimated gross calories = 305.0 kcal</strong>
+  </div>
+  <p>The actual energy expenditure may be higher or lower depending on running speed, terrain, fitness and individual differences.</p>
+
+  <h2>Common Activities and Illustrative MET Values</h2>
+  <p>The values below are approximate examples used to explain how activity intensity can vary. The calculator uses its own activity reference values and intensity adjustment.</p>
+  <table class="example-table">
+   <thead>
+    <tr><th>Activity</th><th>Illustrative MET</th><th>Category</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>Walking, moderate</td><td>3.5</td><td>Cardio</td></tr>
+    <tr><td>Running, moderate</td><td>8.3</td><td>Cardio</td></tr>
+    <tr><td>Cycling, moderate</td><td>6.8</td><td>Cardio</td></tr>
+    <tr><td>Swimming, moderate</td><td>6.0</td><td>Cardio</td></tr>
+    <tr><td>Weight training</td><td>3.5</td><td>Strength</td></tr>
+    <tr><td>Yoga, general</td><td>2.5</td><td>Mind & Body</td></tr>
+    <tr><td>Basketball, general</td><td>6.5</td><td>Sports</td></tr>
+    <tr><td>Jump rope</td><td>10.0</td><td>Cardio</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Factors That Affect Calories Burned During Exercise</h2>
+
+  <h3>1. Body Weight</h3>
+  <p>Body weight is included in the MET-based calculation. At the same estimated activity intensity and duration, a higher body weight generally produces a higher calorie estimate.</p>
+
+  <h3>2. Exercise Intensity</h3>
+  <p>Higher-intensity activity generally requires more energy per minute. However, intensity is difficult to estimate from a simple category alone.</p>
+
+  <h3>3. Workout Duration</h3>
+  <p>Longer sessions usually use more total energy when activity intensity remains similar.</p>
+
+  <h3>4. Type of Exercise</h3>
+  <p>Running, cycling, swimming, resistance training and yoga involve different movement patterns and energy demands.</p>
+
+  <h3>5. Individual Differences</h3>
+  <p>Fitness level, movement efficiency, technique, age and environmental conditions can all affect actual energy expenditure.</p>
+
+  <h2>Gross Calories vs Net Activity Calories</h2>
+  <p>Gross calories include the estimated energy your body uses at rest during the workout period. Net activity calories subtract an estimated resting component, showing the additional energy associated with the activity.</p>
+  <table class="example-table">
+   <thead>
+    <tr><th>Measurement</th><th>What it includes</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>Gross calories</td><td>Activity energy plus estimated resting energy during that period</td></tr>
+    <tr><td>Net calories</td><td>Estimated activity energy above resting level</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Tips for Tracking Exercise</h2>
+  <ul>
+   <li>Record the activity and duration consistently.</li>
+   <li>Use a realistic intensity selection instead of always choosing vigorous.</li>
+   <li>Compare similar workouts rather than treating estimates as exact measurements.</li>
+   <li>Build exercise volume gradually and allow time for recovery.</li>
+   <li>Choose activities that suit your ability, interests and fitness goals.</li>
+   <li>Pay attention to how you feel, not only the calorie estimate.</li>
+  </ul>
+
+  <div class="note">
+   <strong>Important:</strong> Calorie estimates are approximate and should not be treated as exact measurements or as a precise food allowance. This tool does not provide medical or personalized exercise advice. Follow professional guidance if you have health conditions or activity restrictions.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+   <h3>1. How do I calculate calories burned during exercise?</h3>
+   <p>A common method uses an activity's MET value, your weight in kilograms and exercise duration. This calculator applies a MET-based formula to estimate energy expenditure.</p>
+  </div>
+  <div class="faq-item">
+   <h3>2. What does MET mean?</h3>
+   <p>MET stands for metabolic equivalent of task. It is a way to describe the energy cost of physical activities relative to resting.</p>
+  </div>
+  <div class="faq-item">
+   <h3>3. Which exercise burns the most calories?</h3>
+   <p>Energy expenditure varies with activity intensity, duration and individual factors. Vigorous activities such as fast running or jump rope can have high estimated energy costs per minute.</p>
+  </div>
+  <div class="faq-item">
+   <h3>4. Does body weight affect calories burned?</h3>
+   <p>Yes. Body weight is a key input in this calculator's MET-based formula. A higher weight generally produces a higher estimate for the same activity and duration.</p>
+  </div>
+  <div class="faq-item">
+   <h3>5. Are gym calorie estimates accurate?</h3>
+   <p>They are approximate. Resistance training varies widely depending on exercises, rest periods, load, technique and workout structure.</p>
+  </div>
+  <div class="faq-item">
+   <h3>6. What is the difference between gross and net calories?</h3>
+   <p>Gross calories include estimated resting energy during the activity period. Net calories subtract an estimated resting component.</p>
+  </div>
+  <div class="faq-item">
+   <h3>7. Can I calculate calories burned during swimming?</h3>
+   <p>Yes. Select Cardio and then Swimming. Enter your weight, duration and estimated intensity to calculate an approximate result.</p>
+  </div>
+  <div class="faq-item">
+   <h3>8. Can I use this calculator for short workouts?</h3>
+   <p>Yes. Enter the duration in minutes. Remember that short-session estimates may be affected by warm-up, cool-down and changes in exercise intensity.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Related Health & Fitness Calculators</h2>
+  <p class="section-intro">Explore more free tools for fitness, activity and health estimates.</p>
+  <div class="related-grid">
+   <div class="related-card">
+    <a href="/calculators/walking-calorie-calculator.html">Walking Calories Calculator</a>
+    <p>Estimate calories burned during walking sessions.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/running-pace-calculator.html">Running Pace Calculator</a>
+    <p>Calculate pace, speed and estimated race times.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/calorie-calculator.html">Calorie Calculator</a>
+    <p>Estimate daily calorie requirements.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/tdee-calculator.html">TDEE Calculator</a>
+    <p>Estimate total daily energy expenditure.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/one-rep-max-calculator.html">One Rep Max Calculator</a>
+    <p>Estimate maximum lifting strength from completed repetitions.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/health-calculators.html">All Health Calculators</a>
+    <p>Browse the complete Health & Fitness collection.</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <div>© 2026 CalcNest. Free online calculators for everyday decisions.</div>
+  <div>
+   <a href="/">Home</a>
+   <a href="/calculators/health-calculators.html">Health Calculators</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ const $ = id => document.getElementById(id);
+
+ const activities = {
+  cardio:[
+   {id:"walking",name:"Walking - Moderate",met:3.5},
+   {id:"walking_brisk",name:"Walking - Brisk",met:4.8},
+   {id:"running_slow",name:"Running - Slow Jog",met:7.0},
+   {id:"running",name:"Running - Moderate",met:8.3},
+   {id:"running_fast",name:"Running - Fast",met:10.0},
+   {id:"cycling_light",name:"Cycling - Leisurely",met:4.0},
+   {id:"cycling",name:"Cycling - Moderate",met:6.8},
+   {id:"cycling_fast",name:"Cycling - Vigorous",met:10.0},
+   {id:"swimming",name:"Swimming - General",met:6.0},
+   {id:"swimming_laps",name:"Swimming - Laps",met:8.0},
+   {id:"jump_rope",name:"Jump Rope",met:10.0},
+   {id:"elliptical",name:"Elliptical Trainer",met:5.0},
+   {id:"rowing",name:"Rowing Machine - Moderate",met:7.0},
+   {id:"stair",name:"Stair Climbing",met:8.0},
+   {id:"hiking",name:"Hiking",met:6.0}
+  ],
+  strength:[
+   {id:"weights_light",name:"Weight Training - Light",met:3.0},
+   {id:"weights",name:"Weight Training - General",met:3.5},
+   {id:"weights_vigorous",name:"Weight Training - Vigorous",met:6.0},
+   {id:"circuit",name:"Circuit Training",met:6.0},
+   {id:"calisthenics",name:"Bodyweight Training",met:3.8},
+   {id:"crossfit",name:"High-Intensity Functional Training",met:8.0}
+  ],
+  sports:[
+   {id:"basketball",name:"Basketball - General",met:6.5},
+   {id:"football",name:"Football / Soccer",met:7.0},
+   {id:"tennis",name:"Tennis - General",met:7.3},
+   {id:"badminton",name:"Badminton - General",met:5.5},
+   {id:"volleyball",name:"Volleyball",met:4.0},
+   {id:"boxing",name:"Boxing - Training",met:7.8},
+   {id:"martial",name:"Martial Arts",met:10.0},
+   {id:"tabletennis",name:"Table Tennis",met:4.0}
+  ],
+  mindbody:[
+   {id:"yoga",name:"Yoga - General",met:2.5},
+   {id:"power_yoga",name:"Power Yoga",met:4.0},
+   {id:"pilates",name:"Pilates",met:3.0},
+   {id:"stretching",name:"Stretching",met:2.3},
+   {id:"tai_chi",name:"Tai Chi",met:3.0}
+  ],
+  daily:[
+   {id:"dancing",name:"Dancing - General",met:5.0},
+   {id:"gardening",name:"Gardening",met:3.5},
+   {id:"housework",name:"Housework - Moderate",met:3.0},
+   {id:"cleaning",name:"Cleaning",met:3.3},
+   {id:"playing",name:"Active Play",met:4.0}
+  ]
+ };
+
+ const categoryInput = $("category");
+ const activityInput = $("activity");
+
+ function format(value,decimals=1){
+  return Number(value).toLocaleString(undefined,{
+   maximumFractionDigits:decimals
+  });
+ }
+
+ function showError(message){
+  $("error").textContent = message;
+  $("error").style.display = "block";
+ }
+
+ function clearError(){
+  $("error").textContent = "";
+  $("error").style.display = "none";
+ }
+
+ function populateActivities(){
+  const list = activities[categoryInput.value];
+  activityInput.innerHTML = "";
+
+  list.forEach(activity=>{
+   const option = document.createElement("option");
+   option.value = activity.id;
+   option.textContent = activity.name;
+   activityInput.appendChild(option);
+  });
+
+  updateActivityHint();
+ }
+
+ function getSelectedActivity(){
+  const list = activities[categoryInput.value];
+  return list.find(item=>item.id === activityInput.value);
+ }
+
+ function updateActivityHint(){
+  const activity = getSelectedActivity();
+  if(activity){
+   $("activity-hint").textContent =
+    "Base activity MET estimate: " + activity.met.toFixed(1) +
+    ". The selected intensity adjusts this estimate.";
+  }
+ }
+
+ function calculate(){
+  clearError();
+
+  const weightInput = Number($("weight").value);
+  const durationInput = Number($("duration").value);
+  const weightUnit = $("weight-unit").value;
+  const durationUnit = $("duration-unit").value;
+  const intensity = $("intensity").value;
+  const calorieType = $("calorie-type").value;
+  const activity = getSelectedActivity();
+
+  if(!Number.isFinite(weightInput) || weightInput <= 0){
+   showError("Please enter a valid body weight greater than zero.");
+   $("weight").focus();
+   return;
+  }
+
+  if(!Number.isFinite(durationInput) || durationInput <= 0){
+   showError("Please enter a workout duration greater than zero.");
+   $("duration").focus();
+   return;
+  }
+
+  const weightKg = weightUnit === "lb"
+   ? weightInput * 0.45359237
+   : weightInput;
+
+  const durationMinutes = durationUnit === "hr"
+   ? durationInput * 60
+   : durationInput;
+
+  if(weightKg < 10 || weightKg > 500){
+   showError("Please enter a body weight between 10 and 500 kg (or the equivalent in pounds).");
+   return;
+  }
+
+  if(durationMinutes > 1440){
+   showError("Please enter a workout duration of 24 hours or less.");
+   return;
+  }
+
+  if(!activity){
+   showError("Please select a valid exercise activity.");
+   return;
+  }
+
+  const intensityFactors = {
+   light:0.85,
+   moderate:1.0,
+   vigorous:1.15
+  };
+
+  const intensityLabels = {
+   light:"Light",
+   moderate:"Moderate",
+   vigorous:"Vigorous"
+  };
+
+  const adjustedMet = Math.max(
+   1,
+   activity.met * intensityFactors[intensity]
+  );
+
+  const grossCalories =
+   adjustedMet * 3.5 * weightKg / 200 * durationMinutes;
+
+  const netCalories =
+   Math.max(0,(adjustedMet - 1) * 3.5 * weightKg / 200 * durationMinutes);
+
+  const calories = calorieType === "net"
+   ? netCalories
+   : grossCalories;
+
+  const hourlyCalories = calories / (durationMinutes / 60);
+  const energyKj = calories * 4.184;
+
+  $("placeholder").style.display = "none";
+  $("result").style.display = "block";
+
+  $("calorie-label").textContent = calorieType === "net"
+   ? "Estimated Net Activity Calories"
+   : "Estimated Gross Calories Burned";
+
+  $("calories").textContent = format(calories,0);
+  $("hourly-calories").textContent = format(hourlyCalories,0) + " kcal";
+  $("met-value").textContent = format(adjustedMet,2);
+  $("duration-result").textContent = format(durationMinutes,0) + " min";
+  $("energy-kj").textContent = format(energyKj,0) + " kJ";
+
+  $("result-note").textContent =
+   "This estimate uses an adjusted MET value of " +
+   format(adjustedMet,2) +
+   ". Actual energy expenditure can differ.";
+
+  const summary = [
+   ["Activity",activity.name],
+   ["Category",categoryInput.options[categoryInput.selectedIndex].text],
+   ["Body weight",format(weightKg,1) + " kg"],
+   ["Workout duration",format(durationMinutes,0) + " minutes"],
+   ["Intensity",intensityLabels[intensity]],
+   ["Base MET",format(activity.met,2)],
+   ["Adjusted MET",format(adjustedMet,2)],
+   ["Gross calorie estimate",format(grossCalories,0) + " kcal"],
+   ["Net activity estimate",format(netCalories,0) + " kcal"]
+  ];
+
+  $("summary").innerHTML = summary.map(item=>
+   "<div class='metric-row'><span>" + item[0] +
+   "</span><strong>" + item[1] + "</strong></div>"
+  ).join("");
+
+  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+ }
+
+ categoryInput.addEventListener("change",populateActivities);
+ activityInput.addEventListener("change",updateActivityHint);
+ $("calculate").addEventListener("click",calculate);
+
+ $("reset").addEventListener("click",function(){
+  $("weight").value = "";
+  $("weight-unit").value = "kg";
+  $("duration").value = "";
+  $("duration-unit").value = "min";
+  $("category").value = "cardio";
+  $("intensity").value = "moderate";
+  $("calorie-type").value = "gross";
+
+  populateActivities();
+
+  $("result").style.display = "none";
+  $("placeholder").style.display = "block";
+  clearError();
+ });
+
+ $("sample").addEventListener("click",function(){
+  $("weight").value = "70";
+  $("weight-unit").value = "kg";
+  $("duration").value = "30";
+  $("duration-unit").value = "min";
+  $("category").value = "cardio";
+  populateActivities();
+  $("activity").value = "running";
+  $("intensity").value = "moderate";
+  $("calorie-type").value = "gross";
+  updateActivityHint();
+  calculate();
+ });
+
+ populateActivities();
+})();
+</script>
+</body>
+</html>
