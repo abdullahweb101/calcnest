@@ -1,0 +1,1289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Marketing Budget Calculator - Plan & Allocate Ad Spend | CalcNest</title>
+<meta name="description" content="Free marketing budget calculator to plan advertising expenses, allocate budgets across channels, compare planned and actual spending, and estimate leads, customers and acquisition costs.">
+<meta name="keywords" content="marketing budget calculator, advertising budget calculator, marketing spend planner, digital marketing budget, marketing budget allocation, ad budget planner">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/marketing-budget-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marketing Budget Calculator | CalcNest">
+<meta property="og:description" content="Plan your marketing budget, allocate channel spending and estimate campaign results.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/marketing-budget-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketing Budget Calculator">
+<meta name="twitter:description" content="Plan marketing expenses and estimate leads, customers and acquisition costs.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Marketing Budget Calculator",
+  "url":"https://calcnest-7s6.pages.dev/calculators/marketing-budget-calculator.html",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Any",
+  "description":"Plan marketing spending, allocate channel budgets, compare actual expenses and estimate leads and customers.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is a marketing budget?",
+      "acceptedAnswer":{"@type":"Answer","text":"A marketing budget is the amount a business plans to spend on activities such as advertising, content creation, email marketing, social media, SEO and other promotional work over a defined period."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do you calculate a marketing budget?",
+      "acceptedAnswer":{"@type":"Answer","text":"A marketing budget can be calculated by adding the planned costs of all marketing activities for a selected period. Businesses may also use a percentage of revenue, growth targets or campaign objectives to establish the budget."}
+    },
+    {
+      "@type":"Question",
+      "name":"What percentage of revenue should go to marketing?",
+      "acceptedAnswer":{"@type":"Answer","text":"There is no universal percentage suitable for every business. The appropriate budget depends on industry, business maturity, growth goals, margins, competition and available cash."}
+    },
+    {
+      "@type":"Question",
+      "name":"How should a marketing budget be divided?",
+      "acceptedAnswer":{"@type":"Answer","text":"Budget allocation depends on business goals, target audience, channel performance and customer acquisition economics. Businesses should test channels and adjust spending using measured results."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is the difference between marketing budget and advertising budget?",
+      "acceptedAnswer":{"@type":"Answer","text":"An advertising budget generally covers paid media placements, while a marketing budget may also include content, SEO, email software, events, research, creative production and marketing staff."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is cost per lead?",
+      "acceptedAnswer":{"@type":"Answer","text":"Cost per lead is calculated by dividing the marketing cost associated with lead generation by the number of leads generated."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is customer acquisition cost?",
+      "acceptedAnswer":{"@type":"Answer","text":"Customer acquisition cost is the cost of acquiring customers. A simple campaign-level estimate divides the relevant acquisition spending by the number of customers acquired."}
+    },
+    {
+      "@type":"Question",
+      "name":"Should businesses compare planned and actual marketing spending?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Comparing planned and actual spending helps businesses identify overspending, underspending, unexpected costs and opportunities to reallocate funds."}
+    },
+    {
+      "@type":"Question",
+      "name":"Can a small business use this marketing budget calculator?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yes. Small businesses, freelancers, startups and larger companies can use it to organize marketing expenses and create simple performance estimates."}
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --ink:#17243a;
+  --muted:#65738b;
+  --blue:#315eea;
+  --purple:#7659e8;
+  --line:#e8edf5;
+  --soft:#f6f8fd;
+  --green:#14865c;
+  --red:#c43e50;
+  --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:Arial,sans-serif;line-height:1.65;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1160px,92%);margin:auto}
+header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.nav{
+  min-height:72px;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;
+}
+.logo{color:var(--ink);font-size:25px;font-weight:800;letter-spacing:-1px}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--ink);font-size:14px;font-weight:700}
+.breadcrumb{padding:22px 0 8px;color:var(--muted);font-size:13px}
+.hero{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:35px;align-items:center;padding:25px 0 40px;
+}
+.eyebrow{
+  display:inline-block;padding:7px 12px;border-radius:30px;
+  background:#edf1ff;color:var(--blue);font-size:12px;font-weight:800;
+}
+h1{font-size:clamp(34px,5vw,51px);line-height:1.12;letter-spacing:-1.8px;margin:17px 0}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{width:100%;height:280px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.hero-points span{
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:30px;padding:7px 12px;font-size:12px;font-weight:700;
+}
+.section{padding:20px 0 45px}
+.section-heading{margin-bottom:22px}
+.section-heading h2{font-size:29px;margin:0 0 7px;letter-spacing:-.7px}
+.section-heading p{color:var(--muted);margin:0}
+.panel{
+  background:#fff;border:1px solid var(--line);border-radius:19px;
+  padding:25px;box-shadow:var(--shadow);margin-bottom:20px;
+}
+.panel h2,.panel h3{margin-top:0}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.field input,.field select{
+  width:100%;min-height:47px;border:1px solid #dce3ef;
+  border-radius:10px;padding:11px 12px;font:inherit;
+  color:var(--ink);background:#fff;outline:none;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.field small{display:block;margin-top:5px;color:var(--muted);font-size:11px}
+.primary-btn,.secondary-btn{
+  border:0;border-radius:10px;padding:13px 19px;
+  cursor:pointer;font-weight:800;font-size:14px;
+}
+.primary-btn{color:#fff;background:linear-gradient(110deg,var(--blue),var(--purple))}
+.secondary-btn{background:#edf1ff;color:var(--blue);border:1px solid #dfe5ff}
+.action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.error{
+  display:none;padding:11px 13px;margin:14px 0;
+  border-radius:9px;background:#fff0f1;color:var(--red);font-size:13px;
+}
+.results{
+  margin-top:23px;padding:20px;border-radius:15px;
+  background:linear-gradient(135deg,#f0f4ff,#f8f5ff);
+  border:1px solid #e4e9ff;
+}
+.results h3{margin:0 0 15px;font-size:18px}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.result-item{
+  background:rgba(255,255,255,.9);border:1px solid #e5e9f5;
+  border-radius:10px;padding:13px;min-width:0;
+}
+.result-item small{display:block;color:var(--muted);font-size:11px}
+.result-item strong{display:block;font-size:22px;color:var(--blue);overflow-wrap:anywhere}
+.result-item span{font-size:11px;color:var(--muted)}
+.result-note{color:var(--muted);font-size:12px;margin:13px 0 0}
+.channel-list{display:grid;gap:13px}
+.channel-row{
+  display:grid;grid-template-columns:1.1fr 1fr 1fr;
+  gap:13px;align-items:center;padding:14px;
+  border:1px solid var(--line);border-radius:12px;
+}
+.channel-row .field{margin:0}
+.channel-row .field label{font-size:12px}
+.channel-name{font-weight:800;font-size:14px}
+.channel-name span{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.channel-total{
+  display:flex;justify-content:space-between;gap:10px;
+  flex-wrap:wrap;margin-top:16px;padding:15px;
+  background:var(--soft);border-radius:12px;font-weight:700;
+}
+.progress-track{height:9px;background:#e8edf5;border-radius:20px;overflow:hidden;margin-top:8px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));width:0%;border-radius:20px}
+.table-wrap{overflow-x:auto;margin:17px 0}
+table{width:100%;border-collapse:collapse;min-width:580px}
+th,td{border:1px solid var(--line);padding:12px;text-align:left;font-size:13px}
+th{background:var(--soft)}
+tr:nth-child(even) td{background:#fcfdff}
+.content-section{padding:28px 0}
+.content-section h2{font-size:27px;letter-spacing:-.5px;margin:0 0 13px}
+.content-section h3{font-size:19px;margin:23px 0 8px}
+.content-section p,.content-section li{color:#526179}
+.content-section ul,.content-section ol{padding-left:22px}
+.formula{
+  display:block;padding:15px;background:#17243a;color:#fff;
+  border-radius:10px;font-weight:700;overflow-wrap:anywhere;margin:12px 0;
+}
+.info-card{
+  background:var(--soft);border:1px solid var(--line);
+  border-radius:15px;padding:20px;margin:18px 0;
+}
+.faq-list{display:grid;gap:11px}
+details{border:1px solid var(--line);border-radius:12px;padding:15px 17px;background:#fff}
+summary{cursor:pointer;font-weight:700}
+details p{margin-bottom:0}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.related-card{padding:17px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.related-card strong{display:block;margin-bottom:5px}
+.related-card span{font-size:12px;color:var(--muted)}
+footer{
+  margin-top:40px;padding:30px 0;background:#f7f9fd;
+  border-top:1px solid var(--line);color:var(--muted);font-size:13px;
+}
+.footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px}
+footer a{margin-right:13px}
+@media(max-width:850px){
+  .hero{grid-template-columns:1fr}
+  .hero img{height:230px}
+  .result-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .nav{padding:12px 0;align-items:flex-start;flex-direction:column}
+  .nav-links{gap:13px}.nav-links a{font-size:12px}
+  .field-grid{grid-template-columns:1fr}
+  .panel{padding:17px}
+  .channel-row{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr 1fr}
+  .related-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="/">Calc<span>Nest</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="breadcrumb">
+    <a href="/">Home</a> ›
+    <a href="/calculators/business-marketing-calculators.html">Business &amp; Marketing</a> ›
+    Marketing Budget Calculator
+  </div>
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">FREE MARKETING PLANNER</span>
+      <h1>Marketing Budget Calculator</h1>
+      <p>
+        Plan your marketing expenses, distribute your budget across
+        advertising channels, compare planned and actual spending,
+        and estimate potential leads and customers.
+      </p>
+      <div class="hero-points">
+        <span>✓ Budget Planning</span>
+        <span>✓ Channel Allocation</span>
+        <span>✓ Spend Tracking</span>
+        <span>✓ Lead Forecasting</span>
+      </div>
+    </div>
+    <img
+      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200"
+      alt="Marketing analytics and business budget planning dashboard"
+      fetchpriority="high">
+  </section>
+
+  <section class="section" id="calculator">
+    <div class="section-heading">
+      <h2>Plan Your Marketing Budget</h2>
+      <p>Choose a planning method and enter your business or campaign figures.</p>
+    </div>
+
+    <div class="panel">
+      <h3>1. Choose Your Budget Planning Method</h3>
+      <div class="field">
+        <label for="planningMethod">Budget calculation method</label>
+        <select id="planningMethod">
+          <option value="manual">Enter a total marketing budget</option>
+          <option value="revenue">Calculate budget from revenue percentage</option>
+          <option value="goal">Calculate budget from customer acquisition goal</option>
+        </select>
+      </div>
+
+      <div id="manualFields">
+        <div class="field-grid">
+          <div class="field">
+            <label for="manualBudget">Total Marketing Budget</label>
+            <input id="manualBudget" type="number" min="0" step="any" value="10000">
+          </div>
+          <div class="field">
+            <label for="manualPeriod">Budget Period</label>
+            <select id="manualPeriod">
+              <option value="Monthly">Monthly</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Campaign">Campaign total</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="revenueFields" hidden>
+        <div class="field-grid">
+          <div class="field">
+            <label for="businessRevenue">Business Revenue</label>
+            <input id="businessRevenue" type="number" min="0" step="any" value="100000">
+          </div>
+          <div class="field">
+            <label for="revenuePeriod">Revenue Period</label>
+            <select id="revenuePeriod">
+              <option value="Monthly">Monthly</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Yearly">Yearly</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="revenuePercentage">Marketing Budget Percentage (%)</label>
+            <input id="revenuePercentage" type="number" min="0" max="100" step="any" value="8">
+          </div>
+        </div>
+        <div class="info-card">
+          <strong>Revenue-based planning</strong>
+          <p style="font-size:12px;margin-bottom:0">
+            This method calculates a proposed marketing budget as a
+            percentage of the revenue figure you enter. It is a planning
+            approach, not a universal recommendation.
+          </p>
+        </div>
+      </div>
+
+      <div id="goalFields" hidden>
+        <div class="field-grid">
+          <div class="field">
+            <label for="targetCustomers">Target New Customers</label>
+            <input id="targetCustomers" type="number" min="0" step="1" value="100">
+          </div>
+          <div class="field">
+            <label for="targetCAC">Target Cost Per Customer</label>
+            <input id="targetCAC" type="number" min="0" step="any" value="50">
+          </div>
+          <div class="field">
+            <label for="goalPeriod">Budget Period</label>
+            <select id="goalPeriod">
+              <option value="Monthly">Monthly</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Campaign">Campaign total</option>
+            </select>
+          </div>
+        </div>
+        <div class="info-card">
+          <strong>Goal-based planning</strong>
+          <p style="font-size:12px;margin-bottom:0">
+            The required budget is estimated by multiplying your
+            target number of customers by your target acquisition cost.
+            Actual results may differ.
+          </p>
+        </div>
+      </div>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="currency">Currency</label>
+          <select id="currency">
+            <option value="USD">USD - US Dollar ($)</option>
+            <option value="EUR">EUR - Euro (€)</option>
+            <option value="GBP">GBP - British Pound (£)</option>
+            <option value="PKR">PKR - Pakistani Rupee (Rs)</option>
+            <option value="INR">INR - Indian Rupee (₹)</option>
+            <option value="CAD">CAD - Canadian Dollar (C$)</option>
+            <option value="AUD">AUD - Australian Dollar (A$)</option>
+            <option value="AED">AED - UAE Dirham</option>
+            <option value="SAR">SAR - Saudi Riyal</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="reservePercent">Unallocated Reserve (%)</label>
+          <input id="reservePercent" type="number" min="0" max="100" step="any" value="10">
+          <small>Keep this portion available for unexpected needs or testing.</small>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="primary-btn" id="generateBudget">Calculate Budget</button>
+        <button type="button" class="secondary-btn" id="resetBudget">Reset</button>
+      </div>
+
+      <div class="error" id="budgetError" role="alert" aria-live="polite"></div>
+
+      <div class="results">
+        <h3>Budget Summary</h3>
+        <div class="result-grid" id="budgetResults">
+          <div class="result-item"><small>Total Budget</small><strong id="totalResult">$10,000</strong><span>Calculated marketing budget</span></div>
+          <div class="result-item"><small>Available Allocation</small><strong id="availableResult">$9,000</strong><span>After reserve</span></div>
+          <div class="result-item"><small>Reserve Amount</small><strong id="reserveResult">$1,000</strong><span>Unallocated reserve</span></div>
+        </div>
+        <p class="result-note" id="budgetNote">Enter your figures to calculate your marketing budget.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>2. Allocate Budget Across Marketing Channels</h3>
+      <p style="color:var(--muted);font-size:13px">
+        Enter a percentage allocation for each channel. The total must
+        equal 100% of your available allocation.
+      </p>
+
+      <div class="channel-list" id="channelList">
+        <div class="channel-row">
+          <div class="channel-name">Search Advertising<span>Google Ads and other search ads</span></div>
+          <div class="field"><label for="channel-search">Allocation (%)</label><input id="channel-search" class="allocation" type="number" min="0" max="100" step="any" value="25"></div>
+          <div><strong class="channel-amount" data-channel="search">$2,250</strong><div class="progress-track"><div class="progress-fill" data-fill="search"></div></div></div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-name">Social Media Ads<span>Facebook, Instagram, TikTok and more</span></div>
+          <div class="field"><label for="channel-social">Allocation (%)</label><input id="channel-social" class="allocation" type="number" min="0" max="100" step="any" value="20"></div>
+          <div><strong class="channel-amount" data-channel="social">$1,800</strong><div class="progress-track"><div class="progress-fill" data-fill="social"></div></div></div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-name">Content Marketing<span>Articles, videos and creative content</span></div>
+          <div class="field"><label for="channel-content">Allocation (%)</label><input id="channel-content" class="allocation" type="number" min="0" max="100" step="any" value="15"></div>
+          <div><strong class="channel-amount" data-channel="content">$1,350</strong><div class="progress-track"><div class="progress-fill" data-fill="content"></div></div></div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-name">SEO<span>Search optimization and organic growth</span></div>
+          <div class="field"><label for="channel-seo">Allocation (%)</label><input id="channel-seo" class="allocation" type="number" min="0" max="100" step="any" value="15"></div>
+          <div><strong class="channel-amount" data-channel="seo">$1,350</strong><div class="progress-track"><div class="progress-fill" data-fill="seo"></div></div></div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-name">Email Marketing<span>Email tools, automation and campaigns</span></div>
+          <div class="field"><label for="channel-email">Allocation (%)</label><input id="channel-email" class="allocation" type="number" min="0" max="100" step="any" value="10"></div>
+          <div><strong class="channel-amount" data-channel="email">$900</strong><div class="progress-track"><div class="progress-fill" data-fill="email"></div></div></div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-name">Influencer Marketing<span>Creators, partnerships and sponsorships</span></div>
+          <div class="field"><label for="channel-influencer">Allocation (%)</label><input id="channel-influencer" class="allocation" type="number" min="0" max="100" step="any" value="10"></div>
+          <div><strong class="channel-amount" data-channel="influencer">$900</strong><div class="progress-track"><div class="progress-fill" data-fill="influencer"></div></div></div>
+        </div>
+        <div class="channel-row">
+          <div class="channel-name">Other Marketing<span>Events, research and miscellaneous</span></div>
+          <div class="field"><label for="channel-other">Allocation (%)</label><input id="channel-other" class="allocation" type="number" min="0" max="100" step="any" value="5"></div>
+          <div><strong class="channel-amount" data-channel="other">$450</strong><div class="progress-track"><div class="progress-fill" data-fill="other"></div></div></div>
+        </div>
+      </div>
+
+      <div class="channel-total">
+        <span>Total channel allocation: <strong id="allocationTotal">100%</strong></span>
+        <span>Available budget: <strong id="allocationBudget">$9,000</strong></span>
+      </div>
+      <div class="error" id="allocationError" role="alert"></div>
+      <div class="action-row">
+        <button type="button" class="primary-btn" id="updateAllocation">Update Allocation</button>
+        <button type="button" class="secondary-btn" id="equalAllocation">Equal Allocation</button>
+      </div>
+      <p class="result-note" id="allocationNote">The channel allocations are planning estimates. Actual costs and results depend on your campaigns.</p>
+    </div>
+
+    <div class="panel">
+      <h3>3. Compare Planned and Actual Spending</h3>
+      <p style="color:var(--muted);font-size:13px">
+        Enter actual expenses to see how much of your marketing budget
+        has been used and whether you are over or under budget.
+      </p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="plannedSpend">Planned Marketing Spend</label>
+          <input id="plannedSpend" type="number" min="0" step="any" value="9000">
+        </div>
+        <div class="field">
+          <label for="actualSpend">Actual Marketing Spend</label>
+          <input id="actualSpend" type="number" min="0" step="any" value="7200">
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="primary-btn" id="compareSpend">Compare Spending</button>
+      </div>
+      <div class="results">
+        <h3>Spending Comparison</h3>
+        <div class="result-grid">
+          <div class="result-item"><small>Remaining Budget</small><strong id="remainingSpend">$1,800</strong><span>Planned minus actual spend</span></div>
+          <div class="result-item"><small>Budget Used</small><strong id="budgetUsed">80%</strong><span>Actual ÷ planned spend</span></div>
+          <div class="result-item"><small>Spending Difference</small><strong id="spendingDifference">$1,800</strong><span>Positive means under budget</span></div>
+        </div>
+        <p class="result-note" id="spendingNote">Actual spending is below planned spending.</p>
+      </div>
+      <div class="error" id="spendingError" role="alert"></div>
+    </div>
+
+    <div class="panel">
+      <h3>4. Estimate Leads and Customers</h3>
+      <p style="color:var(--muted);font-size:13px">
+        Use a projected cost per lead and lead-to-customer conversion rate
+        to estimate potential marketing outcomes.
+      </p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="leadBudget">Lead Generation Budget</label>
+          <input id="leadBudget" type="number" min="0" step="any" value="3000">
+        </div>
+        <div class="field">
+          <label for="cpl">Estimated Cost Per Lead</label>
+          <input id="cpl" type="number" min="0" step="any" value="15">
+        </div>
+        <div class="field">
+          <label for="leadConversion">Lead-to-Customer Conversion Rate (%)</label>
+          <input id="leadConversion" type="number" min="0" max="100" step="any" value="10">
+        </div>
+        <div class="field">
+          <label for="customerRevenue">Average Revenue Per Customer</label>
+          <input id="customerRevenue" type="number" min="0" step="any" value="150">
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button type="button" class="primary-btn" id="forecastBtn">Estimate Results</button>
+      </div>
+      <div class="results">
+        <h3>Marketing Outcome Forecast</h3>
+        <div class="result-grid">
+          <div class="result-item"><small>Estimated Leads</small><strong id="forecastLeads">200</strong><span>Lead budget ÷ cost per lead</span></div>
+          <div class="result-item"><small>Estimated Customers</small><strong id="forecastCustomers">20</strong><span>Leads × conversion rate</span></div>
+          <div class="result-item"><small>Estimated Revenue</small><strong id="forecastRevenue">$3,000</strong><span>Customers × revenue per customer</span></div>
+          <div class="result-item"><small>Estimated Cost Per Customer</small><strong id="forecastCAC">$150</strong><span>Lead budget ÷ customers</span></div>
+          <div class="result-item"><small>Estimated Revenue / Budget</small><strong id="forecastRatio">1.00x</strong><span>Estimated revenue ÷ lead budget</span></div>
+          <div class="result-item"><small>Estimated Revenue Difference</small><strong id="forecastDifference">$0</strong><span>Revenue minus lead budget</span></div>
+        </div>
+        <p class="result-note">
+          This is a scenario forecast, not a guaranteed result or a profit calculation.
+          It excludes costs beyond the entered lead-generation budget.
+        </p>
+      </div>
+      <div class="error" id="forecastError" role="alert"></div>
+    </div>
+
+    <div class="panel">
+      <h3>5. Copy Your Marketing Budget Plan</h3>
+      <p style="color:var(--muted);font-size:13px">
+        Copy the current budget summary and channel allocation for your
+        planning document or spreadsheet.
+      </p>
+      <button type="button" class="secondary-btn" id="copyPlan">Copy Budget Plan</button>
+      <span id="copyStatus" style="font-size:12px;color:var(--green);margin-left:10px" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>What Is a Marketing Budget?</h2>
+    <p>
+      A marketing budget is a financial plan that defines how much money
+      a business intends to spend on marketing activities over a
+      particular period. It can cover paid advertising, content creation,
+      search engine optimization, email campaigns, influencer partnerships,
+      market research, events and marketing software.
+    </p>
+    <p>
+      A well-organized budget helps a business set spending limits,
+      prioritize important channels, plan campaigns and review whether
+      marketing expenses are producing useful outcomes.
+    </p>
+
+    <h2>Marketing Budget Calculation Formulas</h2>
+
+    <h3>1. Total Marketing Budget</h3>
+    <span class="formula">Total Budget = Sum of All Planned Marketing Expenses</span>
+    <p>
+      Add the planned costs of every marketing activity included in
+      the budget period. Make sure recurring and one-time expenses
+      are not counted twice.
+    </p>
+
+    <h3>2. Revenue-Based Marketing Budget</h3>
+    <span class="formula">Marketing Budget = Business Revenue × Marketing Percentage ÷ 100</span>
+    <p>
+      This approach uses a chosen percentage of revenue to establish
+      a spending plan. The percentage should reflect business goals,
+      margins, growth stage and available cash.
+    </p>
+
+    <h3>3. Goal-Based Marketing Budget</h3>
+    <span class="formula">Required Budget = Target Customers × Target Customer Acquisition Cost</span>
+    <p>
+      This approach starts with a customer acquisition goal and an
+      estimated cost per customer. It is useful for scenario planning,
+      but the actual acquisition cost may be higher or lower.
+    </p>
+
+    <h3>4. Available Budget After Reserve</h3>
+    <span class="formula">Available Budget = Total Budget − Reserve Amount</span>
+    <span class="formula">Reserve Amount = Total Budget × Reserve Percentage ÷ 100</span>
+    <p>
+      A reserve can provide flexibility for unexpected expenses,
+      campaign opportunities or testing. It is not mandatory,
+      and the appropriate reserve depends on the business.
+    </p>
+
+    <h3>5. Channel Budget Allocation</h3>
+    <span class="formula">Channel Budget = Available Budget × Channel Allocation Percentage ÷ 100</span>
+    <p>
+      For example, if the available marketing budget is $9,000 and
+      search advertising receives 25%, its planned allocation is $2,250.
+    </p>
+
+    <h3>6. Budget Utilization</h3>
+    <span class="formula">Budget Utilization = (Actual Spending ÷ Planned Spending) × 100</span>
+    <p>
+      This percentage shows how much of the planned budget has been used.
+      A value above 100% indicates that actual spending has exceeded
+      the planned amount.
+    </p>
+
+    <h3>7. Cost Per Lead</h3>
+    <span class="formula">CPL = Lead Generation Spending ÷ Number of Leads</span>
+
+    <h3>8. Estimated Customer Acquisition Cost</h3>
+    <span class="formula">Estimated CAC = Lead Generation Spending ÷ Estimated Customers</span>
+
+    <h3>9. Estimated Marketing Revenue</h3>
+    <span class="formula">Estimated Revenue = Estimated Customers × Average Revenue Per Customer</span>
+
+    <h3>10. Revenue-to-Budget Ratio</h3>
+    <span class="formula">Revenue-to-Budget Ratio = Estimated Revenue ÷ Marketing Budget</span>
+    <p>
+      This is a simple revenue ratio. It should not be confused with
+      profit, contribution margin or a complete return-on-investment
+      calculation.
+    </p>
+
+    <h2>Worked Marketing Budget Example</h2>
+    <p>
+      Suppose a business has a marketing budget of $10,000 and decides
+      to reserve 10% for flexibility.
+    </p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Budget Item</th><th>Allocation</th><th>Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Total marketing budget</td><td>100%</td><td>$10,000</td></tr>
+          <tr><td>Reserve</td><td>10%</td><td>$1,000</td></tr>
+          <tr><td>Available for channels</td><td>90%</td><td>$9,000</td></tr>
+          <tr><td>Search advertising</td><td>25% of available</td><td>$2,250</td></tr>
+          <tr><td>Social media advertising</td><td>20% of available</td><td>$1,800</td></tr>
+          <tr><td>Content marketing</td><td>15% of available</td><td>$1,350</td></tr>
+          <tr><td>SEO</td><td>15% of available</td><td>$1,350</td></tr>
+          <tr><td>Email marketing</td><td>10% of available</td><td>$900</td></tr>
+          <tr><td>Influencer marketing</td><td>10% of available</td><td>$900</td></tr>
+          <tr><td>Other marketing</td><td>5% of available</td><td>$450</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to Allocate a Marketing Budget</h2>
+    <p>
+      There is no single channel allocation that works for every
+      company. A business should consider its customers, sales process,
+      product price, market competition and past campaign performance.
+    </p>
+
+    <h3>Search Advertising</h3>
+    <p>
+      Search advertising can help reach people who are actively looking
+      for products or services. Track clicks, qualified leads, sales
+      and acquisition costs rather than clicks alone.
+    </p>
+
+    <h3>Social Media Advertising</h3>
+    <p>
+      Social platforms can support awareness, engagement, lead generation
+      and sales. Performance depends on audience targeting, creative
+      quality, offer and campaign objective.
+    </p>
+
+    <h3>Content Marketing</h3>
+    <p>
+      Content marketing includes articles, videos, guides and other
+      useful resources. It may support long-term audience growth,
+      organic visibility and customer education.
+    </p>
+
+    <h3>Search Engine Optimization</h3>
+    <p>
+      SEO spending may include technical improvements, content,
+      research and website optimization. Results often take time
+      and should be evaluated over an appropriate period.
+    </p>
+
+    <h3>Email Marketing</h3>
+    <p>
+      Email marketing expenses can include software, automation,
+      creative work and campaign management. Measure clicks,
+      conversions, unsubscribes and attributed revenue.
+    </p>
+
+    <h3>Influencer Marketing</h3>
+    <p>
+      Influencer campaigns can involve creator fees, product samples,
+      production and partnership management. Agree on deliverables
+      and tracking methods before committing a budget.
+    </p>
+
+    <h2>How to Create a Practical Marketing Budget</h2>
+    <ol>
+      <li>Define the business objective, such as awareness, leads, sales or customer retention.</li>
+      <li>Choose the period covered by the budget.</li>
+      <li>Review revenue, cash flow, margins and available funds.</li>
+      <li>List all expected marketing expenses, including software and creative production.</li>
+      <li>Set a realistic total spending limit.</li>
+      <li>Allocate funds according to business priorities and evidence from previous campaigns.</li>
+      <li>Keep room for testing and unexpected expenses where appropriate.</li>
+      <li>Track actual spending against the approved plan.</li>
+      <li>Measure leads, conversions, customer acquisition costs and revenue.</li>
+      <li>Review the plan regularly and adjust allocations based on reliable results.</li>
+    </ol>
+
+    <h2>Marketing Budget Mistakes to Avoid</h2>
+    <ul>
+      <li><strong>Spending without a goal:</strong> Every major expense should support a defined business objective.</li>
+      <li><strong>Ignoring hidden costs:</strong> Include software, production, agency fees and other relevant expenses.</li>
+      <li><strong>Using the same allocation forever:</strong> Review channel performance and business priorities regularly.</li>
+      <li><strong>Focusing only on clicks:</strong> Clicks do not automatically create customers or revenue.</li>
+      <li><strong>Ignoring cash flow:</strong> A planned marketing expense should be affordable within the business's financial position.</li>
+      <li><strong>Confusing revenue with profit:</strong> Revenue generated by a campaign is not the same as profit after all costs.</li>
+      <li><strong>Making forecasts sound guaranteed:</strong> Lead and customer estimates are assumptions, not promises.</li>
+    </ul>
+
+    <h2>Marketing Budget vs Advertising Budget</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Marketing Budget</th><th>Advertising Budget</th></tr></thead>
+        <tbody>
+          <tr><td>Can include all marketing activities.</td><td>Usually focuses on paid media and placements.</td></tr>
+          <tr><td>May include SEO, content and email tools.</td><td>May include search, display and social ads.</td></tr>
+          <tr><td>Can include research, events and creative work.</td><td>Can include ad platform spend and media fees.</td></tr>
+          <tr><td>Supports broader marketing objectives.</td><td>Supports paid advertising campaigns.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-card">
+      <strong>Planning Disclaimer</strong>
+      <p style="margin-bottom:0;font-size:13px">
+        This calculator provides estimates based on the information
+        entered. It does not provide financial advice, guarantee campaign
+        results or determine the ideal budget for every business.
+        Review your own costs, margins, cash flow and business objectives.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details>
+        <summary>1. What is a marketing budget?</summary>
+        <p>A marketing budget is the amount a business plans to spend on marketing activities during a defined period. It may include advertising, SEO, content, email, software and partnerships.</p>
+      </details>
+      <details>
+        <summary>2. How do I calculate my marketing budget?</summary>
+        <p>Add the planned costs of your marketing activities. You can also estimate a budget using a percentage of revenue or by multiplying a customer acquisition target by an estimated acquisition cost.</p>
+      </details>
+      <details>
+        <summary>3. What percentage of revenue should I spend on marketing?</summary>
+        <p>There is no universal percentage. Your budget depends on your industry, margins, competition, growth goals, business maturity and available cash.</p>
+      </details>
+      <details>
+        <summary>4. How should I divide my marketing budget?</summary>
+        <p>Allocate funds according to your audience, objectives, channel performance and acquisition economics. Test spending decisions and review actual results before increasing budgets.</p>
+      </details>
+      <details>
+        <summary>5. What is the difference between marketing and advertising budgets?</summary>
+        <p>An advertising budget generally covers paid media. A marketing budget can also include SEO, content production, email tools, events, research and other marketing expenses.</p>
+      </details>
+      <details>
+        <summary>6. What is cost per lead?</summary>
+        <p>Cost per lead is the relevant lead-generation spending divided by the number of leads generated. Make sure the spending and lead figures refer to the same campaign and period.</p>
+      </details>
+      <details>
+        <summary>7. What is customer acquisition cost?</summary>
+        <p>Customer acquisition cost estimates how much it costs to acquire customers. A simple campaign-level calculation divides acquisition spending by the number of customers acquired.</p>
+      </details>
+      <details>
+        <summary>8. Why should I compare planned and actual marketing spending?</summary>
+        <p>It helps identify overspending, unused funds, unexpected expenses and opportunities to adjust future allocations.</p>
+      </details>
+      <details>
+        <summary>9. Can startups and small businesses use this calculator?</summary>
+        <p>Yes. Startups, freelancers, small businesses and larger companies can use it to organize marketing expenses and explore different budget scenarios.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Explore Related Calculators</h2>
+    <p>Use these tools to measure advertising costs, customer acquisition and campaign performance.</p>
+    <div class="related-grid">
+      <a class="related-card" href="/calculators/cpc-calculator.html">
+        <strong>CPC Calculator</strong>
+        <span>Calculate the average cost per advertising click.</span>
+      </a>
+      <a class="related-card" href="/calculators/cpa-calculator.html">
+        <strong>CPA Calculator</strong>
+        <span>Calculate the cost per acquisition.</span>
+      </a>
+      <a class="related-card" href="/calculators/cac-calculator.html">
+        <strong>CAC Calculator</strong>
+        <span>Estimate customer acquisition cost.</span>
+      </a>
+      <a class="related-card" href="/calculators/roas-calculator.html">
+        <strong>ROAS Calculator</strong>
+        <span>Measure advertising revenue against ad spend.</span>
+      </a>
+      <a class="related-card" href="/calculators/ltv-calculator.html">
+        <strong>LTV Calculator</strong>
+        <span>Estimate customer lifetime value.</span>
+      </a>
+      <a class="related-card" href="/calculators/business-marketing-calculators.html">
+        <strong>Business &amp; Marketing</strong>
+        <span>Explore more marketing and business tools.</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>CalcNest</strong>
+      <p>Free online calculators for everyday decisions and smarter planning.</p>
+    </div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container">
+    <p>© <span id="year"></span> CalcNest. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  const $=id=>document.getElementById(id);
+
+  const symbols={
+    USD:"$",EUR:"€",GBP:"£",PKR:"Rs ",INR:"₹",
+    CAD:"C$",AUD:"A$",AED:"AED ",SAR:"SAR "
+  };
+
+  let currentBudget=10000;
+  let availableBudget=9000;
+  let reserveAmount=1000;
+  let lastPlan="";
+
+  const channelIds=[
+    "search","social","content","seo","email","influencer","other"
+  ];
+
+  function value(id){
+    return Number($(id).value);
+  }
+
+  function valid(id){
+    const n=value(id);
+    return Number.isFinite(n)&&n>=0;
+  }
+
+  function validWhole(id){
+    const n=value(id);
+    return Number.isSafeInteger(n)&&n>=0;
+  }
+
+  function format(n,digits=2){
+    return new Intl.NumberFormat("en-US",{
+      maximumFractionDigits:digits,
+      minimumFractionDigits:0
+    }).format(n);
+  }
+
+  function money(n){
+    const currency=$("currency").value;
+    const symbol=symbols[currency]||currency+" ";
+    return symbol+format(n,2);
+  }
+
+  function showError(id,message){
+    $(id).textContent=message;
+    $(id).style.display="block";
+  }
+
+  function clearError(id){
+    $(id).textContent="";
+    $(id).style.display="none";
+  }
+
+  function updateMethod(){
+    const method=$("planningMethod").value;
+    $("manualFields").hidden=method!=="manual";
+    $("revenueFields").hidden=method!=="revenue";
+    $("goalFields").hidden=method!=="goal";
+    clearError("budgetError");
+  }
+
+  function calculateBudget(){
+    clearError("budgetError");
+
+    const method=$("planningMethod").value;
+    const reservePercent=value("reservePercent");
+
+    if(!valid("reservePercent")||reservePercent>100){
+      showError("budgetError","Reserve percentage must be between 0 and 100.");
+      return false;
+    }
+
+    let total=0;
+    let period="Monthly";
+
+    if(method==="manual"){
+      if(!valid("manualBudget")){
+        showError("budgetError","Enter a valid non-negative marketing budget.");
+        return false;
+      }
+      total=value("manualBudget");
+      period=$("manualPeriod").value;
+    }
+
+    if(method==="revenue"){
+      if(!valid("businessRevenue")||
+         !valid("revenuePercentage")||
+         value("revenuePercentage")>100){
+        showError("budgetError","Enter valid revenue and a marketing percentage between 0 and 100.");
+        return false;
+      }
+
+      total=value("businessRevenue")*value("revenuePercentage")/100;
+      period=$("revenuePeriod").value;
+    }
+
+    if(method==="goal"){
+      if(!validWhole("targetCustomers")||!valid("targetCAC")){
+        showError("budgetError","Enter a valid whole-number customer target and non-negative acquisition cost.");
+        return false;
+      }
+
+      total=value("targetCustomers")*value("targetCAC");
+      period=$("goalPeriod").value;
+    }
+
+    currentBudget=total;
+    reserveAmount=total*reservePercent/100;
+    availableBudget=total-reserveAmount;
+
+    $("totalResult").textContent=money(total);
+    $("availableResult").textContent=money(availableBudget);
+    $("reserveResult").textContent=money(reserveAmount);
+
+    $("budgetNote").textContent=
+      "Your calculated "+period.toLowerCase()+" marketing budget is "+
+      money(total)+". The available channel budget is "+money(availableBudget)+
+      " after keeping "+format(reservePercent)+"% in reserve.";
+
+    updateAllocationDisplay();
+    lastPlan=buildPlanText();
+
+    return true;
+  }
+
+  function allocationValues(){
+    return channelIds.map(id=>({
+      id,
+      percent:value("channel-"+id)
+    }));
+  }
+
+  function updateAllocationDisplay(){
+    const allocations=allocationValues();
+    const totalPercent=allocations.reduce((sum,item)=>sum+item.percent,0);
+
+    $("allocationTotal").textContent=format(totalPercent,2)+"%";
+    $("allocationBudget").textContent=money(availableBudget);
+
+    allocations.forEach(item=>{
+      const amount=availableBudget*item.percent/100;
+      const amountElement=document.querySelector('[data-channel="'+item.id+'"]');
+      const fillElement=document.querySelector('[data-fill="'+item.id+'"]');
+
+      amountElement.textContent=money(amount);
+      fillElement.style.width=Math.min(item.percent,100)+"%";
+    });
+
+    const isComplete=Math.abs(totalPercent-100)<0.000001;
+    $("allocationNote").textContent=isComplete
+      ?"Your channel allocations add up to 100% of the available budget."
+      :"Your channel allocations currently add up to "+format(totalPercent,2)+"%. Adjust them to reach exactly 100%.";
+  }
+
+  function updateAllocation(){
+    clearError("allocationError");
+
+    for(const id of channelIds){
+      if(!valid("channel-"+id)||value("channel-"+id)>100){
+        showError("allocationError","Each channel allocation must be between 0 and 100.");
+        return;
+      }
+    }
+
+    const total=allocationValues().reduce((sum,item)=>sum+item.percent,0);
+
+    if(Math.abs(total-100)>0.000001){
+      showError("allocationError","Your channel allocations must total exactly 100%. Current total: "+format(total,2)+"%.");
+      return;
+    }
+
+    updateAllocationDisplay();
+    lastPlan=buildPlanText();
+  }
+
+  function equalAllocation(){
+    const base=100/channelIds.length;
+    let assigned=0;
+
+    channelIds.forEach((id,index)=>{
+      const amount=index===channelIds.length-1
+        ?100-assigned
+        :Number(base.toFixed(4));
+
+      $("channel-"+id).value=amount;
+      assigned+=amount;
+    });
+
+    clearError("allocationError");
+    updateAllocationDisplay();
+    updateAllocation();
+  }
+
+  function compareSpending(){
+    clearError("spendingError");
+
+    if(!valid("plannedSpend")||!valid("actualSpend")){
+      showError("spendingError","Enter valid non-negative planned and actual spending amounts.");
+      return;
+    }
+
+    const planned=value("plannedSpend");
+    const actual=value("actualSpend");
+
+    const difference=planned-actual;
+    const utilization=planned>0?actual/planned*100:null;
+
+    $("remainingSpend").textContent=money(difference);
+    $("budgetUsed").textContent=utilization===null?"N/A":format(utilization)+"%";
+    $("spendingDifference").textContent=(difference>0?"+":"")+money(difference);
+
+    if(difference>0){
+      $("spendingNote").textContent="You are under budget by "+money(difference)+".";
+    }else if(difference<0){
+      $("spendingNote").textContent="You are over budget by "+money(Math.abs(difference))+". Review the additional spending.";
+    }else{
+      $("spendingNote").textContent="Actual spending exactly matches the planned budget.";
+    }
+
+    if(planned===0&&actual>0){
+      $("spendingNote").textContent="You have actual spending but no planned budget entered.";
+    }
+
+    lastPlan=buildPlanText();
+  }
+
+  function forecast(){
+    clearError("forecastError");
+
+    const ids=["leadBudget","cpl","leadConversion","customerRevenue"];
+
+    if(!ids.every(valid)){
+      showError("forecastError","Enter valid non-negative numbers for all forecast fields.");
+      return;
+    }
+
+    if(value("leadConversion")>100){
+      showError("forecastError","Lead-to-customer conversion rate cannot exceed 100%.");
+      return;
+    }
+
+    const budget=value("leadBudget");
+    const cpl=value("cpl");
+    const conversion=value("leadConversion");
+    const revenuePerCustomer=value("customerRevenue");
+
+    if(cpl===0&&budget>0){
+      showError("forecastError","Cost per lead must be greater than zero when the lead budget is positive.");
+      return;
+    }
+
+    const leads=cpl>0?budget/cpl:0;
+    const customers=leads*conversion/100;
+    const revenue=customers*revenuePerCustomer;
+    const cac=customers>0?budget/customers:null;
+    const ratio=budget>0?revenue/budget:null;
+    const difference=revenue-budget;
+
+    $("forecastLeads").textContent=format(leads,2);
+    $("forecastCustomers").textContent=format(customers,2);
+    $("forecastRevenue").textContent=money(revenue);
+    $("forecastCAC").textContent=cac===null?"N/A":money(cac);
+    $("forecastRatio").textContent=ratio===null?"N/A":format(ratio,2)+"x";
+    $("forecastDifference").textContent=(difference>0?"+":"")+money(difference);
+
+    lastPlan=buildPlanText();
+  }
+
+  function buildPlanText(){
+    const lines=[
+      "CALCNEST - MARKETING BUDGET PLAN",
+      "Total budget: "+money(currentBudget),
+      "Available budget: "+money(availableBudget),
+      "Reserve: "+money(reserveAmount),
+      "",
+      "CHANNEL ALLOCATION"
+    ];
+
+    allocationValues().forEach(item=>{
+      lines.push(
+        item.id.toUpperCase()+": "+
+        format(item.percent,2)+"% = "+
+        money(availableBudget*item.percent/100)
+      );
+    });
+
+    lines.push(
+      "",
+      "PLANNED VS ACTUAL SPENDING",
+      "Planned: "+money(value("plannedSpend")),
+      "Actual: "+money(value("actualSpend")),
+      "",
+      "FORECAST",
+      "Estimated leads: "+$("forecastLeads").textContent,
+      "Estimated customers: "+$("forecastCustomers").textContent,
+      "Estimated revenue: "+$("forecastRevenue").textContent,
+      "",
+      "Estimates are based on entered assumptions and are not guaranteed."
+    );
+
+    return lines.join("\n");
+  }
+
+  $("planningMethod").addEventListener("change",()=>{
+    updateMethod();
+  });
+
+  $("generateBudget").addEventListener("click",calculateBudget);
+
+  $("currency").addEventListener("change",()=>{
+    if(calculateBudget()){
+      compareSpending();
+      forecast();
+    }
+  });
+
+  $("reservePercent").addEventListener("input",()=>{
+    if(calculateBudget())updateAllocationDisplay();
+  });
+
+  $("updateAllocation").addEventListener("click",updateAllocation);
+
+  $("equalAllocation").addEventListener("click",equalAllocation);
+
+  document.querySelectorAll(".allocation").forEach(input=>{
+    input.addEventListener("input",()=>{
+      clearError("allocationError");
+      updateAllocationDisplay();
+    });
+  });
+
+  $("compareSpend").addEventListener("click",compareSpending);
+  $("forecastBtn").addEventListener("click",forecast);
+
+  $("copyPlan").addEventListener("click",async()=>{
+    const text=buildPlanText();
+    try{
+      await navigator.clipboard.writeText(text);
+      $("copyStatus").textContent="Budget plan copied!";
+    }catch(error){
+      $("copyStatus").textContent="Clipboard access unavailable in this browser.";
+    }
+  });
+
+  $("resetBudget").addEventListener("click",()=>{
+    const defaults={
+      manualBudget:10000,
+      manualPeriod:"Monthly",
+      businessRevenue:100000,
+      revenuePeriod:"Monthly",
+      revenuePercentage:8,
+      targetCustomers:100,
+      targetCAC:50,
+      goalPeriod:"Monthly",
+      reservePercent:10,
+      plannedSpend:9000,
+      actualSpend:7200,
+      leadBudget:3000,
+      cpl:15,
+      leadConversion:10,
+      customerRevenue:150
+    };
+
+    Object.entries(defaults).forEach(([id,value])=>$(id).value=value);
+
+    const percentages=[25,20,15,15,10,10,5];
+    channelIds.forEach((id,index)=>{
+      $("channel-"+id).value=percentages[index];
+    });
+
+    $("planningMethod").value="manual";
+    $("currency").value="USD";
+
+    updateMethod();
+    calculateBudget();
+    updateAllocation();
+    compareSpending();
+    forecast();
+
+    clearError("budgetError");
+    clearError("allocationError");
+    clearError("spendingError");
+    clearError("forecastError");
+    $("copyStatus").textContent="";
+  });
+
+  document.querySelectorAll("input").forEach(input=>{
+    input.addEventListener("keydown",event=>{
+      if(event.key==="Enter"){
+        if(input.classList.contains("allocation"))updateAllocation();
+        else if(input.closest("#forecastBtn"))forecast();
+        else calculateBudget();
+      }
+    });
+  });
+
+  $("year").textContent=new Date().getFullYear();
+
+  updateMethod();
+  calculateBudget();
+  updateAllocation();
+  compareSpending();
+  forecast();
+})();
+</script>
+</body>
+</html>
