@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Days Calculator - Working Days Between Dates | CalcNest</title>
+<meta name="description" content="Calculate business days between two dates. Exclude weekends and add custom public holidays to estimate working days for deadlines, projects and schedules.">
+<meta name="keywords" content="business days calculator, working days calculator, weekdays between dates, calculate business days, exclude weekends, workday calculator">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/business-days-calculator.html">
+<meta property="og:title" content="Business Days Calculator | CalcNest">
+<meta property="og:description" content="Count weekdays between dates while excluding weekends and your selected holidays.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/business-days-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Business Days Calculator","url":"https://calcnest-7s6.pages.dev/calculators/business-days-calculator.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Calculate business days between dates, excluding weekends and custom holidays.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What are business days?","acceptedAnswer":{"@type":"Answer","text":"Business days commonly mean Monday through Friday, excluding Saturdays, Sundays and applicable public holidays."}},
+{"@type":"Question","name":"Does this calculator exclude weekends?","acceptedAnswer":{"@type":"Answer","text":"Yes. Saturdays and Sundays are excluded from the business-day count."}},
+{"@type":"Question","name":"Can I add public holidays?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter your holiday dates in YYYY-MM-DD format. Dates falling on weekdays are excluded from the count."}},
+{"@type":"Question","name":"Is the start date included?","acceptedAnswer":{"@type":"Answer","text":"The calculator lets you choose whether to include the start date in the date range."}},
+{"@type":"Question","name":"Does it know holidays in every country?","acceptedAnswer":{"@type":"Answer","text":"No. Public holidays vary by country and region. Enter the relevant dates yourself for a more accurate estimate."}}
+]}
+</script>
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;--shadow:0 12px 35px rgba(25,45,85,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.65}a{color:var(--blue);text-decoration:none}button,input,textarea{font:inherit}
+header{position:sticky;top:0;background:#ffffffef;border-bottom:1px solid var(--line);z-index:5}.nav{max-width:1100px;margin:auto;padding:15px 22px;display:flex;justify-content:space-between;gap:20px;align-items:center}.brand{font-size:25px;font-weight:800;color:var(--ink)}.brand span{color:var(--blue)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}
+.container{width:min(1050px,calc(100% - 32px));margin:auto}.crumb{padding:20px 0 5px;font-size:13px;color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:25px 0 38px}.tag{background:#edf2ff;color:var(--blue);padding:7px 12px;border-radius:25px;font-size:12px;font-weight:bold}h1{font-size:clamp(34px,5vw,48px);line-height:1.12;letter-spacing:-1px;margin:17px 0}.hero p{color:var(--muted);font-size:17px}.hero img{width:100%;height:250px;object-fit:cover;border-radius:17px;box-shadow:var(--shadow)}
+.card{border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow);margin-bottom:48px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}.field input,.field textarea{width:100%;padding:12px;border:1px solid #dce3ef;border-radius:9px;background:white;color:var(--ink)}.field textarea{min-height:100px;resize:vertical}.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.check{display:flex;gap:10px;align-items:flex-start;background:var(--soft);padding:13px;border:1px solid var(--line);border-radius:10px;margin:16px 0}.check input{margin-top:5px;accent-color:var(--blue)}.check label{font-size:13px;color:var(--muted)}.check strong{display:block;color:var(--ink)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.btn{border:0;border-radius:9px;padding:12px 20px;font-weight:bold;cursor:pointer}.primary{background:linear-gradient(110deg,var(--blue),var(--purple));color:white}.secondary{background:#edf1f8;color:#42516b}
+.error{display:none;background:#fff0f1;color:#a51e2b;padding:12px;border-radius:9px;margin-top:14px}.results{display:none;border-top:1px solid var(--line);margin-top:25px;padding-top:22px}.results.show{display:block}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{background:#f8faff;border:1px solid var(--line);padding:17px;border-radius:12px}.tile strong{display:block;font-size:27px}.tile span{font-size:12px;color:var(--muted)}.tile.main{background:linear-gradient(120deg,var(--blue),var(--purple));color:white}.tile.main span{color:#e4e8ff}.summary{margin-top:15px;padding:15px;background:var(--soft);border-radius:10px;font-size:14px;color:#42516b}
+.content{border-top:1px solid var(--line);padding:32px 0}.content p,.content li{color:#52617a;font-size:15px}.content h2{font-size:26px}.content h3{font-size:19px;margin:23px 0 7px}.formula{padding:15px;background:#f2f5ff;border-left:4px solid var(--blue);margin:15px 0;font-weight:bold;color:#263c70}.faq{padding:14px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.related{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related a{padding:15px;border:1px solid var(--line);border-radius:10px;color:var(--ink)}.related span{display:block;font-size:13px;color:var(--muted)}.note{padding:15px;background:#f8faff;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
+footer{margin-top:30px;background:#f7f9fd;padding:25px 0;color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:700px){.nav{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr}.hero img{height:210px}.card{padding:19px}.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.grid,.related{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.btn{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+<main class="container">
+<div class="crumb"><a href="/">Home</a> / <a href="/calculators/date-time-calculators.html">Date &amp; Time</a> / Business Days Calculator</div>
+<section class="hero"><div><span class="tag">Free Working Day Calculator</span><h1>Business Days Calculator</h1><p>Count the working days between two dates. Exclude Saturdays, Sundays and your own public holiday dates to plan business deadlines, deliveries, projects and schedules.</p></div><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000" alt="Business planning and work schedule on a desk" width="1000" height="600" fetchpriority="high"></section>
+
+<section class="card">
+<h2>Calculate Business Days Between Dates</h2>
+<p class="hint">Select a date range and optionally add holidays to exclude.</p>
+<div class="grid">
+<div class="field"><label for="start">Start Date</label><input type="date" id="start"></div>
+<div class="field"><label for="end">End Date</label><input type="date" id="end"></div>
+</div>
+<div class="field" style="margin-top:18px"><label for="holidays">Custom Holidays (optional)</label><textarea id="holidays" placeholder="2026-12-25&#10;2027-01-01&#10;2027-03-23"></textarea><div class="hint">Enter one date per line or separate dates with commas. Format: YYYY-MM-DD.</div></div>
+<div class="check"><input type="checkbox" id="includeStart" checked><label for="includeStart"><strong>Include the start date</strong>Count the start date if it is a weekday and is not listed as a holiday.</label></div>
+<div class="actions"><button class="btn primary" id="calc">Calculate Business Days</button><button class="btn secondary" id="today">Use Today</button><button class="btn secondary" id="reset">Reset</button></div>
+<div class="error" id="error" role="alert"></div>
+<div class="results" id="results" aria-live="polite">
+<h2>Your Results</h2><div class="tiles">
+<div class="tile main"><strong id="business">—</strong><span>Business days</span></div>
+<div class="tile"><strong id="calendar">—</strong><span>Calendar days in range</span></div>
+<div class="tile"><strong id="weekends">—</strong><span>Weekend days</span></div>
+<div class="tile"><strong id="holidayCount">—</strong><span>Weekday holidays excluded</span></div>
+<div class="tile"><strong id="weeks">—</strong><span>Full calendar weeks</span></div>
+<div class="tile"><strong id="weekendCount">—</strong><span>Saturday and Sunday count</span></div>
+</div><div class="summary" id="summary"></div><div class="actions"><button class="btn secondary" id="copy">Copy Results</button></div>
+</div>
+</section>
+
+<section class="content">
+<h2>What Is a Business Days Calculator?</h2>
+<p>A business days calculator counts the weekdays within a date range while excluding non-working days. In many workplaces, a standard business week runs from Monday to Friday, while Saturday and Sunday are treated as weekends.</p>
+<p>Business-day calculations are useful for invoice terms, delivery estimates, application processing, customer support schedules, project timelines, banking estimates and office planning. Actual working calendars can differ by country, employer and industry.</p>
+<h2>How to Use This Calculator</h2>
+<ol><li>Choose the start date and end date.</li><li>Enter any public holidays or company holidays you want to exclude.</li><li>Choose whether the start date should be included.</li><li>Select Calculate Business Days.</li><li>Review business days, weekends, holidays and total calendar days.</li></ol>
+<h2>Business Days Calculation Formula</h2>
+<div class="formula">Business Days = Weekdays in the selected range − Weekday holidays</div>
+<p>The calculator checks each calendar date in the selected range. Monday through Friday are counted as potential business days. Saturdays, Sundays and matching custom holiday dates are excluded. A holiday that falls on a weekend does not reduce the weekday count a second time.</p>
+<h3>Example</h3>
+<p>Suppose a date range includes 10 calendar dates, with two weekend dates and one weekday holiday. The result is 7 business days, assuming the start date is included.</p>
+<div class="formula">10 calendar days − 2 weekend days − 1 weekday holiday = 7 business days</div>
+<h2>Calendar Days vs. Business Days</h2>
+<p>Calendar days count every date, including weekends and holidays. Business days generally count Monday through Friday, excluding applicable holidays. For example, a five-calendar-day period may contain only three or four weekdays depending on which day it begins.</p>
+<h2>Why Custom Holidays Matter</h2>
+<p>Public holidays are not the same everywhere. Countries, states, provinces, banks, schools and private employers can follow different holiday calendars. Adding the dates relevant to your situation makes the estimate more useful.</p>
+<p>For an observed holiday that moves to a nearby weekday, enter the actual date your workplace observes rather than assuming the calendar date is always the day off.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><h3>1. What are business days?</h3><p>Business days commonly mean Monday through Friday, excluding weekends and applicable holidays.</p></div>
+<div class="faq"><h3>2. Does this calculator exclude Saturdays and Sundays?</h3><p>Yes. Both Saturday and Sunday are excluded automatically.</p></div>
+<div class="faq"><h3>3. Can I enter my country's public holidays?</h3><p>Yes. Add the relevant holiday dates in YYYY-MM-DD format. The calculator does not automatically download country-specific holiday calendars.</p></div>
+<div class="faq"><h3>4. Are holidays falling on weekends counted?</h3><p>A holiday on Saturday or Sunday is already excluded as a weekend. It is not deducted again as a weekday holiday.</p></div>
+<div class="faq"><h3>5. Is the start date included?</h3><p>By default, yes. You can turn off the start-date option to begin counting from the following date.</p></div>
+<div class="faq"><h3>6. Does it support different workweeks?</h3><p>This version uses a Monday-to-Friday workweek. It does not support rotating shifts or workweeks with Friday and Saturday weekends.</p></div>
+<div class="faq"><h3>7. Can I use it for legal or contract deadlines?</h3><p>Use caution. Official deadline rules may define working days differently and may include special rules for holidays, cut-off times and local jurisdictions.</p></div>
+<div class="faq"><h3>8. Is the calculator free?</h3><p>Yes. You can use this CalcNest calculator without registration or payment.</p></div>
+</section>
+
+<section class="content"><h2>Related Date &amp; Time Calculators</h2><div class="related">
+<a href="/calculators/date-difference-calculator.html"><strong>Date Difference Calculator</strong><span>Find the exact number of days between dates.</span></a>
+<a href="/calculators/days-until-date-calculator.html"><strong>Days Until Date Calculator</strong><span>Calculate days remaining before an event.</span></a>
+<a href="/calculators/add-days-calculator.html"><strong>Add Days to Date Calculator</strong><span>Find a future or past date.</span></a>
+<a href="/calculators/date-time-calculators.html"><strong>All Date &amp; Time Calculators</strong><span>Explore the complete category.</span></a>
+</div></section>
+<section class="content"><h2>Important Note</h2><div class="note">This calculator provides a general Monday-to-Friday estimate. It does not automatically know official public holidays, substitute holidays, regional rules, employer schedules or legal deadline conventions. Verify important deadlines with the relevant organization.</div></section>
+</main>
+<footer><div class="container foot"><strong>CalcNest — Free Online Calculators</strong><span><a href="/">Home</a> · <a href="/calculators/">Calculators</a></span><span>© <span id="year"></span> CalcNest</span></div></footer>
+<script>
+(function(){
+const $=id=>document.getElementById(id),DAY=86400000;
+const pad=n=>String(n).padStart(2,"0");
+const ds=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+function parse(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s||""))return null;let p=s.split("-").map(Number),d=new Date(Date.UTC(p[0],p[1]-1,p[2]));return d.getUTCFullYear()===p[0]&&d.getUTCMonth()===p[1]-1&&d.getUTCDate()===p[2]?d:null}
+function fmt(d){return d.toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"})}
+function run(){
+ $("error").style.display="none";$("results").classList.remove("show");
+ let s=parse($("start").value),e=parse($("end").value);
+ if(!s||!e){$("error").textContent="Please select valid start and end dates.";$("error").style.display="block";return}
+ if(s>e){$("error").textContent="The end date must be on or after the start date.";$("error").style.display="block";return}
+ let holidays=new Set(),invalid=[];
+ $("holidays").value.split(/[\s,;]+/).filter(Boolean).forEach(v=>{if(parse(v))holidays.add(v);else invalid.push(v)});
+ if(invalid.length){$("error").textContent="Invalid holiday date(s): "+invalid.join(", ")+". Use YYYY-MM-DD.";$("error").style.display="block";return}
+ let total=0,weekends=0,holidayDays=0,business=0;
+ let cur=new Date(s),include=$("includeStart").checked;
+ while(cur<=e){
+  let key=cur.toISOString().slice(0,10),dow=cur.getUTCDay(),isWeekend=dow===0||dow===6;
+  total++;
+  if(isWeekend)weekends++;
+  else if(holidays.has(key))holidayDays++;
+  else if(include||cur.getTime()!==s.getTime())business++;
+  cur=new Date(cur.getTime()+DAY);
+ }
+ let calendarCount=total-(include?0:1);
+ $("business").textContent=business.toLocaleString();
+ $("calendar").textContent=calendarCount.toLocaleString();
+ $("weekends").textContent=weekends.toLocaleString();
+ $("holidayCount").textContent=holidayDays.toLocaleString();
+ $("weeks").textContent=Math.floor(calendarCount/7);
+ $("weekendCount").textContent=weekends.toLocaleString();
+ $("summary").innerHTML="<p><strong>Date range:</strong> "+fmt(s)+" to "+fmt(e)+"</p><p><strong>Custom holiday dates entered:</strong> "+holidays.size+"</p><p><strong>Weekday holidays excluded in range:</strong> "+holidayDays+"</p><p><strong>Start date included:</strong> "+(include?"Yes":"No")+"</p>";
+ $("results").classList.add("show");
+}
+$("calc").addEventListener("click",run);
+$("today").addEventListener("click",()=>{$("start").value=ds(new Date());run()});
+$("reset").addEventListener("click",()=>{$("start").value=ds(new Date());$("end").value="";$("holidays").value="";$("includeStart").checked=true;$("results").classList.remove("show");$("error").style.display="none"});
+$("copy").addEventListener("click",async()=>{let t="CalcNest Business Days Results\nStart: "+$("start").value+"\nEnd: "+$("end").value+"\nBusiness days: "+$("business").textContent+"\nCalendar days: "+$("calendar").textContent+"\nWeekend days: "+$("weekends").textContent+"\nWeekday holidays excluded: "+$("holidayCount").textContent;try{await navigator.clipboard.writeText(t);$("copy").textContent="Copied!"}catch(e){$("copy").textContent="Copy unavailable"}setTimeout(()=>$("copy").textContent="Copy Results",1500)});
+$("year").textContent=new Date().getFullYear();$("start").value=ds(new Date());let future=new Date();future.setDate(future.getDate()+30);$("end").value=ds(future);run();
+})();
+</script>
+</body>
+</html>
