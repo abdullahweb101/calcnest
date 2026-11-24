@@ -2,55 +2,1431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fuel Economy Converter - MPG, km/L & L/100km | CalcNest</title>
-<meta name="description" content="Convert fuel economy between km/L, liters per 100 kilometers, US MPG and UK MPG. Free online fuel consumption converter for cars and vehicles.">
-<meta name="keywords" content="fuel economy converter, MPG to km/L, km/L to MPG, L/100km to MPG, US MPG, UK MPG, fuel consumption converter">
-<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/fuel-economy-converter.html"><meta name="robots" content="index,follow">
-<meta property="og:title" content="Fuel Economy Converter | CalcNest"><meta property="og:description" content="Convert MPG, km/L and L/100km for vehicle fuel economy."><meta property="og:type" content="website">
-<style>
-:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--line:#e8edf5}*{box-sizing:border-box}body{margin:0;font:16px/1.65 Arial;color:var(--ink)}a{text-decoration:none;color:inherit}header{border-bottom:1px solid var(--line);position:sticky;top:0;background:#ffffffed;z-index:5}.nav,.container{width:min(1080px,calc(100% - 32px));margin:auto}.nav{padding:15px 0;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-size:25px;font-weight:800}.brand span{color:var(--blue)}nav{display:flex;gap:17px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}.hero{padding:40px 0 22px}.tag{background:#edf2ff;color:var(--blue);padding:5px 12px;border-radius:30px;font-size:12px;font-weight:bold}h1{font-size:clamp(32px,5vw,46px);line-height:1.15;margin:14px 0}.hero p,.section p,.section li{color:var(--muted)}.panel{padding:25px;border:1px solid var(--line);border-radius:17px;box-shadow:0 12px 35px #192d550d;margin:18px 0}.grid{display:grid;grid-template-columns:1fr 55px 1fr;gap:13px;align-items:end}label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}input,select{width:100%;padding:13px;border:1px solid #dce3ef;border-radius:10px;font:inherit;color:var(--ink);background:white}.swap{height:47px;border:0;border-radius:10px;background:#edf2ff;color:var(--blue);font-size:22px;cursor:pointer}.result{margin-top:18px;padding:19px;border-radius:12px;background:linear-gradient(120deg,#edf2ff,#f5f1ff)}.result small{font-weight:bold;color:#596987}.result strong{display:block;font-size:clamp(23px,4vw,34px);color:#254fd0;overflow-wrap:anywhere}.result p{font-size:13px;color:var(--muted);margin:4px 0}.actions,.quick,.links{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:9px;padding:11px 16px;background:var(--blue);color:white;font-weight:bold;cursor:pointer}.btn.alt,.quick button{background:#edf2ff;color:var(--blue)}.quick button{border:1px solid var(--line);border-radius:20px;padding:7px 12px;cursor:pointer}.section{padding:22px 0;border-bottom:1px solid var(--line)}h2{font-size:25px;margin:0 0 9px}h3{font-size:18px;margin:18px 0 6px}.formula,.note{padding:14px;background:#f2f5ff;border-left:4px solid var(--blue);border-radius:8px;margin:13px 0;color:#34486e}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{border:1px solid var(--line);background:#fbfcff;border-radius:11px;padding:14px}.card a{color:var(--blue);font-weight:bold}.faq{padding:13px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.links a{border:1px solid var(--line);padding:9px 12px;border-radius:8px;color:var(--blue);font-size:13px;font-weight:bold}footer{margin-top:30px;padding:23px 0;background:#f7f9fd;color:var(--muted);font-size:13px}table{border-collapse:collapse;width:100%;margin:15px 0}td,th{padding:10px;border:1px solid var(--line);text-align:left}th{background:#f5f7fc}@media(max-width:650px){.nav{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.swap{height:39px}.cards{grid-template-columns:1fr 1fr}.panel{padding:17px}}@media(max-width:430px){.cards{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Fuel Economy Converter - MPG, km/L & L/100km | CalcNest</title>
+  <meta name="description" content="Convert fuel economy between US MPG, UK MPG, kilometers per liter and liters per 100 kilometers. Free online fuel consumption converter with formulas, examples and instant results.">
+  <meta name="keywords" content="fuel economy converter, MPG converter, miles per gallon converter, US MPG to L/100km, UK MPG converter, km per liter converter, L/100km to MPG, fuel consumption calculator">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/fuel-economy-converter.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fuel Economy Converter - MPG, km/L & L/100km | CalcNest">
+  <meta property="og:description" content="Convert US MPG, UK MPG, km/L and L/100km with this free online fuel economy converter.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/fuel-economy-converter.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fuel Economy Converter | CalcNest">
+  <meta name="twitter:description" content="Convert MPG, km/L and L/100km instantly with the free CalcNest tool.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"CalcNest Fuel Economy Converter",
+    "url":"https://calcnest-7s6.pages.dev/calculators/fuel-economy-converter.html",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "description":"A free fuel economy converter for US MPG, UK MPG, kilometers per liter and liters per 100 kilometers.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"What is the difference between MPG and L/100km?",
+        "acceptedAnswer":{"@type":"Answer","text":"MPG measures the distance a vehicle travels per gallon of fuel. L/100km measures the liters of fuel consumed over 100 kilometers. Higher MPG generally means better fuel economy, while lower L/100km generally means better fuel economy."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is the difference between US MPG and UK MPG?",
+        "acceptedAnswer":{"@type":"Answer","text":"US MPG uses the smaller US liquid gallon, while UK MPG uses the larger Imperial gallon. The same vehicle and fuel consumption therefore have different numerical MPG values in the two systems."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you convert US MPG to L/100km?",
+        "acceptedAnswer":{"@type":"Answer","text":"Divide 235.214583 by US MPG to obtain liters per 100 kilometers."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you convert UK MPG to L/100km?",
+        "acceptedAnswer":{"@type":"Answer","text":"Divide approximately 282.480936 by UK MPG to obtain liters per 100 kilometers."}
+      },
+      {
+        "@type":"Question",
+        "name":"How do you convert km/L to L/100km?",
+        "acceptedAnswer":{"@type":"Answer","text":"Divide 100 by the kilometers per liter value. For example, 12.5 km/L equals 8 L/100km."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is higher MPG better?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. A higher MPG figure generally means a vehicle travels farther using the same amount of fuel. By contrast, lower L/100km generally indicates better fuel economy."}
+      },
+      {
+        "@type":"Question",
+        "name":"What is a good fuel economy?",
+        "acceptedAnswer":{"@type":"Answer","text":"Fuel economy varies by vehicle size, engine, fuel type, driving conditions and testing method. Compare vehicles in the same unit and under comparable conditions."}
+      },
+      {
+        "@type":"Question",
+        "name":"Is the CalcNest Fuel Economy Converter free?",
+        "acceptedAnswer":{"@type":"Answer","text":"Yes. The CalcNest Fuel Economy Converter is free to use online and does not require registration."}
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.7;
+    }
+
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    button,input,select{font:inherit}
+
+    .container{
+      width:min(1120px,calc(100% - 36px));
+      margin:auto;
+    }
+
+    .topbar{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      color:var(--ink);
+      font-size:23px;
+      font-weight:800;
+      letter-spacing:-.7px;
+    }
+
+    .brand span{color:var(--blue)}
+
+    .navlinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:22px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .navlinks a{color:#42516a}
+
+    .breadcrumbs{
+      padding:20px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .breadcrumbs a{color:var(--muted)}
+
+    .hero{padding:26px 0 22px}
+
+    .eyebrow{
+      color:var(--blue);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:9px 0 13px;
+      font-size:clamp(31px,5vw,48px);
+      line-height:1.12;
+      letter-spacing:-1.5px;
+    }
+
+    .hero p{
+      max-width:820px;
+      margin:0;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .hero-image{
+      display:block;
+      width:100%;
+      height:270px;
+      margin-top:24px;
+      border-radius:var(--radius);
+      object-fit:cover;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);
+      gap:24px;
+      align-items:start;
+      margin:24px 0 42px;
+    }
+
+    .panel,.side-card,.content-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .panel{padding:26px}
+
+    .panel h2,.content-card h2{
+      margin:0 0 8px;
+      font-size:23px;
+      line-height:1.3;
+    }
+
+    .sub{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    label{
+      display:block;
+      margin:0 0 7px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    input,select{
+      width:100%;
+      min-height:48px;
+      padding:11px 13px;
+      border:1px solid #dce3ef;
+      border-radius:11px;
+      background:#fff;
+      color:var(--ink);
+      outline:none;
+    }
+
+    input:focus,select:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.12);
+    }
+
+    .fields{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field{min-width:0}
+
+    .swapline{
+      display:flex;
+      justify-content:center;
+      margin:15px 0;
+    }
+
+    .swapbtn,.action,.quick button{
+      border:0;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    .swapbtn{
+      padding:9px 16px;
+      background:#edf1ff;
+      color:var(--blue);
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .action{padding:11px 17px}
+
+    .action.primary{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .action.secondary{
+      background:#edf1ff;
+      color:var(--blue);
+    }
+
+    .action.gray{
+      background:#f0f2f6;
+      color:#42516a;
+    }
+
+    .result{
+      margin-top:22px;
+      padding:20px;
+      border:1px solid #e0e7ff;
+      border-radius:14px;
+      background:linear-gradient(135deg,#eef3ff,#f5f1ff);
+    }
+
+    .result-label{
+      color:#5b6680;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+    }
+
+    .result-value{
+      margin:7px 0;
+      font-size:clamp(25px,4vw,36px);
+      font-weight:800;
+      line-height:1.3;
+      overflow-wrap:anywhere;
+    }
+
+    .result-note{
+      color:var(--muted);
+      font-size:13px;
+      overflow-wrap:anywhere;
+    }
+
+    .quick-title{
+      margin:20px 0 9px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .quick{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .quick button{
+      padding:8px 11px;
+      background:#f1f4fa;
+      color:#42516a;
+      font-size:12px;
+    }
+
+    .quick button:hover{
+      background:#e6ecff;
+      color:var(--blue);
+    }
+
+    .side-card{
+      padding:20px;
+      margin-bottom:18px;
+    }
+
+    .side-card h3{
+      margin:0 0 10px;
+      font-size:17px;
+    }
+
+    .side-card p,.side-card li{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .side-card ul{
+      margin:8px 0;
+      padding-left:19px;
+    }
+
+    .notice{
+      padding:14px 16px;
+      border:1px solid #e5e8f7;
+      border-radius:12px;
+      background:#f7f8ff;
+      color:#526078;
+      font-size:13px;
+    }
+
+    .content-card{
+      padding:26px;
+      margin:20px 0;
+    }
+
+    .content-card p,.content-card li{color:#526078}
+
+    .content-card h3{
+      margin:22px 0 7px;
+      font-size:18px;
+    }
+
+    .formula{
+      padding:14px 16px;
+      border-left:4px solid var(--purple);
+      border-radius:9px;
+      background:var(--soft);
+      font-weight:700;
+      overflow-wrap:anywhere;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      margin-top:14px;
+    }
+
+    table{
+      width:100%;
+      min-width:510px;
+      border-collapse:collapse;
+    }
+
+    th,td{
+      padding:12px;
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      font-size:14px;
+    }
+
+    th{background:var(--soft)}
+
+    .faq{
+      padding:15px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .faq:last-child{border:0}
+
+    .faq h3{
+      margin:0 0 5px;
+      font-size:16px;
+    }
+
+    .faq p{margin:0}
+
+    .related{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .related a{
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    footer{
+      margin-top:45px;
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      background:#f7f9fd;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    @media(max-width:800px){
+      .layout{grid-template-columns:1fr}
+      .hero-image{height:220px}
+    }
+
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1120px)}
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+        padding:14px 0;
+      }
+      .navlinks{gap:13px}
+      .panel,.content-card{padding:19px}
+      .fields{grid-template-columns:1fr}
+      .related{grid-template-columns:1fr}
+      .hero-image{height:185px}
+    }
+  </style>
 </head>
+
 <body>
-<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/calculators/">Calculators</a>
+      <a href="/guides/">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main class="container">
-<section class="hero"><span class="tag">Automotive &amp; Fuel Efficiency Tool</span><h1>Fuel Economy Converter</h1><p>Convert kilometers per liter (km/L), liters per 100 kilometers (L/100 km), US miles per gallon (MPG) and UK imperial miles per gallon. Compare vehicle fuel economy across countries and understand fuel consumption measurements.</p></section>
-<section class="panel" id="calculator"><h2>Convert Fuel Economy</h2><p class="hero">Enter a fuel economy value and select the measurement units.</p><div class="grid"><div><label for="amount">Fuel economy value</label><input id="amount" type="number" min="0" step="any" value="15"></div><button class="swap" id="swap" type="button" aria-label="Swap units">⇄</button><div><label for="from">From</label><select id="from"></select></div></div><div style="margin-top:13px"><label for="to">Convert to</label><select id="to"></select></div>
-<div class="result" aria-live="polite"><small>CONVERSION RESULT</small><strong id="answer"></strong><p id="detail"></p></div><div class="actions"><button class="btn" id="copy">Copy Result</button><button class="btn alt" id="reset">Reset</button></div><div class="quick"><button data-value="5">5</button><button data-value="10">10</button><button data-value="15">15</button><button data-value="20">20</button><button data-value="25">25</button><button data-value="30">30</button></div></section>
-<section class="section"><h2>Popular Fuel Economy Conversions</h2><div class="cards">
-<div class="card"><b>MPG to km/L</b><p>Convert US miles per gallon to kilometers per liter.</p><a href="#calculator" onclick="setConversion('usmpg','kml')">Convert →</a></div>
-<div class="card"><b>km/L to MPG</b><p>Convert metric fuel efficiency into US MPG.</p><a href="#calculator" onclick="setConversion('kml','usmpg')">Convert →</a></div>
-<div class="card"><b>L/100 km to MPG</b><p>Compare European fuel consumption with US MPG.</p><a href="#calculator" onclick="setConversion('l100','usmpg')">Convert →</a></div>
-<div class="card"><b>MPG to L/100 km</b><p>Convert US vehicle fuel economy into metric consumption.</p><a href="#calculator" onclick="setConversion('usmpg','l100')">Convert →</a></div>
-<div class="card"><b>UK MPG to US MPG</b><p>Compare imperial and US gallon measurements.</p><a href="#calculator" onclick="setConversion('ukmpg','usmpg')">Convert →</a></div>
-<div class="card"><b>km/L to L/100 km</b><p>Convert distance per liter into fuel used per 100 km.</p><a href="#calculator" onclick="setConversion('kml','l100')">Convert →</a></div>
-</div></section>
-<section class="section"><h2>Fuel Economy Conversion Reference</h2><table><tr><th>Measurement</th><th>Equivalent</th></tr><tr><td>1 US MPG</td><td>0.425143707 km/L</td></tr><tr><td>1 UK MPG</td><td>0.35400619 km/L</td></tr><tr><td>1 km/L</td><td>2.352145833 US MPG</td></tr><tr><td>1 km/L</td><td>2.824809363 UK MPG</td></tr><tr><td>1 L/100 km</td><td>100 km/L reciprocal basis: 1 km/L equivalent is 100 L/100 km inverse</td></tr></table></section>
-<section class="section"><h2>How Fuel Economy Conversion Works</h2><p>Fuel economy describes how far a vehicle travels using a quantity of fuel, or how much fuel it consumes over a given distance.</p><h3>km/L and L/100 km</h3><p>These two metric measurements are reciprocals. A higher km/L value means better fuel economy, while a lower L/100 km value means lower fuel consumption.</p><div class="formula"><b>L/100 km = 100 ÷ km/L</b></div><div class="formula"><b>km/L = 100 ÷ L/100 km</b></div><h3>US MPG and UK MPG</h3><p>US and UK MPG are not the same because the US gallon is smaller than the imperial gallon. The converter keeps both gallon standards separate.</p><h3>Examples</h3><div class="formula">10 km/L = 10 L/100 km</div><div class="formula">10 km/L ≈ 23.52 US MPG</div><div class="formula">30 US MPG ≈ 7.84 L/100 km</div><h3>Where is this converter useful?</h3><ul><li>Comparing vehicle fuel efficiency across countries.</li><li>Understanding car specifications and manufacturer claims.</li><li>Comparing imported vehicles using different MPG standards.</li><li>Estimating fuel consumption for travel planning.</li><li>Understanding fuel economy reports and vehicle reviews.</li></ul></section>
-<section class="section"><h2>Frequently Asked Questions</h2>
-<div class="faq"><h3>How do I convert km/L to L/100 km?</h3><p>Divide 100 by the km/L value. For example, 10 km/L equals 10 L/100 km.</p></div>
-<div class="faq"><h3>How do I convert L/100 km to km/L?</h3><p>Divide 100 by the L/100 km value. For example, 8 L/100 km equals 12.5 km/L.</p></div>
-<div class="faq"><h3>What is the difference between US MPG and UK MPG?</h3><p>They use different gallon sizes. One imperial gallon is larger than one US gallon, so the same vehicle can have a higher numerical UK MPG figure than US MPG.</p></div>
-<div class="faq"><h3>Is higher MPG better?</h3><p>Yes. A higher MPG value means the vehicle travels more miles using one gallon of fuel.</p></div>
-<div class="faq"><h3>Is lower L/100 km better?</h3><p>Yes. A lower L/100 km figure means the vehicle uses less fuel to travel 100 kilometers.</p></div>
-<div class="faq"><h3>Does this converter calculate actual fuel costs?</h3><p>No. It converts fuel economy measurements. To calculate trip costs, you also need distance travelled and fuel price.</p></div>
-<div class="faq"><h3>Is this fuel economy converter free?</h3><p>Yes. CalcNest provides this converter free without registration.</p></div>
-</section>
-<section class="section"><h2>Explore More Calculators</h2><div class="links"><a href="/calculators/unit-converters.html">All Unit Converters</a><a href="/calculators/speed-converter.html">Speed Converter</a><a href="/calculators/length-converter.html">Length Converter</a><a href="/calculators/volume-converter.html">Volume Converter</a><a href="/calculators/">All Calculators</a></div></section>
-<p class="note">Disclaimer: Fuel economy is affected by vehicle condition, driving style, traffic, road conditions, load and weather. This tool converts published measurement units; it does not predict actual vehicle performance or fuel costs.</p>
-</main><footer><div class="container">© <span id="year"></span> CalcNest. Free online calculators.</div></footer>
+
+  <div class="breadcrumbs">
+    <a href="/">Home</a> ›
+    <a href="/calculators/unit-converters.html">Unit Converters</a> ›
+    Fuel Economy Converter
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Free fuel economy conversion tool</div>
+
+    <h1>Fuel Economy Converter</h1>
+
+    <p>
+      Convert fuel efficiency and fuel consumption between
+      US miles per gallon (MPG), UK miles per gallon,
+      kilometers per liter (km/L) and liters per 100 kilometers
+      (L/100km). Compare vehicle fuel economy using accurate
+      conversion formulas and instant results.
+    </p>
+
+    <img
+      class="hero-image"
+      src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200"
+      alt="Passenger vehicle representing fuel economy and automotive efficiency"
+      fetchpriority="high">
+  </section>
+
+  <section class="layout" id="converter">
+
+    <div class="panel">
+
+      <h2>Convert Fuel Economy</h2>
+
+      <p class="sub">
+        Enter a fuel economy value, select the measurement
+        system and choose the unit you want to convert into.
+      </p>
+
+      <div class="fields">
+
+        <div class="field">
+          <label for="amount">Enter fuel economy value</label>
+
+          <input
+            id="amount"
+            type="number"
+            step="any"
+            min="0"
+            value="30"
+            inputmode="decimal"
+            placeholder="Enter a positive value">
+        </div>
+
+        <div class="field">
+          <label for="fromUnit">Convert from</label>
+
+          <select id="fromUnit">
+            <option value="usmpg" selected>US Miles per Gallon (MPG)</option>
+            <option value="ukmpg">UK / Imperial Miles per Gallon (MPG)</option>
+            <option value="kml">Kilometers per Liter (km/L)</option>
+            <option value="l100">Liters per 100 Kilometers (L/100km)</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="swapline">
+        <button
+          class="swapbtn"
+          id="swapBtn"
+          type="button"
+          aria-label="Swap fuel economy units">
+          ⇅ Swap units
+        </button>
+      </div>
+
+      <div class="field">
+        <label for="toUnit">Convert to</label>
+
+        <select id="toUnit">
+          <option value="usmpg">US Miles per Gallon (MPG)</option>
+          <option value="ukmpg">UK / Imperial Miles per Gallon (MPG)</option>
+          <option value="kml">Kilometers per Liter (km/L)</option>
+          <option value="l100" selected>Liters per 100 Kilometers (L/100km)</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <button class="action primary" id="convertBtn" type="button">
+          Convert Fuel Economy
+        </button>
+
+        <button class="action secondary" id="copyBtn" type="button">
+          Copy Result
+        </button>
+
+        <button class="action gray" id="resetBtn" type="button">
+          Reset
+        </button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="result-label">Converted result</div>
+        <div class="result-value" id="resultValue">7.840486 L/100km</div>
+        <div class="result-note" id="resultNote">
+          30 US MPG = 7.840486 liters per 100 kilometers.
+        </div>
+      </div>
+
+      <div class="quick-title">Popular fuel economy conversions</div>
+
+      <div class="quick">
+
+        <button type="button" data-value="30" data-from="usmpg" data-to="l100">
+          30 US MPG to L/100km
+        </button>
+
+        <button type="button" data-value="40" data-from="usmpg" data-to="kml">
+          40 US MPG to km/L
+        </button>
+
+        <button type="button" data-value="50" data-from="ukmpg" data-to="l100">
+          50 UK MPG to L/100km
+        </button>
+
+        <button type="button" data-value="8" data-from="l100" data-to="kml">
+          8 L/100km to km/L
+        </button>
+
+        <button type="button" data-value="12.5" data-from="kml" data-to="l100">
+          12.5 km/L to L/100km
+        </button>
+
+        <button type="button" data-value="25" data-from="usmpg" data-to="ukmpg">
+          25 US MPG to UK MPG
+        </button>
+
+        <button type="button" data-value="10" data-from="l100" data-to="usmpg">
+          10 L/100km to US MPG
+        </button>
+
+        <button type="button" data-value="20" data-from="kml" data-to="usmpg">
+          20 km/L to US MPG
+        </button>
+
+      </div>
+
+    </div>
+
+    <aside>
+
+      <div class="side-card">
+        <h3>Quick fuel economy facts</h3>
+        <ul>
+          <li>US MPG = km/L × 2.352145833</li>
+          <li>UK MPG = km/L × 2.824809363</li>
+          <li>L/100km = 100 ÷ km/L</li>
+          <li>1 US gallon = 3.785411784 liters</li>
+          <li>1 Imperial gallon = 4.54609 liters</li>
+        </ul>
+      </div>
+
+      <div class="side-card">
+        <h3>Understanding MPG</h3>
+        <p>
+          MPG means miles per gallon. It measures how far
+          a vehicle can travel using one gallon of fuel.
+          A higher MPG number generally means better fuel economy.
+        </p>
+      </div>
+
+      <div class="side-card">
+        <h3>Understanding L/100km</h3>
+        <p>
+          L/100km means liters per 100 kilometers.
+          It measures how much fuel a vehicle consumes
+          over a fixed distance. A lower number generally
+          means better fuel economy.
+        </p>
+      </div>
+
+      <div class="notice">
+        <strong>Important:</strong> US MPG and UK MPG are different
+        because the US liquid gallon and Imperial gallon have
+        different volumes. Always select the correct MPG system.
+      </div>
+
+    </aside>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>How to use the Fuel Economy Converter</h2>
+
+    <ol>
+      <li>Enter a positive fuel economy value.</li>
+      <li>Select the original measurement unit.</li>
+      <li>Choose your target unit.</li>
+      <li>Read the converted result instantly.</li>
+      <li>Use Copy Result to copy the conversion.</li>
+    </ol>
+
+    <p>
+      You can convert between US MPG, UK MPG, km/L and L/100km.
+      The calculator also includes quick conversion buttons
+      for common vehicle fuel economy values.
+    </p>
+
+    <p>
+      Fuel economy values must be greater than zero.
+      Zero and negative fuel economy values are not valid
+      for these conversions.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Fuel economy conversion formulas</h2>
+
+    <p>
+      The converter uses kilometers per liter (km/L) as its
+      internal reference unit. It converts the input value
+      into km/L and then calculates the selected destination unit.
+    </p>
+
+    <h3>US MPG to L/100km</h3>
+
+    <div class="formula">
+      L/100km = 235.214583 ÷ US MPG
+    </div>
+
+    <h3>UK MPG to L/100km</h3>
+
+    <div class="formula">
+      L/100km = 282.480936 ÷ UK MPG
+    </div>
+
+    <h3>km/L to L/100km</h3>
+
+    <div class="formula">
+      L/100km = 100 ÷ km/L
+    </div>
+
+    <h3>L/100km to km/L</h3>
+
+    <div class="formula">
+      km/L = 100 ÷ L/100km
+    </div>
+
+    <h3>km/L to US MPG</h3>
+
+    <div class="formula">
+      US MPG = km/L × 2.352145833
+    </div>
+
+    <h3>km/L to UK MPG</h3>
+
+    <div class="formula">
+      UK MPG = km/L × 2.824809363
+    </div>
+
+    <h3>US MPG to km/L</h3>
+
+    <div class="formula">
+      km/L = US MPG ÷ 2.352145833
+    </div>
+
+    <h3>UK MPG to km/L</h3>
+
+    <div class="formula">
+      km/L = UK MPG ÷ 2.824809363
+    </div>
+
+    <p>
+      Because L/100km measures fuel consumed over a fixed distance,
+      its relationship with km/L and MPG is reciprocal.
+      This means you divide by the value rather than multiply
+      when converting between these consumption and distance-per-fuel units.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Fuel economy conversion reference table</h2>
+
+    <p>
+      The following table shows equivalent fuel economy
+      measurements. Values are rounded for easy comparison.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>US MPG</th>
+            <th>UK MPG</th>
+            <th>km/L</th>
+            <th>L/100km</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><td>10</td><td>12.01</td><td>4.25</td><td>23.52</td></tr>
+          <tr><td>15</td><td>18.01</td><td>6.38</td><td>15.68</td></tr>
+          <tr><td>20</td><td>24.02</td><td>8.50</td><td>11.76</td></tr>
+          <tr><td>25</td><td>30.03</td><td>10.63</td><td>9.41</td></tr>
+          <tr><td>30</td><td>36.03</td><td>12.76</td><td>7.84</td></tr>
+          <tr><td>35</td><td>42.04</td><td>14.88</td><td>6.72</td></tr>
+          <tr><td>40</td><td>48.05</td><td>17.01</td><td>5.88</td></tr>
+          <tr><td>45</td><td>54.05</td><td>19.13</td><td>5.23</td></tr>
+          <tr><td>50</td><td>60.06</td><td>21.26</td><td>4.70</td></tr>
+          <tr><td>60</td><td>72.07</td><td>25.51</td><td>3.92</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The table uses US MPG and UK MPG as separate measurements.
+      The two MPG columns should not be compared without considering
+      their different gallon definitions.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Popular fuel economy conversion examples</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Conversion</th>
+            <th>Approximate result</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr><td>30 US MPG to L/100km</td><td>7.8405 L/100km</td></tr>
+          <tr><td>40 US MPG to km/L</td><td>17.0109 km/L</td></tr>
+          <tr><td>50 UK MPG to L/100km</td><td>5.6496 L/100km</td></tr>
+          <tr><td>8 L/100km to km/L</td><td>12.5 km/L</td></tr>
+          <tr><td>12.5 km/L to L/100km</td><td>8 L/100km</td></tr>
+          <tr><td>25 US MPG to UK MPG</td><td>30.03 UK MPG</td></tr>
+          <tr><td>10 L/100km to US MPG</td><td>23.52 US MPG</td></tr>
+          <tr><td>20 km/L to US MPG</td><td>47.04 US MPG</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Understanding common fuel economy units</h2>
+
+    <h3>US miles per gallon (US MPG)</h3>
+
+    <p>
+      US MPG measures the number of miles a vehicle can travel
+      using one US liquid gallon of fuel. It is commonly used
+      in the United States and appears in vehicle fuel economy
+      ratings and automotive comparisons.
+    </p>
+
+    <p>
+      One US liquid gallon equals exactly 3.785411784 liters.
+      Because this gallon is smaller than an Imperial gallon,
+      US MPG figures are numerically lower than UK MPG figures
+      for the same underlying fuel efficiency.
+    </p>
+
+    <h3>UK miles per gallon (Imperial MPG)</h3>
+
+    <p>
+      UK MPG measures the distance traveled in miles using
+      one Imperial gallon of fuel. It is used in the United
+      Kingdom and in some other contexts where Imperial
+      measurements are used.
+    </p>
+
+    <p>
+      One Imperial gallon equals exactly 4.54609 liters.
+      It is larger than the US liquid gallon, which is why
+      the same vehicle can have a higher numerical UK MPG
+      value than its US MPG value.
+    </p>
+
+    <h3>Kilometers per liter (km/L)</h3>
+
+    <p>
+      Kilometers per liter measures how many kilometers
+      a vehicle can travel using one liter of fuel.
+      It is used in various countries and is convenient
+      for comparing distance traveled per unit of fuel.
+    </p>
+
+    <h3>Liters per 100 kilometers (L/100km)</h3>
+
+    <p>
+      L/100km measures how many liters of fuel a vehicle
+      consumes to travel 100 kilometers. It is widely
+      used in countries that use the metric system.
+    </p>
+
+    <p>
+      Unlike MPG and km/L, a lower L/100km value generally
+      indicates better fuel economy because the vehicle
+      uses less fuel to travel the same distance.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Why US MPG and UK MPG are different</h2>
+
+    <p>
+      The United States and the United Kingdom use different
+      gallon sizes. The US liquid gallon is approximately
+      3.785 liters, while the Imperial gallon is approximately
+      4.546 liters.
+    </p>
+
+    <p>
+      Since an Imperial gallon contains more fuel, a vehicle
+      can travel the same distance using one Imperial gallon
+      and receive a higher numerical MPG value.
+    </p>
+
+    <div class="formula">
+      1 UK MPG ≈ 1.20095 US MPG
+    </div>
+
+    <div class="formula">
+      1 US MPG ≈ 0.83267 UK MPG
+    </div>
+
+    <p>
+      These relationships are important when comparing
+      vehicle specifications published in different countries.
+      Always check whether an MPG figure is based on the
+      US gallon or the Imperial gallon.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>What affects vehicle fuel economy?</h2>
+
+    <h3>Driving speed</h3>
+
+    <p>
+      Driving speed can significantly affect fuel consumption.
+      Fuel economy may decrease when driving at high speeds
+      because aerodynamic drag increases as speed rises.
+    </p>
+
+    <h3>Acceleration and braking</h3>
+
+    <p>
+      Frequent rapid acceleration and hard braking can
+      increase fuel use. Smooth driving and maintaining
+      a consistent speed may help improve efficiency.
+    </p>
+
+    <h3>Vehicle weight</h3>
+
+    <p>
+      Carrying unnecessary weight can increase the energy
+      required to move a vehicle. Heavier vehicles may
+      consume more fuel than comparable lighter vehicles,
+      depending on their design and driving conditions.
+    </p>
+
+    <h3>Tire pressure</h3>
+
+    <p>
+      Incorrect tire pressure can increase rolling resistance
+      and affect fuel consumption. Following the vehicle
+      manufacturer's recommended tire pressure is important.
+    </p>
+
+    <h3>Traffic and road conditions</h3>
+
+    <p>
+      Stop-and-go traffic, steep roads, poor road surfaces
+      and frequent short journeys can affect real-world
+      fuel economy.
+    </p>
+
+    <h3>Vehicle maintenance</h3>
+
+    <p>
+      Regular maintenance, appropriate engine oil and
+      properly maintained filters and tires can help
+      a vehicle operate as intended.
+    </p>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <h3>1. What is the difference between MPG and L/100km?</h3>
+      <p>
+        MPG measures distance traveled per gallon of fuel.
+        L/100km measures liters consumed over 100 kilometers.
+        Higher MPG generally means better fuel economy,
+        while lower L/100km generally means better economy.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>2. What is the difference between US MPG and UK MPG?</h3>
+      <p>
+        US MPG uses the smaller US liquid gallon, while
+        UK MPG uses the larger Imperial gallon. The same
+        vehicle therefore has different numerical values
+        in the two systems.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>3. How do you convert US MPG to L/100km?</h3>
+      <p>
+        Divide 235.214583 by the US MPG value.
+        For example, 30 US MPG is approximately
+        7.84 L/100km.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>4. How do you convert UK MPG to L/100km?</h3>
+      <p>
+        Divide approximately 282.480936 by the UK MPG value.
+        For example, 50 UK MPG is approximately
+        5.65 L/100km.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>5. How do you convert km/L to L/100km?</h3>
+      <p>
+        Divide 100 by the km/L value. For example,
+        12.5 km/L equals 8 L/100km.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>6. Is higher MPG better?</h3>
+      <p>
+        Generally, yes. A higher MPG figure means a vehicle
+        travels farther using the same amount of fuel.
+        Lower L/100km generally indicates better fuel economy.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>7. What is a good fuel economy?</h3>
+      <p>
+        Fuel economy depends on vehicle size, engine,
+        fuel type, driving conditions and testing standards.
+        Compare similar vehicles under comparable conditions
+        for a meaningful assessment.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>8. Is the CalcNest Fuel Economy Converter free?</h3>
+      <p>
+        Yes. It is free to use online and does not require
+        registration.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>9. Can I convert US MPG directly to UK MPG?</h3>
+      <p>
+        Yes. Select US MPG as the original unit and UK MPG
+        as the destination unit. The converter accounts
+        for the different gallon sizes.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>10. Does this calculator estimate my actual fuel consumption?</h3>
+      <p>
+        No. It converts a fuel economy figure you provide.
+        Actual vehicle fuel consumption depends on driving
+        conditions, vehicle condition, fuel type and other factors.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="content-card">
+
+    <h2>Explore related CalcNest calculators</h2>
+
+    <p>
+      Explore more measurement and conversion tools
+      available on CalcNest.
+    </p>
+
+    <div class="related">
+      <a href="/calculators/unit-converters.html">All Unit Converters →</a>
+      <a href="/calculators/length-converter.html">Length Converter →</a>
+      <a href="/calculators/weight-converter.html">Weight Converter →</a>
+      <a href="/calculators/temperature-converter.html">Temperature Converter →</a>
+      <a href="/calculators/volume-converter.html">Volume Converter →</a>
+      <a href="/calculators/speed-converter.html">Speed Converter →</a>
+      <a href="/calculators/energy-converter.html">Energy Converter →</a>
+      <a href="/calculators/power-converter.html">Power Converter →</a>
+      <a href="/calculators/pressure-converter.html">Pressure Converter →</a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+    <div>
+      <a href="/">Home</a> ·
+      <a href="/#about">About</a> ·
+      <a href="/#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
 <script>
-const units={kml:{n:"Kilometers per liter (km/L)"},l100:{n:"Liters per 100 kilometers (L/100 km)"},usmpg:{n:"US miles per gallon (US MPG)"},ukmpg:{n:"Imperial miles per gallon (UK MPG)"}};
-const amount=document.getElementById("amount"),from=document.getElementById("from"),to=document.getElementById("to"),answer=document.getElementById("answer"),detail=document.getElementById("detail");
-function fill(s){s.innerHTML=Object.entries(units).map(([k,u])=>`<option value="${k}">${u.n}</option>`).join("")}fill(from);fill(to);from.value="kml";to.value="usmpg";
-function toKmL(v,u){if(u==="kml")return v;if(u==="l100")return 100/v;if(u==="usmpg")return v/2.352145833;if(u==="ukmpg")return v/2.824809363}
-function fromKmL(v,u){if(u==="kml")return v;if(u==="l100")return 100/v;if(u==="usmpg")return v*2.352145833;if(u==="ukmpg")return v*2.824809363}
-function fmt(n){return Number(n).toLocaleString("en-US",{maximumFractionDigits:8})}
-function calc(){let v=Number(amount.value);if(amount.value.trim()===""||!Number.isFinite(v)||v<=0){answer.textContent="Enter a value greater than zero";detail.textContent="Fuel economy conversions require a positive value.";return}let base=toKmL(v,from.value),r=fromKmL(base,to.value);if(!Number.isFinite(r)){answer.textContent="Conversion unavailable";detail.textContent="Check the entered value.";return}answer.textContent=`${fmt(v)} ${from.value} = ${fmt(r)} ${to.value}`;detail.textContent=`${fmt(v)} ${units[from.value].n} equals ${fmt(r)} ${units[to.value].n}.`}
-function setConversion(a,b){from.value=a;to.value=b;calc();document.getElementById("calculator").scrollIntoView({behavior:"smooth"})}window.setConversion=setConversion;
-amount.addEventListener("input",calc);from.addEventListener("change",calc);to.addEventListener("change",calc);document.getElementById("swap").onclick=()=>{let x=from.value;from.value=to.value;to.value=x;calc()};document.getElementById("reset").onclick=()=>{amount.value=15;from.value="kml";to.value="usmpg";calc()};
-document.getElementById("copy").onclick=async()=>{try{await navigator.clipboard.writeText(answer.textContent);document.getElementById("copy").textContent="Copied!"}catch(e){detail.textContent="Select and copy the result manually."}};
-document.querySelectorAll("[data-value]").forEach(b=>b.onclick=()=>{amount.value=b.dataset.value;calc()});document.getElementById("year").textContent=new Date().getFullYear();calc();
+(function(){
+  "use strict";
+
+  /*
+    Internal reference unit: kilometers per liter (km/L).
+
+    Conversion constants:
+    1 US gallon = 3.785411784 liters
+    1 Imperial gallon = 4.54609 liters
+    1 mile = 1.609344 kilometers
+
+    US MPG = km/L × 2.352145833...
+    UK MPG = km/L × 2.824809363...
+    L/100km = 100 / km/L
+  */
+
+  const units = {
+
+    usmpg:{
+      name:"US miles per gallon",
+      symbol:"US MPG",
+
+      toKmL:function(value){
+        return value / 2.352145833333333;
+      },
+
+      fromKmL:function(value){
+        return value * 2.352145833333333;
+      }
+    },
+
+    ukmpg:{
+      name:"UK miles per Imperial gallon",
+      symbol:"UK MPG",
+
+      toKmL:function(value){
+        return value / 2.824809363;
+      },
+
+      fromKmL:function(value){
+        return value * 2.824809363;
+      }
+    },
+
+    kml:{
+      name:"kilometers per liter",
+      symbol:"km/L",
+
+      toKmL:function(value){
+        return value;
+      },
+
+      fromKmL:function(value){
+        return value;
+      }
+    },
+
+    l100:{
+      name:"liters per 100 kilometers",
+      symbol:"L/100km",
+
+      toKmL:function(value){
+        return 100 / value;
+      },
+
+      fromKmL:function(value){
+        return 100 / value;
+      }
+    }
+
+  };
+
+  const amount = document.getElementById("amount");
+  const from = document.getElementById("fromUnit");
+  const to = document.getElementById("toUnit");
+
+  const resultValue = document.getElementById("resultValue");
+  const resultNote = document.getElementById("resultNote");
+  const copyBtn = document.getElementById("copyBtn");
+
+  let lastResultText = "";
+
+  function formatNumber(value){
+
+    if(!Number.isFinite(value)){
+      return "Invalid result";
+    }
+
+    if(value === 0){
+      return "0";
+    }
+
+    if(Math.abs(value) >= 1e12 || Math.abs(value) < 1e-7){
+      return value.toExponential(9);
+    }
+
+    return Number(value.toPrecision(10)).toLocaleString("en-US",{
+      maximumFractionDigits:9
+    });
+
+  }
+
+  function convert(){
+
+    const raw = amount.value.trim();
+    const value = Number(raw);
+
+    if(
+      raw === "" ||
+      !Number.isFinite(value) ||
+      value <= 0
+    ){
+
+      resultValue.textContent = "Enter a value above zero";
+
+      resultNote.textContent =
+        "Fuel economy measurements must be positive numbers.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    const source = units[from.value];
+    const target = units[to.value];
+
+    if(!source || !target){
+
+      resultValue.textContent = "Invalid unit selection";
+
+      resultNote.textContent =
+        "Please select valid fuel economy units.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    /*
+      Step 1: Convert source unit into km/L.
+      Step 2: Convert km/L into the destination unit.
+
+      L/100km uses a reciprocal formula. A zero value is
+      rejected above, preventing division by zero.
+    */
+
+    const kmPerLiter = source.toKmL(value);
+
+    if(
+      !Number.isFinite(kmPerLiter) ||
+      kmPerLiter <= 0
+    ){
+
+      resultValue.textContent = "Invalid conversion";
+
+      resultNote.textContent =
+        "Please check the input value.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    const converted = target.fromKmL(kmPerLiter);
+
+    if(
+      !Number.isFinite(converted) ||
+      converted <= 0
+    ){
+
+      resultValue.textContent = "Invalid result";
+
+      resultNote.textContent =
+        "Please enter a different value.";
+
+      lastResultText = "";
+      return;
+
+    }
+
+    const inputFormatted = formatNumber(value);
+    const outputFormatted = formatNumber(converted);
+
+    resultValue.textContent =
+      outputFormatted + " " + target.symbol;
+
+    resultNote.textContent =
+      inputFormatted + " " + source.name +
+      " = " + outputFormatted + " " + target.name + ".";
+
+    lastResultText =
+      inputFormatted + " " + source.name +
+      " = " + outputFormatted + " " + target.name;
+
+  }
+
+  document.getElementById("convertBtn")
+    .addEventListener("click",convert);
+
+  amount.addEventListener("input",convert);
+  from.addEventListener("change",convert);
+  to.addEventListener("change",convert);
+
+  document.getElementById("swapBtn")
+    .addEventListener("click",function(){
+
+      const oldFrom = from.value;
+
+      from.value = to.value;
+      to.value = oldFrom;
+
+      convert();
+
+    });
+
+  document.getElementById("resetBtn")
+    .addEventListener("click",function(){
+
+      amount.value = "30";
+      from.value = "usmpg";
+      to.value = "l100";
+
+      convert();
+
+    });
+
+  copyBtn.addEventListener("click",async function(){
+
+    if(!lastResultText){
+
+      resultNote.textContent =
+        "There is no valid result to copy.";
+
+      return;
+
+    }
+
+    try{
+
+      await navigator.clipboard.writeText(lastResultText);
+
+      copyBtn.textContent = "Copied!";
+
+      setTimeout(function(){
+        copyBtn.textContent = "Copy Result";
+      },1400);
+
+    }catch(error){
+
+      resultNote.textContent =
+        "Copy is unavailable in this browser. Select the result and copy it manually.";
+
+    }
+
+  });
+
+  document.querySelectorAll(".quick button")
+    .forEach(function(button){
+
+      button.addEventListener("click",function(){
+
+        amount.value = button.dataset.value;
+        from.value = button.dataset.from;
+        to.value = button.dataset.to;
+
+        convert();
+
+        document.getElementById("converter")
+          .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+          });
+
+      });
+
+    });
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  convert();
+
+})();
 </script>
-</body></html>
+
+</body>
+</html>
