@@ -1,0 +1,34 @@
+
+# CalcNest
+
+> CalcNest is a free online calculator website providing practical tools and guides for everyday calculations, finance, mathematics, health, date and time, business, and unit conversions.
+
+CalcNest helps visitors perform calculations quickly using simple online tools. Calculator results are intended for general informational and educational purposes.
+
+## Main Pages
+
+- [Home](https://calcnest-7s6.pages.dev/): Main CalcNest website.
+- [About Us](https://calcnest-7s6.pages.dev/about.html): Information about CalcNest.
+- [Contact](https://calcnest-7s6.pages.dev/contact.html): Contact and support information.
+- [Privacy Policy](https://calcnest-7s6.pages.dev/privacy-policy.html): Privacy and data practices.
+- [Terms and Conditions](https://calcnest-7s6.pages.dev/terms-and-conditions.html): Website terms.
+- [Disclaimer](https://calcnest-7s6.pages.dev/disclaimer.html): Calculator limitations and responsible use.
+
+## Calculator Categories
+
+- [Math and Percentage Calculators](https://calcnest-7s6.pages.dev/calculators/): Mathematical calculations and percentage tools.
+- [Finance Calculators](https://calcnest-7s6.pages.dev/calculators/finance-calculators.html): Loans, savings, investments, budgeting and financial planning.
+- [Health Calculators](https://calcnest-7s6.pages.dev/calculators/health-calculators.html): BMI, calories, fitness and health-related estimates.
+- [Date and Time Calculators](https://calcnest-7s6.pages.dev/calculators/date-time-calculators.html): Date differences, time calculations and date planning.
+- [Business and Marketing Calculators](https://calcnest-7s6.pages.dev/calculators/business-marketing-calculators.html): ROI, marketing metrics and business calculations.
+- [Unit Converters](https://calcnest-7s6.pages.dev/calculators/unit-converters.html): Everyday measurement and unit conversions.
+
+## Important Information
+
+- Calculator results may depend on user-provided inputs, assumptions and rounding.
+- Financial, health and other specialized calculations should not replace professional advice.
+- Visitors should review the relevant calculator explanations and disclaimer before relying on results.
+
+## Website Contact
+
+- Email: roman3212@icloud.com
