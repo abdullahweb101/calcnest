@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sleep Calculator - Best Bedtime & Wake-Up Time | CalcNest</title>
+<meta name="description" content="Find suggested bedtimes and wake-up times based on sleep duration and estimated 90-minute sleep cycles. Use this free sleep calculator to plan a consistent sleep schedule.">
+<meta name="keywords" content="sleep calculator, bedtime calculator, wake up calculator, sleep cycle calculator, best time to sleep, best time to wake up, sleep schedule">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/sleep-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sleep Calculator - Suggested Bedtime & Wake-Up Times | CalcNest">
+<meta property="og:description" content="Plan your sleep schedule with suggested bedtimes and wake-up times.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/sleep-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1511295742362-92c96b5d7b1b?w=1200">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sleep Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate suggested bedtimes and wake-up times based on sleep duration.">
+
+<style>
+:root{
+ --ink:#17243a;
+ --muted:#65738b;
+ --blue:#315eea;
+ --purple:#7659e8;
+ --line:#e8edf5;
+ --soft:#f6f8fd;
+ --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:var(--ink);
+ background:#fff;
+ line-height:1.7;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{
+ background:#fff;
+ border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:20;
+}
+.nav{
+ min-height:70px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.logo{
+ font-size:25px;
+ font-weight:800;
+ color:var(--ink);
+ letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:14px;font-weight:700}
+.hero{
+ padding:55px 0 35px;
+ background:linear-gradient(120deg,#f4f7ff,#f8f6ff);
+}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.hero-grid{
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ gap:35px;
+ align-items:center;
+}
+.eyebrow{
+ color:var(--blue);
+ font-size:12px;
+ font-weight:800;
+ letter-spacing:1.5px;
+ text-transform:uppercase;
+}
+h1{
+ font-size:clamp(32px,5vw,49px);
+ line-height:1.12;
+ letter-spacing:-1.7px;
+ margin:12px 0 17px;
+}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{
+ width:100%;
+ height:300px;
+ object-fit:cover;
+ border-radius:20px;
+ box-shadow:var(--shadow);
+}
+main{padding:38px 0 65px}
+.section-title{font-size:27px;line-height:1.25;margin:0 0 12px}
+.section-intro{color:var(--muted);margin:0 0 24px}
+.calculator-layout{
+ display:grid;
+ grid-template-columns:1fr .9fr;
+ gap:24px;
+ align-items:start;
+}
+.panel{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:25px;
+ box-shadow:var(--shadow);
+}
+.panel h2{font-size:22px;margin:0 0 7px}
+.panel-sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field{margin-bottom:18px}
+label{
+ display:block;
+ font-size:14px;
+ font-weight:700;
+ margin-bottom:7px;
+}
+input,select{
+ width:100%;
+ min-height:48px;
+ padding:12px 13px;
+ border:1px solid #dce3ef;
+ border-radius:10px;
+ font:inherit;
+ color:var(--ink);
+ background:#fff;
+ outline:none;
+}
+input:focus,select:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+button{
+ border:0;
+ border-radius:10px;
+ background:linear-gradient(100deg,var(--blue),var(--purple));
+ color:#fff;
+ font-size:15px;
+ font-weight:800;
+ padding:14px 20px;
+ cursor:pointer;
+ width:100%;
+}
+button:hover{opacity:.93}
+button.secondary{
+ background:#eef2ff;
+ color:var(--blue);
+ border:1px solid #dce4ff;
+}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.error{
+ display:none;
+ color:#b42318;
+ background:#fff0ef;
+ border:1px solid #ffd1cc;
+ border-radius:9px;
+ padding:10px 12px;
+ font-size:13px;
+ margin:12px 0;
+}
+.mode-description{
+ font-size:13px;
+ color:var(--muted);
+ background:#f5f7fc;
+ padding:11px 13px;
+ border-radius:9px;
+ margin-bottom:17px;
+}
+.result-panel{
+ background:linear-gradient(145deg,#f1f5ff,#f8f5ff);
+ border:1px solid #e2e8ff;
+ border-radius:16px;
+ padding:22px;
+}
+.result-label{color:var(--muted);font-size:13px;font-weight:700}
+.result-time{
+ font-size:clamp(29px,4vw,38px);
+ line-height:1.25;
+ font-weight:900;
+ color:var(--blue);
+ margin:8px 0;
+}
+.result-sub{font-size:13px;color:var(--muted)}
+.placeholder{
+ color:var(--muted);
+ background:var(--soft);
+ border:1px dashed #cbd5e5;
+ border-radius:13px;
+ padding:28px 18px;
+ text-align:center;
+}
+.time-list{display:grid;gap:10px;margin-top:17px}
+.time-option{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ padding:14px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:11px;
+}
+.time-option.recommended{
+ border-color:#b8c8ff;
+ background:#f5f7ff;
+}
+.time-option strong{font-size:19px;color:var(--blue)}
+.time-option span{font-size:12px;color:var(--muted);display:block}
+.time-option .cycle{font-size:12px;font-weight:700;color:#7659e8}
+.result-note{font-size:13px;color:var(--muted);margin:15px 0 0}
+.sub-panel{
+ margin-top:15px;
+ padding:16px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:12px;
+}
+.sub-panel h3{margin:0 0 10px;font-size:16px}
+.metric-row{
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ padding:9px 0;
+ border-bottom:1px solid #edf0f6;
+ font-size:14px;
+}
+.metric-row:last-child{border-bottom:0}
+.metric-row strong{color:var(--blue);text-align:right}
+.content-section{margin-top:48px}
+.content-section h2{font-size:26px;line-height:1.3}
+.content-section h3{font-size:19px;margin:24px 0 8px}
+.content-section p,.content-section li{color:#536178}
+.formula{
+ background:#f5f7ff;
+ border-left:4px solid var(--blue);
+ padding:15px 18px;
+ border-radius:8px;
+ margin:14px 0;
+ overflow-wrap:anywhere;
+}
+.example-table{
+ width:100%;
+ border-collapse:collapse;
+ margin:17px 0;
+ font-size:14px;
+}
+.example-table th,.example-table td{
+ padding:12px;
+ border:1px solid var(--line);
+ text-align:left;
+}
+.example-table th{background:#f5f7fc}
+.note{
+ background:#fff9e9;
+ border:1px solid #f4e3b5;
+ border-radius:12px;
+ padding:15px;
+ color:#765b20;
+ margin:18px 0;
+ font-size:14px;
+}
+.related-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:14px;
+}
+.related-card{
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:16px;
+ background:#fff;
+}
+.related-card a{font-weight:800}
+.related-card p{font-size:13px;margin:6px 0 0}
+.faq-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.faq-item h3{font-size:17px;margin:0 0 7px}
+.faq-item p{margin:0;color:var(--muted)}
+footer{
+ border-top:1px solid var(--line);
+ background:#fafbfe;
+ padding:30px 0;
+ color:var(--muted);
+ font-size:13px;
+}
+.footer-inner{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ flex-wrap:wrap;
+}
+footer a{margin-right:13px}
+@media(max-width:800px){
+ .hero-grid,.calculator-layout{grid-template-columns:1fr}
+ .hero img{height:230px}
+ .related-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ nav{gap:10px}
+ nav a{font-size:12px}
+ .logo{font-size:22px}
+ .panel{padding:18px}
+ .related-grid{grid-template-columns:1fr}
+ .time-option strong{font-size:17px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Sleep Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/sleep-calculator.html",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "description":"Calculate suggested bedtimes and wake-up times using sleep duration and estimated sleep cycles.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"How many hours of sleep do adults need?",
+   "acceptedAnswer":{"@type":"Answer","text":"Most adults generally need at least seven hours of sleep per night, although individual needs vary."}
+  },
+  {
+   "@type":"Question",
+   "name":"Is a sleep cycle exactly 90 minutes?",
+   "acceptedAnswer":{"@type":"Answer","text":"No. Sleep cycles vary in length between people and across the night. Ninety minutes is only a simplified estimate."}
+  },
+  {
+   "@type":"Question",
+   "name":"Does this calculator guarantee that I will wake up refreshed?",
+   "acceptedAnswer":{"@type":"Answer","text":"No. The calculator provides suggested schedules, not a guarantee of sleep quality or alertness."}
+  }
+ ]
+}
+</script>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <nav>
+   <a href="/">Home</a>
+   <a href="/calculators/">Calculators</a>
+   <a href="/#guides">Guides</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="container">
+  <div class="breadcrumb">
+   <a href="/">Home</a> /
+   <a href="/calculators/health-calculators.html">Health & Fitness</a> /
+   Sleep Calculator
+  </div>
+  <div class="hero-grid">
+   <div>
+    <div class="eyebrow">Free Sleep Schedule Planner</div>
+    <h1>Sleep Calculator</h1>
+    <p>Find suggested bedtimes and wake-up times based on your preferred schedule and sleep duration. Use estimated sleep cycles to explore a consistent bedtime routine.</p>
+   </div>
+   <img
+    src="https://images.unsplash.com/photo-1511295742362-92c96b5d7b1b?w=1000"
+    alt="Comfortable bedroom prepared for a restful night"
+    fetchpriority="high">
+  </div>
+ </div>
+</section>
+
+<main class="container">
+ <h2 class="section-title">Calculate Your Sleep Schedule</h2>
+ <p class="section-intro">Choose whether you want to plan your bedtime or your wake-up time.</p>
+
+ <div class="calculator-layout">
+  <section class="panel">
+   <h2>Sleep Schedule Details</h2>
+   <p class="panel-sub">Select your preferred calculation method.</p>
+
+   <div class="field">
+    <label for="mode">I want to calculate</label>
+    <select id="mode">
+     <option value="wake">Wake-up time from bedtime</option>
+     <option value="bed">Bedtime from wake-up time</option>
+    </select>
+   </div>
+
+   <div id="mode-description" class="mode-description">
+    Enter the time you plan to go to bed. The calculator will suggest wake-up times.
+   </div>
+
+   <div class="field">
+    <label id="time-label" for="time-input">Bedtime</label>
+    <input type="time" id="time-input" value="22:00">
+   </div>
+
+   <div class="field">
+    <label for="fall-asleep">Estimated time to fall asleep</label>
+    <select id="fall-asleep">
+     <option value="0">0 minutes</option>
+     <option value="10">10 minutes</option>
+     <option value="15" selected>15 minutes</option>
+     <option value="20">20 minutes</option>
+     <option value="30">30 minutes</option>
+    </select>
+    <div class="hint">This is an optional planning estimate, not a medical measurement.</div>
+   </div>
+
+   <div id="error" class="error" role="alert"></div>
+
+   <button id="calculate" type="button">Calculate Sleep Times</button>
+   <div class="actions">
+    <button class="secondary" id="reset" type="button">Reset</button>
+    <button class="secondary" id="sample" type="button">Try Example</button>
+   </div>
+  </section>
+
+  <section class="panel" aria-live="polite">
+   <h2>Your Suggested Sleep Schedule</h2>
+   <p class="panel-sub">Explore suggested timings based on estimated sleep duration.</p>
+
+   <div id="placeholder" class="placeholder">
+    <strong>Your sleep schedule will appear here.</strong>
+    <p>Enter a time and click Calculate.</p>
+   </div>
+
+   <div id="result" style="display:none">
+    <div class="result-panel">
+     <div class="result-label" id="result-heading">Suggested wake-up times</div>
+     <div class="result-time" id="main-time">—</div>
+     <div class="result-sub" id="main-description">—</div>
+    </div>
+
+    <div class="time-list" id="time-list"></div>
+
+    <div class="sub-panel">
+     <h3>Schedule Summary</h3>
+     <div id="summary"></div>
+    </div>
+
+    <p class="result-note">These are planning estimates. Actual sleep cycles vary and are not exactly 90 minutes for everyone.</p>
+   </div>
+  </section>
+ </div>
+
+ <section class="content-section">
+  <h2>What Is a Sleep Calculator?</h2>
+  <p>A sleep calculator is a planning tool that helps estimate suitable bedtimes or wake-up times based on a target sleep duration. Some calculators also use simplified sleep-cycle estimates to show several possible schedules.</p>
+  <p>This CalcNest sleep calculator works in two ways. You can enter a bedtime to see suggested wake-up times, or enter a wake-up time to explore suggested bedtimes.</p>
+
+  <h2>How to Use This Sleep Calculator</h2>
+  <ol>
+   <li>Select whether you want to calculate a bedtime or wake-up time.</li>
+   <li>Enter your planned bedtime or required wake-up time.</li>
+   <li>Select an estimated time to fall asleep.</li>
+   <li>Click Calculate Sleep Times.</li>
+   <li>Compare the suggested schedules and choose a realistic routine.</li>
+  </ol>
+
+  <h2>How Does the Sleep Cycle Estimate Work?</h2>
+  <p>Sleep is made up of repeating stages, including non-REM and REM sleep. A simplified planning model often uses an average cycle duration of approximately 90 minutes.</p>
+  <div class="formula">
+   <strong>Estimated Sleep Duration = Number of Cycles × 90 Minutes</strong>
+   <br><br>
+   <strong>Suggested Wake-Up Time = Sleep Start + Estimated Sleep Duration</strong>
+   <br><br>
+   <strong>Suggested Bedtime = Wake-Up Time − Estimated Sleep Duration − Time to Fall Asleep</strong>
+  </div>
+  <p>The calculator displays four, five and six estimated cycles. These correspond to approximately six, seven and a half, and nine hours of sleep.</p>
+
+  <h2>Example Sleep Schedule</h2>
+  <p>Suppose you plan to go to bed at 10:00 PM and estimate that you need 15 minutes to fall asleep.</p>
+  <table class="example-table">
+   <thead>
+    <tr><th>Estimated cycles</th><th>Sleep duration</th><th>Suggested wake-up</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>4 cycles</td><td>6 hours</td><td>4:15 AM</td></tr>
+    <tr><td>5 cycles</td><td>7 hours 30 minutes</td><td>5:45 AM</td></tr>
+    <tr><td>6 cycles</td><td>9 hours</td><td>7:15 AM</td></tr>
+   </tbody>
+  </table>
+
+  <h2>How Much Sleep Do People Need?</h2>
+  <p>Sleep requirements depend on age, health, activity and individual circumstances. General public-health recommendations provide useful starting points.</p>
+  <table class="example-table">
+   <thead>
+    <tr><th>Age group</th><th>General sleep guidance</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>Newborns (0–3 months)</td><td>14–17 hours per day</td></tr>
+    <tr><td>Infants (4–12 months)</td><td>12–16 hours, including naps</td></tr>
+    <tr><td>Toddlers (1–2 years)</td><td>11–14 hours, including naps</td></tr>
+    <tr><td>Preschool children (3–5 years)</td><td>10–13 hours, including naps</td></tr>
+    <tr><td>School-age children (6–12 years)</td><td>9–12 hours</td></tr>
+    <tr><td>Teenagers (13–17 years)</td><td>8–10 hours</td></tr>
+    <tr><td>Adults (18–60 years)</td><td>At least 7 hours</td></tr>
+    <tr><td>Adults (61–64 years)</td><td>7–9 hours</td></tr>
+    <tr><td>Adults (65+ years)</td><td>7–8 hours</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Why Sleep Quality Matters</h2>
+  <p>Sleep supports physical health, brain function, memory, learning and emotional well-being. Regularly getting enough quality sleep can help support daily performance and overall health.</p>
+
+  <h3>Consistent Sleep Schedule</h3>
+  <p>Going to bed and waking up at similar times each day can help maintain a regular sleep routine.</p>
+
+  <h3>Comfortable Sleep Environment</h3>
+  <p>A quiet, dark and comfortably cool bedroom may make it easier to sleep.</p>
+
+  <h3>Evening Habits</h3>
+  <p>Limiting bright screens, heavy meals and caffeine close to bedtime may help some people sleep more comfortably.</p>
+
+  <h3>Daytime Activity</h3>
+  <p>Regular physical activity and exposure to daylight can support a healthy sleep-wake routine.</p>
+
+  <h2>Are Sleep Cycles Always 90 Minutes?</h2>
+  <p>No. The 90-minute figure is a simplified average used for basic planning. Real sleep cycles vary in length between individuals and can change throughout the night. Sleep stages are not arranged into perfectly identical blocks.</p>
+  <p>Waking at the end of a calculated 90-minute block does not guarantee that you will feel refreshed. Total sleep duration, sleep quality and your natural body clock all matter.</p>
+
+  <div class="note">
+   <strong>Important:</strong> This calculator is for general sleep planning and education. It is not a medical diagnostic tool and cannot assess sleep disorders. If you regularly struggle to sleep, feel excessively sleepy during the day or experience breathing interruptions during sleep, speak with a qualified healthcare professional.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+   <h3>1. How many hours of sleep do adults need?</h3>
+   <p>Most adults aged 18–60 generally need at least seven hours of sleep per night. Individual sleep needs can vary.</p>
+  </div>
+  <div class="faq-item">
+   <h3>2. Is a sleep cycle exactly 90 minutes?</h3>
+   <p>No. Sleep cycles vary in length between people and across the night. Ninety minutes is a simplified estimate.</p>
+  </div>
+  <div class="faq-item">
+   <h3>3. What is the best time to go to bed?</h3>
+   <p>The best bedtime depends on your required wake-up time, age, sleep needs and daily routine. A consistent schedule is generally more useful than one universal bedtime.</p>
+  </div>
+  <div class="faq-item">
+   <h3>4. What is sleep latency?</h3>
+   <p>Sleep latency is the time it takes to fall asleep after going to bed. This calculator allows you to include an estimated number of minutes.</p>
+  </div>
+  <div class="faq-item">
+   <h3>5. Is six hours of sleep enough?</h3>
+   <p>Six hours is below the general recommendation for most adults. Many adults need at least seven hours per night.</p>
+  </div>
+  <div class="faq-item">
+   <h3>6. Can this calculator improve sleep quality?</h3>
+   <p>It can help you plan a consistent schedule, but it cannot guarantee better sleep quality or diagnose sleep problems.</p>
+  </div>
+  <div class="faq-item">
+   <h3>7. Should I wake up after exactly five sleep cycles?</h3>
+   <p>Not necessarily. Five 90-minute cycles are only an estimate. Choose a schedule that provides enough total sleep and fits your routine.</p>
+  </div>
+  <div class="faq-item">
+   <h3>8. Can I calculate bedtime from my wake-up time?</h3>
+   <p>Yes. Select the bedtime calculation option, enter your required wake-up time and review the suggested bedtimes.</p>
+  </div>
+
+  <h2>Related Health & Fitness Calculators</h2>
+  <p class="section-intro">Explore other free CalcNest tools for health and fitness planning.</p>
+  <div class="related-grid">
+   <div class="related-card">
+    <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+    <p>Calculate body mass index using height and weight.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/bmr-calculator.html">BMR Calculator</a>
+    <p>Estimate your basal metabolic rate.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/tdee-calculator.html">TDEE Calculator</a>
+    <p>Estimate daily energy expenditure.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/water-intake-calculator.html">Water Intake Calculator</a>
+    <p>Explore a general daily hydration estimate.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/age-calculator.html">Age Calculator</a>
+    <p>Calculate exact age in years, months and days.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/health-calculators.html">All Health Calculators</a>
+    <p>Browse the complete Health & Fitness collection.</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <div>© 2026 CalcNest. Free online calculators for everyday decisions.</div>
+  <div>
+   <a href="/">Home</a>
+   <a href="/calculators/health-calculators.html">Health Calculators</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ const $ = id => document.getElementById(id);
+
+ function parseTime(value){
+  if(!/^\d{2}:\d{2}$/.test(value)) return null;
+
+  const parts = value.split(":").map(Number);
+  const hour = parts[0];
+  const minute = parts[1];
+
+  if(hour<0 || hour>23 || minute<0 || minute>59) return null;
+
+  return hour*60+minute;
+ }
+
+ function formatTime(totalMinutes){
+  const normalized = ((totalMinutes%1440)+1440)%1440;
+  const hour = Math.floor(normalized/60);
+  const minute = normalized%60;
+  const suffix = hour>=12 ? "PM" : "AM";
+  const displayHour = hour%12 || 12;
+
+  return displayHour + ":" + String(minute).padStart(2,"0") + " " + suffix;
+ }
+
+ function getDayLabel(totalMinutes){
+  const dayOffset = Math.floor(totalMinutes/1440);
+  if(dayOffset === 0) return "Same day";
+  if(dayOffset === 1) return "Next day";
+  if(dayOffset === -1) return "Previous day";
+  if(dayOffset > 1) return dayOffset + " days later";
+  return Math.abs(dayOffset) + " days earlier";
+ }
+
+ function showError(message){
+  $("error").textContent = message;
+  $("error").style.display = "block";
+ }
+
+ function clearError(){
+  $("error").textContent = "";
+  $("error").style.display = "none";
+ }
+
+ function updateMode(){
+  const mode = $("mode").value;
+
+  if(mode === "wake"){
+   $("time-label").textContent = "Planned bedtime";
+   $("mode-description").textContent =
+    "Enter the time you plan to go to bed. The calculator will suggest wake-up times.";
+  }else{
+   $("time-label").textContent = "Required wake-up time";
+   $("mode-description").textContent =
+    "Enter the time you need to wake up. The calculator will suggest bedtimes.";
+  }
+
+  $("result").style.display = "none";
+  $("placeholder").style.display = "block";
+  clearError();
+ }
+
+ function calculate(){
+  clearError();
+
+  const mode = $("mode").value;
+  const enteredTime = parseTime($("time-input").value);
+  const latency = Number($("fall-asleep").value);
+
+  if(enteredTime === null){
+   showError("Please enter a valid time.");
+   $("time-input").focus();
+   return;
+  }
+
+  if(!Number.isFinite(latency) || latency<0 || latency>60){
+   showError("Please select a valid sleep onset estimate.");
+   return;
+  }
+
+  const cycleMinutes = 90;
+  const cycleCounts = [4,5,6];
+  const options = [];
+
+  cycleCounts.forEach(cycles=>{
+   const sleepDuration = cycles*cycleMinutes;
+
+   let sleepStart;
+   let suggestedTime;
+
+   if(mode === "wake"){
+    sleepStart = enteredTime+latency;
+    suggestedTime = sleepStart+sleepDuration;
+   }else{
+    suggestedTime = enteredTime-sleepDuration-latency;
+    sleepStart = suggestedTime+latency;
+   }
+
+   options.push({
+    cycles,
+    sleepDuration,
+    suggestedTime,
+    sleepStart
+   });
+  });
+
+  const recommended = options[1];
+
+  $("placeholder").style.display = "none";
+  $("result").style.display = "block";
+
+  $("result-heading").textContent =
+   mode === "wake" ? "Suggested wake-up time" : "Suggested bedtime";
+
+  $("main-time").textContent = formatTime(recommended.suggestedTime);
+
+  $("main-description").textContent =
+   "Based on approximately 7 hours 30 minutes of sleep (5 estimated cycles).";
+
+  $("time-list").innerHTML = options.map((option,index)=>{
+   const displayTime = formatTime(option.suggestedTime);
+   const dayLabel = getDayLabel(option.suggestedTime);
+   const durationHours = option.sleepDuration/60;
+
+   return `
+    <div class="time-option ${index===1?"recommended":""}">
+     <div>
+      <strong>${displayTime}</strong>
+      <span>${dayLabel} · ${durationHours} hours estimated sleep</span>
+     </div>
+     <div class="cycle">${option.cycles} cycles</div>
+    </div>
+   `;
+  }).join("");
+
+  const rows = [
+   ["Calculation method",mode==="wake"?"Wake-up time from bedtime":"Bedtime from wake-up time"],
+   ["Entered time",formatTime(enteredTime)],
+   ["Estimated time to fall asleep",latency+" minutes"],
+   ["Estimated sleep cycles","Approximately 90 minutes each"],
+   ["Suggested 5-cycle schedule",formatTime(recommended.suggestedTime)],
+   ["Estimated sleep duration","7 hours 30 minutes"]
+  ];
+
+  $("summary").innerHTML = rows.map(row=>
+   "<div class='metric-row'><span>"+row[0]+"</span><strong>"+row[1]+"</strong></div>"
+  ).join("");
+
+  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+ }
+
+ $("mode").addEventListener("change",updateMode);
+ $("calculate").addEventListener("click",calculate);
+
+ $("reset").addEventListener("click",function(){
+  $("mode").value="wake";
+  $("time-input").value="22:00";
+  $("fall-asleep").value="15";
+  updateMode();
+ });
+
+ $("sample").addEventListener("click",function(){
+  $("mode").value="wake";
+  $("time-input").value="22:00";
+  $("fall-asleep").value="15";
+  updateMode();
+  calculate();
+ });
+
+ updateMode();
+})();
+</script>
+</body>
+</html>
