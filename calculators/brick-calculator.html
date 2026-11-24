@@ -1,0 +1,1552 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Brick Calculator - Calculate Bricks for Walls & Construction | CalcNest</title>
+  <meta name="description" content="Use this free brick calculator to estimate the number of bricks needed for a wall. Enter wall dimensions, openings, brick size, mortar joints and wastage to calculate quantities and costs.">
+  <meta name="keywords" content="brick calculator, brick wall calculator, bricks needed calculator, brick quantity calculator, construction brick estimator, wall brick calculator">
+  <meta name="author" content="CalcNest">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/brick-calculator.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Brick Calculator - CalcNest">
+  <meta property="og:description" content="Estimate the bricks, mortar volume, wastage and material cost required for your wall construction project.">
+  <meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/brick-calculator.html">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1200">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brick Calculator - CalcNest">
+  <meta name="twitter:description" content="Calculate the bricks required for a wall and estimate material costs.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1200">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CalcNest Brick Calculator",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "A free online calculator for estimating brick quantities, wall area, mortar volume, wastage and material cost."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate how many bricks I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Calculate the net wall volume after subtracting openings, then divide it by the modular volume of one brick including mortar joints. Add a suitable allowance for breakage and cutting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the brick calculator include mortar joints?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The calculator adds the selected mortar joint thickness to the brick dimensions to estimate the modular space occupied by each brick."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I subtract doors and windows?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Enter the total area of doors, windows and other openings so the calculator can subtract them from the gross wall area."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much brick wastage should I allow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A small allowance such as 5 to 10 percent is often used for preliminary planning, but the appropriate amount depends on brick quality, cutting, handling and construction conditions."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --ink:#17243a;
+      --muted:#65738b;
+      --blue:#315eea;
+      --purple:#7659e8;
+      --line:#e8edf5;
+      --soft:#f6f8fd;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(25,45,85,.07);
+      --radius:18px;
+    }
+
+    * { box-sizing:border-box; }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.65;
+    }
+
+    a {
+      color:var(--blue);
+      text-decoration:none;
+    }
+
+    a:hover { text-decoration:underline; }
+
+    .site-header {
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav {
+      max-width:1180px;
+      margin:auto;
+      padding:15px 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .brand {
+      font-size:25px;
+      font-weight:800;
+      letter-spacing:-1px;
+      color:var(--ink);
+    }
+
+    .brand span { color:var(--blue); }
+
+    .nav-links {
+      display:flex;
+      gap:23px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a {
+      color:#42516a;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .container {
+      max-width:1120px;
+      margin:auto;
+      padding:0 22px;
+    }
+
+    .hero {
+      padding:58px 0 35px;
+      background:linear-gradient(120deg,#f4f7ff,#f9f7ff);
+    }
+
+    .breadcrumb {
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:17px;
+    }
+
+    .breadcrumb a { color:var(--blue); }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      align-items:center;
+      gap:35px;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      background:#e8edff;
+      color:#3152c8;
+      border-radius:30px;
+      padding:6px 12px;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    h1 {
+      font-size:clamp(34px,5vw,52px);
+      line-height:1.12;
+      letter-spacing:-1.7px;
+      margin:0 0 17px;
+    }
+
+    .hero p {
+      color:var(--muted);
+      font-size:17px;
+      max-width:650px;
+      margin:0;
+    }
+
+    .hero-image {
+      width:100%;
+      height:255px;
+      object-fit:cover;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .section { padding:38px 0; }
+
+    .calculator-layout {
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .panel {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:25px;
+      box-shadow:var(--shadow);
+    }
+
+    .panel h2 {
+      margin:0 0 7px;
+      font-size:22px;
+    }
+
+    .panel-subtitle {
+      color:var(--muted);
+      font-size:14px;
+      margin:0 0 22px;
+    }
+
+    .subheading {
+      font-size:15px;
+      font-weight:800;
+      margin:22px 0 13px;
+      padding-bottom:8px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .field-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .field { margin-bottom:16px; }
+
+    .field.full { grid-column:1/-1; }
+
+    label {
+      display:block;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:7px;
+      color:#34435b;
+    }
+
+    input,select {
+      width:100%;
+      padding:12px 13px;
+      border:1px solid #dce3ef;
+      border-radius:10px;
+      font-size:15px;
+      color:var(--ink);
+      background:#fff;
+      outline:none;
+      min-height:46px;
+    }
+
+    input:focus,select:focus {
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(49,94,234,.1);
+    }
+
+    .hint {
+      color:var(--muted);
+      font-size:12px;
+      margin-top:5px;
+    }
+
+    .button-row {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    button {
+      border:0;
+      border-radius:10px;
+      padding:12px 18px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    button:hover { transform:translateY(-1px); }
+
+    .primary-btn {
+      background:linear-gradient(120deg,var(--blue),var(--purple));
+      color:#fff;
+      flex:1;
+    }
+
+    .secondary-btn {
+      background:#eef2ff;
+      color:#3152c8;
+    }
+
+    .result-panel {
+      background:linear-gradient(145deg,#f8faff,#f8f6ff);
+      border:1px solid #e4e9fb;
+      border-radius:15px;
+      padding:20px;
+      margin-top:20px;
+    }
+
+    .result-label {
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .main-result {
+      font-size:38px;
+      font-weight:800;
+      letter-spacing:-1px;
+      color:var(--blue);
+      margin:2px 0 4px;
+      overflow-wrap:anywhere;
+    }
+
+    .result-unit {
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .result-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .result-item {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:14px;
+      min-width:0;
+    }
+
+    .result-item span {
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:4px;
+    }
+
+    .result-item strong {
+      font-size:19px;
+      overflow-wrap:anywhere;
+    }
+
+    .result-note {
+      margin-top:15px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .error {
+      display:none;
+      color:#b42318;
+      background:#fff0ef;
+      border:1px solid #ffd4d0;
+      padding:11px 13px;
+      border-radius:9px;
+      margin-top:15px;
+      font-size:13px;
+    }
+
+    .success-message {
+      min-height:18px;
+      color:#237a4b;
+      font-size:12px;
+      margin-top:10px;
+    }
+
+    .quick-values {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .quick-values button {
+      background:#f0f3fa;
+      color:#42516a;
+      padding:7px 11px;
+      font-size:12px;
+      border-radius:8px;
+    }
+
+    .info-card {
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px;
+      margin:20px 0;
+    }
+
+    .info-card h3 {
+      margin:0 0 8px;
+      font-size:17px;
+    }
+
+    .info-card p {
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .content-section {
+      padding:27px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .content-section h2 {
+      font-size:25px;
+      margin:0 0 13px;
+      letter-spacing:-.5px;
+    }
+
+    .content-section h3 {
+      font-size:18px;
+      margin:22px 0 8px;
+    }
+
+    .content-section p,
+    .content-section li {
+      color:#53627a;
+      font-size:15px;
+    }
+
+    .formula {
+      background:#f3f5fc;
+      padding:15px 17px;
+      border-radius:11px;
+      border:1px solid var(--line);
+      font-weight:700;
+      color:#34435b;
+      margin:14px 0;
+      overflow-wrap:anywhere;
+    }
+
+    .example-table {
+      width:100%;
+      border-collapse:collapse;
+      margin:17px 0;
+      font-size:14px;
+    }
+
+    .example-table th,
+    .example-table td {
+      text-align:left;
+      padding:12px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .example-table th {
+      background:#f5f7fc;
+      color:#34435b;
+    }
+
+    .faq-item {
+      border-bottom:1px solid var(--line);
+      padding:17px 0;
+    }
+
+    .faq-item h3 {
+      margin:0 0 7px;
+      font-size:16px;
+    }
+
+    .faq-item p {
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .related-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:13px;
+    }
+
+    .related-card {
+      display:block;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:16px;
+      color:var(--ink);
+      background:#fff;
+      font-weight:700;
+    }
+
+    .related-card span {
+      display:block;
+      font-size:12px;
+      font-weight:400;
+      color:var(--muted);
+      margin-top:5px;
+    }
+
+    .disclaimer {
+      background:#fff9e9;
+      border:1px solid #f4e5b8;
+      color:#78602a;
+      padding:15px;
+      border-radius:12px;
+      font-size:13px;
+      margin-top:20px;
+    }
+
+    footer {
+      background:#f7f8fc;
+      border-top:1px solid var(--line);
+      padding:28px 0;
+      margin-top:40px;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:800px) {
+      .hero-grid,.calculator-layout { grid-template-columns:1fr; }
+      .hero-image { height:220px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+    }
+
+    @media(max-width:560px) {
+      .nav {
+        align-items:flex-start;
+        flex-direction:column;
+        gap:10px;
+      }
+      .nav-links { gap:14px; }
+      .hero { padding:38px 0 25px; }
+      .field-grid,.result-grid { grid-template-columns:1fr; }
+      .panel { padding:18px; }
+      .related-grid { grid-template-columns:1fr; }
+      .main-result { font-size:31px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/">Calc<span>Nest</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#categories">Calculators</a>
+      <a href="/#guides">Guides</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> /
+      <a href="/calculators/home-construction-calculators.html">Home &amp; Construction</a> /
+      Brick Calculator
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">HOME &amp; CONSTRUCTION TOOL</span>
+        <h1>Free Brick Calculator</h1>
+        <p>
+          Estimate how many bricks you need for a wall, account for doors and
+          windows, include mortar joints and wastage, and calculate an
+          approximate brick material cost.
+        </p>
+      </div>
+
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=1200"
+        alt="Brick wall and masonry construction work"
+        loading="eager"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="calculator-layout">
+
+      <div class="panel">
+        <h2>Wall Measurements</h2>
+        <p class="panel-subtitle">
+          Enter your wall dimensions, openings and brick specifications.
+        </p>
+
+        <div class="field-grid">
+
+          <div class="field">
+            <label for="dimensionUnit">Wall Measurement Unit</label>
+            <select id="dimensionUnit">
+              <option value="m">Meters (m)</option>
+              <option value="ft">Feet (ft)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="wallCount">Number of Walls</label>
+            <input type="number" id="wallCount" min="1" max="100" step="1" value="1">
+          </div>
+
+          <div class="field">
+            <label for="wallLength">Wall Length</label>
+            <input type="number" id="wallLength" min="0.01" step="any" value="5">
+          </div>
+
+          <div class="field">
+            <label for="wallHeight">Wall Height</label>
+            <input type="number" id="wallHeight" min="0.01" step="any" value="3">
+          </div>
+
+          <div class="field">
+            <label for="wallThickness">Wall Thickness</label>
+            <input type="number" id="wallThickness" min="0.01" step="any" value="230">
+            <div class="hint">Enter in the unit selected below</div>
+          </div>
+
+          <div class="field">
+            <label for="thicknessUnit">Thickness Unit</label>
+            <select id="thicknessUnit">
+              <option value="mm">Millimeters (mm)</option>
+              <option value="cm">Centimeters (cm)</option>
+              <option value="in">Inches (in)</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="openingArea">Total Door &amp; Window Opening Area</label>
+            <input type="number" id="openingArea" min="0" step="any" value="2">
+            <div class="hint">
+              Enter the combined opening area for all walls in your selected wall unit squared.
+              Example: 2 means 2 m² when using meters.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="subheading">Brick Specifications</div>
+
+        <div class="field-grid">
+
+          <div class="field">
+            <label for="brickLength">Brick Length</label>
+            <input type="number" id="brickLength" min="1" step="any" value="190">
+          </div>
+
+          <div class="field">
+            <label for="brickHeight">Brick Height</label>
+            <input type="number" id="brickHeight" min="1" step="any" value="90">
+          </div>
+
+          <div class="field">
+            <label for="brickDepth">Brick Depth / Width</label>
+            <input type="number" id="brickDepth" min="1" step="any" value="90">
+          </div>
+
+          <div class="field">
+            <label for="brickUnit">Brick Dimension Unit</label>
+            <select id="brickUnit">
+              <option value="mm">Millimeters (mm)</option>
+              <option value="cm">Centimeters (cm)</option>
+              <option value="in">Inches (in)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="mortarJoint">Mortar Joint Thickness</label>
+            <input type="number" id="mortarJoint" min="0" step="any" value="10">
+          </div>
+
+          <div class="field">
+            <label for="mortarUnit">Mortar Joint Unit</label>
+            <select id="mortarUnit">
+              <option value="mm">Millimeters (mm)</option>
+              <option value="cm">Centimeters (cm)</option>
+              <option value="in">Inches (in)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="waste">Brick Waste Allowance</label>
+            <select id="waste">
+              <option value="3">3%</option>
+              <option value="5" selected>5%</option>
+              <option value="7">7%</option>
+              <option value="10">10%</option>
+              <option value="15">15%</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="price">Price per Brick</label>
+            <input type="number" id="price" min="0" step="any" value="0.75">
+          </div>
+
+          <div class="field full">
+            <label for="currency">Currency</label>
+            <select id="currency">
+              <option value="$">US Dollar ($)</option>
+              <option value="£">British Pound (£)</option>
+              <option value="€">Euro (€)</option>
+              <option value="PKR ">Pakistani Rupee (PKR)</option>
+              <option value="₹">Indian Rupee (₹)</option>
+              <option value="C$">Canadian Dollar (C$)</option>
+              <option value="A$">Australian Dollar (A$)</option>
+              <option value="AED ">UAE Dirham (AED)</option>
+              <option value="SAR ">Saudi Riyal (SAR)</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="button-row">
+          <button class="primary-btn" id="calculateBtn" type="button">Calculate Bricks</button>
+          <button class="secondary-btn" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div class="error" id="errorBox" role="alert"></div>
+        <div class="success-message" id="message" aria-live="polite"></div>
+
+        <div class="quick-values">
+          <button type="button" data-length="5" data-height="3">Small wall</button>
+          <button type="button" data-length="10" data-height="3">Medium wall</button>
+          <button type="button" data-length="15" data-height="3">Large wall</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Your Brick Estimate</h2>
+        <p class="panel-subtitle">
+          Results are based on your wall volume, brick dimensions and mortar joint.
+        </p>
+
+        <div class="result-panel" aria-live="polite">
+          <div class="result-label">Estimated bricks required</div>
+          <div class="main-result" id="brickCount">1,000</div>
+          <div class="result-unit">bricks including selected wastage</div>
+
+          <div class="result-grid">
+
+            <div class="result-item">
+              <span>Gross wall area</span>
+              <strong id="grossArea">15.00 m²</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Net wall area</span>
+              <strong id="netArea">13.00 m²</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Net wall volume</span>
+              <strong id="wallVolume">2.99 m³</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Bricks before wastage</span>
+              <strong id="baseBricks">900</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Extra bricks for wastage</span>
+              <strong id="wasteBricks">45</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Bricks per m²</span>
+              <strong id="bricksPerArea">69.2</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Estimated mortar volume</span>
+              <strong id="mortarVolume">0.50 m³</strong>
+            </div>
+
+            <div class="result-item">
+              <span>Estimated brick cost</span>
+              <strong id="totalCost">$750.00</strong>
+            </div>
+
+          </div>
+
+          <p class="result-note" id="resultExplanation">
+            The estimate uses modular brick dimensions, including mortar joints.
+            Whole bricks are rounded up.
+          </p>
+
+          <div class="button-row">
+            <button class="secondary-btn" id="copyBtn" type="button">Copy Results</button>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>Why include mortar joints?</h3>
+          <p>
+            Bricks are normally separated by mortar in a masonry wall. Adding
+            the joint thickness to the brick dimensions gives a more useful
+            estimate of the repeating space occupied by each brick.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="disclaimer">
+      <strong>Important:</strong> This is an approximate material planning tool.
+      Actual brick quantities depend on bonding pattern, wall construction,
+      workmanship, brick dimensions, mortar joints, cuts and local practices.
+      The mortar figure is a theoretical estimate, not a ready-mix or cement
+      purchasing quantity. Confirm all quantities with a qualified builder.
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="content-section">
+      <h2>How to Calculate the Number of Bricks for a Wall</h2>
+      <p>
+        The number of bricks needed depends on the size of the wall, its thickness,
+        the size of each brick and the mortar joint used between bricks.
+        Doors, windows and other openings should also be deducted from the wall area.
+      </p>
+
+      <p>
+        A useful way to estimate bricks for a wall is to calculate the net wall
+        volume and divide it by the modular volume of one brick. Modular dimensions
+        include the mortar joint, because the joint occupies space between bricks.
+      </p>
+
+      <div class="formula">
+        Gross Wall Area = Wall Length × Wall Height × Number of Walls
+      </div>
+
+      <div class="formula">
+        Net Wall Area = Gross Wall Area − Total Opening Area
+      </div>
+
+      <div class="formula">
+        Net Wall Volume = Net Wall Area × Wall Thickness
+      </div>
+
+      <div class="formula">
+        Modular Brick Length = Brick Length + Mortar Joint
+      </div>
+
+      <div class="formula">
+        Modular Brick Height = Brick Height + Mortar Joint
+      </div>
+
+      <div class="formula">
+        Modular Brick Depth = Brick Depth + Mortar Joint
+      </div>
+
+      <div class="formula">
+        Bricks Required = Net Wall Volume ÷ Modular Brick Volume
+      </div>
+
+      <div class="formula">
+        Final Bricks = Round Up(Bricks Required × (1 + Waste Percentage))
+      </div>
+
+      <p>
+        All dimensions must be converted to the same unit before calculating volume.
+        This calculator converts wall measurements and brick dimensions to meters
+        internally so that the calculation remains consistent.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Brick Calculator Example</h2>
+      <p>
+        Consider one wall that is 5 meters long and 3 meters high. Assume it has
+        a combined opening area of 2 square meters, a thickness of 230 mm,
+        bricks measuring 190 × 90 × 90 mm and a 10 mm mortar joint.
+      </p>
+
+      <table class="example-table">
+        <thead>
+          <tr>
+            <th>Measurement</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gross wall area</td>
+            <td>15 m²</td>
+          </tr>
+          <tr>
+            <td>Opening area</td>
+            <td>2 m²</td>
+          </tr>
+          <tr>
+            <td>Net wall area</td>
+            <td>13 m²</td>
+          </tr>
+          <tr>
+            <td>Wall thickness</td>
+            <td>0.23 m</td>
+          </tr>
+          <tr>
+            <td>Net wall volume</td>
+            <td>2.99 m³</td>
+          </tr>
+          <tr>
+            <td>Modular brick dimensions</td>
+            <td>200 × 100 × 100 mm</td>
+          </tr>
+          <tr>
+            <td>Modular brick volume</td>
+            <td>0.002 m³</td>
+          </tr>
+          <tr>
+            <td>Estimated bricks before waste</td>
+            <td>1,495</td>
+          </tr>
+          <tr>
+            <td>Estimated bricks with 5% waste</td>
+            <td>1,570</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        This example illustrates the volume method. Actual site quantities may
+        differ due to the brick bond, cutting, construction tolerances and
+        locally available brick sizes.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Why Wall Thickness Matters</h2>
+      <p>
+        Wall thickness affects the volume of masonry and the way bricks are laid.
+        A thicker wall generally requires more bricks than a thinner wall of the
+        same length and height.
+      </p>
+
+      <ul>
+        <li><strong>Half-brick wall:</strong> A relatively thin masonry wall, often used for partitions in some construction systems.</li>
+        <li><strong>Single-brick wall:</strong> A thicker wall configuration that uses a different brick arrangement.</li>
+        <li><strong>Double-brick or cavity construction:</strong> May require separate calculations for multiple masonry leaves and the cavity.</li>
+      </ul>
+
+      <p>
+        These terms vary by country and building practice. Enter the actual
+        thickness of the masonry being estimated rather than relying only on
+        a wall-type name.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>How Doors and Windows Affect Brick Quantity</h2>
+      <p>
+        A wall may include windows, doors, vents or other openings. These spaces
+        do not require the same quantity of wall bricks, so their combined area
+        should be subtracted from the gross wall area.
+      </p>
+
+      <div class="formula">
+        Opening Area = Opening Width × Opening Height
+      </div>
+
+      <p>
+        For multiple openings, calculate each opening area and add them together.
+        For example, two windows measuring 1.2 m by 1.0 m have a combined area
+        of 2.4 m².
+      </p>
+
+      <p>
+        Structural elements such as lintels, reinforced concrete columns and
+        special masonry details are not included in this simple wall estimate.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Understanding Mortar Joints</h2>
+      <p>
+        Mortar joints are the spaces between bricks that are filled with mortar.
+        Joint thickness changes the number of bricks that fit into a given wall
+        volume.
+      </p>
+
+      <p>
+        A larger joint increases the modular dimensions of each brick and can
+        reduce the estimated brick count for a fixed wall volume. The correct
+        joint size depends on the brick type, mortar specification and
+        construction method.
+      </p>
+
+      <ul>
+        <li>Measure the actual brick dimensions rather than relying on nominal sizes.</li>
+        <li>Use the joint thickness specified for your masonry work.</li>
+        <li>Keep horizontal and vertical joints consistent where the bond requires it.</li>
+        <li>Do not use the calculator's theoretical mortar volume as a direct order quantity.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>How Much Brick Wastage Should You Add?</h2>
+      <p>
+        Some bricks may break during transport, handling or cutting. Additional
+        bricks may also be needed around corners, openings and wall intersections.
+        A waste allowance helps account for these uncertainties.
+      </p>
+
+      <ul>
+        <li><strong>3%:</strong> A small planning allowance for straightforward work with careful handling.</li>
+        <li><strong>5%:</strong> A commonly used preliminary estimate for relatively simple projects.</li>
+        <li><strong>7–10%:</strong> May be considered when more cutting or handling loss is expected.</li>
+        <li><strong>15%:</strong> May be considered for unusual layouts or difficult site conditions.</li>
+      </ul>
+
+      <p>
+        These percentages are examples for planning, not universal construction
+        standards. Ask your supplier or builder what allowance is appropriate.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>What About Mortar and Cement Requirements?</h2>
+      <p>
+        This calculator estimates the theoretical mortar space between bricks
+        based on modular brick dimensions and wall volume. It does not calculate
+        a complete mortar mix or the number of cement bags to purchase.
+      </p>
+
+      <p>
+        Actual mortar quantities depend on joint thickness, brick absorption,
+        workmanship, mortar mix proportions, site losses and the type of masonry.
+        Cement and sand requirements should be calculated separately using the
+        specified mortar mix.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>1. How many bricks do I need for a wall?</h3>
+        <p>
+          The quantity depends on wall length, height, thickness, brick dimensions,
+          mortar joints and openings. Enter those details in the calculator to
+          estimate the required number of bricks.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>2. Does this calculator support meters and feet?</h3>
+        <p>
+          Yes. Wall dimensions can be entered in meters or feet. Brick dimensions,
+          wall thickness and mortar joints have their own unit selections.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>3. Does the calculator subtract windows and doors?</h3>
+        <p>
+          Yes. Enter the combined area of all wall openings. The calculator
+          subtracts this area before estimating the net wall volume.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>4. Are mortar joints included in the brick count?</h3>
+        <p>
+          Yes. The calculator adds the selected joint thickness to each brick
+          dimension to estimate its modular volume.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>5. Can I calculate bricks for multiple walls?</h3>
+        <p>
+          Yes. Enter the number of identical walls. The total opening area
+          should represent the combined openings across all those walls.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>6. What if my walls have different dimensions?</h3>
+        <p>
+          Calculate each different wall separately, then add the results.
+          Alternatively, group walls only when their dimensions and
+          specifications are the same.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>7. How much extra material should I buy?</h3>
+        <p>
+          A preliminary allowance of 5% may be a reasonable starting point for
+          some straightforward projects. The correct allowance depends on
+          brick quality, handling, cutting and site conditions.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>8. Does the calculator estimate mortar quantity?</h3>
+        <p>
+          It provides a theoretical mortar-space estimate based on the
+          entered dimensions. Actual mortar purchasing quantities require
+          a separate mix and site-waste calculation.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>9. Can I calculate the price of all required bricks?</h3>
+        <p>
+          Yes. Enter the price per brick and select your currency. The
+          calculator multiplies the price by the estimated number of bricks,
+          including wastage.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>10. Is this calculator suitable for structural design?</h3>
+        <p>
+          No. It estimates material quantities only. Structural design,
+          wall stability, foundations, reinforcement and building-code
+          compliance must be assessed by qualified professionals.
+        </p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Related Home &amp; Construction Calculators</h2>
+      <p class="section-intro">
+        Use these tools to estimate other common building materials and project quantities.
+      </p>
+
+      <div class="related-grid">
+        <a class="related-card" href="/calculators/home-construction-calculators.html">
+          Home &amp; Construction Calculators
+          <span>Explore construction tools</span>
+        </a>
+
+        <a class="related-card" href="/calculators/concrete-calculator.html">
+          Concrete Calculator
+          <span>Estimate concrete volume</span>
+        </a>
+
+        <a class="related-card" href="/calculators/cement-sand-aggregate-calculator.html">
+          Cement, Sand &amp; Aggregate
+          <span>Estimate concrete mix materials</span>
+        </a>
+
+        <a class="related-card" href="/calculators/tile-calculator.html">
+          Tile Calculator
+          <span>Estimate tiles and material waste</span>
+        </a>
+
+        <a class="related-card" href="/calculators/roofing-calculator.html">
+          Roofing Calculator
+          <span>Estimate roof area and materials</span>
+        </a>
+
+        <a class="related-card" href="/calculators/paint-calculator.html">
+          Paint Calculator
+          <span>Estimate paint requirements</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div><strong>CalcNest</strong> — Free Online Calculators</div>
+    <div>© <span id="year"></span> CalcNest. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  let latestResults = null;
+
+  function number(id) {
+    return Number($(id).value);
+  }
+
+  function format(value, decimals = 2) {
+    return Number(value).toLocaleString("en-US", {
+      maximumFractionDigits:decimals,
+      minimumFractionDigits:0
+    });
+  }
+
+  function toMeters(value, unit) {
+    if (unit === "m") return value;
+    if (unit === "ft") return value * 0.3048;
+    if (unit === "cm") return value / 100;
+    if (unit === "mm") return value / 1000;
+    if (unit === "in") return value * 0.0254;
+    return value;
+  }
+
+  function showError(message) {
+    $("errorBox").textContent = message;
+    $("errorBox").style.display = "block";
+  }
+
+  function clearError() {
+    $("errorBox").textContent = "";
+    $("errorBox").style.display = "none";
+  }
+
+  function calculate() {
+    clearError();
+    $("message").textContent = "";
+
+    const wallLength = number("wallLength");
+    const wallHeight = number("wallHeight");
+    const wallCount = number("wallCount");
+    const wallThickness = number("wallThickness");
+    const openingArea = number("openingArea");
+
+    const brickLength = number("brickLength");
+    const brickHeight = number("brickHeight");
+    const brickDepth = number("brickDepth");
+    const mortarJoint = number("mortarJoint");
+
+    const wastePercent = number("waste");
+    const pricePerBrick = number("price");
+
+    const dimensionUnit = $("dimensionUnit").value;
+    const thicknessUnit = $("thicknessUnit").value;
+    const brickUnit = $("brickUnit").value;
+    const mortarUnit = $("mortarUnit").value;
+    const currency = $("currency").value;
+
+    if (!Number.isFinite(wallLength) || wallLength <= 0) {
+      showError("Enter a wall length greater than zero.");
+      return;
+    }
+
+    if (!Number.isFinite(wallHeight) || wallHeight <= 0) {
+      showError("Enter a wall height greater than zero.");
+      return;
+    }
+
+    if (!Number.isInteger(wallCount) || wallCount < 1 || wallCount > 100) {
+      showError("Enter a whole number of walls between 1 and 100.");
+      return;
+    }
+
+    if (!Number.isFinite(wallThickness) || wallThickness <= 0) {
+      showError("Enter a wall thickness greater than zero.");
+      return;
+    }
+
+    if (!Number.isFinite(openingArea) || openingArea < 0) {
+      showError("Opening area cannot be negative.");
+      return;
+    }
+
+    if (
+      !Number.isFinite(brickLength) || brickLength <= 0 ||
+      !Number.isFinite(brickHeight) || brickHeight <= 0 ||
+      !Number.isFinite(brickDepth) || brickDepth <= 0
+    ) {
+      showError("Enter valid brick dimensions greater than zero.");
+      return;
+    }
+
+    if (!Number.isFinite(mortarJoint) || mortarJoint < 0) {
+      showError("Mortar joint thickness cannot be negative.");
+      return;
+    }
+
+    if (!Number.isFinite(pricePerBrick) || pricePerBrick < 0) {
+      showError("Brick price cannot be negative.");
+      return;
+    }
+
+    const lengthM = toMeters(wallLength, dimensionUnit);
+    const heightM = toMeters(wallHeight, dimensionUnit);
+    const thicknessM = toMeters(wallThickness, thicknessUnit);
+
+    const brickLengthM = toMeters(brickLength, brickUnit);
+    const brickHeightM = toMeters(brickHeight, brickUnit);
+    const brickDepthM = toMeters(brickDepth, brickUnit);
+    const jointM = toMeters(mortarJoint, mortarUnit);
+
+    const openingAreaM2 = dimensionUnit === "ft"
+      ? openingArea * 0.09290304
+      : openingArea;
+
+    const grossAreaM2 = lengthM * heightM * wallCount;
+    const netAreaM2 = grossAreaM2 - openingAreaM2;
+
+    if (netAreaM2 <= 0) {
+      showError("Total opening area must be smaller than the gross wall area.");
+      return;
+    }
+
+    if (openingAreaM2 > grossAreaM2) {
+      showError("Opening area cannot exceed the total wall area.");
+      return;
+    }
+
+    if (thicknessM <= 0 || brickLengthM <= 0 || brickHeightM <= 0 || brickDepthM <= 0) {
+      showError("The entered dimensions must produce positive measurements.");
+      return;
+    }
+
+    const wallVolumeM3 = netAreaM2 * thicknessM;
+
+    const modularLength = brickLengthM + jointM;
+    const modularHeight = brickHeightM + jointM;
+    const modularDepth = brickDepthM + jointM;
+
+    const modularBrickVolume = modularLength * modularHeight * modularDepth;
+    const solidBrickVolume = brickLengthM * brickHeightM * brickDepthM;
+
+    if (modularBrickVolume <= 0 || solidBrickVolume <= 0) {
+      showError("Please check the brick dimensions and mortar joint.");
+      return;
+    }
+
+    const theoreticalBricks = wallVolumeM3 / modularBrickVolume;
+    const baseBricks = Math.ceil(theoreticalBricks);
+
+    const wasteBricks = Math.ceil(baseBricks * wastePercent / 100);
+    const finalBricks = baseBricks + wasteBricks;
+
+    // Approximate theoretical brick volume and mortar-space volume.
+    const theoreticalBrickSolidVolume = theoreticalBricks * solidBrickVolume;
+    const theoreticalMortarVolume = Math.max(
+      0,
+      wallVolumeM3 - theoreticalBrickSolidVolume
+    );
+
+    const bricksPerM2 = theoreticalBricks / netAreaM2;
+    const totalCost = finalBricks * pricePerBrick;
+
+    const grossAreaDisplay = dimensionUnit === "ft"
+      ? grossAreaM2 / 0.09290304
+      : grossAreaM2;
+
+    const netAreaDisplay = dimensionUnit === "ft"
+      ? netAreaM2 / 0.09290304
+      : netAreaM2;
+
+    const areaUnitLabel = dimensionUnit === "ft" ? "ft²" : "m²";
+
+    $("brickCount").textContent = format(finalBricks, 0);
+    $("grossArea").textContent = format(grossAreaDisplay) + " " + areaUnitLabel;
+    $("netArea").textContent = format(netAreaDisplay) + " " + areaUnitLabel;
+    $("wallVolume").textContent = format(wallVolumeM3, 3) + " m³";
+    $("baseBricks").textContent = format(baseBricks, 0);
+    $("wasteBricks").textContent = format(wasteBricks, 0);
+    $("bricksPerArea").textContent = format(bricksPerM2, 1);
+    $("mortarVolume").textContent = format(theoreticalMortarVolume, 3) + " m³";
+    $("totalCost").textContent = currency + format(totalCost, 2);
+
+    $("resultExplanation").textContent =
+      "Estimate for " + wallCount + " wall(s). " +
+      "The calculation uses the selected brick dimensions and mortar joint. " +
+      wastePercent + "% wastage has been added and the final brick quantity " +
+      "is rounded up to whole bricks. Mortar volume is theoretical only.";
+
+    latestResults = {
+      walls:wallCount,
+      grossArea:format(grossAreaDisplay) + " " + areaUnitLabel,
+      netArea:format(netAreaDisplay) + " " + areaUnitLabel,
+      wallVolume:format(wallVolumeM3,3) + " m³",
+      bricksBeforeWaste:baseBricks,
+      wastePercent:wastePercent + "%",
+      extraBricks:wasteBricks,
+      finalBricks:finalBricks,
+      bricksPerArea:format(bricksPerM2,1),
+      mortarVolume:format(theoreticalMortarVolume,3) + " m³",
+      cost:currency + format(totalCost,2)
+    };
+  }
+
+  function resetCalculator() {
+    $("dimensionUnit").value = "m";
+    $("wallCount").value = 1;
+    $("wallLength").value = 5;
+    $("wallHeight").value = 3;
+    $("wallThickness").value = 230;
+    $("thicknessUnit").value = "mm";
+    $("openingArea").value = 2;
+
+    $("brickLength").value = 190;
+    $("brickHeight").value = 90;
+    $("brickDepth").value = 90;
+    $("brickUnit").value = "mm";
+    $("mortarJoint").value = 10;
+    $("mortarUnit").value = "mm";
+
+    $("waste").value = 5;
+    $("price").value = 0.75;
+    $("currency").value = "$";
+
+    clearError();
+    $("message").textContent = "";
+    calculate();
+  }
+
+  function fallbackCopy(text) {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+      const success = document.execCommand("copy");
+      $("message").textContent = success
+        ? "Results copied to clipboard."
+        : "Copy was not available on this device.";
+    } catch (error) {
+      $("message").textContent = "Copy was not available on this device.";
+    }
+
+    area.remove();
+  }
+
+  function copyResults() {
+    if (!latestResults) calculate();
+    if (!latestResults) return;
+
+    const text = [
+      "CalcNest Brick Calculator Results",
+      "Number of walls: " + latestResults.walls,
+      "Gross wall area: " + latestResults.grossArea,
+      "Net wall area: " + latestResults.netArea,
+      "Net wall volume: " + latestResults.wallVolume,
+      "Bricks before wastage: " + latestResults.bricksBeforeWaste,
+      "Wastage allowance: " + latestResults.wastePercent,
+      "Extra bricks: " + latestResults.extraBricks,
+      "Total bricks required: " + latestResults.finalBricks,
+      "Bricks per square meter: " + latestResults.bricksPerArea,
+      "Estimated mortar volume: " + latestResults.mortarVolume,
+      "Estimated brick cost: " + latestResults.cost,
+      "",
+      "Estimate only. Confirm measurements and material requirements before ordering."
+    ].join("\n");
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          $("message").textContent = "Results copied to clipboard.";
+        })
+        .catch(() => fallbackCopy(text));
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  $("calculateBtn").addEventListener("click", calculate);
+  $("resetBtn").addEventListener("click", resetCalculator);
+  $("copyBtn").addEventListener("click", copyResults);
+
+  const inputIds = [
+    "wallLength","wallHeight","wallCount","wallThickness","openingArea",
+    "brickLength","brickHeight","brickDepth","mortarJoint","waste","price"
+  ];
+
+  inputIds.forEach(id => {
+    $(id).addEventListener("input", () => {
+      clearError();
+      $("message").textContent = "";
+    });
+  });
+
+  [
+    "dimensionUnit","thicknessUnit","brickUnit","mortarUnit","currency"
+  ].forEach(id => {
+    $(id).addEventListener("change", () => {
+      clearError();
+      $("message").textContent = "";
+    });
+  });
+
+  document.querySelectorAll(".quick-values button").forEach(button => {
+    button.addEventListener("click", () => {
+      $("wallLength").value = button.dataset.length;
+      $("wallHeight").value = button.dataset.height;
+      $("dimensionUnit").value = "m";
+      calculate();
+    });
+  });
+
+  $("year").textContent = new Date().getFullYear();
+
+  calculate();
+})();
+</script>
+
+</body>
+</html>
