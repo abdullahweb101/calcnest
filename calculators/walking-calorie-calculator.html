@@ -1,0 +1,838 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Walking Calories Calculator - Calories Burned Walking | CalcNest</title>
+<meta name="description" content="Estimate calories burned while walking using your weight, walking duration and speed. Calculate walking distance, pace and hourly calorie burn with this free calculator.">
+<meta name="keywords" content="walking calories calculator, calories burned walking, walking calorie counter, calories per mile walking, calories per km walking, walking energy calculator">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/walking-calorie-calculator.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Walking Calories Calculator | CalcNest">
+<meta property="og:description" content="Estimate calories burned while walking based on body weight, duration and walking speed.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/walking-calorie-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo- walking">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Walking Calories Calculator | CalcNest">
+<meta name="twitter:description" content="Calculate estimated calories burned during walking.">
+
+<style>
+:root{
+ --ink:#17243a;
+ --muted:#65738b;
+ --blue:#315eea;
+ --purple:#7659e8;
+ --line:#e8edf5;
+ --soft:#f6f8fd;
+ --white:#fff;
+ --shadow:0 12px 35px rgba(25,45,85,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ color:var(--ink);
+ background:#fff;
+ line-height:1.7;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{width:min(1120px,92%);margin:auto}
+header{
+ background:#fff;
+ border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:20;
+}
+.nav{
+ min-height:70px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.logo{
+ font-size:25px;
+ font-weight:800;
+ color:var(--ink);
+ letter-spacing:-1px;
+}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:14px;font-weight:700}
+.hero{
+ padding:55px 0 35px;
+ background:linear-gradient(120deg,#f4f7ff,#f8f6ff);
+}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--blue)}
+.hero-grid{
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ gap:35px;
+ align-items:center;
+}
+.eyebrow{
+ color:var(--blue);
+ font-size:12px;
+ font-weight:800;
+ letter-spacing:1.5px;
+ text-transform:uppercase;
+}
+h1{
+ font-size:clamp(32px,5vw,49px);
+ line-height:1.12;
+ letter-spacing:-1.7px;
+ margin:12px 0 17px;
+}
+.hero p{color:var(--muted);font-size:17px;max-width:650px}
+.hero img{
+ width:100%;
+ height:300px;
+ object-fit:cover;
+ border-radius:20px;
+ box-shadow:var(--shadow);
+}
+main{padding:38px 0 65px}
+.section-title{font-size:27px;line-height:1.25;margin:0 0 12px}
+.section-intro{color:var(--muted);margin:0 0 24px}
+.calculator-layout{
+ display:grid;
+ grid-template-columns:1fr .85fr;
+ gap:24px;
+ align-items:start;
+}
+.panel{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:25px;
+ box-shadow:var(--shadow);
+}
+.panel h2{font-size:22px;margin:0 0 7px}
+.panel-sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.field{margin-bottom:18px}
+label{
+ display:block;
+ font-size:14px;
+ font-weight:700;
+ margin-bottom:7px;
+}
+input,select{
+ width:100%;
+ min-height:48px;
+ padding:12px 13px;
+ border:1px solid #dce3ef;
+ border-radius:10px;
+ font:inherit;
+ color:var(--ink);
+ background:#fff;
+ outline:none;
+}
+input:focus,select:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 0 3px rgba(49,94,234,.1);
+}
+.input-row{display:grid;grid-template-columns:1fr 125px;gap:10px}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+button{
+ border:0;
+ border-radius:10px;
+ background:linear-gradient(100deg,var(--blue),var(--purple));
+ color:#fff;
+ font-size:15px;
+ font-weight:800;
+ padding:14px 20px;
+ cursor:pointer;
+ width:100%;
+}
+button:hover{opacity:.93}
+button.secondary{
+ background:#eef2ff;
+ color:var(--blue);
+ border:1px solid #dce4ff;
+}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.error{
+ display:none;
+ color:#b42318;
+ background:#fff0ef;
+ border:1px solid #ffd1cc;
+ border-radius:9px;
+ padding:10px 12px;
+ font-size:13px;
+ margin:12px 0;
+}
+.result-panel{
+ background:linear-gradient(145deg,#f1f5ff,#f8f5ff);
+ border:1px solid #e2e8ff;
+ border-radius:16px;
+ padding:22px;
+}
+.result-label{color:var(--muted);font-size:13px;font-weight:700}
+.result-number{
+ font-size:43px;
+ line-height:1.2;
+ font-weight:900;
+ color:var(--blue);
+ margin:5px 0;
+ overflow-wrap:anywhere;
+}
+.result-unit{font-size:14px;color:var(--muted)}
+.result-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:20px;
+}
+.mini-result{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:11px;
+ padding:13px;
+}
+.mini-result span{display:block;font-size:12px;color:var(--muted)}
+.mini-result strong{font-size:19px;overflow-wrap:anywhere}
+.result-note{font-size:13px;color:var(--muted);margin:15px 0 0}
+.placeholder{
+ color:var(--muted);
+ background:var(--soft);
+ border:1px dashed #cbd5e5;
+ border-radius:13px;
+ padding:28px 18px;
+ text-align:center;
+}
+.sub-panel{
+ margin-top:15px;
+ padding:16px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:12px;
+}
+.sub-panel h3{margin:0 0 10px;font-size:16px}
+.metric-row{
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ padding:9px 0;
+ border-bottom:1px solid #edf0f6;
+ font-size:14px;
+}
+.metric-row:last-child{border-bottom:0}
+.metric-row strong{color:var(--blue)}
+.content-section{margin-top:48px}
+.content-section h2{font-size:26px;line-height:1.3}
+.content-section h3{font-size:19px;margin:24px 0 8px}
+.content-section p,.content-section li{color:#536178}
+.formula{
+ background:#f5f7ff;
+ border-left:4px solid var(--blue);
+ padding:15px 18px;
+ border-radius:8px;
+ margin:14px 0;
+ overflow-wrap:anywhere;
+}
+.example-table{
+ width:100%;
+ border-collapse:collapse;
+ margin:17px 0;
+ font-size:14px;
+}
+.example-table th,.example-table td{
+ padding:12px;
+ border:1px solid var(--line);
+ text-align:left;
+}
+.example-table th{background:#f5f7fc}
+.note{
+ background:#fff9e9;
+ border:1px solid #f4e3b5;
+ border-radius:12px;
+ padding:15px;
+ color:#765b20;
+ margin:18px 0;
+ font-size:14px;
+}
+.related-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:14px;
+}
+.related-card{
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:16px;
+ background:#fff;
+}
+.related-card a{font-weight:800}
+.related-card p{font-size:13px;margin:6px 0 0}
+.faq-item{padding:17px 0;border-bottom:1px solid var(--line)}
+.faq-item h3{font-size:17px;margin:0 0 7px}
+.faq-item p{margin:0;color:var(--muted)}
+footer{
+ border-top:1px solid var(--line);
+ background:#fafbfe;
+ padding:30px 0;
+ color:var(--muted);
+ font-size:13px;
+}
+.footer-inner{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ flex-wrap:wrap;
+}
+footer a{margin-right:13px}
+@media(max-width:800px){
+ .hero-grid,.calculator-layout{grid-template-columns:1fr}
+ .hero img{height:230px}
+ .related-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ nav{gap:10px}
+ nav a{font-size:12px}
+ .logo{font-size:22px}
+ .panel{padding:18px}
+ .input-row{grid-template-columns:1fr 105px}
+ .related-grid{grid-template-columns:1fr}
+ .result-number{font-size:36px}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Walking Calories Calculator",
+ "url":"https://calcnest-7s6.pages.dev/calculators/walking-calorie-calculator.html",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "description":"Estimate calories burned while walking based on body weight, duration and walking speed.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"How many calories does walking burn?",
+   "acceptedAnswer":{"@type":"Answer","text":"Calories burned while walking depend on body weight, walking speed, duration, terrain and individual differences."}
+  },
+  {
+   "@type":"Question",
+   "name":"How are walking calories calculated?",
+   "acceptedAnswer":{"@type":"Answer","text":"A common estimation method uses metabolic equivalent (MET), body weight in kilograms and exercise duration in minutes."}
+  },
+  {
+   "@type":"Question",
+   "name":"Does walking speed affect calories burned?",
+   "acceptedAnswer":{"@type":"Answer","text":"Yes. Walking speed changes the energy demand of an activity. Faster walking generally requires more energy per minute, although total calories also depend on duration and distance."}
+  }
+ ]
+}
+</script>
+</head>
+
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="/">Calc<span>Nest</span></a>
+  <nav>
+   <a href="/">Home</a>
+   <a href="/calculators/">Calculators</a>
+   <a href="/#guides">Guides</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </nav>
+ </div>
+</header>
+
+<section class="hero">
+ <div class="container">
+  <div class="breadcrumb">
+   <a href="/">Home</a> / <a href="/calculators/health-calculators.html">Health & Fitness</a> / Walking Calories Calculator
+  </div>
+  <div class="hero-grid">
+   <div>
+    <div class="eyebrow">Free Fitness Calculator</div>
+    <h1>Walking Calories Calculator</h1>
+    <p>Estimate how many calories you burn while walking. Enter your body weight, walking duration and speed to calculate estimated energy expenditure, distance and walking pace.</p>
+   </div>
+   <img
+    src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=1000"
+    alt="Person walking outdoors on a fitness trail"
+    fetchpriority="high">
+  </div>
+ </div>
+</section>
+
+<main class="container">
+ <h2 class="section-title">Calculate Calories Burned While Walking</h2>
+ <p class="section-intro">Enter your details below to estimate your walking energy expenditure.</p>
+
+ <div class="calculator-layout">
+  <section class="panel">
+   <h2>Walking Details</h2>
+   <p class="panel-sub">Choose your units and enter your walking information.</p>
+
+   <div class="field">
+    <label for="weight">Body weight</label>
+    <div class="input-row">
+     <input id="weight" type="number" min="1" step="any" placeholder="e.g. 70">
+     <select id="weight-unit" aria-label="Weight unit">
+      <option value="kg">Kilograms</option>
+      <option value="lb">Pounds</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="field">
+    <label for="duration">Walking duration</label>
+    <div class="input-row">
+     <input id="duration" type="number" min="1" step="any" placeholder="e.g. 30">
+     <select id="duration-unit" aria-label="Duration unit">
+      <option value="min">Minutes</option>
+      <option value="hr">Hours</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="field">
+    <label for="speed">Walking speed</label>
+    <select id="speed">
+     <option value="slow">Slow walk - 2.0 mph / 3.2 km/h</option>
+     <option value="normal" selected>Moderate walk - 3.0 mph / 4.8 km/h</option>
+     <option value="brisk">Brisk walk - 3.5 mph / 5.6 km/h</option>
+     <option value="fast">Fast walk - 4.0 mph / 6.4 km/h</option>
+     <option value="veryfast">Very brisk walk - 4.5 mph / 7.2 km/h</option>
+    </select>
+    <div class="hint">These are approximate speed categories used for the estimate.</div>
+   </div>
+
+   <div class="field">
+    <label for="terrain">Walking terrain</label>
+    <select id="terrain">
+     <option value="level" selected>Level surface</option>
+     <option value="hilly">Hilly or uneven surface</option>
+    </select>
+    <div class="hint">The terrain selection adjusts the estimated MET value. Actual effort varies by route.</div>
+   </div>
+
+   <div class="field">
+    <label for="calorie-type">Calorie result</label>
+    <select id="calorie-type">
+     <option value="gross" selected>Total calories (gross)</option>
+     <option value="net">Activity calories above resting level (net)</option>
+    </select>
+    <div class="hint">Gross includes resting energy during the activity period. Net subtracts an estimated resting component.</div>
+   </div>
+
+   <div id="error" class="error" role="alert"></div>
+
+   <button id="calculate" type="button">Calculate Walking Calories</button>
+   <div class="actions">
+    <button class="secondary" id="reset" type="button">Reset</button>
+    <button class="secondary" id="sample" type="button">Try Example</button>
+   </div>
+  </section>
+
+  <section class="panel" aria-live="polite">
+   <h2>Your Walking Results</h2>
+   <p class="panel-sub">Estimated calories and walking activity details.</p>
+
+   <div id="placeholder" class="placeholder">
+    <strong>Your results will appear here.</strong>
+    <p>Enter your body weight and walking details, then calculate.</p>
+   </div>
+
+   <div id="result" style="display:none">
+    <div class="result-panel">
+     <div class="result-label" id="calorie-label">Estimated Calories Burned</div>
+     <div class="result-number" id="calories">—</div>
+     <div class="result-unit">kilocalories (kcal)</div>
+
+     <div class="result-grid">
+      <div class="mini-result">
+       <span>Walking distance</span>
+       <strong id="distance-km">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Average speed</span>
+       <strong id="speed-kmh">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Calories per hour</span>
+       <strong id="hourly-calories">—</strong>
+      </div>
+      <div class="mini-result">
+       <span>Walking pace</span>
+       <strong id="pace">—</strong>
+      </div>
+     </div>
+     <p class="result-note" id="result-note"></p>
+    </div>
+
+    <div class="sub-panel">
+     <h3>Activity Summary</h3>
+     <div id="summary"></div>
+    </div>
+   </div>
+  </section>
+ </div>
+
+ <section class="content-section">
+  <h2>How Many Calories Does Walking Burn?</h2>
+  <p>Walking is a common form of physical activity that can contribute to daily energy expenditure. The number of calories burned depends on several factors, including body weight, walking speed, duration, terrain and individual physiology.</p>
+  <p>A person who weighs more may use more energy to cover the same distance than a lighter person at a similar pace. Walking faster or walking on an incline can also increase the energy required.</p>
+  <p>This calculator provides an estimate using metabolic equivalent (MET) values. It is designed for general fitness awareness, not precise measurement of an individual's calorie expenditure.</p>
+
+  <h2>How to Use the Walking Calories Calculator</h2>
+  <ol>
+   <li>Enter your body weight and select kilograms or pounds.</li>
+   <li>Enter how long you walked and choose minutes or hours.</li>
+   <li>Select the walking speed that best matches your activity.</li>
+   <li>Choose level or hilly terrain.</li>
+   <li>Select gross calories or net activity calories.</li>
+   <li>Click Calculate Walking Calories to see your estimate.</li>
+  </ol>
+
+  <h2>Walking Calories Formula</h2>
+  <p>The calculator uses a standard MET-based estimation approach. MET stands for metabolic equivalent of task and represents the energy cost of an activity relative to resting.</p>
+  <div class="formula">
+   <strong>Gross Calories = MET × 3.5 × Weight (kg) ÷ 200 × Duration (minutes)</strong>
+  </div>
+  <p>For net activity calories, an estimated resting MET of 1 is subtracted from the activity MET:</p>
+  <div class="formula">
+   <strong>Net Calories = (MET − 1) × 3.5 × Weight (kg) ÷ 200 × Duration (minutes)</strong>
+  </div>
+  <p>These equations provide approximate energy expenditure. Real-world calorie use can differ from formula estimates.</p>
+
+  <h2>Example: Calories Burned Walking for 30 Minutes</h2>
+  <p>Suppose a person weighs 70 kg and walks at a moderate pace for 30 minutes. Using an illustrative MET value of 3.5:</p>
+  <div class="formula">
+   Gross calories = 3.5 × 3.5 × 70 ÷ 200 × 30<br>
+   <strong>Estimated gross calories = 128.6 kcal</strong>
+  </div>
+  <p>The estimated net activity calories are lower because they subtract the energy that would have been used at rest during the same period.</p>
+
+  <h2>Illustrative Walking MET Values</h2>
+  <p>MET values vary by speed, walking conditions and the reference used. This calculator uses approximate values for its speed categories and a modest adjustment for hilly terrain.</p>
+  <table class="example-table">
+   <thead>
+    <tr><th>Walking category</th><th>Approximate speed</th><th>Illustrative MET</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>Slow walk</td><td>3.2 km/h</td><td>2.5</td></tr>
+    <tr><td>Moderate walk</td><td>4.8 km/h</td><td>3.5</td></tr>
+    <tr><td>Brisk walk</td><td>5.6 km/h</td><td>4.3</td></tr>
+    <tr><td>Fast walk</td><td>6.4 km/h</td><td>5.0</td></tr>
+    <tr><td>Very brisk walk</td><td>7.2 km/h</td><td>6.3</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Factors That Affect Calories Burned While Walking</h2>
+  <h3>1. Body Weight</h3>
+  <p>Body weight is an important input in MET-based calorie estimates. At a similar activity intensity and duration, a higher body weight generally results in a higher estimated energy expenditure.</p>
+
+  <h3>2. Walking Speed</h3>
+  <p>Walking speed affects activity intensity. A faster pace generally requires more energy per minute, although total calories also depend on how long you walk.</p>
+
+  <h3>3. Walking Duration</h3>
+  <p>Longer walks generally use more total energy than shorter walks at the same intensity.</p>
+
+  <h3>4. Terrain and Incline</h3>
+  <p>Hills, slopes, sand and uneven surfaces can increase physical effort. The terrain adjustment in this calculator is only a broad estimate, not a measurement of the actual incline.</p>
+
+  <h3>5. Individual Differences</h3>
+  <p>Fitness, walking efficiency, age, environment and other individual factors can affect actual energy expenditure.</p>
+
+  <h2>Walking Distance at Different Speeds</h2>
+  <p>The following examples show approximate distances covered at selected speeds over 30 minutes.</p>
+  <table class="example-table">
+   <thead>
+    <tr><th>Speed</th><th>30-minute distance</th><th>60-minute distance</th></tr>
+   </thead>
+   <tbody>
+    <tr><td>3.2 km/h</td><td>1.6 km</td><td>3.2 km</td></tr>
+    <tr><td>4.8 km/h</td><td>2.4 km</td><td>4.8 km</td></tr>
+    <tr><td>5.6 km/h</td><td>2.8 km</td><td>5.6 km</td></tr>
+    <tr><td>6.4 km/h</td><td>3.2 km</td><td>6.4 km</td></tr>
+    <tr><td>7.2 km/h</td><td>3.6 km</td><td>7.2 km</td></tr>
+   </tbody>
+  </table>
+
+  <h2>Walking for General Fitness</h2>
+  <ul>
+   <li>Choose a comfortable pace that matches your current fitness level.</li>
+   <li>Increase walking time and distance gradually.</li>
+   <li>Wear comfortable footwear suitable for your route.</li>
+   <li>Use safe, well-lit routes and stay aware of traffic and surroundings.</li>
+   <li>Include rest and recovery when needed.</li>
+   <li>Track consistency and how you feel, not only calorie estimates.</li>
+  </ul>
+
+  <div class="note">
+   <strong>Important:</strong> Calorie estimates are not exact measurements and should not be used as a precise food allowance or as the sole basis for weight-management decisions. If you have a medical condition or have been advised to limit physical activity, follow your healthcare professional's guidance.
+  </div>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+   <h3>1. How many calories does walking burn in 30 minutes?</h3>
+   <p>It depends on your weight and walking intensity. A 70 kg person walking at a moderate pace may burn roughly 129 gross kcal in 30 minutes using the illustrative MET estimate in this calculator.</p>
+  </div>
+  <div class="faq-item">
+   <h3>2. How many calories does walking burn in one hour?</h3>
+   <p>One-hour calorie expenditure depends on body weight, speed and terrain. Enter your details to get an individualized estimate based on the calculator's assumptions.</p>
+  </div>
+  <div class="faq-item">
+   <h3>3. Does walking faster burn more calories?</h3>
+   <p>Faster walking generally increases energy use per minute. However, total calories also depend on how long you walk and the distance covered.</p>
+  </div>
+  <div class="faq-item">
+   <h3>4. Does body weight affect walking calories?</h3>
+   <p>Yes. Body weight is included in the MET-based formula. At the same estimated activity intensity and duration, a higher body weight generally produces a higher calorie estimate.</p>
+  </div>
+  <div class="faq-item">
+   <h3>5. What is the difference between gross and net calories?</h3>
+   <p>Gross calories include estimated resting energy during the activity period. Net activity calories subtract an estimated resting component to show energy above rest.</p>
+  </div>
+  <div class="faq-item">
+   <h3>6. Is walking on a hill different from walking on a flat surface?</h3>
+   <p>Hilly routes can require more energy than flat routes. The calculator applies a simple illustrative adjustment, but actual energy use depends on the slope and terrain.</p>
+  </div>
+  <div class="faq-item">
+   <h3>7. Are walking calorie calculator results accurate?</h3>
+   <p>They are estimates based on activity assumptions. Individual energy expenditure can differ due to fitness, walking technique, terrain and other factors.</p>
+  </div>
+  <div class="faq-item">
+   <h3>8. Can I use this calculator for treadmill walking?</h3>
+   <p>Yes, as a broad estimate. Choose the speed category closest to your treadmill pace. Incline and treadmill conditions may change actual energy expenditure.</p>
+  </div>
+ </section>
+
+ <section class="content-section">
+  <h2>Related Health & Fitness Calculators</h2>
+  <p class="section-intro">Explore more free tools for fitness, exercise and daily health estimates.</p>
+  <div class="related-grid">
+   <div class="related-card">
+    <a href="/calculators/exercise-calorie-calculator.html">Exercise Calories Calculator</a>
+    <p>Estimate energy expenditure for different physical activities.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/running-pace-calculator.html">Running Pace Calculator</a>
+    <p>Calculate pace, average speed and estimated race finish times.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/calorie-calculator.html">Calorie Calculator</a>
+    <p>Estimate daily calorie requirements.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+    <p>Calculate body mass index using height and weight.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/tdee-calculator.html">TDEE Calculator</a>
+    <p>Estimate total daily energy expenditure.</p>
+   </div>
+   <div class="related-card">
+    <a href="/calculators/health-calculators.html">All Health Calculators</a>
+    <p>Browse the complete Health & Fitness calculator collection.</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <div>© 2026 CalcNest. Free online calculators for everyday decisions.</div>
+  <div>
+   <a href="/">Home</a>
+   <a href="/calculators/health-calculators.html">Health Calculators</a>
+   <a href="/#about">About</a>
+   <a href="/#contact">Contact</a>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ const $ = id => document.getElementById(id);
+
+ const speedData = {
+  slow:{kmh:3.2,met:2.5,label:"Slow walk"},
+  normal:{kmh:4.8,met:3.5,label:"Moderate walk"},
+  brisk:{kmh:5.6,met:4.3,label:"Brisk walk"},
+  fast:{kmh:6.4,met:5.0,label:"Fast walk"},
+  veryfast:{kmh:7.2,met:6.3,label:"Very brisk walk"}
+ };
+
+ function format(value,decimals=1){
+  return Number(value).toLocaleString(undefined,{
+   maximumFractionDigits:decimals
+  });
+ }
+
+ function paceFormat(minutes){
+  const totalSeconds = Math.round(minutes * 60);
+  const mins = Math.floor(totalSeconds / 60);
+  const secs = totalSeconds % 60;
+  return mins + ":" + String(secs).padStart(2,"0");
+ }
+
+ function showError(message){
+  $("error").textContent = message;
+  $("error").style.display = "block";
+ }
+
+ function clearError(){
+  $("error").textContent = "";
+  $("error").style.display = "none";
+ }
+
+ function calculate(){
+  clearError();
+
+  const weightInput = Number($("weight").value);
+  const durationInput = Number($("duration").value);
+  const weightUnit = $("weight-unit").value;
+  const durationUnit = $("duration-unit").value;
+  const speedKey = $("speed").value;
+  const terrain = $("terrain").value;
+  const calorieType = $("calorie-type").value;
+
+  if(!Number.isFinite(weightInput) || weightInput <= 0){
+   showError("Please enter a valid body weight greater than zero.");
+   $("weight").focus();
+   return;
+  }
+
+  if(!Number.isFinite(durationInput) || durationInput <= 0){
+   showError("Please enter a walking duration greater than zero.");
+   $("duration").focus();
+   return;
+  }
+
+  const weightKg = weightUnit === "lb"
+   ? weightInput * 0.45359237
+   : weightInput;
+
+  const durationMinutes = durationUnit === "hr"
+   ? durationInput * 60
+   : durationInput;
+
+  if(weightKg < 10 || weightKg > 500){
+   showError("Please enter a body weight between 10 and 500 kg (or the equivalent in pounds).");
+   return;
+  }
+
+  if(durationMinutes > 1440){
+   showError("Please enter a walking duration of 24 hours or less.");
+   return;
+  }
+
+  const activity = speedData[speedKey];
+  let met = activity.met;
+
+  if(terrain === "hilly"){
+   met += 0.8;
+  }
+
+  const speedKmh = activity.kmh;
+  const distanceKm = speedKmh * (durationMinutes / 60);
+  const distanceMiles = distanceKm / 1.609344;
+
+  const grossCalories =
+   met * 3.5 * weightKg / 200 * durationMinutes;
+
+  const netCalories =
+   Math.max(0,(met - 1) * 3.5 * weightKg / 200 * durationMinutes);
+
+  const calories = calorieType === "net"
+   ? netCalories
+   : grossCalories;
+
+  const hourlyCalories = calories / (durationMinutes / 60);
+  const paceMinutesPerKm = 60 / speedKmh;
+  const paceMinutesPerMile = paceMinutesPerKm * 1.609344;
+
+  $("placeholder").style.display = "none";
+  $("result").style.display = "block";
+
+  $("calorie-label").textContent = calorieType === "net"
+   ? "Estimated Net Activity Calories"
+   : "Estimated Gross Calories Burned";
+
+  $("calories").textContent = format(calories,0);
+  $("distance-km").textContent = format(distanceKm,2) + " km";
+  $("speed-kmh").textContent = format(speedKmh,1) + " km/h";
+  $("hourly-calories").textContent = format(hourlyCalories,0) + " kcal";
+  $("pace").textContent = paceFormat(paceMinutesPerKm) + " min/km";
+
+  $("result-note").textContent =
+   "Estimate based on an illustrative MET value of " +
+   format(met,1) + ". Actual energy expenditure may differ.";
+
+  const summary = [
+   ["Body weight",format(weightKg,1) + " kg"],
+   ["Walking duration",format(durationMinutes,0) + " minutes"],
+   ["Walking category",activity.label],
+   ["Walking speed",format(speedKmh,1) + " km/h (" +
+    format(speedKmh / 1.609344,1) + " mph)"],
+   ["Estimated distance",format(distanceKm,2) + " km (" +
+    format(distanceMiles,2) + " miles)"],
+   ["Pace per kilometer",paceFormat(paceMinutesPerKm) + " min/km"],
+   ["Pace per mile",paceFormat(paceMinutesPerMile) + " min/mi"],
+   ["Terrain",terrain === "hilly" ? "Hilly / uneven" : "Level surface"],
+   ["MET estimate",format(met,1)]
+  ];
+
+  $("summary").innerHTML = summary.map(item =>
+   "<div class='metric-row'><span>" + item[0] +
+   "</span><strong>" + item[1] + "</strong></div>"
+  ).join("");
+
+  $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+ }
+
+ $("calculate").addEventListener("click",calculate);
+
+ $("reset").addEventListener("click",function(){
+  $("weight").value = "";
+  $("weight-unit").value = "kg";
+  $("duration").value = "";
+  $("duration-unit").value = "min";
+  $("speed").value = "normal";
+  $("terrain").value = "level";
+  $("calorie-type").value = "gross";
+
+  $("result").style.display = "none";
+  $("placeholder").style.display = "block";
+  clearError();
+ });
+
+ $("sample").addEventListener("click",function(){
+  $("weight").value = "70";
+  $("weight-unit").value = "kg";
+  $("duration").value = "30";
+  $("duration-unit").value = "min";
+  $("speed").value = "normal";
+  $("terrain").value = "level";
+  $("calorie-type").value = "gross";
+  calculate();
+ });
+})();
+</script>
+</body>
+</html>
