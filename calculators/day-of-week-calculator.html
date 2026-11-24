@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Day of the Week Calculator - What Day Was a Date? | CalcNest</title>
+<meta name="description" content="Find the day of the week for any date in history or the future. Discover the weekday, ISO week number, day of the year, quarter and leap year status for free.">
+<meta name="keywords" content="day of the week calculator, what day was this date, weekday calculator, day of date calculator, day of week finder, calendar date calculator">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://calcnest-7s6.pages.dev/calculators/day-of-week-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Day of the Week Calculator | CalcNest">
+<meta property="og:description" content="Find the weekday for any past or future date, with calendar details.">
+<meta property="og:url" content="https://calcnest-7s6.pages.dev/calculators/day-of-week-calculator.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Day of the Week Calculator","url":"https://calcnest-7s6.pages.dev/calculators/day-of-week-calculator.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"Find the weekday and useful calendar details for any selected date.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"CalcNest","url":"https://calcnest-7s6.pages.dev/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How can I find the day of the week for a date?","acceptedAnswer":{"@type":"Answer","text":"Select the date in the calculator and click Find Day. It displays the weekday and additional calendar information."}},
+{"@type":"Question","name":"Can I find the weekday for a date in the past?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter a historical date supported by the date input to find its weekday."}},
+{"@type":"Question","name":"Can I find the weekday for a future date?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can select a future date and the calculator will determine its weekday."}},
+{"@type":"Question","name":"What is an ISO week number?","acceptedAnswer":{"@type":"Answer","text":"The ISO week date system starts weeks on Monday. Week 1 is the week containing the first Thursday of the year."}},
+{"@type":"Question","name":"What is the day of the year?","acceptedAnswer":{"@type":"Answer","text":"It is the sequential number of a date within its calendar year, from 1 to 365 or 366 in a leap year."}}
+]}
+</script>
+<style>
+:root{--ink:#17243a;--muted:#65738b;--blue:#315eea;--purple:#7659e8;--line:#e8edf5;--soft:#f6f8fd;--shadow:0 12px 35px rgba(25,45,85,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);line-height:1.65}a{color:var(--blue);text-decoration:none}button,input{font:inherit}
+header{position:sticky;top:0;z-index:5;background:#fffffff2;border-bottom:1px solid var(--line)}.nav{max-width:1100px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-size:25px;font-weight:800;color:var(--ink)}.brand span{color:var(--blue)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{font-size:14px;font-weight:bold;color:#42516b}
+.container{width:min(1050px,calc(100% - 32px));margin:auto}.crumb{padding:20px 0 8px;font-size:13px;color:var(--muted)}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:22px 0 35px}.tag{display:inline-block;background:#edf2ff;color:var(--blue);padding:6px 12px;border-radius:30px;font-size:12px;font-weight:bold}h1{font-size:clamp(32px,5vw,47px);line-height:1.13;letter-spacing:-1.4px;margin:14px 0}.hero p{color:var(--muted);font-size:17px}.hero img{width:100%;height:245px;object-fit:cover;border-radius:17px;box-shadow:var(--shadow)}
+.card{border:1px solid var(--line);border-radius:18px;padding:27px;box-shadow:var(--shadow)}h2{font-size:26px;margin:0 0 8px}.sub{color:var(--muted);font-size:14px;margin:0 0 20px}.field label{display:block;font-size:14px;font-weight:bold;margin-bottom:7px}.field input{width:100%;max-width:480px;border:1px solid #dce3ef;border-radius:9px;padding:12px;background:white;color:var(--ink);min-height:47px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:0;border-radius:9px;padding:12px 20px;min-height:46px;font-weight:bold;cursor:pointer}.primary{color:white;background:linear-gradient(110deg,var(--blue),var(--purple))}.secondary{background:#edf1f8;color:#42516b}.error{display:none;color:#b42332;background:#fff0f1;border:1px solid #f5d5d8;padding:11px;border-radius:9px;margin-top:14px;font-size:13px}
+.results{display:none;border-top:1px solid var(--line);margin-top:24px;padding-top:22px}.results.show{display:block}.day-main{padding:22px;border-radius:14px;background:linear-gradient(120deg,var(--blue),var(--purple));color:white;margin-bottom:14px}.day-main span{display:block;color:#ffffffdc;font-size:13px}.day-main strong{display:block;font-size:clamp(30px,5vw,43px);line-height:1.2}.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.tile{padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcff}.tile strong{display:block;font-size:22px;overflow-wrap:anywhere}.tile span{font-size:12px;color:var(--muted)}
+.calendar{margin-top:18px;border:1px solid var(--line);border-radius:12px;padding:15px}.calendar h3{margin:0 0 12px;font-size:17px}.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}.week-grid span{padding:7px 2px;font-size:12px}.week-grid .head{font-weight:bold;color:var(--muted)}.week-grid .selected{background:#315eea;color:white;border-radius:8px;font-weight:bold}
+.content{padding:32px 0;border-top:1px solid var(--line)}.content p,.content li{color:#52617a;font-size:15px}.content h3{font-size:19px;margin:22px 0 7px}.formula{padding:15px 18px;background:#f2f5ff;border-left:4px solid var(--blue);border-radius:0 9px 9px 0;color:#263c70;font-weight:bold;margin:15px 0}.related{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related a{border:1px solid var(--line);border-radius:11px;padding:15px;color:var(--ink)}.related span{display:block;font-size:13px;color:var(--muted);margin-top:4px}.faq{padding:15px 0;border-bottom:1px solid var(--line)}.faq h3{margin:0 0 5px}.faq p{margin:0}.note{padding:15px;background:#f8faff;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}footer{margin-top:25px;padding:25px 0;background:#f7f9fd;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:720px){.nav{align-items:flex-start;flex-direction:column}nav{gap:12px}.hero{grid-template-columns:1fr}.hero img{height:205px}.card{padding:19px}.tiles{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.related{grid-template-columns:1fr}.btn{width:100%}.tiles{gap:8px}.tile{padding:12px 9px}.tile strong{font-size:18px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="brand" href="/">Calc<span>Nest</span></a><nav><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/#guides">Guides</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav></div></header>
+<main class="container">
+<div class="crumb"><a href="/">Home</a> / <a href="/calculators/date-time-calculators.html">Date &amp; Time</a> / Day of the Week Calculator</div>
+<section class="hero"><div><span class="tag">Free Weekday Finder</span><h1>Day of the Week Calculator</h1><p>Find out whether any date falls on a Monday, Tuesday, Wednesday or another day of the week. Check past and future dates and discover useful calendar details instantly.</p></div><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1000" alt="Calendar showing days and dates" width="1000" height="600" fetchpriority="high"></section>
+<section class="card">
+<h2>Find the Day for Any Date</h2><p class="sub">Select a date to discover its weekday, week number and position in the year.</p>
+<div class="field"><label for="date">Choose a Date</label><input type="date" id="date"></div>
+<div class="actions"><button class="btn primary" id="calculate">Find Day of the Week</button><button class="btn secondary" id="today">Today</button><button class="btn secondary" id="reset">Reset</button></div>
+<div class="error" id="error" role="alert"></div>
+<div class="results" id="results" aria-live="polite">
+<div class="day-main"><span>THE SELECTED DATE FALLS ON</span><strong id="weekday">—</strong><span id="formatted">—</span></div>
+<div class="tiles">
+<div class="tile"><strong id="iso">—</strong><span>ISO week number</span></div>
+<div class="tile"><strong id="ordinal">—</strong><span>Day of the year</span></div>
+<div class="tile"><strong id="quarter">—</strong><span>Calendar quarter</span></div>
+<div class="tile"><strong id="yearDays">—</strong><span>Days in this year</span></div>
+<div class="tile"><strong id="leap">—</strong><span>Leap year status</span></div>
+<div class="tile"><strong id="monthDays">—</strong><span>Days in this month</span></div>
+</div>
+<div class="calendar"><h3 id="monthTitle">Month Calendar</h3><div class="week-grid" id="monthGrid"></div></div>
+</div>
+</section>
+<section class="content">
+<h2>What Is a Day of the Week Calculator?</h2>
+<p>A day of the week calculator identifies the weekday associated with a particular calendar date. It can tell you whether a date falls on Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday.</p>
+<p>This tool is useful for checking historical dates, planning future events, verifying birthdays, organizing appointments, preparing schedules and understanding calendar patterns.</p>
+<h2>How to Use the Weekday Calculator</h2>
+<ol><li>Select any valid date using the date field.</li><li>Click Find Day of the Week.</li><li>Read the weekday displayed in the result.</li><li>Review the ISO week, day number, quarter and leap-year information.</li></ol>
+<h2>How Is the Day of the Week Determined?</h2>
+<p>Every valid calendar date corresponds to a weekday. The calculator uses the built-in JavaScript date system with UTC-based date components to avoid errors caused by local time-zone offsets.</p>
+<div class="formula">Day of year = Number of elapsed days since January 1 + 1</div>
+<p>The weekday is determined from the calendar date itself. Leap years are accounted for automatically, so dates after February 29 are assigned the correct weekday in leap years.</p>
+<h2>Understanding the Additional Results</h2>
+<h3>ISO Week Number</h3><p>The ISO week-numbering system starts each week on Monday. ISO week 1 is the week containing the first Thursday of the year. Some dates near New Year may belong to the final week of the previous ISO week-year or the first week of the next one.</p>
+<h3>Day of the Year</h3><p>This is the sequential day number within the year. January 1 is day 1. December 31 is day 365 in a common year and day 366 in a leap year.</p>
+<h3>Calendar Quarter</h3><p>A calendar year is commonly divided into four quarters: Q1 covers January to March, Q2 April to June, Q3 July to September and Q4 October to December.</p>
+<h3>Leap Year</h3><p>A leap year has 366 days and includes February 29. A Gregorian calendar year is a leap year if it is divisible by 4, except century years must also be divisible by 400.</p>
+<div class="formula">Leap year rule: divisible by 4, but century years must be divisible by 400.</div>
+<h2>Examples of Weekday Lookup</h2>
+<table class="table" style="width:100%;border-collapse:collapse"><thead><tr><th>Date</th><th>Weekday</th></tr></thead><tbody><tr><td>January 1, 2025</td><td>Wednesday</td></tr><tr><td>July 4, 2025</td><td>Friday</td></tr><tr><td>January 1, 2026</td><td>Thursday</td></tr><tr><td>December 25, 2026</td><td>Friday</td></tr></tbody></table>
+<h2>Common Reasons to Find a Weekday</h2>
+<h3>Birthdays and Anniversaries</h3><p>Check which weekday a birthday or anniversary falls on, whether in the past or in a future year.</p>
+<h3>Historical Research</h3><p>Identify the weekday associated with a historical date for research, records or educational projects.</p>
+<h3>Event and Appointment Planning</h3><p>Find the weekday of a future date before arranging meetings, events, travel or appointments.</p>
+<h3>School and Work Schedules</h3><p>Check whether a selected date falls on a weekday or weekend when preparing a schedule.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq"><h3>1. How do I find what day a date was?</h3><p>Select the date in the calculator and click Find Day of the Week. The result displays its weekday.</p></div>
+<div class="faq"><h3>2. Can I check a date in the past?</h3><p>Yes. Select a historical date supported by your browser's date input.</p></div>
+<div class="faq"><h3>3. Can I check a future date?</h3><p>Yes. The calculator can determine weekdays for future dates as well.</p></div>
+<div class="faq"><h3>4. What is an ISO week number?</h3><p>It is a week number based on the ISO week-date standard, where weeks start on Monday and week 1 contains the first Thursday of the year.</p></div>
+<div class="faq"><h3>5. What does day of the year mean?</h3><p>It is the date's position in its year, from 1 through 365 or 366.</p></div>
+<div class="faq"><h3>6. Does it account for leap years?</h3><p>Yes. The calculator applies Gregorian leap-year rules and accounts for February 29.</p></div>
+<div class="faq"><h3>7. Why can an ISO week-year differ from the calendar year?</h3><p>ISO weeks begin on Monday and week 1 contains the first Thursday. Therefore, a few days at the beginning or end of a calendar year can belong to a neighboring ISO week-year.</p></div>
+<div class="faq"><h3>8. Is this calculator free?</h3><p>Yes. It is free to use without registration.</p></div>
+<h2>Related Date &amp; Time Calculators</h2>
+<div class="related">
+<a href="/calculators/date-difference-calculator.html"><strong>Date Difference Calculator</strong><span>Calculate days between two dates.</span></a>
+<a href="/calculators/week-number-calculator.html"><strong>Week Number Calculator</strong><span>Find the calendar week for a date.</span></a>
+<a href="/calculators/leap-year-calculator.html"><strong>Leap Year Calculator</strong><span>Check whether a year is a leap year.</span></a>
+<a href="/calculators/date-time-calculators.html"><strong>All Date &amp; Time Calculators</strong><span>Explore the complete category.</span></a>
+</div>
+<h2>Calendar Information Disclaimer</h2><p class="note">This calculator uses the Gregorian calendar and ISO week-numbering rules for its additional week information. Historical calendar systems and local calendar conventions may differ.</p>
+</section>
+</main>
+<footer><div class="container foot"><strong>CalcNest — Free Online Calculators</strong><span><a href="/">Home</a> · <a href="/calculators/">Calculators</a> · <a href="/#about">About</a></span><span>© <span id="year"></span> CalcNest</span></div></footer>
+<script>
+(function(){
+const $=id=>document.getElementById(id),DAY=86400000;
+const pad=n=>String(n).padStart(2,"0");
+function localDateString(d){return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate())}
+function parse(v){if(!/^\d{4}-\d{2}-\d{2}$/.test(v||""))return null;let [y,m,d]=v.split("-").map(Number),x=new Date(Date.UTC(y,m-1,d));return x.getUTCFullYear()===y&&x.getUTCMonth()===m-1&&x.getUTCDate()===d?x:null}
+function isLeap(y){return y%4===0&&(y%100!==0||y%400===0)}
+function isoWeek(d){
+ let x=new Date(d.getTime());x.setUTCDate(x.getUTCDate()+4-(x.getUTCDay()||7));
+ let yearStart=new Date(Date.UTC(x.getUTCFullYear(),0,1));
+ return {week:Math.ceil((((x-yearStart)/DAY)+1)/7),year:x.getUTCFullYear()}
+}
+function calculate(){
+ $("error").style.display="none";
+ let d=parse($("date").value);
+ if(!d){$("error").textContent="Please select a valid date.";$("error").style.display="block";$("results").classList.remove("show");return}
+ let y=d.getUTCFullYear(),m=d.getUTCMonth(),day=d.getUTCDate();
+ let weekdays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+ let weekday=weekdays[d.getUTCDay()];
+ let first=new Date(Date.UTC(y,0,1)),ordinal=Math.floor((d-first)/DAY)+1;
+ let totalDays=isLeap(y)?366:365;
+ let quarter=Math.floor(m/3)+1;
+ let monthDays=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+ let iso=isoWeek(d);
+ $("weekday").textContent=weekday;
+ $("formatted").textContent=d.toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric",timeZone:"UTC"});
+ $("iso").textContent="Week "+iso.week+" / "+iso.year;
+ $("ordinal").textContent=ordinal+" of "+totalDays;
+ $("quarter").textContent="Q"+quarter;
+ $("yearDays").textContent=totalDays;
+ $("leap").textContent=isLeap(y)?"Yes":"No";
+ $("monthDays").textContent=monthDays;
+ $("monthTitle").textContent=d.toLocaleDateString("en-US",{month:"long",year:"numeric",timeZone:"UTC"});
+ let firstDay=new Date(Date.UTC(y,m,1)).getUTCDay();
+ let html=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(x=>'<span class="head">'+x+'</span>').join("");
+ for(let i=0;i<firstDay;i++)html+='<span></span>';
+ for(let n=1;n<=monthDays;n++)html+='<span class="'+(n===day?"selected":"")+'">'+n+'</span>';
+ $("monthGrid").innerHTML=html;
+ $("results").classList.add("show")
+}
+$("calculate").onclick=calculate;
+$("today").onclick=()=>{$("date").value=localDateString(new Date());calculate()};
+$("reset").onclick=()=>{$("date").value="";$("results").classList.remove("show");$("error").style.display="none"};
+$("year").textContent=new Date().getFullYear();
+$("date").value=localDateString(new Date());calculate();
+})();
+</script>
+</body>
+</html>
